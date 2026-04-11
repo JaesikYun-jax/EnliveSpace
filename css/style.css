@@ -1,0 +1,176 @@
+/* ============================================
+   Enlive Space - Custom Styles
+   ============================================ */
+
+:root {
+  --padding-line: 12px;
+  --padding-base: 20px;
+  --height-header: 60px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --padding-line: 16px;
+    --padding-base: 24px;
+    --height-header: 68px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --padding-line: 20px;
+    --padding-base: 28px;
+    --height-header: 68px;
+  }
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- Smooth scroll ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- Body ---- */
+body {
+  overflow-x: hidden;
+}
+
+/* ---- Decorative border lines ---- */
+.border-line {
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.border-line-top {
+  inset: var(--padding-line) 0 auto 0;
+  border-top: 0.6px solid rgba(0, 0, 0, 0.15);
+}
+
+.border-line-left {
+  inset: 0 auto 0 var(--padding-line);
+  border-left: 0.6px solid rgba(0, 0, 0, 0.15);
+}
+
+.border-line-right {
+  inset: 0 var(--padding-line) 0 auto;
+  border-right: 0.6px solid rgba(0, 0, 0, 0.15);
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+/* ---- Hero slider ---- */
+#hero-slider {
+  will-change: transform;
+}
+
+/* ---- Nav link hover ---- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ---- Project card image hover ---- */
+.group:hover .aspect-square {
+  transform: scale(1);
+}
+
+/* ---- Mobile menu ---- */
+#mobile-menu {
+  backdrop-filter: blur(10px);
+}
+
+.mobile-menu-link {
+  transition: opacity 0.2s;
+}
+
+.mobile-menu-link:hover {
+  opacity: 0.7;
+}
+
+/* ---- Scrollbar hide ---- */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Thumbnail active state ---- */
+.thumbnail-item {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-item.active {
+  opacity: 1;
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ---- Scrollbar (subtle) ---- */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+/* ---- Input focus ---- */
+input:focus {
+  outline: none;
+  border-color: currentColor !important;
+}
+
+/* ---- Button reset ---- */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}

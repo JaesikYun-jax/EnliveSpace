@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>About - Enlive Space</title>
+  <meta name="description" content="Enlive Space는 공간에 생명을 불어넣습니다." />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+            en: ['Inter', 'sans-serif'],
+          },
+          fontSize: {
+            'heading1': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+            'heading2': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.03em' }],
+            'heading3': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.03em' }],
+            'heading4': ['1.75rem', { lineHeight: '1.3', letterSpacing: '-0.03em' }],
+            'body1': ['1.125rem', { lineHeight: '1.6' }],
+            'body2': ['1rem', { lineHeight: '1.6' }],
+            'body3': ['0.9375rem', { lineHeight: '1.6' }],
+            'body4': ['0.875rem', { lineHeight: '1.5' }],
+            'body5': ['0.8125rem', { lineHeight: '1.5' }],
+            'body6': ['0.75rem', { lineHeight: '1.5' }],
+          },
+          colors: {
+            gray: {
+              50: '#fafafa',
+              100: '#f5f5f5',
+              200: '#e5e5e5',
+              300: '#d4d4d4',
+              400: '#a3a3a3',
+              500: '#737373',
+              600: '#525252',
+              700: '#404040',
+              800: '#262626',
+              900: '#171717',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/images/favicon.png" />
+
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .count-up {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-gray-900 bg-gray-100">
+
+  <!-- BORDER LINES -->
+  <div class="border-line border-line-top"></div>
+  <div class="border-line border-line-left"></div>
+  <div class="border-line border-line-right"></div>
+
+  <!-- GNB: Fixed Header -->
+  <div id="gnb-fixed" class="z-20 h-auto py-3 sm:py-[21px] md:py-[19px] fixed inset-x-0 top-0 bg-gray-100">
+    <div class="px-5 sm:px-8 md:px-10 pt-[var(--padding-line)]">
+      <header>
+        <div class="grid grid-cols-[auto_1fr_auto] items-center md:grid-cols-12 md:gap-x-2 text-gray-900">
+
+          <!-- Logo -->
+          <section class="col-span-2 md:col-span-2">
+            <a href="/" class="flex items-center">
+              <span class="font-en font-semibold text-body1 tracking-tight">ENLIVE SPACE</span>
+            </a>
+          </section>
+
+          <!-- Nav Links -->
+          <div class="col-span-5 hidden md:flex md:gap-5">
+            <a href="/about.html"><p class="font-en tracking-tight text-body1 hover:underline font-medium">About</p></a>
+            <a href="/process.html"><p class="font-en tracking-tight text-body1 hover:underline">Process</p></a>
+            <a href="/project/"><p class="font-en tracking-tight text-body1 hover:underline">Project</p></a>
+          </div>
+
+          <!-- Search + Contact -->
+          <div class="col-span-5 hidden items-center md:flex">
+            <div class="flex-1 pr-8">
+              <form class="relative flex items-center">
+                <input type="text" placeholder="Search" class="text-body1 font-en placeholder:font-en w-full bg-transparent placeholder:text-gray-400 outline-none border-b border-black/10 pb-1" />
+              </form>
+            </div>
+            <div class="justify-self-end">
+              <a href="/contact">
+                <button class="relative transition-colors px-5 py-1.5 border border-black/15 bg-transparent hover:bg-gray-900 hover:text-white text-gray-900 text-body4 font-en" type="button">
+                  Contact
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <div class="md:hidden">
+            <button id="mobile-menu-btn" class="p-2" type="button" aria-label="메뉴">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </header>
+      <div class="border-t-[0.6px] border-black/25 absolute inset-x-0 bottom-0"></div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-gray-900/95 hidden flex-col items-center justify-center gap-8 text-white">
+    <button id="mobile-menu-close" class="absolute top-5 right-5 p-2" type="button" aria-label="닫기">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+    <a href="/" class="text-heading3 font-en font-medium mobile-menu-link">Home</a>
+    <a href="/about.html" class="text-heading3 font-en font-medium mobile-menu-link">About</a>
+    <a href="/process.html" class="text-heading3 font-en font-medium mobile-menu-link">Process</a>
+    <a href="/project/" class="text-heading3 font-en font-medium mobile-menu-link">Project</a>
+    <a href="/contact" class="text-heading3 font-en font-medium mobile-menu-link">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- Header Spacer -->
+    <div class="h-[60px] sm:h-[72px] md:h-[76px]"></div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: HERO - Full Width Image -->
+    <!-- ============================================ -->
+    <section class="relative">
+      <!-- [PLACEHOLDER:ABOUT_HERO_IMAGE] 어바웃 히어로 이미지 (와이드, 1920x900px 권장) -->
+      <div class="aspect-[375/280] sm:aspect-[768/400] md:aspect-[1440/600] bg-gray-200 flex items-center justify-center overflow-hidden">
+        <p class="text-gray-400 text-body3 font-en text-center">ABOUT HERO IMAGE<br/>1920 x 900px</p>
+      </div>
+      <!-- Overlay text -->
+      <div class="absolute inset-0 flex items-end">
+        <div class="px-5 sm:px-8 md:px-10 pb-8 sm:pb-12 md:pb-16 w-full">
+          <h1 class="font-en font-semibold text-heading2 sm:text-heading1 md:text-[5rem] tracking-tight text-white animate-fade-in">
+            We are<br/>Enlive Space
+          </h1>
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: INTRODUCTION -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pt-[100px] sm:pt-[140px] pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-[100px] sm:top-[140px]"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-6 md:mb-0 md:col-span-2">Introduction</p>
+
+        <div class="md:col-span-7 reveal">
+          <!-- [PLACEHOLDER:ABOUT_INTRO_TEXT] -->
+          <h2 class="text-heading4 sm:text-heading3 md:text-heading2 font-medium leading-snug mb-8">
+            공간에 생명을 불어넣다.<br/>
+            우리는 트렌드를 넘어,<br class="hidden sm:block"/>
+            삶의 본질을 담은 공간을 설계합니다.
+          </h2>
+          <p class="text-body3 sm:text-body2 text-gray-600 leading-relaxed max-w-2xl">
+            Enlive Space는 건축과 인테리어의 경계를 넘어, 거주자의 라이프스타일과 감성을 깊이 이해하고 이를 공간으로 구현합니다.
+            단순한 시공이 아닌, 공간이 가진 잠재력을 발견하고 그 안에 살아 숨 쉬는 이야기를 만들어갑니다.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: PHILOSOPHY -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-6 md:mb-0 md:col-span-2">Philosophy</p>
+
+        <div class="md:col-span-10">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 md:gap-6">
+
+            <!-- Philosophy 1 -->
+            <div class="reveal">
+              <div class="border-t border-black/15 pt-5 sm:pt-6">
+                <p class="font-en font-medium text-body4 text-gray-400 mb-3">01</p>
+                <h3 class="font-medium text-body2 sm:text-body1 mb-3">본질에 집중하는 설계</h3>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  <!-- [PLACEHOLDER:PHILOSOPHY_1_TEXT] -->
+                  유행을 따르는 디자인이 아닌, 시간이 지나도 변하지 않는 가치를 담습니다. 거주자의 일상 동선과 생활 습관을 면밀히 분석하여 공간의 근본적인 쓰임새를 극대화합니다.
+                </p>
+              </div>
+            </div>
+
+            <!-- Philosophy 2 -->
+            <div class="reveal">
+              <div class="border-t border-black/15 pt-5 sm:pt-6">
+                <p class="font-en font-medium text-body4 text-gray-400 mb-3">02</p>
+                <h3 class="font-medium text-body2 sm:text-body1 mb-3">소재와 빛의 조화</h3>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  <!-- [PLACEHOLDER:PHILOSOPHY_2_TEXT] -->
+                  자연광의 흐름과 계절의 변화를 고려한 소재 선택으로, 공간이 스스로 호흡하는 환경을 조성합니다. 질감과 색감의 미묘한 균형이 편안하면서도 세련된 분위기를 완성합니다.
+                </p>
+              </div>
+            </div>
+
+            <!-- Philosophy 3 -->
+            <div class="reveal">
+              <div class="border-t border-black/15 pt-5 sm:pt-6">
+                <p class="font-en font-medium text-body4 text-gray-400 mb-3">03</p>
+                <h3 class="font-medium text-body2 sm:text-body1 mb-3">완성도 높은 시공</h3>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  <!-- [PLACEHOLDER:PHILOSOPHY_3_TEXT] -->
+                  설계의 의도가 시공 현장에서 온전히 실현되도록, 자재 선정부터 마감 디테일까지 직접 관리합니다. 도면 위의 선 하나, 모서리 하나까지 타협 없이 구현합니다.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: NUMBERS -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-6 md:mb-0 md:col-span-2">Numbers</p>
+
+        <div class="md:col-span-10">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4">
+
+            <div class="reveal">
+              <p class="font-en font-semibold text-heading2 sm:text-heading1 tracking-tight count-up" data-target="115">0</p>
+              <p class="text-body4 sm:text-body3 text-gray-500 mt-1">Total Projects</p>
+            </div>
+
+            <div class="reveal">
+              <p class="font-en font-semibold text-heading2 sm:text-heading1 tracking-tight count-up" data-target="8">0</p>
+              <p class="text-body4 sm:text-body3 text-gray-500 mt-1">Years of Experience</p>
+            </div>
+
+            <div class="reveal">
+              <p class="font-en font-semibold text-heading2 sm:text-heading1 tracking-tight count-up" data-target="12">0</p>
+              <p class="text-body4 sm:text-body3 text-gray-500 mt-1">Team Members</p>
+            </div>
+
+            <div class="reveal">
+              <p class="font-en font-semibold text-heading2 sm:text-heading1 tracking-tight count-up" data-target="98">0</p>
+              <p class="text-body4 sm:text-body3 text-gray-500 mt-1">Client Satisfaction %</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: FULL IMAGE -->
+    <!-- ============================================ -->
+    <section class="reveal">
+      <!-- [PLACEHOLDER:ABOUT_FULL_IMAGE] 전폭 이미지 (1920x1080px 권장) -->
+      <div class="aspect-[375/280] sm:aspect-[768/400] md:aspect-[1440/600] bg-gray-200 flex items-center justify-center">
+        <p class="text-gray-400 text-body3 font-en text-center">ABOUT IMAGE<br/>Full width<br/>1920 x 1080px</p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: TEAM -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pt-[100px] sm:pt-[140px] pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-[100px] sm:top-[140px]"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-8 md:mb-0 md:col-span-2">Team</p>
+
+        <div class="md:col-span-10">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-8 sm:gap-y-10">
+
+            <!-- Team Member 1 -->
+            <div class="reveal">
+              <!-- [PLACEHOLDER:TEAM_1_IMAGE] 팀원 프로필 (3:4 비율, 600x800px) -->
+              <div class="aspect-[3/4] bg-gray-200 mb-3 flex items-center justify-center">
+                <p class="text-gray-400 text-body5 font-en text-center">PHOTO<br/>600 x 800px</p>
+              </div>
+              <p class="font-medium text-body4 sm:text-body3">홍길동</p>
+              <p class="font-en text-body5 sm:text-body4 text-gray-500">CEO / Lead Designer</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="reveal">
+              <div class="aspect-[3/4] bg-gray-200 mb-3 flex items-center justify-center">
+                <p class="text-gray-400 text-body5 font-en text-center">PHOTO<br/>600 x 800px</p>
+              </div>
+              <p class="font-medium text-body4 sm:text-body3">김디자인</p>
+              <p class="font-en text-body5 sm:text-body4 text-gray-500">Design Director</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="reveal">
+              <div class="aspect-[3/4] bg-gray-200 mb-3 flex items-center justify-center">
+                <p class="text-gray-400 text-body5 font-en text-center">PHOTO<br/>600 x 800px</p>
+              </div>
+              <p class="font-medium text-body4 sm:text-body3">이설계</p>
+              <p class="font-en text-body5 sm:text-body4 text-gray-500">Architect</p>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="reveal">
+              <div class="aspect-[3/4] bg-gray-200 mb-3 flex items-center justify-center">
+                <p class="text-gray-400 text-body5 font-en text-center">PHOTO<br/>600 x 800px</p>
+              </div>
+              <p class="font-medium text-body4 sm:text-body3">박시공</p>
+              <p class="font-en text-body5 sm:text-body4 text-gray-500">Project Manager</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: AWARDS & MEDIA -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-6 md:mb-0 md:col-span-2">Awards &amp; Media</p>
+
+        <div class="md:col-span-10">
+          <div class="flex flex-col">
+
+            <!-- [PLACEHOLDER:AWARD_ITEMS] -->
+            <div class="reveal grid grid-cols-[auto_1fr_auto] sm:grid-cols-[80px_1fr_auto] gap-x-4 items-center py-4 border-b border-black/10">
+              <p class="font-en text-body4 text-gray-400 font-medium">2025</p>
+              <p class="text-body4 sm:text-body3">한국 인테리어 디자인 대상 수상</p>
+              <p class="font-en text-body5 text-gray-500 hidden sm:block">Korea Interior Design Award</p>
+            </div>
+
+            <div class="reveal grid grid-cols-[auto_1fr_auto] sm:grid-cols-[80px_1fr_auto] gap-x-4 items-center py-4 border-b border-black/10">
+              <p class="font-en text-body4 text-gray-400 font-medium">2024</p>
+              <p class="text-body4 sm:text-body3">월간 디자인 선정 올해의 공간</p>
+              <p class="font-en text-body5 text-gray-500 hidden sm:block">Monthly Design Magazine</p>
+            </div>
+
+            <div class="reveal grid grid-cols-[auto_1fr_auto] sm:grid-cols-[80px_1fr_auto] gap-x-4 items-center py-4 border-b border-black/10">
+              <p class="font-en text-body4 text-gray-400 font-medium">2024</p>
+              <p class="text-body4 sm:text-body3">MBC '구해줘! 홈즈' 출연</p>
+              <p class="font-en text-body5 text-gray-500 hidden sm:block">MBC Broadcasting</p>
+            </div>
+
+            <div class="reveal grid grid-cols-[auto_1fr_auto] sm:grid-cols-[80px_1fr_auto] gap-x-4 items-center py-4 border-b border-black/10">
+              <p class="font-en text-body4 text-gray-400 font-medium">2023</p>
+              <p class="text-body4 sm:text-body3">iF Design Award - Interior Architecture</p>
+              <p class="font-en text-body5 text-gray-500 hidden sm:block">International Forum Design</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA: CONTACT -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pb-[80px] sm:pb-[120px] reveal">
+      <div class="bg-gray-900 px-6 py-12 sm:px-10 sm:py-16 md:px-16 md:py-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div>
+          <p class="text-white text-heading4 sm:text-heading3 font-medium mb-2">함께 만들어갈 공간이 있으신가요?</p>
+          <p class="text-gray-400 text-body4 sm:text-body3">프로젝트에 대해 상담해보세요.</p>
+        </div>
+        <a href="/contact">
+          <button class="relative transition-colors px-8 py-2.5 border border-white/20 bg-transparent hover:bg-white hover:text-gray-900 text-white text-body3 font-en shrink-0" type="button">
+            Contact Us
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <!-- SCROLL TO TOP -->
+    <div class="px-5 sm:px-8 md:px-10 flex justify-end pb-6">
+      <button id="scroll-top-btn" class="flex size-8 items-center justify-center border border-gray-500 bg-gray-100 text-gray-800 transition-colors hover:bg-gray-200" type="button" aria-label="맨 위로">
+        <svg width="11" height="12" viewBox="0 0 11 12" fill="none">
+          <path d="M1.01454 5.31957L1.38209 5.68685C1.4264 5.73114 1.48649 5.75601 1.54914 5.75601C1.61179 5.75601 1.67188 5.73114 1.71619 5.68686L5.16067 2.24225L5.16072 11.063C5.16075 11.1256 5.18567 11.1857 5.22999 11.23C5.27431 11.2743 5.3344 11.2992 5.39706 11.2992L5.91676 11.2992C6.04715 11.2992 6.15297 11.1934 6.15297 11.0628L6.15293 2.24212L9.59757 5.68703C9.64189 5.73131 9.70198 5.75619 9.76463 5.75619C9.82728 5.75619 9.88736 5.73131 9.93168 5.68703L10.2991 5.31962C10.3434 5.2753 10.3682 5.21522 10.3682 5.15257C10.3682 5.08992 10.3434 5.02983 10.2991 4.98551L5.82391 0.510202C5.77959 0.46592 5.71951 0.441045 5.65686 0.441045C5.59421 0.441045 5.53412 0.465918 5.4898 0.5102L1.01453 4.98547C0.970253 5.02978 0.945379 5.08987 0.945379 5.15252C0.94538 5.21517 0.970254 5.27526 1.01454 5.31957Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative bg-gray-100">
+    <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
+    <div class="px-5 sm:px-8 md:px-10 flex flex-col pt-5 pb-12 md:flex-row md:justify-between">
+      <div class="flex gap-1.5">
+        <a class="mb-[72px]" href="/contact">
+          <p class="font-en tracking-tight font-normal text-heading4 md:text-heading3 hover:opacity-70 transition-opacity">Let's Work Together</p>
+        </a>
+        <div class="p-1.5">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1.79778 0.354378L1.79806 1.13378C1.7981 1.22776 1.83545 1.31787 1.9019 1.38432C1.96835 1.45077 2.05846 1.48812 2.15244 1.48816L9.45942 1.48802L0.103694 10.8438C0.0372711 10.9103 -2.66964e-05 11.0005 1.43366e-08 11.0945C2.6725e-05 11.1885 0.0373756 11.2786 0.103836 11.3451L0.655054 11.8963C0.793357 12.0346 1.01783 12.0346 1.15628 11.8961L10.512 2.54033L10.5117 9.84781C10.5118 9.94178 10.5491 10.0319 10.6156 10.0983C10.682 10.1648 10.7721 10.2021 10.8661 10.2022H11.6455C11.7395 10.2021 11.8296 10.1648 11.896 10.0984C11.9625 10.0319 11.9998 9.94178 11.9999 9.84781L12 0.35438C12 0.260405 11.9626 0.17029 11.8962 0.10384C11.8297 0.0373893 11.7396 4.09261e-05 11.6456 2.57877e-06L2.15215 0C2.05818 3.83473e-05 1.96807 0.0373869 1.90162 0.103837C1.83517 0.170288 1.79782 0.260403 1.79778 0.354378Z" fill="#222222"/>
+          </svg>
+        </div>
+      </div>
+      <div class="flex flex-col flex-wrap gap-x-9 gap-y-1 text-gray-900 sm:h-[70px] sm:w-fit md:hidden">
+        <p class="font-normal text-body6">대표이사 홍길동</p>
+        <p class="font-normal text-body6">사업자등록번호 000-00-00000</p>
+        <p class="font-normal text-body6">실내건축공사업 제0000호</p>
+        <p class="font-normal text-body6">서울특별시 OO구 OO동 000-0</p>
+        <p class="font-normal text-body6">hello@enlivespace.com</p>
+      </div>
+      <div class="hidden md:flex">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="hidden h-fit px-2 md:block">
+          <p class="font-en tracking-tight font-normal text-body3 hover:underline">Blog</p>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="hidden h-fit px-2 md:block">
+          <p class="font-en tracking-tight font-normal text-body3 hover:underline">Instagram</p>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-1 pb-2.5 sm:pb-4 md:pb-6">
+      <div class="border-t border-black/15 relative w-full"></div>
+      <div class="px-5 sm:px-8 md:px-10 flex gap-3">
+        <p class="font-en tracking-tight font-normal text-body6 flex-1">&copy; ENLIVE SPACE</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="md:hidden">
+          <p class="font-en tracking-tight font-normal text-body6 hover:underline">Blog</p>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="md:hidden">
+          <p class="font-en tracking-tight font-normal text-body6 hover:underline">Instagram</p>
+        </a>
+        <p class="font-normal text-body6 hidden md:block">대표이사 홍길동</p>
+        <p class="font-normal text-body6 hidden md:block">사업자등록번호 000-00-00000</p>
+        <p class="font-normal text-body6 hidden md:block">실내건축공사업 제0000호</p>
+        <p class="font-normal text-body6 hidden md:block">서울특별시 OO구 OO동 000-0</p>
+        <p class="font-normal text-body6 hidden md:block">hello@enlivespace.com</p>
+      </div>
+      <div class="border-t border-black/15 relative w-full"></div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileMenuClose?.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll to top
+    document.getElementById('scroll-top-btn')?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Count up animation
+    const countElements = document.querySelectorAll('.count-up');
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const duration = 1500;
+          const start = performance.now();
+
+          function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(target * eased);
+            if (progress < 1) requestAnimationFrame(update);
+          }
+
+          requestAnimationFrame(update);
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    countElements.forEach(el => countObserver.observe(el));
+  </script>
+</body>
+</html>

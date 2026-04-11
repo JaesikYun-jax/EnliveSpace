@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Process - Enlive Space</title>
+  <meta name="description" content="Enlive Space의 체계적인 프로세스를 소개합니다." />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+            en: ['Inter', 'sans-serif'],
+          },
+          fontSize: {
+            'heading1': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+            'heading2': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.03em' }],
+            'heading3': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.03em' }],
+            'heading4': ['1.75rem', { lineHeight: '1.3', letterSpacing: '-0.03em' }],
+            'body1': ['1.125rem', { lineHeight: '1.6' }],
+            'body2': ['1rem', { lineHeight: '1.6' }],
+            'body3': ['0.9375rem', { lineHeight: '1.6' }],
+            'body4': ['0.875rem', { lineHeight: '1.5' }],
+            'body5': ['0.8125rem', { lineHeight: '1.5' }],
+            'body6': ['0.75rem', { lineHeight: '1.5' }],
+          },
+          colors: {
+            gray: {
+              50: '#fafafa',
+              100: '#f5f5f5',
+              200: '#e5e5e5',
+              300: '#d4d4d4',
+              400: '#a3a3a3',
+              500: '#737373',
+              600: '#525252',
+              700: '#404040',
+              800: '#262626',
+              900: '#171717',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/images/favicon.png" />
+
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .step-line {
+      position: relative;
+    }
+    .step-line::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: -40px;
+      width: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+    .step-line:last-child::before {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-gray-900 bg-gray-100">
+
+  <!-- BORDER LINES -->
+  <div class="border-line border-line-top"></div>
+  <div class="border-line border-line-left"></div>
+  <div class="border-line border-line-right"></div>
+
+  <!-- GNB: Fixed Header -->
+  <div id="gnb-fixed" class="z-20 h-auto py-3 sm:py-[21px] md:py-[19px] fixed inset-x-0 top-0 bg-gray-100">
+    <div class="px-5 sm:px-8 md:px-10 pt-[var(--padding-line)]">
+      <header>
+        <div class="grid grid-cols-[auto_1fr_auto] items-center md:grid-cols-12 md:gap-x-2 text-gray-900">
+          <section class="col-span-2 md:col-span-2">
+            <a href="/" class="flex items-center">
+              <span class="font-en font-semibold text-body1 tracking-tight">ENLIVE SPACE</span>
+            </a>
+          </section>
+          <div class="col-span-5 hidden md:flex md:gap-5">
+            <a href="/about.html"><p class="font-en tracking-tight text-body1 hover:underline">About</p></a>
+            <a href="/process.html"><p class="font-en tracking-tight text-body1 hover:underline font-medium">Process</p></a>
+            <a href="/project/"><p class="font-en tracking-tight text-body1 hover:underline">Project</p></a>
+          </div>
+          <div class="col-span-5 hidden items-center md:flex">
+            <div class="flex-1 pr-8">
+              <form class="relative flex items-center">
+                <input type="text" placeholder="Search" class="text-body1 font-en placeholder:font-en w-full bg-transparent placeholder:text-gray-400 outline-none border-b border-black/10 pb-1" />
+              </form>
+            </div>
+            <div class="justify-self-end">
+              <a href="/contact">
+                <button class="relative transition-colors px-5 py-1.5 border border-black/15 bg-transparent hover:bg-gray-900 hover:text-white text-gray-900 text-body4 font-en" type="button">Contact</button>
+              </a>
+            </div>
+          </div>
+          <div class="md:hidden">
+            <button id="mobile-menu-btn" class="p-2" type="button" aria-label="메뉴">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="border-t-[0.6px] border-black/25 absolute inset-x-0 bottom-0"></div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-gray-900/95 hidden flex-col items-center justify-center gap-8 text-white">
+    <button id="mobile-menu-close" class="absolute top-5 right-5 p-2" type="button" aria-label="닫기">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+    <a href="/" class="text-heading3 font-en font-medium mobile-menu-link">Home</a>
+    <a href="/about.html" class="text-heading3 font-en font-medium mobile-menu-link">About</a>
+    <a href="/process.html" class="text-heading3 font-en font-medium mobile-menu-link">Process</a>
+    <a href="/project/" class="text-heading3 font-en font-medium mobile-menu-link">Project</a>
+    <a href="/contact" class="text-heading3 font-en font-medium mobile-menu-link">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- Header Spacer -->
+    <div class="h-[60px] sm:h-[72px] md:h-[76px]"></div>
+
+    <!-- ============================================ -->
+    <!-- PAGE HEADER -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 md:gap-x-2">
+        <div class="md:col-span-7">
+          <h1 class="font-en font-semibold text-heading2 sm:text-heading1 tracking-tight mb-4">Process</h1>
+          <p class="text-body3 sm:text-body2 text-gray-500 max-w-lg">고객의 비전을 현실로 만드는 체계적인 프로세스.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: OVERVIEW -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pt-[80px] sm:pt-[100px] pb-[80px] sm:pb-[100px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-[80px] sm:top-[100px]"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-6 md:mb-0 md:col-span-2">Overview</p>
+
+        <div class="md:col-span-7 reveal">
+          <h2 class="text-heading4 sm:text-heading3 font-medium leading-snug mb-6">
+            컨설팅부터 시공, 마감까지<br/>
+            일관된 품질로 완성합니다.
+          </h2>
+          <p class="text-body3 sm:text-body2 text-gray-600 leading-relaxed">
+            Enlive Space는 프로젝트의 시작부터 끝까지 전 과정을 직접 관리합니다.
+            각 단계에서 고객과의 긴밀한 소통을 통해 기대 이상의 결과물을 만들어내며,
+            설계 의도가 현장에서 온전히 실현되도록 디테일 하나하나를 챙깁니다.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: STEPS (Timeline) -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-8 md:mb-0 md:col-span-2">Steps</p>
+
+        <div class="md:col-span-8 flex flex-col gap-10 sm:gap-12">
+
+          <!-- Step 1 -->
+          <div class="reveal step-line">
+            <div class="flex gap-5 sm:gap-8">
+              <div class="shrink-0 flex items-start">
+                <div class="size-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-en font-medium text-body4">01</div>
+              </div>
+              <div class="flex-1 pt-1">
+                <h3 class="font-medium text-body1 sm:text-heading4 mb-2">상담 및 컨설팅</h3>
+                <p class="font-en text-body5 text-gray-400 mb-3 uppercase tracking-wide">Consultation</p>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  고객의 라이프스타일, 취향, 예산을 심층적으로 파악합니다. 현장 방문을 통해 공간의 구조적 특성과 자연광, 동선 등을 분석하고 프로젝트의 방향성을 함께 설정합니다.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Lifestyle Interview</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Site Visit</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Budget Planning</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="reveal step-line">
+            <div class="flex gap-5 sm:gap-8">
+              <div class="shrink-0 flex items-start">
+                <div class="size-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-en font-medium text-body4">02</div>
+              </div>
+              <div class="flex-1 pt-1">
+                <h3 class="font-medium text-body1 sm:text-heading4 mb-2">기획 및 설계</h3>
+                <p class="font-en text-body5 text-gray-400 mb-3 uppercase tracking-wide">Design & Planning</p>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  컨셉 보드와 무드보드를 바탕으로 공간의 전체적인 디자인 방향을 제안합니다. 평면도, 3D 렌더링, 자재 샘플을 통해 완성될 공간을 사전에 경험할 수 있도록 하며, 고객 피드백을 반영해 설계를 확정합니다.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Concept Board</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">3D Rendering</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Material Selection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="reveal step-line">
+            <div class="flex gap-5 sm:gap-8">
+              <div class="shrink-0 flex items-start">
+                <div class="size-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-en font-medium text-body4">03</div>
+              </div>
+              <div class="flex-1 pt-1">
+                <h3 class="font-medium text-body1 sm:text-heading4 mb-2">시공</h3>
+                <p class="font-en text-body5 text-gray-400 mb-3 uppercase tracking-wide">Construction</p>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  확정된 설계를 바탕으로 전문 시공팀이 작업에 착수합니다. 전담 프로젝트 매니저가 현장을 상시 관리하며, 정기적인 진행 보고를 통해 고객이 시공 과정을 투명하게 확인할 수 있습니다.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Project Management</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Progress Report</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Quality Control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="reveal step-line">
+            <div class="flex gap-5 sm:gap-8">
+              <div class="shrink-0 flex items-start">
+                <div class="size-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-en font-medium text-body4">04</div>
+              </div>
+              <div class="flex-1 pt-1">
+                <h3 class="font-medium text-body1 sm:text-heading4 mb-2">마감 및 스타일링</h3>
+                <p class="font-en text-body5 text-gray-400 mb-3 uppercase tracking-wide">Finishing & Styling</p>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  시공 완료 후 세밀한 마감 검수를 진행합니다. 가구 배치, 조명 연출, 소품 스타일링까지 공간의 분위기를 완성하는 마지막 단계로, 입주 전 최종 점검과 함께 공간을 인도합니다.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Final Inspection</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Furniture & Styling</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Handover</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="reveal step-line">
+            <div class="flex gap-5 sm:gap-8">
+              <div class="shrink-0 flex items-start">
+                <div class="size-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-en font-medium text-body4">05</div>
+              </div>
+              <div class="flex-1 pt-1">
+                <h3 class="font-medium text-body1 sm:text-heading4 mb-2">사후 관리</h3>
+                <p class="font-en text-body5 text-gray-400 mb-3 uppercase tracking-wide">After Service</p>
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  입주 후에도 지속적인 사후 관리 서비스를 제공합니다. 하자 보수는 물론, 계절에 따른 공간 관리 팁과 추가 스타일링 상담까지 장기적인 파트너십을 이어갑니다.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Warranty</span>
+                  <span class="text-body6 font-en px-2.5 py-1 border border-black/10 text-gray-500">Maintenance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: FULL IMAGE -->
+    <!-- ============================================ -->
+    <section class="reveal">
+      <!-- [PLACEHOLDER:PROCESS_FULL_IMAGE] 프로세스 전폭 이미지 -->
+      <div class="aspect-[375/280] sm:aspect-[768/400] md:aspect-[1440/600] bg-gray-200 flex items-center justify-center">
+        <p class="text-gray-400 text-body3 font-en text-center">PROCESS IMAGE<br/>Full width<br/>1920 x 1080px</p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: FAQ -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pt-[100px] sm:pt-[140px] pb-[100px] sm:pb-[140px] relative">
+      <div class="border-t border-black/15 absolute inset-x-0 top-[100px] sm:top-[140px]"></div>
+      <div class="grid grid-cols-1 pt-6 md:grid-cols-12 md:gap-x-2">
+
+        <p class="font-en tracking-tight font-medium text-body2 mb-8 md:mb-0 md:col-span-2">FAQ</p>
+
+        <div class="md:col-span-8">
+          <div class="flex flex-col">
+
+            <!-- FAQ Item 1 -->
+            <details class="reveal group border-b border-black/10">
+              <summary class="flex items-center justify-between py-5 cursor-pointer">
+                <p class="text-body3 sm:text-body2 font-medium pr-4">프로젝트 기간은 얼마나 걸리나요?</p>
+                <svg class="shrink-0 size-5 text-gray-400 transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+                </svg>
+              </summary>
+              <div class="pb-5">
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  공간의 규모와 프로젝트 범위에 따라 다르지만, 일반적으로 상담부터 입주까지 약 8~16주가 소요됩니다. 아파트 기준 30평대는 약 10주, 50평대 이상은 약 14주 정도 예상하시면 됩니다.
+                </p>
+              </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="reveal group border-b border-black/10">
+              <summary class="flex items-center justify-between py-5 cursor-pointer">
+                <p class="text-body3 sm:text-body2 font-medium pr-4">예산 범위는 어느 정도인가요?</p>
+                <svg class="shrink-0 size-5 text-gray-400 transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+                </svg>
+              </summary>
+              <div class="pb-5">
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  프로젝트의 범위, 자재 선택, 시공 난이도에 따라 견적이 달라집니다. 초기 상담 시 예산 범위를 공유해주시면, 그에 맞는 최적의 설계안을 제안해드립니다. 상담은 무료로 진행됩니다.
+                </p>
+              </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="reveal group border-b border-black/10">
+              <summary class="flex items-center justify-between py-5 cursor-pointer">
+                <p class="text-body3 sm:text-body2 font-medium pr-4">거주 중에도 시공이 가능한가요?</p>
+                <svg class="shrink-0 size-5 text-gray-400 transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+                </svg>
+              </summary>
+              <div class="pb-5">
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  부분 리모델링의 경우 거주 중 시공이 가능합니다. 다만 전체 리모델링은 입주자의 편의와 시공 품질을 위해 이사 후 진행을 권장드립니다. 상황에 맞는 최선의 방법을 함께 논의해드립니다.
+                </p>
+              </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="reveal group border-b border-black/10">
+              <summary class="flex items-center justify-between py-5 cursor-pointer">
+                <p class="text-body3 sm:text-body2 font-medium pr-4">사후 관리는 어떻게 진행되나요?</p>
+                <svg class="shrink-0 size-5 text-gray-400 transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+                </svg>
+              </summary>
+              <div class="pb-5">
+                <p class="text-body4 sm:text-body3 text-gray-500 leading-relaxed">
+                  시공 완료 후 1년간 무상 하자 보수 서비스를 제공합니다. 이후에도 유상 유지보수와 추가 스타일링 서비스를 지속적으로 이용하실 수 있습니다.
+                </p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA: CONTACT -->
+    <!-- ============================================ -->
+    <section class="px-5 sm:px-8 md:px-10 pb-[80px] sm:pb-[120px] reveal">
+      <div class="bg-gray-900 px-6 py-12 sm:px-10 sm:py-16 md:px-16 md:py-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div>
+          <p class="text-white text-heading4 sm:text-heading3 font-medium mb-2">프로젝트를 시작해볼까요?</p>
+          <p class="text-gray-400 text-body4 sm:text-body3">무료 상담을 통해 첫 걸음을 내딛어보세요.</p>
+        </div>
+        <a href="/contact">
+          <button class="relative transition-colors px-8 py-2.5 border border-white/20 bg-transparent hover:bg-white hover:text-gray-900 text-white text-body3 font-en shrink-0" type="button">
+            Contact Us
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <!-- SCROLL TO TOP -->
+    <div class="px-5 sm:px-8 md:px-10 flex justify-end pb-6">
+      <button id="scroll-top-btn" class="flex size-8 items-center justify-center border border-gray-500 bg-gray-100 text-gray-800 transition-colors hover:bg-gray-200" type="button" aria-label="맨 위로">
+        <svg width="11" height="12" viewBox="0 0 11 12" fill="none">
+          <path d="M1.01454 5.31957L1.38209 5.68685C1.4264 5.73114 1.48649 5.75601 1.54914 5.75601C1.61179 5.75601 1.67188 5.73114 1.71619 5.68686L5.16067 2.24225L5.16072 11.063C5.16075 11.1256 5.18567 11.1857 5.22999 11.23C5.27431 11.2743 5.3344 11.2992 5.39706 11.2992L5.91676 11.2992C6.04715 11.2992 6.15297 11.1934 6.15297 11.0628L6.15293 2.24212L9.59757 5.68703C9.64189 5.73131 9.70198 5.75619 9.76463 5.75619C9.82728 5.75619 9.88736 5.73131 9.93168 5.68703L10.2991 5.31962C10.3434 5.2753 10.3682 5.21522 10.3682 5.15257C10.3682 5.08992 10.3434 5.02983 10.2991 4.98551L5.82391 0.510202C5.77959 0.46592 5.71951 0.441045 5.65686 0.441045C5.59421 0.441045 5.53412 0.465918 5.4898 0.5102L1.01453 4.98547C0.970253 5.02978 0.945379 5.08987 0.945379 5.15252C0.94538 5.21517 0.970254 5.27526 1.01454 5.31957Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative bg-gray-100">
+    <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
+    <div class="px-5 sm:px-8 md:px-10 flex flex-col pt-5 pb-12 md:flex-row md:justify-between">
+      <div class="flex gap-1.5">
+        <a class="mb-[72px]" href="/contact">
+          <p class="font-en tracking-tight font-normal text-heading4 md:text-heading3 hover:opacity-70 transition-opacity">Let's Work Together</p>
+        </a>
+        <div class="p-1.5">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1.79778 0.354378L1.79806 1.13378C1.7981 1.22776 1.83545 1.31787 1.9019 1.38432C1.96835 1.45077 2.05846 1.48812 2.15244 1.48816L9.45942 1.48802L0.103694 10.8438C0.0372711 10.9103 -2.66964e-05 11.0005 1.43366e-08 11.0945C2.6725e-05 11.1885 0.0373756 11.2786 0.103836 11.3451L0.655054 11.8963C0.793357 12.0346 1.01783 12.0346 1.15628 11.8961L10.512 2.54033L10.5117 9.84781C10.5118 9.94178 10.5491 10.0319 10.6156 10.0983C10.682 10.1648 10.7721 10.2021 10.8661 10.2022H11.6455C11.7395 10.2021 11.8296 10.1648 11.896 10.0984C11.9625 10.0319 11.9998 9.94178 11.9999 9.84781L12 0.35438C12 0.260405 11.9626 0.17029 11.8962 0.10384C11.8297 0.0373893 11.7396 4.09261e-05 11.6456 2.57877e-06L2.15215 0C2.05818 3.83473e-05 1.96807 0.0373869 1.90162 0.103837C1.83517 0.170288 1.79782 0.260403 1.79778 0.354378Z" fill="#222222"/>
+          </svg>
+        </div>
+      </div>
+      <div class="flex flex-col flex-wrap gap-x-9 gap-y-1 text-gray-900 sm:h-[70px] sm:w-fit md:hidden">
+        <p class="font-normal text-body6">대표이사 홍길동</p>
+        <p class="font-normal text-body6">사업자등록번호 000-00-00000</p>
+        <p class="font-normal text-body6">실내건축공사업 제0000호</p>
+        <p class="font-normal text-body6">서울특별시 OO구 OO동 000-0</p>
+        <p class="font-normal text-body6">hello@enlivespace.com</p>
+      </div>
+      <div class="hidden md:flex">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="hidden h-fit px-2 md:block">
+          <p class="font-en tracking-tight font-normal text-body3 hover:underline">Blog</p>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="hidden h-fit px-2 md:block">
+          <p class="font-en tracking-tight font-normal text-body3 hover:underline">Instagram</p>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-1 pb-2.5 sm:pb-4 md:pb-6">
+      <div class="border-t border-black/15 relative w-full"></div>
+      <div class="px-5 sm:px-8 md:px-10 flex gap-3">
+        <p class="font-en tracking-tight font-normal text-body6 flex-1">&copy; ENLIVE SPACE</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="md:hidden">
+          <p class="font-en tracking-tight font-normal text-body6 hover:underline">Blog</p>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="md:hidden">
+          <p class="font-en tracking-tight font-normal text-body6 hover:underline">Instagram</p>
+        </a>
+        <p class="font-normal text-body6 hidden md:block">대표이사 홍길동</p>
+        <p class="font-normal text-body6 hidden md:block">사업자등록번호 000-00-00000</p>
+        <p class="font-normal text-body6 hidden md:block">실내건축공사업 제0000호</p>
+        <p class="font-normal text-body6 hidden md:block">서울특별시 OO구 OO동 000-0</p>
+        <p class="font-normal text-body6 hidden md:block">hello@enlivespace.com</p>
+      </div>
+      <div class="border-t border-black/15 relative w-full"></div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileMenuClose?.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll to top
+    document.getElementById('scroll-top-btn')?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
