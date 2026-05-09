@@ -581,6 +581,31 @@ input:focus {
   opacity: 1;
 }
 
+/* ---- Pager (페이지네이션) ---- */
+.pager-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  font-family: 'GmarketSansMedium', sans-serif;
+  background: transparent;
+  color: var(--color-text);
+}
+.pager-btn:hover {
+  background: #171717;
+  color: #fff;
+  border-color: #171717;
+}
+.pager-btn.active {
+  background: #171717;
+  color: #fff;
+  border-color: #171717;
+}
+
 /* hide-on-hero floating buttons for visual safety on dark hero */
 @media (max-width: 480px) {
   .float-btn { width: 52px; height: 52px; }
