@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>인라이븐스페이스 소개 | Enliven Space</title>
-  <meta name="description" content="인라이븐스페이스는 사용자의 생활과 편의를 고려한 공간 설계를 지향합니다." />
+  <title>공간이야기 | Enliven Space</title>
+  <meta name="description" content="공간을 넘어, 삶의 방식을 설계합니다 - 인라이븐스페이스 대표 김효진 CEO 메시지" />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwindcss.config = {
@@ -36,6 +35,10 @@
   <style>
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* 흑백 사진 placeholder */
+    .ph-img--mono { background: #1f1f1f; }
+    .ph-img--mono::before { color: #efefef; }
+    .ph-img--mono::after { color: #aaa; }
   </style>
 </head>
 
@@ -45,7 +48,6 @@
   <header class="site-header">
     <div class="site-header-inner">
       <a href="/" class="site-logo" aria-label="Enliven Space 홈">
-        <!-- [PLACEHOLDER:LOGO_HEADER] -->
         <span>Enliven Space</span>
       </a>
       <nav class="site-nav" aria-label="주요 메뉴">
@@ -78,119 +80,82 @@
 
   <main class="site-main">
 
-    <!-- ============================================ -->
     <!-- HERO -->
-    <!-- ============================================ -->
     <section class="relative">
-      <div class="ph-img aspect-[16/7] sm:aspect-[1920/700]" data-filename="about-hero.jpg" data-size="1920 × 700px"></div>
+      <div class="ph-img aspect-[16/7] sm:aspect-[1920/700]" data-filename="story-hero.jpg" data-size="1920 × 700px"></div>
       <div class="absolute inset-0 flex items-end pointer-events-none">
         <div class="px-5 sm:px-10 pb-10 sm:pb-16 w-full max-w-[1440px] mx-auto">
-          <p class="font-en text-white/90 text-xs sm:text-sm tracking-widest uppercase mb-3">About</p>
+          <p class="font-en text-white/90 text-xs sm:text-sm tracking-widest uppercase mb-3">Story</p>
           <h1 class="font-kr font-bold text-white text-3xl sm:text-5xl tracking-tight">
-            인라이븐스페이스
+            공간이야기
           </h1>
         </div>
       </div>
       <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none"></div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- INTRO -->
-    <!-- ============================================ -->
-    <section class="px-5 sm:px-10 pt-20 sm:pt-28 pb-16 sm:pb-24">
-      <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-        <div class="md:col-span-3">
-          <p class="section-eyebrow">Introduction</p>
-        </div>
-        <div class="md:col-span-9 reveal">
-          <h2 class="font-kr font-bold text-2xl sm:text-3xl md:text-4xl leading-snug mb-8">
-            단순한 시각적 변화가 아닌,<br class="hidden sm:block"/>
-            사용자의 생활과 편의를 고려한 공간 설계.
-          </h2>
-          <p class="font-kr text-ink-2 text-base sm:text-lg leading-relaxed max-w-3xl">
-            인라이븐스페이스는 단순한 시각적 변화가 아닌, 사용자의 생활과 편의를 고려한 공간 설계를 지향합니다. 공간이 삶에 미치는 영향을 중요하게 생각하며, 고객이 일상 속에서 더 나은 경험을 할 수 있도록 돕는 것을 목표로 하고 있습니다.
+    <!-- TITLE -->
+    <section class="px-5 sm:px-10 pt-20 sm:pt-28 pb-10 sm:pb-14">
+      <div class="max-w-[900px] mx-auto text-center reveal">
+        <p class="section-eyebrow mb-4">CEO Message</p>
+        <h2 class="font-kr font-bold text-2xl sm:text-3xl md:text-4xl leading-snug">
+          공간을 넘어, 삶의 방식을 설계합니다.<br/>
+          인라이븐스페이스는 그 과정을 함께합니다.
+        </h2>
+      </div>
+    </section>
+
+    <!-- CEO PHOTO -->
+    <section class="px-5 sm:px-10 pb-12 sm:pb-16">
+      <div class="max-w-[900px] mx-auto reveal">
+        <!-- 흑백 사진 예정 -->
+        <div class="ph-img ph-img--mono aspect-[3/4] sm:aspect-[4/5]" data-filename="story-ceo.jpg" data-size="1200 × 1500px (B&W)"></div>
+        <p class="font-kr text-ink-2 text-sm mt-4 text-center">인라이븐스페이스 대표 김효진</p>
+      </div>
+    </section>
+
+    <!-- CEO MESSAGE -->
+    <section class="px-5 sm:px-10 pb-24 sm:pb-32">
+      <div class="max-w-[760px] mx-auto reveal">
+        <div class="font-kr text-ink leading-loose text-base sm:text-lg space-y-7">
+          <p>
+            인라이븐스페이스라는 이름에는<br/>
+            공간을 통해 삶에 활력을 불어넣고자 하는<br/>
+            우리의 방향이 담겨 있습니다.
+          </p>
+          <p>
+            우리는 공간을 단순히 아름답게 만드는 것에 그치지 않고,<br/>
+            그 안에서 어떤 하루를 보내게 될지에 더 집중합니다.<br/>
+            가족과의 대화가 자연스럽게 이어지는 구조,<br/>
+            머무는 시간이 편안하게 느껴지는 동선,<br/>
+            그리고 일상의 작은 불편이 사라지는 변화까지.<br/>
+            이러한 차이들이 쌓여<br/>
+            결국 삶의 방식과 태도를 바꾼다고 믿습니다.
+          </p>
+          <p>
+            인라이븐스페이스는 규모보다 깊이에 집중하며,<br/>
+            한 분 한 분의 라이프스타일을 이해하는 것에서부터<br/>
+            공간 설계를 시작합니다.
+          </p>
+          <p>
+            큰 변화가 아니더라도,<br/>
+            지금의 공간을 어떻게 바라보고 어떻게 사용하는지에 따라<br/>
+            삶은 충분히 달라질 수 있습니다.<br/>
+            우리는 그 가능성을 함께 고민하고,<br/>
+            일상에 실질적인 변화를 만들어가는<br/>
+            든든한 파트너가 되고자 합니다.
+          </p>
+          <p class="font-bold text-ink">
+            공간을 바꾸는 일이 아니라,<br/>
+            삶의 흐름을 설계하는 일.<br/>
+            인라이븐스페이스입니다.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- ============================================ -->
-    <!-- MISSION & VISION -->
-    <!-- ============================================ -->
-    <section class="bg-paper-2 px-5 sm:px-10 py-20 sm:py-28">
-      <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-        <div class="reveal">
-          <p class="font-en text-ink-3 tracking-widest mb-4">MISSION.</p>
-          <h3 class="font-kr font-bold text-xl sm:text-2xl leading-snug">
-            사람의 삶을 이해한 공간 설계를 통해<br/>일상의 변화를 만든다
-          </h3>
+        <div class="mt-12 pt-8 border-t border-black/10 text-right">
+          <p class="font-kr text-ink-2 text-sm">인라이븐스페이스 대표</p>
+          <p class="font-kr font-bold text-ink text-lg mt-1">김효진</p>
         </div>
-        <div class="reveal">
-          <p class="font-en text-ink-3 tracking-widest mb-4">VISION.</p>
-          <h3 class="font-kr font-bold text-xl sm:text-2xl leading-snug">
-            규모보다 깊이로 선택받는<br/>라이프스타일 기반 공간 파트너
-          </h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- CORE VALUE -->
-    <!-- ============================================ -->
-    <section class="px-5 sm:px-10 py-20 sm:py-28">
-      <div class="max-w-[1440px] mx-auto">
-        <div class="text-center mb-12 sm:mb-16">
-          <p class="section-eyebrow mb-3">Core Value</p>
-          <h2 class="font-kr font-bold text-2xl sm:text-3xl md:text-4xl">
-            우리가 일하는 4가지 원칙
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 sm:gap-y-14">
-
-          <div class="reveal text-center">
-            <!-- [PLACEHOLDER:CORE_ICON_1] -->
-            <div class="ph-img mx-auto mb-5 rounded-full" style="width:120px; height:120px;" data-filename="icon-lifestyle.svg" data-size="120 × 120"></div>
-            <p class="font-en text-ink text-base sm:text-lg font-bold mb-2">Lifestyle First</p>
-            <p class="font-kr text-ink-2 text-sm leading-relaxed px-2">디자인보다<br/>삶을 먼저 이해한다</p>
-          </div>
-
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5 rounded-full" style="width:120px; height:120px;" data-filename="icon-change.svg" data-size="120 × 120"></div>
-            <p class="font-en text-ink text-base sm:text-lg font-bold mb-2">Meaningful Change</p>
-            <p class="font-kr text-ink-2 text-sm leading-relaxed px-2">작은 변화로도<br/>삶의 질을 바꾼다</p>
-          </div>
-
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5 rounded-full" style="width:120px; height:120px;" data-filename="icon-depth.svg" data-size="120 × 120"></div>
-            <p class="font-en text-ink text-base sm:text-lg font-bold mb-2">Depth over Scale</p>
-            <p class="font-kr text-ink-2 text-sm leading-relaxed px-2">많은 프로젝트보다<br/>깊이 있는 프로젝트</p>
-          </div>
-
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5 rounded-full" style="width:120px; height:120px;" data-filename="icon-partnership.svg" data-size="120 × 120"></div>
-            <p class="font-en text-ink text-base sm:text-lg font-bold mb-2">True Partnership</p>
-            <p class="font-kr text-ink-2 text-sm leading-relaxed px-2">시공자가 아닌<br/>'삶을 함께 설계하는 파트너'</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- CTA -->
-    <!-- ============================================ -->
-    <section class="px-5 sm:px-10 pb-24 sm:pb-32 reveal">
-      <div class="max-w-[1440px] mx-auto bg-ink px-6 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <div>
-          <p class="font-kr text-white text-2xl sm:text-3xl font-bold mb-2">함께 만들어갈 공간이 있으신가요?</p>
-          <p class="font-kr text-white/70 text-sm sm:text-base">프로젝트에 대해 무료로 상담해보세요.</p>
-        </div>
-        <a href="#" data-action="consult" data-url="#" target="_blank" rel="noopener noreferrer">
-          <button class="font-kr px-8 py-3 border border-white/30 text-white hover:bg-white hover:text-ink transition-colors text-sm sm:text-base" type="button">
-            상담 신청하기
-          </button>
-        </a>
       </div>
     </section>
 
@@ -232,7 +197,7 @@
     </div>
   </footer>
 
-  <!-- FLOATING ACTIONS -->
+  <!-- FLOATING -->
   <div class="floating-actions">
     <a class="float-btn float-btn--consult" href="#" data-url="#" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
     <a class="float-btn float-btn--kakao" href="#" data-url="#" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
