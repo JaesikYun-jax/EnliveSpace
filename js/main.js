@@ -88,6 +88,77 @@
       });
     });
 
+    // ---- Reviews Carousel (메인 페이지) ----
+    const reviewsTrack = document.getElementById('reviews-track');
+    if (reviewsTrack) {
+      const cards = reviewsTrack.querySelectorAll('.reviews-card');
+      const prevBtn = document.getElementById('reviews-prev');
+      const nextBtn = document.getElementById('reviews-next');
+      const progressEl = document.getElementById('reviews-progress');
+      const currentEl = document.getElementById('reviews-current');
+      const totalEl = document.getElementById('reviews-total');
+
+      let curPage = 0;
+      let totalPages = 0;
+      let revTimer = null;
+      const AUTO_MS = 5000;
+
+      const perView = () => window.matchMedia('(min-width: 640px)').matches ? 3 : 1;
+
+      const apply = () => {
+        reviewsTrack.style.transform = `translateX(-${curPage * 100}%)`;
+        if (currentEl) currentEl.textContent = String(curPage + 1).padStart(2, '0');
+        if (progressEl) progressEl.style.width = `${((curPage + 1) / totalPages) * 100}%`;
+      };
+
+      const recalc = () => {
+        totalPages = Math.max(1, Math.ceil(cards.length / perView()));
+        if (totalEl) totalEl.textContent = String(totalPages).padStart(2, '0');
+        if (curPage >= totalPages) curPage = 0;
+        apply();
+      };
+
+      const goTo = (p) => {
+        curPage = ((p % totalPages) + totalPages) % totalPages;
+        apply();
+      };
+
+      const startAuto = () => {
+        stopAuto();
+        if (totalPages > 1) revTimer = setInterval(() => goTo(curPage + 1), AUTO_MS);
+      };
+      const stopAuto = () => { if (revTimer) clearInterval(revTimer); };
+
+      prevBtn?.addEventListener('click', () => { goTo(curPage - 1); startAuto(); });
+      nextBtn?.addEventListener('click', () => { goTo(curPage + 1); startAuto(); });
+
+      // Pause on hover (desktop)
+      reviewsTrack.parentElement.addEventListener('mouseenter', stopAuto);
+      reviewsTrack.parentElement.addEventListener('mouseleave', startAuto);
+
+      // Touch swipe
+      let revStartX = 0;
+      reviewsTrack.addEventListener('touchstart', (e) => {
+        revStartX = e.changedTouches[0].screenX;
+        stopAuto();
+      }, { passive: true });
+      reviewsTrack.addEventListener('touchend', (e) => {
+        const dx = revStartX - e.changedTouches[0].screenX;
+        if (Math.abs(dx) > 50) goTo(curPage + (dx > 0 ? 1 : -1));
+        startAuto();
+      }, { passive: true });
+
+      // Resize handling
+      let resizeT;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(recalc, 150);
+      });
+
+      recalc();
+      startAuto();
+    }
+
     // ---- Reveal on scroll ----
     const revealEls = document.querySelectorAll('.reveal');
     if (revealEls.length && 'IntersectionObserver' in window) {
