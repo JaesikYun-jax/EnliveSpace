@@ -35,6 +35,29 @@
   <style>
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Step icon */
+    .step-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #171717;
+      margin: 0 auto;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .step-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke-width: 1.5;
+    }
+    .step-card:hover .step-icon {
+      background: #171717;
+      color: #ffffff;
+    }
   </style>
 </head>
 
@@ -105,9 +128,16 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-12">
 
-          <!-- STEP 01 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-01.svg" data-size="96 × 96"></div>
+          <!-- STEP 01: 상담문의 - 채팅 풍선 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22C12 18.6863 14.6863 16 18 16H46C49.3137 16 52 18.6863 52 22V36C52 39.3137 49.3137 42 46 42H30L20 50V42H18C14.6863 42 12 39.3137 12 36V22Z"/>
+                <circle cx="24" cy="29" r="1.5" fill="currentColor" stroke="none"/>
+                <circle cx="32" cy="29" r="1.5" fill="currentColor" stroke="none"/>
+                <circle cx="40" cy="29" r="1.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 01</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">상담문의</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
@@ -115,9 +145,17 @@
             </p>
           </div>
 
-          <!-- STEP 02 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-02.svg" data-size="96 × 96"></div>
+          <!-- STEP 02: 초도상담 - 두 사람 마주보기 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="20" cy="22" r="5"/>
+                <path d="M11 40C11 35.5817 14.5817 32 19 32H21C25.4183 32 29 35.5817 29 40"/>
+                <circle cx="44" cy="22" r="5"/>
+                <path d="M35 40C35 35.5817 38.5817 32 43 32H45C49.4183 32 53 35.5817 53 40"/>
+                <path d="M22 50H42" stroke-dasharray="2 3"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 02</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">초도상담</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
@@ -125,9 +163,19 @@
             </p>
           </div>
 
-          <!-- STEP 03 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-03.svg" data-size="96 × 96"></div>
+          <!-- STEP 03: 실측 - 줄자 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="10" y="22" width="44" height="20" rx="2"/>
+                <line x1="18" y1="22" x2="18" y2="30"/>
+                <line x1="24" y1="22" x2="24" y2="27"/>
+                <line x1="30" y1="22" x2="30" y2="30"/>
+                <line x1="36" y1="22" x2="36" y2="27"/>
+                <line x1="42" y1="22" x2="42" y2="30"/>
+                <line x1="48" y1="22" x2="48" y2="27"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 03</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">실측</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
@@ -135,9 +183,16 @@
             </p>
           </div>
 
-          <!-- STEP 04 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-04.svg" data-size="96 × 96"></div>
+          <!-- STEP 04: 디자인 미팅 및 계약 - 도면+삼각자 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 12H38L48 22V50C48 51.1046 47.1046 52 46 52H14C12.8954 52 12 51.1046 12 50V14C12 12.8954 12.8954 12 14 12Z"/>
+                <path d="M38 12V22H48"/>
+                <path d="M20 32L36 32L28 44L20 32Z"/>
+                <line x1="20" y1="32" x2="40" y2="38"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 04</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">디자인 미팅 및 계약</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
@@ -145,9 +200,17 @@
             </p>
           </div>
 
-          <!-- STEP 05 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-05.svg" data-size="96 × 96"></div>
+          <!-- STEP 05: 공사 - 안전모 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 42V40C12 28.9543 20.9543 20 32 20C43.0457 20 52 28.9543 52 40V42"/>
+                <rect x="8" y="42" width="48" height="6" rx="1"/>
+                <line x1="32" y1="20" x2="32" y2="14"/>
+                <line x1="22" y1="42" x2="22" y2="32"/>
+                <line x1="42" y1="42" x2="42" y2="32"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 05</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">공사</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
@@ -155,9 +218,15 @@
             </p>
           </div>
 
-          <!-- STEP 06 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-06.svg" data-size="96 × 96"></div>
+          <!-- STEP 06: 촬영 및 마감 - 카메라 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 22C10 20.3431 11.3431 19 13 19H21L24 14H40L43 19H51C52.6569 19 54 20.3431 54 22V46C54 47.6569 52.6569 49 51 49H13C11.3431 49 10 47.6569 10 46V22Z"/>
+                <circle cx="32" cy="33" r="9"/>
+                <circle cx="32" cy="33" r="4"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 06</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">촬영 및 마감</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
@@ -165,9 +234,14 @@
             </p>
           </div>
 
-          <!-- STEP 07 -->
-          <div class="reveal text-center">
-            <div class="ph-img mx-auto mb-5" style="width:96px; height:96px;" data-filename="step-07.svg" data-size="96 × 96"></div>
+          <!-- STEP 07: 사후 관리 - 방패+체크 -->
+          <div class="reveal text-center step-card">
+            <div class="step-icon mb-5">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M32 8L52 16V32C52 42.5 43.5 51 32 54C20.5 51 12 42.5 12 32V16L32 8Z"/>
+                <path d="M22 32L29 39L42 26"/>
+              </svg>
+            </div>
             <p class="font-en text-ink-3 text-xs mb-2">STEP 07</p>
             <p class="font-kr font-bold text-base sm:text-lg mb-3">사후 관리</p>
             <p class="font-kr text-ink-2 text-xs sm:text-sm leading-relaxed px-1">
