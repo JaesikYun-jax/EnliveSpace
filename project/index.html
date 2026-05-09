@@ -3,50 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Project - Enlive Space</title>
-  <meta name="description" content="Enlive Space의 프로젝트를 소개합니다." />
+  <title>포트폴리오 | Enliven Space</title>
+  <meta name="description" content="인라이븐스페이스의 시공 포트폴리오를 만나보세요." />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwindcss.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
-            en: ['Inter', 'sans-serif'],
-          },
-          fontSize: {
-            'heading1': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
-            'heading2': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.03em' }],
-            'heading3': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.03em' }],
-            'heading4': ['1.75rem', { lineHeight: '1.3', letterSpacing: '-0.03em' }],
-            'body1': ['1.125rem', { lineHeight: '1.6' }],
-            'body2': ['1rem', { lineHeight: '1.6' }],
-            'body3': ['0.9375rem', { lineHeight: '1.6' }],
-            'body4': ['0.875rem', { lineHeight: '1.5' }],
-            'body5': ['0.8125rem', { lineHeight: '1.5' }],
-            'body6': ['0.75rem', { lineHeight: '1.5' }],
+            sans: ['NanumSquare', 'Noto Sans KR', 'sans-serif'],
+            en:   ['GmarketSansMedium', 'Inter', 'sans-serif'],
+            'en-bold': ['GmarketSansBold', 'Inter', 'sans-serif']
           },
           colors: {
-            gray: {
-              50: '#fafafa',
-              100: '#f5f5f5',
-              200: '#e5e5e5',
-              300: '#d4d4d4',
-              400: '#a3a3a3',
-              500: '#737373',
-              600: '#525252',
-              700: '#404040',
-              800: '#262626',
-              900: '#171717',
-            }
+            ink: '#171717',
+            'ink-2': '#525252',
+            'ink-3': '#a3a3a3',
+            paper: '#ffffff',
+            'paper-2': '#f7f7f7'
           }
         }
       }
@@ -57,392 +33,235 @@
   <link rel="icon" href="/images/favicon.png" />
 
   <style>
-    .gallery-card img,
-    .gallery-card .img-placeholder {
+    .gallery-card .ph-img,
+    .gallery-card img {
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .gallery-card:hover img,
-    .gallery-card:hover .img-placeholder {
+    .gallery-card:hover .ph-img,
+    .gallery-card:hover img {
       transform: scale(1.03);
     }
-    .gallery-card .card-overlay {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-card:hover .card-overlay {
-      opacity: 1;
-    }
-    .filter-btn.active {
-      color: #171717;
-    }
-    .filter-btn {
-      color: #a3a3a3;
-      transition: color 0.2s ease;
-    }
-    .filter-btn:hover {
-      color: #171717;
-    }
+    .filter-btn.active { color: #171717; border-bottom: 2px solid #171717; }
+    .filter-btn { color: #a3a3a3; border-bottom: 2px solid transparent; padding-bottom: 6px; transition: all 0.2s ease; }
+    .filter-btn:hover { color: #171717; }
+    .pager-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; transition: all 0.2s ease; font-family: 'GmarketSansMedium', sans-serif; }
+    .pager-btn:hover { background: #171717; color: #fff; border-color: #171717; }
+    .pager-btn.active { background: #171717; color: #fff; border-color: #171717; }
   </style>
 </head>
 
-<body class="font-sans antialiased text-gray-900 bg-gray-100">
+<body>
 
-  <!-- BORDER LINES -->
-  <div class="border-line border-line-top"></div>
-  <div class="border-line border-line-left"></div>
-  <div class="border-line border-line-right"></div>
-
-  <!-- GNB: Fixed Header -->
-  <div id="gnb-fixed" class="z-20 h-auto py-3 sm:py-[21px] md:py-[19px] fixed inset-x-0 top-0 bg-gray-100">
-    <div class="px-5 sm:px-8 md:px-10 pt-[var(--padding-line)]">
-      <header>
-        <div class="grid grid-cols-[auto_1fr_auto] items-center md:grid-cols-12 md:gap-x-2 text-gray-900">
-
-          <!-- Logo -->
-          <section class="col-span-2 md:col-span-2">
-            <a href="/" class="flex items-center">
-              <span class="font-en font-semibold text-body1 tracking-tight">ENLIVE SPACE</span>
-            </a>
-          </section>
-
-          <!-- Nav Links -->
-          <div class="col-span-5 hidden md:flex md:gap-5">
-            <a href="/about.html"><p class="font-en tracking-tight text-body1 hover:underline">About</p></a>
-            <a href="/process.html"><p class="font-en tracking-tight text-body1 hover:underline">Process</p></a>
-            <a href="/project/"><p class="font-en tracking-tight text-body1 hover:underline font-medium">Project</p></a>
-          </div>
-
-          <!-- Search + Contact -->
-          <div class="col-span-5 hidden items-center md:flex">
-            <div class="flex-1 pr-8">
-              <form class="relative flex items-center">
-                <input type="text" placeholder="Search" class="text-body1 font-en placeholder:font-en w-full bg-transparent placeholder:text-gray-400 outline-none border-b border-black/10 pb-1" />
-              </form>
-            </div>
-            <div class="justify-self-end">
-              <a href="/contact">
-                <button class="relative transition-colors px-5 py-1.5 border border-black/15 bg-transparent hover:bg-gray-900 hover:text-white text-gray-900 text-body4 font-en" type="button">
-                  Contact
-                </button>
-              </a>
-            </div>
-          </div>
-
-          <!-- Mobile Menu Toggle -->
-          <div class="md:hidden">
-            <button id="mobile-menu-btn" class="p-2" type="button" aria-label="메뉴">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-              </svg>
-            </button>
-          </div>
-
-        </div>
-      </header>
-      <div class="border-t-[0.6px] border-black/25 absolute inset-x-0 bottom-0"></div>
-    </div>
-  </div>
-
-  <!-- MOBILE MENU OVERLAY -->
-  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-gray-900/95 hidden flex-col items-center justify-center gap-8 text-white">
-    <button id="mobile-menu-close" class="absolute top-5 right-5 p-2" type="button" aria-label="닫기">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
-      </svg>
-    </button>
-    <a href="/" class="text-heading3 font-en font-medium mobile-menu-link">Home</a>
-    <a href="/about.html" class="text-heading3 font-en font-medium mobile-menu-link">About</a>
-    <a href="/process.html" class="text-heading3 font-en font-medium mobile-menu-link">Process</a>
-    <a href="/project/" class="text-heading3 font-en font-medium mobile-menu-link">Project</a>
-    <a href="/contact" class="text-heading3 font-en font-medium mobile-menu-link">Contact</a>
-  </div>
-
-  <main>
-
-    <!-- Header Spacer -->
-    <div class="h-[60px] sm:h-[72px] md:h-[76px]"></div>
-
-    <!-- PAGE HEADER -->
-    <section class="px-5 sm:px-8 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
-      <div class="grid grid-cols-1 md:grid-cols-12 md:gap-x-2">
-        <div class="md:col-span-7">
-          <h1 class="font-en font-semibold text-heading2 sm:text-heading1 tracking-tight mb-4">Project</h1>
-          <p class="text-body3 sm:text-body2 text-gray-500 max-w-lg">공간에 생명을 불어넣는 Enlive Space의 프로젝트를 만나보세요.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FILTER + COUNT -->
-    <section class="px-5 sm:px-8 md:px-10 pb-6">
-      <div class="border-t border-black/15"></div>
-      <div class="flex items-center justify-between pt-4">
-        <div class="flex gap-4 sm:gap-6">
-          <button class="filter-btn active font-en text-body4 sm:text-body3 font-medium" data-filter="all">All</button>
-          <button class="filter-btn font-en text-body4 sm:text-body3 font-medium" data-filter="apartment">Apartment</button>
-          <button class="filter-btn font-en text-body4 sm:text-body3 font-medium" data-filter="house">House</button>
-          <button class="filter-btn font-en text-body4 sm:text-body3 font-medium" data-filter="commercial">Commercial</button>
-        </div>
-        <p class="font-en text-body5 text-gray-400"><span id="project-count">4</span> Projects</p>
-      </div>
-    </section>
-
-    <!-- GALLERY GRID -->
-    <section class="px-5 sm:px-8 md:px-10 pb-[120px] sm:pb-[160px]">
-      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-10 sm:gap-y-12">
-
-        <!-- Project 1: 반포 원베일리 (large - spans 2 cols) -->
-        <a href="/project/1.html" class="gallery-card sm:col-span-2 lg:col-span-2" data-type="apartment">
-          <div class="relative overflow-hidden mb-3">
-            <div class="aspect-[16/10] bg-gray-200 flex items-center justify-center img-placeholder">
-              <p class="text-gray-400 text-body4 font-en text-center">PROJECT IMAGE 1<br/>1920 x 1200px</p>
-            </div>
-            <div class="card-overlay absolute inset-0 bg-black/10 flex items-end p-4 sm:p-6">
-              <div class="flex items-center gap-2 text-white">
-                <span class="font-en text-body4 font-medium">View Project</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4">
-            <h3 class="font-medium text-body3 sm:text-body2">반포 원베일리</h3>
-            <div class="flex gap-3 shrink-0">
-              <span class="font-en text-body5 text-gray-500">Apartment</span>
-              <span class="font-en text-body5 text-gray-500">34PY</span>
-              <span class="font-en text-body5 text-gray-500">2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 2 -->
-        <a href="/project/2.html" class="gallery-card" data-type="apartment">
-          <div class="relative overflow-hidden mb-3">
-            <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center img-placeholder">
-              <p class="text-gray-400 text-body4 font-en text-center">PROJECT IMAGE 2<br/>900 x 1200px</p>
-            </div>
-            <div class="card-overlay absolute inset-0 bg-black/10 flex items-end p-4 sm:p-6">
-              <div class="flex items-center gap-2 text-white">
-                <span class="font-en text-body4 font-medium">View Project</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4">
-            <h3 class="font-medium text-body3 sm:text-body2">압구정 현대</h3>
-            <div class="flex gap-3 shrink-0">
-              <span class="font-en text-body5 text-gray-500">52PY</span>
-              <span class="font-en text-body5 text-gray-500">2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 3 -->
-        <a href="/project/3.html" class="gallery-card" data-type="apartment">
-          <div class="relative overflow-hidden mb-3">
-            <div class="aspect-[4/5] bg-gray-200 flex items-center justify-center img-placeholder">
-              <p class="text-gray-400 text-body4 font-en text-center">PROJECT IMAGE 3<br/>960 x 1200px</p>
-            </div>
-            <div class="card-overlay absolute inset-0 bg-black/10 flex items-end p-4 sm:p-6">
-              <div class="flex items-center gap-2 text-white">
-                <span class="font-en text-body4 font-medium">View Project</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4">
-            <h3 class="font-medium text-body3 sm:text-body2">분당 대장동</h3>
-            <div class="flex gap-3 shrink-0">
-              <span class="font-en text-body5 text-gray-500">40PY</span>
-              <span class="font-en text-body5 text-gray-500">2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 4 -->
-        <a href="/project/4.html" class="gallery-card" data-type="house">
-          <div class="relative overflow-hidden mb-3">
-            <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center img-placeholder">
-              <p class="text-gray-400 text-body4 font-en text-center">PROJECT IMAGE 4<br/>900 x 1200px</p>
-            </div>
-            <div class="card-overlay absolute inset-0 bg-black/10 flex items-end p-4 sm:p-6">
-              <div class="flex items-center gap-2 text-white">
-                <span class="font-en text-body4 font-medium">View Project</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4">
-            <h3 class="font-medium text-body3 sm:text-body2">효자동 단독주택</h3>
-            <div class="flex gap-3 shrink-0">
-              <span class="font-en text-body5 text-gray-500">House</span>
-              <span class="font-en text-body5 text-gray-500">2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 5 -->
-        <a href="/project/5.html" class="gallery-card sm:col-span-2 lg:col-span-2" data-type="commercial">
-          <div class="relative overflow-hidden mb-3">
-            <div class="aspect-[16/10] bg-gray-200 flex items-center justify-center img-placeholder">
-              <p class="text-gray-400 text-body4 font-en text-center">PROJECT IMAGE 5<br/>1920 x 1200px</p>
-            </div>
-            <div class="card-overlay absolute inset-0 bg-black/10 flex items-end p-4 sm:p-6">
-              <div class="flex items-center gap-2 text-white">
-                <span class="font-en text-body4 font-medium">View Project</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4">
-            <h3 class="font-medium text-body3 sm:text-body2">마포 공덕동 오피스</h3>
-            <div class="flex gap-3 shrink-0">
-              <span class="font-en text-body5 text-gray-500">Commercial</span>
-              <span class="font-en text-body5 text-gray-500">2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 6 -->
-        <a href="/project/6.html" class="gallery-card" data-type="apartment">
-          <div class="relative overflow-hidden mb-3">
-            <div class="aspect-[4/5] bg-gray-200 flex items-center justify-center img-placeholder">
-              <p class="text-gray-400 text-body4 font-en text-center">PROJECT IMAGE 6<br/>960 x 1200px</p>
-            </div>
-            <div class="card-overlay absolute inset-0 bg-black/10 flex items-end p-4 sm:p-6">
-              <div class="flex items-center gap-2 text-white">
-                <span class="font-en text-body4 font-medium">View Project</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.2"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-4">
-            <h3 class="font-medium text-body3 sm:text-body2">논현동 아크로텔</h3>
-            <div class="flex gap-3 shrink-0">
-              <span class="font-en text-body5 text-gray-500">28PY</span>
-              <span class="font-en text-body5 text-gray-500">2025</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- SCROLL TO TOP -->
-    <div class="px-5 sm:px-8 md:px-10 flex justify-end pb-6">
-      <button id="scroll-top-btn" class="flex size-8 items-center justify-center border border-gray-500 bg-gray-100 text-gray-800 transition-colors hover:bg-gray-200" type="button" aria-label="맨 위로">
-        <svg width="11" height="12" viewBox="0 0 11 12" fill="none">
-          <path d="M1.01454 5.31957L1.38209 5.68685C1.4264 5.73114 1.48649 5.75601 1.54914 5.75601C1.61179 5.75601 1.67188 5.73114 1.71619 5.68686L5.16067 2.24225L5.16072 11.063C5.16075 11.1256 5.18567 11.1857 5.22999 11.23C5.27431 11.2743 5.3344 11.2992 5.39706 11.2992L5.91676 11.2992C6.04715 11.2992 6.15297 11.1934 6.15297 11.0628L6.15293 2.24212L9.59757 5.68703C9.64189 5.73131 9.70198 5.75619 9.76463 5.75619C9.82728 5.75619 9.88736 5.73131 9.93168 5.68703L10.2991 5.31962C10.3434 5.2753 10.3682 5.21522 10.3682 5.15257C10.3682 5.08992 10.3434 5.02983 10.2991 4.98551L5.82391 0.510202C5.77959 0.46592 5.71951 0.441045 5.65686 0.441045C5.59421 0.441045 5.53412 0.465918 5.4898 0.5102L1.01453 4.98547C0.970253 5.02978 0.945379 5.08987 0.945379 5.15252C0.94538 5.21517 0.970254 5.27526 1.01454 5.31957Z" fill="currentColor"/>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Enliven Space 홈">
+        <span>Enliven Space</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="/about.html">인라이븐스페이스</a>
+        <a href="/story.html">공간이야기</a>
+        <a href="/process.html">진행방식</a>
+        <a href="/project/">포트폴리오</a>
+        <a href="/reviews.html">후기</a>
+      </nav>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-label="메뉴 열기">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
       </button>
     </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <button id="menu-close" class="menu-close" type="button" aria-label="메뉴 닫기">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+    <a href="/about.html">인라이븐스페이스</a>
+    <a href="/story.html">공간이야기</a>
+    <a href="/process.html">진행방식</a>
+    <a href="/project/">포트폴리오</a>
+    <a href="/reviews.html">후기</a>
+  </div>
+
+  <main class="site-main">
+
+    <!-- HERO -->
+    <section class="relative">
+      <div class="ph-img aspect-[16/7] sm:aspect-[1920/700]" data-filename="portfolio-hero.jpg" data-size="1920 × 700px"></div>
+      <div class="absolute inset-0 flex items-end pointer-events-none">
+        <div class="px-5 sm:px-10 pb-10 sm:pb-16 w-full max-w-[1440px] mx-auto">
+          <p class="font-en text-white/90 text-xs sm:text-sm tracking-widest uppercase mb-3">Portfolio</p>
+          <h1 class="font-kr font-bold text-white text-3xl sm:text-5xl tracking-tight mb-2">
+            포트폴리오
+          </h1>
+          <p class="font-kr text-white/80 text-sm sm:text-base">인라이븐스페이스가 바꾼 공간을 만나보세요.</p>
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none"></div>
+    </section>
+
+    <!-- FILTER -->
+    <section class="px-5 sm:px-10 pt-12 sm:pt-16">
+      <div class="max-w-[1440px] mx-auto border-b border-black/10 pb-2">
+        <div class="flex items-end justify-between flex-wrap gap-4">
+          <div class="flex gap-5 sm:gap-8 font-kr">
+            <button class="filter-btn active text-sm sm:text-base font-bold" data-filter="all">전체</button>
+            <button class="filter-btn text-sm sm:text-base font-bold" data-filter="apartment">아파트</button>
+            <button class="filter-btn text-sm sm:text-base font-bold" data-filter="house">주택</button>
+            <button class="filter-btn text-sm sm:text-base font-bold" data-filter="commercial">상업공간</button>
+          </div>
+          <p class="font-en text-ink-3 text-sm"><span id="project-count">6</span> Projects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="px-5 sm:px-10 pt-10 sm:pt-12 pb-16">
+      <div id="gallery-grid" class="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12 sm:gap-y-16">
+
+        <!-- card 1 -->
+        <a href="/project/1.html" class="gallery-card group" data-type="apartment">
+          <div class="overflow-hidden mb-4">
+            <div class="ph-img aspect-[4/3]" data-filename="portfolio-01.jpg" data-size="1200 × 900px"></div>
+          </div>
+          <p class="font-kr font-bold text-base sm:text-lg mb-1">반포 원베일리 인테리어</p>
+          <p class="font-kr text-ink-2 text-sm mb-2">햇살이 자연스럽게 머무는 아늑한 거실</p>
+          <p class="font-en text-ink-3 text-xs">평당 350~400만 원대</p>
+        </a>
+
+        <!-- card 2 -->
+        <a href="/project/2.html" class="gallery-card group" data-type="apartment">
+          <div class="overflow-hidden mb-4">
+            <div class="ph-img aspect-[4/3]" data-filename="portfolio-02.jpg" data-size="1200 × 900px"></div>
+          </div>
+          <p class="font-kr font-bold text-base sm:text-lg mb-1">압구정 현대 인테리어</p>
+          <p class="font-kr text-ink-2 text-sm mb-2">고급스럽고 정돈된 화이트 톤 무드</p>
+          <p class="font-en text-ink-3 text-xs">평당 400만 원대 이상</p>
+        </a>
+
+        <!-- card 3 -->
+        <a href="/project/3.html" class="gallery-card group" data-type="apartment">
+          <div class="overflow-hidden mb-4">
+            <div class="ph-img aspect-[4/3]" data-filename="portfolio-03.jpg" data-size="1200 × 900px"></div>
+          </div>
+          <p class="font-kr font-bold text-base sm:text-lg mb-1">분당 대장동 인테리어</p>
+          <p class="font-kr text-ink-2 text-sm mb-2">도심 속 자연을 담아낸 따뜻한 공간</p>
+          <p class="font-en text-ink-3 text-xs">평당 300~340만 원대</p>
+        </a>
+
+        <!-- card 4 -->
+        <a href="/project/4.html" class="gallery-card group" data-type="house">
+          <div class="overflow-hidden mb-4">
+            <div class="ph-img aspect-[4/3]" data-filename="portfolio-04.jpg" data-size="1200 × 900px"></div>
+          </div>
+          <p class="font-kr font-bold text-base sm:text-lg mb-1">효자동 단독주택 인테리어</p>
+          <p class="font-kr text-ink-2 text-sm mb-2">시간이 머무는 단독주택의 일상</p>
+          <p class="font-en text-ink-3 text-xs">평당 380~420만 원대</p>
+        </a>
+
+        <!-- card 5 -->
+        <a href="/project/5.html" class="gallery-card group" data-type="commercial">
+          <div class="overflow-hidden mb-4">
+            <div class="ph-img aspect-[4/3]" data-filename="portfolio-05.jpg" data-size="1200 × 900px"></div>
+          </div>
+          <p class="font-kr font-bold text-base sm:text-lg mb-1">마포 공덕동 오피스</p>
+          <p class="font-kr text-ink-2 text-sm mb-2">일하는 사람을 위한 균형 잡힌 설계</p>
+          <p class="font-en text-ink-3 text-xs">평당 280~320만 원대</p>
+        </a>
+
+        <!-- card 6 -->
+        <a href="/project/6.html" class="gallery-card group" data-type="apartment">
+          <div class="overflow-hidden mb-4">
+            <div class="ph-img aspect-[4/3]" data-filename="portfolio-06.jpg" data-size="1200 × 900px"></div>
+          </div>
+          <p class="font-kr font-bold text-base sm:text-lg mb-1">논현동 아크로텔 인테리어</p>
+          <p class="font-kr text-ink-2 text-sm mb-2">소형 평형의 가능성을 보여주는 공간</p>
+          <p class="font-en text-ink-3 text-xs">평당 320~360만 원대</p>
+        </a>
+
+      </div>
+
+      <!-- PAGER -->
+      <div class="max-w-[1440px] mx-auto mt-12 sm:mt-16 flex items-center justify-center gap-2">
+        <button class="pager-btn" type="button" aria-label="이전 페이지">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 12L4 7L9 2"/></svg>
+        </button>
+        <button class="pager-btn active" type="button">1</button>
+        <button class="pager-btn" type="button">2</button>
+        <button class="pager-btn" type="button" aria-label="다음 페이지">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 2L10 7L5 12"/></svg>
+        </button>
+      </div>
+    </section>
 
   </main>
 
   <!-- FOOTER -->
-  <footer class="relative bg-gray-100">
-    <div class="border-t border-black/15 absolute inset-x-0 top-0"></div>
-    <div class="px-5 sm:px-8 md:px-10 flex flex-col pt-5 pb-12 md:flex-row md:justify-between">
-      <div class="flex gap-1.5">
-        <a class="mb-[72px]" href="/contact">
-          <p class="font-en tracking-tight font-normal text-heading4 md:text-heading3 hover:opacity-70 transition-opacity">Let's Work Together</p>
+  <footer class="site-footer" id="contact">
+    <div class="site-footer-inner">
+      <div>
+        <a href="/" class="footer-logo" aria-label="Enliven Space 홈">
+          <span>ENLIVEN<br/>SPACE</span>
         </a>
-        <div class="p-1.5">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M1.79778 0.354378L1.79806 1.13378C1.7981 1.22776 1.83545 1.31787 1.9019 1.38432C1.96835 1.45077 2.05846 1.48812 2.15244 1.48816L9.45942 1.48802L0.103694 10.8438C0.0372711 10.9103 -2.66964e-05 11.0005 1.43366e-08 11.0945C2.6725e-05 11.1885 0.0373756 11.2786 0.103836 11.3451L0.655054 11.8963C0.793357 12.0346 1.01783 12.0346 1.15628 11.8961L10.512 2.54033L10.5117 9.84781C10.5118 9.94178 10.5491 10.0319 10.6156 10.0983C10.682 10.1648 10.7721 10.2021 10.8661 10.2022H11.6455C11.7395 10.2021 11.8296 10.1648 11.896 10.0984C11.9625 10.0319 11.9998 9.94178 11.9999 9.84781L12 0.35438C12 0.260405 11.9626 0.17029 11.8962 0.10384C11.8297 0.0373893 11.7396 4.09261e-05 11.6456 2.57877e-06L2.15215 0C2.05818 3.83473e-05 1.96807 0.0373869 1.90162 0.103837C1.83517 0.170288 1.79782 0.260403 1.79778 0.354378Z" fill="#222222"/>
-          </svg>
+      </div>
+      <div class="footer-info">
+        <div class="info-line">
+          <span>상호명: 인라이븐 스페이스</span>
+          <span>사업자 등록번호: 524-05-03153</span>
+          <span>주소: 경기도 수원시 영통구 대학로 16</span>
+          <span>TEL: 050-6662-8126</span>
+          <span>Email: <a href="mailto:enlivenspace@naver.com" class="underline">enlivenspace@naver.com</a></span>
         </div>
+        <p class="copyright">Copyright © 2026 ENLIVEN SPACE All Rights Reserved</p>
       </div>
-      <div class="flex flex-col flex-wrap gap-x-9 gap-y-1 text-gray-900 sm:h-[70px] sm:w-fit md:hidden">
-        <p class="font-normal text-body6">대표이사 홍길동</p>
-        <p class="font-normal text-body6">사업자등록번호 000-00-00000</p>
-        <p class="font-normal text-body6">실내건축공사업 제0000호</p>
-        <p class="font-normal text-body6">서울특별시 OO구 OO동 000-0</p>
-        <p class="font-normal text-body6">hello@enlivespace.com</p>
+      <div class="footer-sns">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V5a2 2 0 00-2-2zM10.65 16h-1.7l-2.85-4.6V16h-1.7V8h1.7l2.85 4.6V8h1.7v8zm7.55 0h-1.7v-3.4h-3v3.4h-1.7V8h1.7v3.05h3V8h1.7v8z"/></svg>
+        </a>
       </div>
-      <div class="hidden md:flex">
-        <a href="#" target="_blank" rel="noopener noreferrer" class="hidden h-fit px-2 md:block">
-          <p class="font-en tracking-tight font-normal text-body3 hover:underline">Blog</p>
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="hidden h-fit px-2 md:block">
-          <p class="font-en tracking-tight font-normal text-body3 hover:underline">Instagram</p>
-        </a>
-      </div>
-    </div>
-    <div class="flex flex-col gap-1 pb-2.5 sm:pb-4 md:pb-6">
-      <div class="border-t border-black/15 relative w-full"></div>
-      <div class="px-5 sm:px-8 md:px-10 flex gap-3">
-        <p class="font-en tracking-tight font-normal text-body6 flex-1">&copy; ENLIVE SPACE</p>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="md:hidden">
-          <p class="font-en tracking-tight font-normal text-body6 hover:underline">Blog</p>
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="md:hidden">
-          <p class="font-en tracking-tight font-normal text-body6 hover:underline">Instagram</p>
-        </a>
-        <p class="font-normal text-body6 hidden md:block">대표이사 홍길동</p>
-        <p class="font-normal text-body6 hidden md:block">사업자등록번호 000-00-00000</p>
-        <p class="font-normal text-body6 hidden md:block">실내건축공사업 제0000호</p>
-        <p class="font-normal text-body6 hidden md:block">서울특별시 OO구 OO동 000-0</p>
-        <p class="font-normal text-body6 hidden md:block">hello@enlivespace.com</p>
-      </div>
-      <div class="border-t border-black/15 relative w-full"></div>
     </div>
   </footer>
 
+  <!-- FLOATING -->
+  <div class="floating-actions">
+    <a class="float-btn float-btn--consult" href="#" data-url="#" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
+    <a class="float-btn float-btn--kakao" href="#" data-url="#" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/>
+      </svg>
+    </a>
+    <button id="scroll-top-btn" class="float-btn float-btn--top" type="button" aria-label="맨 위로">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M7 12V2M7 2L2 7M7 2L12 7"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="/js/main.js"></script>
   <script>
-    // Mobile menu
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileMenuBtn?.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    });
-
-    mobileMenuClose?.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
-    });
-
-    mobileMenu?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Scroll to top
-    document.getElementById('scroll-top-btn')?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
     // Filter
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.gallery-card');
     const countEl = document.getElementById('project-count');
-
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         const filter = btn.dataset.filter;
         let visible = 0;
-
         cards.forEach(card => {
           if (filter === 'all' || card.dataset.type === filter) {
             card.style.display = '';
@@ -451,7 +270,6 @@
             card.style.display = 'none';
           }
         });
-
         countEl.textContent = visible;
       });
     });

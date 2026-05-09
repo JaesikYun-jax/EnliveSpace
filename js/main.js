@@ -1,128 +1,117 @@
 /* ============================================
    Enlive Space - Main JS
+   v1.0 (홈페이지 수정 v1.0_0423 반영)
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  'use strict';
 
-  // ---- Hero Slider ----
-  const slider = document.getElementById('hero-slider');
-  const currentEl = document.getElementById('slide-current');
-  const progressEl = document.getElementById('slide-progress');
-  const totalSlides = slider ? slider.children.length : 0;
-  let currentSlide = 0;
-  let autoSlideTimer = null;
+  document.addEventListener('DOMContentLoaded', () => {
 
-  function goToSlide(index) {
-    if (!slider) return;
-    currentSlide = index;
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-    if (currentEl) currentEl.textContent = currentSlide + 1;
-    if (progressEl) progressEl.style.transform = `scaleX(${(currentSlide + 1) / totalSlides})`;
-  }
+    // ---- Hero Slider (메인 페이지에만 존재) ----
+    const slider = document.getElementById('hero-slider');
+    if (slider) {
+      const currentEl = document.getElementById('slide-current');
+      const progressEl = document.getElementById('slide-progress');
+      const totalSlides = slider.children.length;
+      let currentSlide = 0;
+      let autoTimer = null;
 
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % totalSlides);
-  }
+      const goTo = (i) => {
+        currentSlide = (i + totalSlides) % totalSlides;
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        if (currentEl) currentEl.textContent = String(currentSlide + 1).padStart(2, '0');
+        if (progressEl) progressEl.style.transform = `scaleX(${(currentSlide + 1) / totalSlides})`;
+      };
+      const next = () => goTo(currentSlide + 1);
+      const start = () => { stop(); autoTimer = setInterval(next, 5000); };
+      const stop = () => { if (autoTimer) clearInterval(autoTimer); };
 
-  function startAutoSlide() {
-    stopAutoSlide();
-    autoSlideTimer = setInterval(nextSlide, 5000);
-  }
-
-  function stopAutoSlide() {
-    if (autoSlideTimer) clearInterval(autoSlideTimer);
-  }
-
-  if (totalSlides > 1) {
-    startAutoSlide();
-
-    // Touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    slider.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAutoSlide();
-    }, { passive: true });
-
-    slider.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-          goToSlide(Math.min(currentSlide + 1, totalSlides - 1));
-        } else {
-          goToSlide(Math.max(currentSlide - 1, 0));
-        }
-      }
-      startAutoSlide();
-    }, { passive: true });
-  }
-
-
-  // ---- Fixed GNB on scroll ----
-  const gnbFixed = document.getElementById('gnb-fixed');
-  const heroSection = document.getElementById('hero');
-  let lastScrollY = 0;
-  let gnbVisible = false;
-
-  function handleScroll() {
-    const scrollY = window.scrollY;
-    const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
-
-    if (scrollY > heroHeight) {
-      if (!gnbVisible) {
-        gnbFixed.style.transform = 'translateY(0)';
-        gnbVisible = true;
-      }
-    } else {
-      if (gnbVisible) {
-        gnbFixed.style.transform = 'translateY(-100%)';
-        gnbVisible = false;
+      if (totalSlides > 1) {
+        start();
+        let touchStartX = 0;
+        slider.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stop();
+        }, { passive: true });
+        slider.addEventListener('touchend', (e) => {
+          const dx = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(dx) > 50) goTo(currentSlide + (dx > 0 ? 1 : -1));
+          start();
+        }, { passive: true });
       }
     }
 
-    lastScrollY = scrollY;
-  }
+    // ---- Mobile menu ----
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-close');
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+    const openMenu = () => {
+      if (!mobileMenu) return;
+      mobileMenu.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      if (!mobileMenu) return;
+      mobileMenu.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
 
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // ---- Scroll to top ----
-  const scrollTopBtn = document.getElementById('scroll-top-btn');
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
+    // ---- Scroll to top ----
+    const topBtn = document.getElementById('scroll-top-btn');
+    topBtn?.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  }
 
-
-  // ---- Mobile menu ----
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    });
-
-    mobileMenuClose.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
-    });
-
-    // Close on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        document.body.style.overflow = '';
+    // ---- Floating buttons (toast for placeholder links) ----
+    document.querySelectorAll('[data-action="consult"]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const url = el.getAttribute('data-url');
+        if (!url || url === '#') {
+          e.preventDefault();
+          alert('상담신청 폼(Tally) URL을 연결해주세요.');
+        }
       });
     });
-  }
+    document.querySelectorAll('[data-action="kakao"]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const url = el.getAttribute('data-url');
+        if (!url || url === '#') {
+          e.preventDefault();
+          alert('카카오톡 채널 URL을 연결해주세요.');
+        }
+      });
+    });
 
-});
+    // ---- Reveal on scroll ----
+    const revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            en.target.classList.add('visible');
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => io.observe(el));
+    }
+
+    // ---- Active nav link highlight ----
+    const path = location.pathname.replace(/\/index\.html$/, '/');
+    document.querySelectorAll('.site-nav a, .mobile-menu a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href) return;
+      const norm = href.replace(/\/index\.html$/, '/');
+      if (norm === path || (norm !== '/' && path.startsWith(norm))) {
+        a.classList.add('active');
+      }
+    });
+
+  });
+})();
