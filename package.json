@@ -1,0 +1,13 @@
+{
+  "name": "enlivespace-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "optimize": "node scripts/optimize-images.mjs",
+    "build": "node scripts/build-pages.mjs",
+    "all": "npm run optimize && npm run build"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "project": "proj-02",
+  "folder": "성복역 롯데캐슬골드타운아파트",
+  "sections": {
+    "living": [
+      {
+        "kind": "hero",
+        "source": "proj-02-hero-after.jpg",
+        "variants": [
+          {
+            "name": "proj-02-hero-after.webp",
+            "size": 138462,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-hero-after-1200.webp",
+            "size": 51998,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-hero-after-600.webp",
+            "size": 15060,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "proj-02-hero-before.jpg",
+        "variants": [
+          {
+            "name": "proj-02-hero-before.webp",
+            "size": 223818,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-hero-before-1200.webp",
+            "size": 97870,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-hero-before-600.webp",
+            "size": 25704,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-01.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-01.webp",
+            "size": 102668,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-01-1200.webp",
+            "size": 37818,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-01-600.webp",
+            "size": 10710,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-02.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-02.webp",
+            "size": 130128,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-02-1200.webp",
+            "size": 53622,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-02-600.webp",
+            "size": 15836,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-03.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-03.webp",
+            "size": 180366,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-03-1200.webp",
+            "size": 77214,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-03-600.webp",
+            "size": 23234,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-04.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-04.webp",
+            "size": 105826,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-04-1200.webp",
+            "size": 44126,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-04-600.webp",
+            "size": 14218,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-05.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-05.webp",
+            "size": 96176,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-05-1200.webp",
+            "size": 40146,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-living-05-600.webp",
+            "size": 13410,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-06.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-06.webp",
+            "size": 329240,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-06-1200.webp",
+            "size": 110818,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-06-600.webp",
+            "size": 25634,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-07.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-07.webp",
+            "size": 245314,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-07-1200.webp",
+            "size": 73492,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-07-600.webp",
+            "size": 19278,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-08.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-08.webp",
+            "size": 259360,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-08-1200.webp",
+            "size": 80668,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-08-600.webp",
+            "size": 10380,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-09.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-09.webp",
+            "size": 247956,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-09-1200.webp",
+            "size": 85736,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-09-600.webp",
+            "size": 19794,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-living-10.jpg",
+        "variants": [
+          {
+            "name": "proj-02-living-10.webp",
+            "size": 308758,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-10-1200.webp",
+            "size": 125326,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-living-10-600.webp",
+            "size": 31282,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "kitchen": [
+      {
+        "kind": "hero",
+        "source": "proj-02-kitchen-hero-before.jpg",
+        "variants": [
+          {
+            "name": "proj-02-kitchen-hero-before.webp",
+            "size": 384120,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-kitchen-hero-before-1200.webp",
+            "size": 188726,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-kitchen-hero-before-600.webp",
+            "size": 57350,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-kitchen-01.jpg",
+        "variants": [
+          {
+            "name": "proj-02-kitchen-01.webp",
+            "size": 142146,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-kitchen-01-1200.webp",
+            "size": 57368,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-kitchen-01-600.webp",
+            "size": 17646,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-kitchen-02.jpg",
+        "variants": [
+          {
+            "name": "proj-02-kitchen-02.webp",
+            "size": 136914,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-kitchen-02-1200.webp",
+            "size": 50406,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-kitchen-02-600.webp",
+            "size": 13558,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-kitchen-03.jpg",
+        "variants": [
+          {
+            "name": "proj-02-kitchen-03.webp",
+            "size": 426008,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-kitchen-03-1200.webp",
+            "size": 128102,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-kitchen-03-600.webp",
+            "size": 13382,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "bed-a": [
+      {
+        "kind": "hero",
+        "source": "proj-02-bed-a-hero-after.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-hero-after.webp",
+            "size": 106082,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-a-hero-after-1200.webp",
+            "size": 45018,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-a-hero-after-600.webp",
+            "size": 13254,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "proj-02-bed-a-hero-before.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-hero-before.webp",
+            "size": 130518,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-a-hero-before-1200.webp",
+            "size": 56750,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-a-hero-before-600.webp",
+            "size": 16768,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-a-01.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-01.webp",
+            "size": 167312,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-01-1200.webp",
+            "size": 77062,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-01-600.webp",
+            "size": 25366,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-a-02.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-02.webp",
+            "size": 211806,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-02-1200.webp",
+            "size": 98592,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-02-600.webp",
+            "size": 31418,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-a-03.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-03.webp",
+            "size": 97028,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-03-1200.webp",
+            "size": 36166,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-03-600.webp",
+            "size": 9944,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-a-04.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-04.webp",
+            "size": 164542,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-04-1200.webp",
+            "size": 61960,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-04-600.webp",
+            "size": 17090,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-a-05.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-05.webp",
+            "size": 163378,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-05-1200.webp",
+            "size": 68908,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-05-600.webp",
+            "size": 22246,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-a-06.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-a-06.webp",
+            "size": 207202,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-06-1200.webp",
+            "size": 95698,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-a-06-600.webp",
+            "size": 30256,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "bed-b": [
+      {
+        "kind": "hero",
+        "source": "proj-02-bed-b-hero-after.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-b-hero-after.webp",
+            "size": 128102,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-b-hero-after-1200.webp",
+            "size": 56850,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-b-hero-after-600.webp",
+            "size": 18232,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "proj-02-bed-b-hero-before.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-b-hero-before.webp",
+            "size": 122040,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-b-hero-before-1200.webp",
+            "size": 56344,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-b-hero-before-600.webp",
+            "size": 16034,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-b-01.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-b-01.webp",
+            "size": 245966,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-b-01-1200.webp",
+            "size": 109202,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-b-01-600.webp",
+            "size": 32118,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-b-02.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-b-02.webp",
+            "size": 322674,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-b-02-1200.webp",
+            "size": 138610,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-b-02-600.webp",
+            "size": 40738,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-b-03.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-b-03.webp",
+            "size": 66488,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-b-03-1200.webp",
+            "size": 25400,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-b-03-600.webp",
+            "size": 7370,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "bed-c": [
+      {
+        "kind": "hero",
+        "source": "proj-02-bed-c-hero-after.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-c-hero-after.webp",
+            "size": 53932,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-c-hero-after-1200.webp",
+            "size": 23572,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-c-hero-after-600.webp",
+            "size": 7634,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "proj-02-bed-c-hero-before.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-c-hero-before.webp",
+            "size": 177060,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-c-hero-before-1200.webp",
+            "size": 77460,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-bed-c-hero-before-600.webp",
+            "size": 21462,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-c-01.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-c-01.webp",
+            "size": 97742,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-c-01-1200.webp",
+            "size": 37996,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-c-01-600.webp",
+            "size": 11168,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-bed-c-02.jpg",
+        "variants": [
+          {
+            "name": "proj-02-bed-c-02.webp",
+            "size": 135778,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-c-02-1200.webp",
+            "size": 53064,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-bed-c-02-600.webp",
+            "size": 13922,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "entrance": [
+      {
+        "kind": "regular",
+        "source": "proj-02-entrance-01.jpg",
+        "variants": [
+          {
+            "name": "proj-02-entrance-01.webp",
+            "size": 245678,
+            "w": 1848,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-entrance-01-1200.webp",
+            "size": 118994,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-entrance-01-600.webp",
+            "size": 37054,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-02-entrance-02.jpg",
+        "variants": [
+          {
+            "name": "proj-02-entrance-02.webp",
+            "size": 263580,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-entrance-02-1200.webp",
+            "size": 78414,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-02-entrance-02-600.webp",
+            "size": 13514,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ]
+  }
+}

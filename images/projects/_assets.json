@@ -1,0 +1,81 @@
+{
+  "heroSlides": [
+    {
+      "href": "/project/2.html",
+      "title": "성복역 롯데캐슬골드타운",
+      "main": "/images/projects/proj-02/proj-02-hero-after.webp",
+      "mid": "/images/projects/proj-02/proj-02-hero-after-1200.webp"
+    },
+    {
+      "href": "/project/3.html",
+      "title": "신당동 남산타운",
+      "main": "/images/projects/proj-03/proj-03-hero-after.webp",
+      "mid": "/images/projects/proj-03/proj-03-hero-after-1200.webp"
+    },
+    {
+      "href": "/project/4.html",
+      "title": "은어송마을 코오롱하늘채2단지",
+      "main": "/images/projects/proj-04/proj-04-hero-after.webp",
+      "mid": "/images/projects/proj-04/proj-04-hero-after-1200.webp"
+    },
+    {
+      "href": "/project/5.html",
+      "title": "이태원 단독주택 에어비엔비",
+      "main": "/images/projects/proj-05/proj-05-hero-after.webp",
+      "mid": "/images/projects/proj-05/proj-05-hero-after-1200.webp"
+    },
+    {
+      "href": "/project/6.html",
+      "title": "판교원9단지 한림풀에버",
+      "main": "/images/projects/proj-06/proj-06-hero-after.webp",
+      "mid": "/images/projects/proj-06/proj-06-hero-after-1200.webp"
+    }
+  ],
+  "portfolioCovers": [
+    {
+      "slug": "2",
+      "title": "성복역 롯데캐슬골드타운",
+      "subtitle": "따뜻한 우드톤으로 마무리한 35평 아파트",
+      "pricePerPy": "평당 350~400만 원대",
+      "type": "apartment",
+      "cover": "/images/projects/proj-02/proj-02-hero-after-1200.webp",
+      "cover600": "/images/projects/proj-02/proj-02-hero-after-600.webp"
+    },
+    {
+      "slug": "3",
+      "title": "신당동 남산타운",
+      "subtitle": "컴팩트한 26평을 효율적으로 풀어낸 리모델링",
+      "pricePerPy": "평당 300~340만 원대",
+      "type": "apartment",
+      "cover": "/images/projects/proj-03/proj-03-hero-after-1200.webp",
+      "cover600": "/images/projects/proj-03/proj-03-hero-after-600.webp"
+    },
+    {
+      "slug": "4",
+      "title": "은어송마을 코오롱하늘채2단지",
+      "subtitle": "대전 35평, 가족이 머무는 자리를 정리하다",
+      "pricePerPy": "평당 320~380만 원대",
+      "type": "apartment",
+      "cover": "/images/projects/proj-04/proj-04-hero-after-1200.webp",
+      "cover600": "/images/projects/proj-04/proj-04-hero-after-600.webp"
+    },
+    {
+      "slug": "5",
+      "title": "이태원 단독주택 에어비엔비",
+      "subtitle": "게스트의 동선을 고려한 34평 단독주택 리모델링",
+      "pricePerPy": "평당 380~430만 원대",
+      "type": "house",
+      "cover": "/images/projects/proj-05/proj-05-hero-after-1200.webp",
+      "cover600": "/images/projects/proj-05/proj-05-hero-after-600.webp"
+    },
+    {
+      "slug": "6",
+      "title": "판교원9단지 한림풀에버",
+      "subtitle": "판교 29평, 모든 공간을 손본 풀 리모델링",
+      "pricePerPy": "평당 380~420만 원대",
+      "type": "apartment",
+      "cover": "/images/projects/proj-06/proj-06-hero-after-1200.webp",
+      "cover600": "/images/projects/proj-06/proj-06-hero-after-600.webp"
+    }
+  ]
+}
