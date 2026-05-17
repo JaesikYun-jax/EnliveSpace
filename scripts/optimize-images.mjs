@@ -6,6 +6,11 @@ import sharp from 'sharp';
 const SRC = '/Users/j6/Downloads/drive-download-20260516T063331Z-3-001';
 const OUT = path.resolve(process.cwd(), 'images/projects');
 
+// Override source paths per-project when sources live outside SRC (e.g. delivered later)
+const SRC_OVERRIDES = {
+  '01': '/Users/j6/Downloads/산운12단지 판교센트럴포레와이시티',
+};
+
 const SECTION_MAP = {
   '거실': 'living',
   '주방': 'kitchen',
@@ -22,6 +27,7 @@ const SECTION_MAP = {
 };
 
 const PROJECT_MAP = {
+  '산운12단지 판교센트럴포레와이시티': '01',
   '성복역 롯데캐슬골드타운아파트': '02',
   '신당동 남산타운아파트': '03',
   '은어송마을코오롱하늘채2단지아파트': '04',
@@ -75,7 +81,7 @@ async function convertOne(srcPath, outDir, baseName) {
 }
 
 async function processProject(korFolder, projNum) {
-  const projSrc = path.join(SRC, korFolder);
+  const projSrc = SRC_OVERRIDES[projNum] ?? path.join(SRC, korFolder);
   const projOut = path.join(OUT, `proj-${projNum}`);
   await fs.mkdir(projOut, { recursive: true });
 
@@ -121,7 +127,7 @@ async function processProject(korFolder, projNum) {
       }
     }
 
-    // Regular files in section folder
+    // Regular files in section folder (also catches hero files placed directly here)
     const files = await listJpg(sectionDir);
     for (const f of files) {
       const fname = path.basename(f, path.extname(f));
@@ -129,8 +135,14 @@ async function processProject(korFolder, projNum) {
         console.log(`    ⏭ skipped non-renamed: ${path.basename(f)}`);
         continue;
       }
+      // Hero before/after files placed directly in section folder (no 비포에프터 sub)
+      const isHero = /proj-\d+-(hero|.*-hero)-(before|after)$/.test(fname);
       const res = await convertOne(f, projOut, fname);
-      sectionFiles.push({ kind: 'regular', source: path.basename(f), variants: res });
+      sectionFiles.push({
+        kind: isHero ? 'hero' : 'regular',
+        source: path.basename(f),
+        variants: res,
+      });
       total.in++;
       res.forEach((r) => (total.outBytes += r.size));
       total.files += res.length;

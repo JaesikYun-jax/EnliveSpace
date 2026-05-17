@@ -1,6 +1,12 @@
 {
   "heroSlides": [
     {
+      "href": "/project/1.html",
+      "title": "산운12단지 판교센트럴포레와이시티",
+      "main": "/images/projects/proj-01/proj-01-hero-after.webp",
+      "mid": "/images/projects/proj-01/proj-01-hero-after-1200.webp"
+    },
+    {
       "href": "/project/2.html",
       "title": "성복역 롯데캐슬골드타운",
       "main": "/images/projects/proj-02/proj-02-hero-after.webp",
@@ -32,6 +38,15 @@
     }
   ],
   "portfolioCovers": [
+    {
+      "slug": "1",
+      "title": "산운12단지 판교센트럴포레와이시티",
+      "subtitle": "판교 24평, 욕실 두 곳까지 손본 풀 리모델링",
+      "pricePerPy": "평당 360~410만 원대",
+      "type": "apartment",
+      "cover": "/images/projects/proj-01/proj-01-hero-after-1200.webp",
+      "cover600": "/images/projects/proj-01/proj-01-hero-after-600.webp"
+    },
     {
       "slug": "2",
       "title": "성복역 롯데캐슬골드타운",
