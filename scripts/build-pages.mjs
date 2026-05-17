@@ -557,9 +557,9 @@ ${HEADER}
       </div>
       <div class="absolute inset-0 flex items-end pointer-events-none">
         <div class="px-5 sm:px-10 pb-10 sm:pb-16 w-full max-w-[1440px] mx-auto">
-          <p class="font-en text-white/90 text-xs sm:text-sm tracking-widest uppercase mb-3">Portfolio</p>
+          <p class="font-en text-white text-xs sm:text-sm tracking-widest uppercase mb-3">Portfolio</p>
           <h1 class="font-kr font-bold text-white text-3xl sm:text-5xl tracking-tight mb-2">포트폴리오</h1>
-          <p class="font-kr text-white/80 text-sm sm:text-base">인라이븐스페이스가 바꾼 공간을 만나보세요.</p>
+          <p class="font-kr text-white text-sm sm:text-base">인라이븐스페이스가 바꾼 공간을 만나보세요.</p>
         </div>
       </div>
       <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none"></div>
