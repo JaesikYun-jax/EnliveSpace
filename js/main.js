@@ -42,6 +42,55 @@
       }
     }
 
+    // ---- Portfolio strip prev/next (메인 페이지 PC) ----
+    const stripTrack = document.getElementById('portfolio-strip-track');
+    const stripPrev = document.getElementById('strip-prev');
+    const stripNext = document.getElementById('strip-next');
+    if (stripTrack && stripPrev && stripNext) {
+      const cards = () => Array.from(stripTrack.querySelectorAll('a'));
+
+      // Find index of the leftmost fully-visible card
+      const currentIndex = () => {
+        const list = cards();
+        const trackLeft = stripTrack.getBoundingClientRect().left;
+        for (let i = 0; i < list.length; i++) {
+          const cr = list[i].getBoundingClientRect();
+          // First card whose right edge is past track's left edge by >2px
+          if (cr.right - trackLeft > 2) return i;
+        }
+        return list.length - 1;
+      };
+
+      const scrollToCard = (idx) => {
+        const list = cards();
+        if (idx < 0) idx = 0;
+        if (idx > list.length - 1) idx = list.length - 1;
+        const card = list[idx];
+        if (!card) return;
+        const trackLeft = stripTrack.getBoundingClientRect().left;
+        const cardLeft = card.getBoundingClientRect().left;
+        const delta = cardLeft - trackLeft;
+        stripTrack.scrollTo({ left: stripTrack.scrollLeft + delta, behavior: 'smooth' });
+      };
+
+      const updateButtons = () => {
+        const max = stripTrack.scrollWidth - stripTrack.clientWidth;
+        stripPrev.disabled = stripTrack.scrollLeft <= 1;
+        stripNext.disabled = stripTrack.scrollLeft >= max - 1;
+      };
+
+      stripPrev.addEventListener('click', () => scrollToCard(currentIndex() - 1));
+      stripNext.addEventListener('click', () => scrollToCard(currentIndex() + 1));
+      stripTrack.addEventListener('scroll', updateButtons, { passive: true });
+      window.addEventListener('resize', updateButtons);
+      updateButtons();
+      window.addEventListener('load', updateButtons);
+      stripTrack.querySelectorAll('img').forEach(img => {
+        if (img.complete) return;
+        img.addEventListener('load', updateButtons, { once: true });
+      });
+    }
+
     // ---- Mobile menu ----
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
