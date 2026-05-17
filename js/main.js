@@ -117,11 +117,14 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ---- Floating buttons (toast for placeholder links) ----
+    // ---- Floating buttons: fall back to placeholder alert only when href not wired ----
+    const isPlaceholderHref = (el) => {
+      const href = el.getAttribute('href') || '';
+      return !href || href === '#' || href.endsWith('#');
+    };
     document.querySelectorAll('[data-action="consult"]').forEach(el => {
       el.addEventListener('click', (e) => {
-        const url = el.getAttribute('data-url');
-        if (!url || url === '#') {
+        if (isPlaceholderHref(el)) {
           e.preventDefault();
           alert('상담신청 폼(Tally) URL을 연결해주세요.');
         }
@@ -129,8 +132,7 @@
     });
     document.querySelectorAll('[data-action="kakao"]').forEach(el => {
       el.addEventListener('click', (e) => {
-        const url = el.getAttribute('data-url');
-        if (!url || url === '#') {
+        if (isPlaceholderHref(el)) {
           e.preventDefault();
           alert('카카오톡 채널 URL을 연결해주세요.');
         }
