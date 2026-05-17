@@ -109,7 +109,7 @@ const FOOTER = `
 const TW_CONFIG = `
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwindcss.config = {
+    tailwind.config = {
       theme: { extend: {
         fontFamily: {
           sans: ['NanumSquare','Noto Sans KR','sans-serif'],
