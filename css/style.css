@@ -131,7 +131,7 @@ body {
 }
 
 .site-logo img {
-  height: 28px;
+  height: 38px;
   width: auto;
   display: block;
 }
@@ -139,6 +139,14 @@ body {
 @media (min-width: 768px) {
   .site-logo {
     font-size: 22px;
+  }
+  .site-logo img {
+    height: 44px;
+  }
+}
+@media (min-width: 1024px) {
+  .site-logo img {
+    height: 48px;
   }
 }
 
@@ -338,9 +346,14 @@ body {
   line-height: 1.15;
 }
 .footer-logo img {
-  height: 44px;
+  height: 64px;
   width: auto;
   display: block;
+}
+@media (min-width: 768px) {
+  .footer-logo img {
+    height: 72px;
+  }
 }
 
 /* Footer columns wrapper */
