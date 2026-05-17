@@ -295,21 +295,35 @@ body {
 .site-footer {
   background: var(--color-footer-bg);
   color: var(--color-footer-text);
-  padding: 56px 0 32px;
+  padding: 64px 0 32px;
   margin-top: auto;
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
 }
 .site-footer-inner {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--padding-x);
+}
+
+/* Footer top: logo + columns */
+.footer-top {
   display: grid;
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+@media (min-width: 768px) {
+  .footer-top {
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: flex-start;
+  }
 }
 @media (min-width: 1024px) {
-  .site-footer-inner {
-    grid-template-columns: auto 1fr auto;
-    align-items: flex-start;
-    gap: 56px;
+  .footer-top {
+    grid-template-columns: 260px 1fr;
+    gap: 64px;
   }
 }
 
@@ -317,40 +331,85 @@ body {
   display: inline-flex;
   align-items: center;
   font-family: 'GmarketSansBold', sans-serif;
-  font-size: 28px;
-  letter-spacing: -0.02em;
+  font-size: 26px;
+  letter-spacing: 0.04em;
   color: #fff;
   text-decoration: none;
+  line-height: 1.15;
 }
 .footer-logo img {
-  height: 40px;
+  height: 44px;
   width: auto;
+  display: block;
 }
 
-.footer-info {
+/* Footer columns wrapper */
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+}
+@media (min-width: 768px) {
+  .footer-cols {
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 32px;
+  }
+}
+
+.footer-col-title {
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+.footer-col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.footer-col-list a,
+.footer-col-list li {
   font-family: 'NanumSquare', sans-serif;
   font-size: 13px;
-  line-height: 1.85;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1.55;
 }
-.footer-info .info-line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
-}
-.footer-info .info-line span {
-  white-space: nowrap;
-}
-.footer-info .copyright {
-  margin-top: 14px;
-  font-family: 'GmarketSansMedium', sans-serif;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.48);
+.footer-col-list a:hover {
+  color: #fff;
 }
 
+.footer-contact-line {
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+}
+.footer-contact-line .label {
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 6px;
+}
+.footer-contact-line a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-contact-line a:hover {
+  color: #fff;
+}
+
+/* SNS row */
 .footer-sns {
   display: flex;
   gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
 }
 .footer-sns a {
   width: 40px;
@@ -371,6 +430,54 @@ body {
 .footer-sns svg {
   width: 18px;
   height: 18px;
+}
+
+/* Footer bottom: company info + copyright */
+.footer-bottom {
+  padding-top: 24px;
+}
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 14px;
+}
+.footer-legal a {
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-legal a:hover {
+  color: #fff;
+}
+.footer-legal .divider {
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 400;
+}
+
+.footer-info {
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 12px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer-info .info-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+}
+.footer-info .info-line .sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+.footer-info .copyright {
+  margin-top: 10px;
+  font-family: 'GmarketSansMedium', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
 }
 
 /* ---- Image Placeholder (파일 교체 안내용 - 파일명 큼직하게) ---- */
@@ -472,6 +579,31 @@ input:focus {
 }
 .thumbnail-item.active {
   opacity: 1;
+}
+
+/* ---- Pager (페이지네이션) ---- */
+.pager-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  font-family: 'GmarketSansMedium', sans-serif;
+  background: transparent;
+  color: var(--color-text);
+}
+.pager-btn:hover {
+  background: #171717;
+  color: #fff;
+  border-color: #171717;
+}
+.pager-btn.active {
+  background: #171717;
+  color: #fff;
+  border-color: #171717;
 }
 
 /* hide-on-hero floating buttons for visual safety on dark hero */
