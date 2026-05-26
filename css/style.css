@@ -34,8 +34,8 @@
   --color-border-strong: rgba(0, 0, 0, 0.15);
   --color-footer-bg: #171717;
   --color-footer-text: #ffffff;
-  --color-accent: #FFD60A;
-  --color-kakao: #FAE100;
+  --color-accent: #F2D679; /* 베이지 — 플로팅 상담신청 배경 + 카카오톡 말풍선 */
+  --color-kakao-bg: #171717; /* 검정 — 플로팅 카카오톡 배경 */
   --header-height: 64px;
   --container-max: 1440px;
   --padding-x: 20px;
@@ -283,14 +283,15 @@ body {
 .float-btn--consult {
   background: var(--color-accent);
   color: #171717;
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 900;
   line-height: 1.15;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 .float-btn--kakao {
-  background: var(--color-kakao);
-  color: #381E1E;
+  background: var(--color-kakao-bg);
+  color: var(--color-accent);
 }
 .float-btn--top {
   background: #171717;

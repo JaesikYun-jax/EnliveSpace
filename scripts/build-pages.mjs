@@ -64,9 +64,9 @@ const FOOTER = `
               <li><a href="/reviews.html">서비스 후기</a></li>
             </ul>
             <div class="footer-sns" aria-label="SNS 연결">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><defs><mask id="naverBlogMask"><rect width="24" height="24" fill="white"/><text x="12" y="13.2" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="-0.3" fill="black">Blog</text></mask></defs><path d="M3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-6l-2.3 3a1 1 0 0 1-1.6 0L8.8 18H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" mask="url(#naverBlogMask)"/></svg></a>
+              <a href="http://pf.kakao.com/_eSTPG" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+              <a href="https://www.instagram.com/enlivenspace_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+              <a href="https://blog.naver.com/enlivenspace" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><defs><mask id="naverBlogMask"><rect width="24" height="24" fill="white"/><text x="12" y="13.2" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="-0.3" fill="black">Blog</text></mask></defs><path d="M3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-6l-2.3 3a1 1 0 0 1-1.6 0L8.8 18H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" mask="url(#naverBlogMask)"/></svg></a>
             </div>
           </div>
           <div class="footer-col">
@@ -172,14 +172,13 @@ function buildSrcset(projId, variantSet) {
 function renderRoomTabs(project, manifest) {
   const labels = project.sectionLabels;
   const order = Object.keys(labels).filter((k) => manifest.sections[k]?.length);
-  const tabs = [
-    `<button class="room-tab active" data-room="all" type="button">전체</button>`,
-    ...order.map((sec) => {
-      const count = manifest.sections[sec].reduce((acc, f) => acc + (f.kind === 'regular' ? 1 : 0), 0)
-        + (getHeroPair(manifest.sections[sec])?.after ? 1 : 0);
-      return `<button class="room-tab" data-room="${sec}" type="button">${labels[sec]} (${count})</button>`;
-    }),
-  ];
+  // PDF round-2 feedback: "전체" 탭 제거, 거실/주방/욕실/침실/현관 등 실 섹션만 노출
+  const tabs = order.map((sec, i) => {
+    const count = manifest.sections[sec].reduce((acc, f) => acc + (f.kind === 'regular' ? 1 : 0), 0)
+      + (getHeroPair(manifest.sections[sec])?.after ? 1 : 0);
+    const activeCls = i === 0 ? ' active' : '';
+    return `<button class="room-tab${activeCls}" data-room="${sec}" type="button">${labels[sec]} (${count})</button>`;
+  });
   return tabs.join('\n          ');
 }
 
@@ -308,8 +307,7 @@ ${HEADER}
       <div class="max-w-[1440px] mx-auto">
         <div class="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <p class="font-en text-ink-3 text-xs sm:text-sm tracking-widest uppercase mb-3">Portfolio</p>
-            <h1 class="font-kr font-bold text-2xl sm:text-3xl md:text-4xl mb-3">${project.title}</h1>
+            <h1 class="font-kr font-black text-2xl sm:text-3xl md:text-4xl mb-3 tracking-tight">${project.title}</h1>
             <p class="font-kr text-ink-2 text-sm sm:text-base">${project.subtitle}</p>
           </div>
           <div class="relative">
@@ -352,14 +350,15 @@ ${HEADER}
           </div>
           <div>
             <dl class="grid grid-cols-2 gap-x-6 gap-y-5 font-kr text-sm sm:text-base">
-              <div><dt class="text-ink-3 text-xs mb-1">아파트</dt><dd class="font-bold">${project.apartment}</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">${project.type === 'house' ? '단독주택' : '아파트'}</dt><dd class="font-bold">${project.apartment}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">주소</dt><dd class="font-bold">${project.address}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">평형</dt><dd class="font-bold">${project.pyeong}</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">서비스</dt><dd class="font-bold">${project.service || '—'}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">시공 기간</dt><dd class="font-bold">${project.period}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">시공 시기</dt><dd class="font-bold">${project.completedAt}</dd></div>
-              <div><dt class="text-ink-3 text-xs mb-1">시공 범위</dt><dd class="font-bold">${project.scope}</dd></div>
+              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">시공 범위</dt><dd class="font-bold">${project.scope}</dd></div>
               <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">키워드</dt><dd class="font-bold">${project.keywords}</dd></div>
-              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">평당 견적</dt><dd class="font-bold">${project.pricePerPy}</dd></div>
+              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">디자인비 / 평당 견적</dt><dd class="font-bold">${project.pricePerPy}</dd></div>
             </dl>
           </div>
         </div>
@@ -416,21 +415,21 @@ ${FOOTER}
       });
     });
 
-    // Room tabs filter
+    // Room tabs filter (PDF round-2: '전체' 없음 → 첫 active 탭으로 초기 필터링)
+    function applyRoom(room) {
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = (item.dataset.room === room) ? '' : 'none';
+      });
+    }
     document.querySelectorAll('.room-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        const room = tab.dataset.room;
-        document.querySelectorAll('.gallery-item').forEach(item => {
-          if (room === 'all' || item.dataset.room === room) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
+        applyRoom(tab.dataset.room);
       });
     });
+    const initRoom = document.querySelector('.room-tab.active');
+    if (initRoom) applyRoom(initRoom.dataset.room);
 
     // Share popup
     const shareTrigger = document.getElementById('share-trigger');
@@ -556,8 +555,7 @@ ${HEADER}
       </div>
       <div class="absolute inset-0 z-10 flex items-end pointer-events-none">
         <div class="px-5 sm:px-10 pb-10 sm:pb-16 w-full max-w-[1440px] mx-auto">
-          <p class="font-en text-white text-xs sm:text-sm tracking-widest uppercase mb-3">Portfolio</p>
-          <h1 class="font-kr font-bold text-white text-3xl sm:text-5xl tracking-tight mb-2">포트폴리오</h1>
+          <h1 class="font-kr font-black text-white text-4xl sm:text-6xl tracking-tight mb-2">포트폴리오</h1>
           <p class="font-kr text-white text-sm sm:text-base">인라이븐스페이스가 바꾼 공간을 만나보세요.</p>
         </div>
       </div>
