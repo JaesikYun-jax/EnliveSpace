@@ -173,6 +173,23 @@ function checkPageHtml(report, page, html) {
       `got: ${floatConsult[0]}`,
     );
   }
+
+  // Favicon + web app icons — all pages must declare this set so browsers,
+  // iOS Home Screen, and Android PWA all pick a high-quality icon.
+  // (No SVG favicon — the logo source is raster, so PNG is the canonical form.)
+  const faviconChecks = [
+    [/<link[^>]+rel="icon"[^>]+type="image\/png"[^>]+sizes="32x32"[^>]+href="\/images\/favicon\.png"/, 'PNG 32 favicon'],
+    [/<link[^>]+rel="apple-touch-icon"[^>]+sizes="180x180"[^>]+href="\/images\/favicon-180\.png"/, 'apple-touch-icon 180'],
+    [/<link[^>]+rel="manifest"[^>]+href="\/images\/site\.webmanifest"/, 'web manifest link'],
+    [/<meta[^>]+name="theme-color"[^>]+content="#ffffff"/, 'theme-color meta'],
+  ];
+  // Conversely, must NOT reference the removed SVG favicon
+  report.ok(!/favicon\.svg/.test(html), `${tag} no stale favicon.svg reference`,
+    'remove leftover <link rel="icon" type="image/svg+xml"> — source is raster only');
+  for (const [re, label] of faviconChecks) {
+    report.ok(re.test(html), `${tag} head includes ${label}`,
+      `missing or malformed <link>/<meta> for ${label}`);
+  }
 }
 
 // Asset existence
@@ -220,8 +237,30 @@ async function main() {
       '/images/projects/proj-01/proj-01-hero-after.webp',
       '/images/projects/proj-02/proj-02-hero-after.webp',
       '/images/projects/proj-06/proj-06-hero-after.webp',
+      '/images/favicon.png',
+      '/images/favicon-180.png',
+      '/images/favicon-192.png',
+      '/images/favicon-512.png',
+      '/images/site.webmanifest',
     ];
     for (const a of assets) await checkAsset(report, base, a);
+
+    // ---- site.webmanifest sanity ----
+    report.section('site.webmanifest validity');
+    const mfRes = await fetch(base + '/images/site.webmanifest');
+    let manifest;
+    try {
+      manifest = await mfRes.json();
+      report.pass('site.webmanifest parses as JSON');
+    } catch (e) {
+      report.fail('site.webmanifest parses as JSON', String(e));
+    }
+    if (manifest) {
+      report.ok(manifest.name === 'Enliven Space', 'manifest.name = "Enliven Space"', `got: ${manifest.name}`);
+      const sizes = (manifest.icons || []).map((i) => i.sizes);
+      report.ok(sizes.includes('192x192') && sizes.includes('512x512'),
+        'manifest declares 192x192 and 512x512 PNG icons', `got: ${JSON.stringify(sizes)}`);
+    }
 
     // ---- JS sanity: must check href not data-url for consult buttons ----
     report.section('JS handler sanity');

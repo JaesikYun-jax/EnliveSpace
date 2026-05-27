@@ -16,7 +16,7 @@ npm run test
 3. 페이지별 HTML invariant 검사 + 필수 자산 도달 가능성 + JS 핸들러 sanity 점검
 4. 단 한 건이라도 실패하면 exit 1
 
-머지 직전 마지막으로 한 번 더 실행해 **157+ 검사 모두 pass**를 확인한 뒤에만 `gh pr merge` 호출.
+머지 직전 마지막으로 한 번 더 실행해 **220+ 검사 모두 pass**를 확인한 뒤에만 `gh pr merge` 호출.
 
 ## 페이지 invariant (테스트가 강제하는 규칙)
 
@@ -32,6 +32,7 @@ npm run test
 - hero 영역에 `text-white/80`, `text-white/90` 같은 반투명 흰색 금지 (실 사진 위 가독성 떨어짐)
 - 플로팅 `상담신청` 버튼은 Tally URL 로 직접 링크
 - `js/main.js` 의 consult/kakao 클릭 핸들러는 **`href` 기준으로 placeholder 판정** (`data-url`이 아님 — 그 속성은 더 이상 사용 안 함)
+- 모든 페이지 `<head>` 에는 파비콘 4종 세트가 있어야 함 — PNG 32 icon + apple-touch 180 + manifest 링크 + `theme-color`. 원본은 `images/logo/logo-light.png` (흰색 워드마크) 를 검정 배경에 10% 여백으로 레터박스한 것이며, `npm run favicons` 가 32/180/192/512 PNG 와 `site.webmanifest` 를 생성. (SVG favicon은 원본이 raster 라 의미가 없어 의도적으로 두지 않음 — 테스트가 잔존 참조를 잡아냄. `theme-color` 는 `#ffffff` — 사이트 헤더가 흰색이라 모바일 브라우저 상단 바와 톤 맞춤.)
 
 새 규칙이 필요해지면 `scripts/test-site.mjs` 의 `checkPageHtml` 함수에 추가하고 테스트로 강제할 것.
 
@@ -42,7 +43,8 @@ npm run test
 ```bash
 npm run optimize   # 원본 JPG → WebP 3사이즈 (1920/1200/600) → images/projects/proj-XX/
 npm run build      # manifest 기반으로 project/1.html ~ project/6.html + project/index.html 재생성
-npm run all        # 위 둘 차례로
+npm run favicons   # images/logo/logo-light.png 검정 배경 레터박스 → 32/180/192/512 PNG + site.webmanifest
+npm run all        # optimize → build → favicons → test
 npm run test       # 마지막 검증
 ```
 
@@ -59,6 +61,8 @@ enlivespace/
 ├── project/            # 포트폴리오 (index.html + 1~6.html)
 ├── images/
 │   ├── logo/           # 헤더용(dark) / 푸터용(light), 1x · 2x
+│   ├── favicon*.png    # 32/180/192/512 — logo-light.png 을 검정 배경에 레터박스, npm run favicons 로 생성
+│   ├── site.webmanifest # PWA 매니페스트 — 같은 스크립트로 생성
 │   └── projects/       # proj-01 ~ proj-06 각각 WebP 3사이즈 + manifest.json
 ├── css/style.css       # 모든 페이지 공통 스타일
 ├── js/main.js          # 인터랙션 (hero slider, 룸 필터, 라이트박스, strip arrows 등)
@@ -66,6 +70,7 @@ enlivespace/
     ├── projects-data.mjs    # 프로젝트 메타데이터 단일 출처
     ├── optimize-images.mjs  # sharp 기반 WebP 변환
     ├── build-pages.mjs      # 매니페스트 → 프로젝트 페이지 생성
+    ├── build-favicons.mjs   # logo-light.png 검정 배경 레터박스 → 다중 사이즈 PNG + webmanifest
     ├── test-site.mjs        # 머지 전 검증 (필수)
     └── apply-*.mjs / update-*.mjs  # 일회성 일괄 변환 (기록용 보존)
 ```
