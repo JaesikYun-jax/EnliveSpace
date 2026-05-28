@@ -81,21 +81,21 @@
         "variants": [
           {
             "name": "proj-02-living-02.webp",
-            "size": 130128,
+            "size": 329240,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-02-living-02-1200.webp",
-            "size": 53622,
+            "size": 110818,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-02-living-02-600.webp",
-            "size": 15836,
+            "size": 25634,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -105,19 +105,19 @@
         "variants": [
           {
             "name": "proj-02-living-03.webp",
-            "size": 180366,
+            "size": 245314,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-02-living-03-1200.webp",
-            "size": 77214,
+            "size": 73492,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-02-living-03-600.webp",
-            "size": 23234,
+            "size": 19278,
             "w": 600,
             "vertical": true
           }
@@ -129,21 +129,21 @@
         "variants": [
           {
             "name": "proj-02-living-04.webp",
-            "size": 105826,
+            "size": 259360,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-02-living-04-1200.webp",
-            "size": 44126,
+            "size": 80668,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-02-living-04-600.webp",
-            "size": 14218,
+            "size": 10380,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -153,19 +153,19 @@
         "variants": [
           {
             "name": "proj-02-living-05.webp",
-            "size": 96176,
+            "size": 130128,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-02-living-05-1200.webp",
-            "size": 40146,
+            "size": 53622,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-02-living-05-600.webp",
-            "size": 13410,
+            "size": 15836,
             "w": 600,
             "vertical": false
           }
@@ -177,19 +177,19 @@
         "variants": [
           {
             "name": "proj-02-living-06.webp",
-            "size": 329240,
+            "size": 180366,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-02-living-06-1200.webp",
-            "size": 110818,
+            "size": 77214,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-02-living-06-600.webp",
-            "size": 25634,
+            "size": 23234,
             "w": 600,
             "vertical": true
           }
@@ -201,19 +201,19 @@
         "variants": [
           {
             "name": "proj-02-living-07.webp",
-            "size": 245314,
+            "size": 247956,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-02-living-07-1200.webp",
-            "size": 73492,
+            "size": 85736,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-02-living-07-600.webp",
-            "size": 19278,
+            "size": 19794,
             "w": 600,
             "vertical": true
           }
@@ -225,21 +225,21 @@
         "variants": [
           {
             "name": "proj-02-living-08.webp",
-            "size": 259360,
+            "size": 105826,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-02-living-08-1200.webp",
-            "size": 80668,
+            "size": 44126,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-02-living-08-600.webp",
-            "size": 10380,
+            "size": 14218,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -249,21 +249,21 @@
         "variants": [
           {
             "name": "proj-02-living-09.webp",
-            "size": 247956,
+            "size": 96176,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-02-living-09-1200.webp",
-            "size": 85736,
+            "size": 40146,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-02-living-09-600.webp",
-            "size": 19794,
+            "size": 13410,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -295,23 +295,47 @@
     "kitchen": [
       {
         "kind": "hero",
+        "source": "proj-02-kitchen-hero-after.jpg",
+        "variants": [
+          {
+            "name": "proj-02-kitchen-hero-after.webp",
+            "size": 75772,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-kitchen-hero-after-1200.webp",
+            "size": 35812,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-02-kitchen-hero-after-600.webp",
+            "size": 13258,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
         "source": "proj-02-kitchen-hero-before.jpg",
         "variants": [
           {
             "name": "proj-02-kitchen-hero-before.webp",
-            "size": 384120,
+            "size": 177726,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-02-kitchen-hero-before-1200.webp",
-            "size": 188726,
+            "size": 86820,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-02-kitchen-hero-before-600.webp",
-            "size": 57350,
+            "size": 26914,
             "w": 600,
             "vertical": false
           }
@@ -806,48 +830,48 @@
     ],
     "entrance": [
       {
-        "kind": "regular",
-        "source": "proj-02-entrance-01.jpg",
+        "kind": "hero",
+        "source": "proj-02-entrance-hero-after.jpg",
         "variants": [
           {
-            "name": "proj-02-entrance-01.webp",
-            "size": 245678,
-            "w": 1848,
+            "name": "proj-02-entrance-hero-after.webp",
+            "size": 263580,
+            "w": 1920,
             "vertical": true
           },
           {
-            "name": "proj-02-entrance-01-1200.webp",
-            "size": 118994,
+            "name": "proj-02-entrance-hero-after-1200.webp",
+            "size": 78414,
             "w": 1200,
             "vertical": true
           },
           {
-            "name": "proj-02-entrance-01-600.webp",
-            "size": 37054,
+            "name": "proj-02-entrance-hero-after-600.webp",
+            "size": 13514,
             "w": 600,
             "vertical": true
           }
         ]
       },
       {
-        "kind": "regular",
-        "source": "proj-02-entrance-02.jpg",
+        "kind": "hero",
+        "source": "proj-02-entrance-hero-before.jpg",
         "variants": [
           {
-            "name": "proj-02-entrance-02.webp",
-            "size": 263580,
-            "w": 1920,
+            "name": "proj-02-entrance-hero-before.webp",
+            "size": 245678,
+            "w": 1848,
             "vertical": true
           },
           {
-            "name": "proj-02-entrance-02-1200.webp",
-            "size": 78414,
+            "name": "proj-02-entrance-hero-before-1200.webp",
+            "size": 118994,
             "w": 1200,
             "vertical": true
           },
           {
-            "name": "proj-02-entrance-02-600.webp",
-            "size": 13514,
+            "name": "proj-02-entrance-hero-before-600.webp",
+            "size": 37054,
             "w": 600,
             "vertical": true
           }

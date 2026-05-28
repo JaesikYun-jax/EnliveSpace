@@ -33,19 +33,19 @@
         "variants": [
           {
             "name": "proj-04-hero-before.webp",
-            "size": 142154,
+            "size": 164866,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-hero-before-1200.webp",
-            "size": 57494,
+            "size": 72990,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-hero-before-600.webp",
-            "size": 16632,
+            "size": 20678,
             "w": 600,
             "vertical": false
           }
@@ -81,19 +81,19 @@
         "variants": [
           {
             "name": "proj-04-living-02.webp",
-            "size": 75382,
+            "size": 69118,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-living-02-1200.webp",
-            "size": 31984,
+            "size": 28954,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-living-02-600.webp",
-            "size": 11010,
+            "size": 9658,
             "w": 600,
             "vertical": false
           }
@@ -105,19 +105,19 @@
         "variants": [
           {
             "name": "proj-04-living-03.webp",
-            "size": 69118,
+            "size": 72992,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-living-03-1200.webp",
-            "size": 28954,
+            "size": 24072,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-living-03-600.webp",
-            "size": 9658,
+            "size": 7632,
             "w": 600,
             "vertical": false
           }
@@ -129,19 +129,19 @@
         "variants": [
           {
             "name": "proj-04-living-04.webp",
-            "size": 72992,
+            "size": 38318,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-living-04-1200.webp",
-            "size": 24072,
+            "size": 17262,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-living-04-600.webp",
-            "size": 7632,
+            "size": 6096,
             "w": 600,
             "vertical": false
           }
@@ -153,19 +153,19 @@
         "variants": [
           {
             "name": "proj-04-living-05.webp",
-            "size": 38318,
+            "size": 49688,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-living-05-1200.webp",
-            "size": 17262,
+            "size": 18384,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-living-05-600.webp",
-            "size": 6096,
+            "size": 6218,
             "w": 600,
             "vertical": false
           }
@@ -177,19 +177,19 @@
         "variants": [
           {
             "name": "proj-04-living-06.webp",
-            "size": 49688,
+            "size": 67640,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-living-06-1200.webp",
-            "size": 18384,
+            "size": 26968,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-living-06-600.webp",
-            "size": 6218,
+            "size": 8702,
             "w": 600,
             "vertical": false
           }
@@ -201,21 +201,21 @@
         "variants": [
           {
             "name": "proj-04-living-07.webp",
-            "size": 67640,
+            "size": 125808,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-living-07-1200.webp",
-            "size": 26968,
+            "size": 41728,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-living-07-600.webp",
-            "size": 8702,
+            "size": 12120,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -225,138 +225,18 @@
         "variants": [
           {
             "name": "proj-04-living-08.webp",
-            "size": 125808,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-08-1200.webp",
-            "size": 41728,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-08-600.webp",
-            "size": 12120,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-living-09.jpg",
-        "variants": [
-          {
-            "name": "proj-04-living-09.webp",
-            "size": 65748,
-            "w": 1920,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-living-09-1200.webp",
-            "size": 26312,
-            "w": 1200,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-living-09-600.webp",
-            "size": 9028,
-            "w": 600,
-            "vertical": false
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-living-10.jpg",
-        "variants": [
-          {
-            "name": "proj-04-living-10.webp",
-            "size": 244748,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-10-1200.webp",
-            "size": 69688,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-10-600.webp",
-            "size": 13886,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-living-11.jpg",
-        "variants": [
-          {
-            "name": "proj-04-living-11.webp",
-            "size": 517446,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-11-1200.webp",
-            "size": 150150,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-11-600.webp",
-            "size": 29412,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-living-12.jpg",
-        "variants": [
-          {
-            "name": "proj-04-living-12.webp",
-            "size": 231884,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-12-1200.webp",
-            "size": 93264,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-living-12-600.webp",
-            "size": 28812,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-living-13.jpg",
-        "variants": [
-          {
-            "name": "proj-04-living-13.webp",
             "size": 44626,
             "w": 1920,
             "vertical": false
           },
           {
-            "name": "proj-04-living-13-1200.webp",
+            "name": "proj-04-living-08-1200.webp",
             "size": 17234,
             "w": 1200,
             "vertical": false
           },
           {
-            "name": "proj-04-living-13-600.webp",
+            "name": "proj-04-living-08-600.webp",
             "size": 6126,
             "w": 600,
             "vertical": false
@@ -467,19 +347,19 @@
         "variants": [
           {
             "name": "proj-04-kitchen-03.webp",
-            "size": 99438,
+            "size": 77458,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-kitchen-03-1200.webp",
-            "size": 43202,
+            "size": 31602,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-kitchen-03-600.webp",
-            "size": 14932,
+            "size": 10142,
             "w": 600,
             "vertical": false
           }
@@ -491,21 +371,21 @@
         "variants": [
           {
             "name": "proj-04-kitchen-04.webp",
-            "size": 99486,
+            "size": 203248,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-kitchen-04-1200.webp",
-            "size": 41136,
+            "size": 65926,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-kitchen-04-600.webp",
-            "size": 13822,
+            "size": 19770,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -515,19 +395,19 @@
         "variants": [
           {
             "name": "proj-04-kitchen-05.webp",
-            "size": 81320,
+            "size": 69116,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-04-kitchen-05-1200.webp",
-            "size": 33998,
+            "size": 27640,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-04-kitchen-05-600.webp",
-            "size": 11282,
+            "size": 8884,
             "w": 600,
             "vertical": false
           }
@@ -539,21 +419,21 @@
         "variants": [
           {
             "name": "proj-04-kitchen-06.webp",
-            "size": 77458,
+            "size": 279784,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-kitchen-06-1200.webp",
-            "size": 31602,
+            "size": 65256,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-kitchen-06-600.webp",
-            "size": 10142,
+            "size": 16134,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -563,21 +443,21 @@
         "variants": [
           {
             "name": "proj-04-kitchen-07.webp",
-            "size": 219070,
+            "size": 99520,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-04-kitchen-07-1200.webp",
-            "size": 69834,
+            "size": 42476,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-04-kitchen-07-600.webp",
-            "size": 20652,
+            "size": 13114,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -587,19 +467,19 @@
         "variants": [
           {
             "name": "proj-04-kitchen-08.webp",
-            "size": 203248,
+            "size": 268106,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-04-kitchen-08-1200.webp",
-            "size": 65926,
+            "size": 84074,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-04-kitchen-08-600.webp",
-            "size": 19770,
+            "size": 23314,
             "w": 600,
             "vertical": true
           }
@@ -611,19 +491,19 @@
         "variants": [
           {
             "name": "proj-04-kitchen-09.webp",
-            "size": 206542,
+            "size": 483062,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-04-kitchen-09-1200.webp",
-            "size": 65700,
+            "size": 139864,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-04-kitchen-09-600.webp",
-            "size": 19406,
+            "size": 27692,
             "w": 600,
             "vertical": true
           }
@@ -635,162 +515,18 @@
         "variants": [
           {
             "name": "proj-04-kitchen-10.webp",
-            "size": 69116,
-            "w": 1920,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-kitchen-10-1200.webp",
-            "size": 27640,
-            "w": 1200,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-kitchen-10-600.webp",
-            "size": 8884,
-            "w": 600,
-            "vertical": false
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-kitchen-11.jpg",
-        "variants": [
-          {
-            "name": "proj-04-kitchen-11.webp",
-            "size": 68834,
-            "w": 1920,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-kitchen-11-1200.webp",
-            "size": 27344,
-            "w": 1200,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-kitchen-11-600.webp",
-            "size": 8940,
-            "w": 600,
-            "vertical": false
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-kitchen-12.jpg",
-        "variants": [
-          {
-            "name": "proj-04-kitchen-12.webp",
-            "size": 279784,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-kitchen-12-1200.webp",
-            "size": 65256,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-kitchen-12-600.webp",
-            "size": 16134,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-kitchen-13.jpg",
-        "variants": [
-          {
-            "name": "proj-04-kitchen-13.webp",
-            "size": 99520,
-            "w": 1920,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-kitchen-13-1200.webp",
-            "size": 42476,
-            "w": 1200,
-            "vertical": false
-          },
-          {
-            "name": "proj-04-kitchen-13-600.webp",
-            "size": 13114,
-            "w": 600,
-            "vertical": false
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-kitchen-14.jpg",
-        "variants": [
-          {
-            "name": "proj-04-kitchen-14.webp",
-            "size": 268106,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-kitchen-14-1200.webp",
-            "size": 84074,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-kitchen-14-600.webp",
-            "size": 23314,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-kitchen-15.jpg",
-        "variants": [
-          {
-            "name": "proj-04-kitchen-15.webp",
-            "size": 483062,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-kitchen-15-1200.webp",
-            "size": 139864,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-kitchen-15-600.webp",
-            "size": 27692,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-kitchen-16.jpg",
-        "variants": [
-          {
-            "name": "proj-04-kitchen-16.webp",
             "size": 582554,
             "w": 1920,
             "vertical": true
           },
           {
-            "name": "proj-04-kitchen-16-1200.webp",
+            "name": "proj-04-kitchen-10-1200.webp",
             "size": 166830,
             "w": 1200,
             "vertical": true
           },
           {
-            "name": "proj-04-kitchen-16-600.webp",
+            "name": "proj-04-kitchen-10-600.webp",
             "size": 34414,
             "w": 600,
             "vertical": true
@@ -877,21 +613,21 @@
         "variants": [
           {
             "name": "proj-04-bed-a-02.webp",
-            "size": 128050,
+            "size": 290178,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-bed-a-02-1200.webp",
-            "size": 57038,
+            "size": 113636,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-bed-a-02-600.webp",
-            "size": 18626,
+            "size": 37036,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -901,21 +637,21 @@
         "variants": [
           {
             "name": "proj-04-bed-a-03.webp",
-            "size": 290178,
+            "size": 107772,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-04-bed-a-03-1200.webp",
-            "size": 113636,
+            "size": 41996,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-04-bed-a-03-600.webp",
-            "size": 37036,
+            "size": 13422,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -925,21 +661,21 @@
         "variants": [
           {
             "name": "proj-04-bed-a-04.webp",
-            "size": 107772,
+            "size": 192504,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-bed-a-04-1200.webp",
-            "size": 41996,
+            "size": 67542,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-04-bed-a-04-600.webp",
-            "size": 13422,
+            "size": 21678,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -949,19 +685,19 @@
         "variants": [
           {
             "name": "proj-04-bed-a-05.webp",
-            "size": 192504,
+            "size": 240178,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-05-1200.webp",
-            "size": 67542,
+            "size": 65148,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-05-600.webp",
-            "size": 21678,
+            "size": 20800,
             "w": 600,
             "vertical": true
           }
@@ -973,19 +709,19 @@
         "variants": [
           {
             "name": "proj-04-bed-a-06.webp",
-            "size": 240178,
+            "size": 275168,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-06-1200.webp",
-            "size": 65148,
+            "size": 85882,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-06-600.webp",
-            "size": 20800,
+            "size": 21484,
             "w": 600,
             "vertical": true
           }
@@ -997,19 +733,19 @@
         "variants": [
           {
             "name": "proj-04-bed-a-07.webp",
-            "size": 275168,
+            "size": 234376,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-07-1200.webp",
-            "size": 85882,
+            "size": 86936,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-07-600.webp",
-            "size": 21484,
+            "size": 25586,
             "w": 600,
             "vertical": true
           }
@@ -1021,19 +757,19 @@
         "variants": [
           {
             "name": "proj-04-bed-a-08.webp",
-            "size": 234376,
+            "size": 268884,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-08-1200.webp",
-            "size": 86936,
+            "size": 89576,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-04-bed-a-08-600.webp",
-            "size": 25586,
+            "size": 28994,
             "w": 600,
             "vertical": true
           }
@@ -1045,91 +781,19 @@
         "variants": [
           {
             "name": "proj-04-bed-a-09.webp",
-            "size": 268884,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-bed-a-09-1200.webp",
-            "size": 89576,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-bed-a-09-600.webp",
-            "size": 28994,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-bed-a-10.jpg",
-        "variants": [
-          {
-            "name": "proj-04-bed-a-10.webp",
-            "size": 282252,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-bed-a-10-1200.webp",
-            "size": 85494,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-bed-a-10-600.webp",
-            "size": 20632,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-bed-a-11.jpg",
-        "variants": [
-          {
-            "name": "proj-04-bed-a-11.webp",
             "size": 459092,
             "w": 1920,
             "vertical": true
           },
           {
-            "name": "proj-04-bed-a-11-1200.webp",
+            "name": "proj-04-bed-a-09-1200.webp",
             "size": 123232,
             "w": 1200,
             "vertical": true
           },
           {
-            "name": "proj-04-bed-a-11-600.webp",
+            "name": "proj-04-bed-a-09-600.webp",
             "size": 28906,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-04-bed-a-12.jpg",
-        "variants": [
-          {
-            "name": "proj-04-bed-a-12.webp",
-            "size": 487306,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-bed-a-12-1200.webp",
-            "size": 137874,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-04-bed-a-12-600.webp",
-            "size": 30862,
             "w": 600,
             "vertical": true
           }
@@ -1331,6 +995,30 @@
       }
     ],
     "bed-c": [
+      {
+        "kind": "hero",
+        "source": "proj-04-bed-c-hero-after.jpg",
+        "variants": [
+          {
+            "name": "proj-04-bed-c-hero-after.webp",
+            "size": 98826,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-04-bed-c-hero-after-1200.webp",
+            "size": 38562,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-04-bed-c-hero-after-600.webp",
+            "size": 11432,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
       {
         "kind": "hero",
         "source": "proj-04-bed-c-hero-before.jpg",

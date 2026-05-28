@@ -38,20 +38,28 @@ npm run test
 
 ## 자산 생성 파이프라인
 
-원본 이미지(JPG, 카메라 원본)는 외부에서 받아 `/Users/j6/Downloads/...` 또는 다른 절대 경로에서 가져온다. 다음 두 스크립트로 일괄 처리:
+원본 사진은 `홈페이지제작(인라이븐스페이스)/4. 포트폴리오/` 아래에 프로젝트별 폴더(`1)판교원9단지...` ~ `6)이태원...`)로 보관되고, 그 안에 섹션별 한글 폴더(`거실`, `주방`, `욕실-A`, `침실-A`, `안방`, `Room-A` 등)와 `비포에프터` 하위 폴더가 들어간다. 이 원본 폴더는 2GB+ 라 `.gitignore` 로 빠져 있다.
+
+전체 파이프라인:
 
 ```bash
-npm run optimize   # 원본 JPG → WebP 3사이즈 (1920/1200/600) → images/projects/proj-XX/
+npm run stage      # 원본 폴더 → _staging/ 로 자동 리네임 복사 (proj-XX-section-NN.jpg)
+npm run optimize   # _staging/ → WebP 3사이즈(1920/1200/600) → images/projects/proj-XX/
 npm run build      # manifest 기반으로 project/1.html ~ project/6.html + project/index.html 재생성
 npm run favicons   # images/logo/logo-light.png 검정 배경 레터박스 → 32/180/192/512 PNG + site.webmanifest
-npm run all        # optimize → build → favicons → test
+npm run all        # stage → optimize → build → favicons → test
 npm run test       # 마지막 검증
+
+# dry-run: 분류 누락 / 미지원 섹션 사전 점검
+node scripts/stage-images.mjs --dry-run
 ```
 
-- 소스 경로가 외부 폴더라면 `scripts/optimize-images.mjs` 상단의 `SRC_OVERRIDES` 에 `proj-id → 절대 경로`로 추가
+- **프로젝트 폴더명 → proj-NN** 매핑은 `scripts/stage-images.mjs` 의 `PROJECT_MAP` (예: `판교원9단지 한림풀에버` → `06`, `산운12단지 판교센트럴포레와이시티` → `01`)
+- **섹션 폴더명 → 영문 키** 매핑은 `SECTION_MAP`: 거실 → living, 주방 → kitchen, 욕실-A → bath-a, 안방 → bedroom, Room-A → room-a 등 (`stage-images.mjs` 와 `optimize-images.mjs` 양쪽에 동일 정의)
+- **비포/에프터 사진**: 섹션 폴더의 `비포에프터` 하위 폴더에 두고 파일명에 `비포`/`before` 또는 `에프터`/`애프터`/`after` 마커가 있으면 자동 분류. 거실(`living`)의 비포에프터는 프로젝트 메인 hero → `proj-XX-hero-{before|after}.jpg`, 그 외 섹션은 `proj-XX-{section}-hero-{before|after}.jpg`
+- 분류 불가 파일명(예: 날짜시각 파일)은 `stage-images.mjs` 의 `FILE_KIND_OVERRIDES` 에 명시
 - 새 프로젝트 메타데이터는 `scripts/projects-data.mjs` 의 `PROJECTS` 배열에 객체로 추가 (id, slug, title, address, pyeong, period, completedAt, type, pricePerPy, keywords, scope, description, sectionLabels)
-- 섹션 폴더명 → 영문 키 매핑(`SECTION_MAP`): 거실 → living, 주방 → kitchen, 욕실-A → bath-a, 안방 → bedroom, Room-A → room-a 등
-- 비포/에프터 사진은 섹션 폴더의 `비포에프터` 하위 폴더 또는 섹션 폴더 직접에 `*-hero-before.jpg` / `*-hero-after.jpg` 명명
+- `_staging/` 은 빌드 산출물 — 언제든 삭제 가능, `npm run stage` 가 새로 생성
 
 ## 디렉토리 구조
 
@@ -68,7 +76,8 @@ enlivespace/
 ├── js/main.js          # 인터랙션 (hero slider, 룸 필터, 라이트박스, strip arrows 등)
 └── scripts/
     ├── projects-data.mjs    # 프로젝트 메타데이터 단일 출처
-    ├── optimize-images.mjs  # sharp 기반 WebP 변환
+    ├── stage-images.mjs     # 원본 폴더 → _staging/ 리네임 복사
+    ├── optimize-images.mjs  # sharp 기반 WebP 변환 (_staging/ → images/projects/)
     ├── build-pages.mjs      # 매니페스트 → 프로젝트 페이지 생성
     ├── build-favicons.mjs   # logo-light.png 검정 배경 레터박스 → 다중 사이즈 PNG + webmanifest
     ├── test-site.mjs        # 머지 전 검증 (필수)
