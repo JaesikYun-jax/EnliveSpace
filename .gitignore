@@ -5,3 +5,9 @@ node_modules/
 # 피드백 PDF에서 변환한 검수용 PNG (외부 자료, 저장소에 둘 필요 없음)
 홈페이지 수정_*_pages/
 
+# stage-images.mjs 가 생성하는 중간 산출물 — optimize 가 읽고 버려도 됨
+_staging/
+
+# 원본 사진(2.2GB) — Cloudflare Pages 배포 대상 아님
+홈페이지제작(인라이븐스페이스)/
+

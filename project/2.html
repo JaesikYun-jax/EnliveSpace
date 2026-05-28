@@ -107,11 +107,11 @@
       <div class="max-w-[1440px] mx-auto">
         <div class="flex gap-2 overflow-x-auto scrollbar-none -mx-1 px-1">
           <button class="room-tab active" data-room="living" type="button">거실 (11)</button>
-          <button class="room-tab" data-room="kitchen" type="button">주방 (3)</button>
+          <button class="room-tab" data-room="kitchen" type="button">주방 (4)</button>
           <button class="room-tab" data-room="bed-a" type="button">침실-A (7)</button>
           <button class="room-tab" data-room="bed-b" type="button">침실-B (4)</button>
           <button class="room-tab" data-room="bed-c" type="button">침실-C (3)</button>
-          <button class="room-tab" data-room="entrance" type="button">현관 (2)</button>
+          <button class="room-tab" data-room="entrance" type="button">현관 (1)</button>
         </div>
       </div>
     </section>
@@ -147,7 +147,7 @@
                  loading="lazy" decoding="async">
           </div>
           <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-02/proj-02-living-02.webp">
-            <img class="w-full h-full object-cover aspect-[4/3]"
+            <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-02/proj-02-living-02-600.webp"
                  srcset="/images/projects/proj-02/proj-02-living-02-600.webp 600w, /images/projects/proj-02/proj-02-living-02-1200.webp 1200w"
                  sizes="(min-width: 640px) 33vw, 50vw"
@@ -163,7 +163,7 @@
                  loading="lazy" decoding="async">
           </div>
           <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-02/proj-02-living-04.webp">
-            <img class="w-full h-full object-cover aspect-[4/3]"
+            <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-02/proj-02-living-04-600.webp"
                  srcset="/images/projects/proj-02/proj-02-living-04-600.webp 600w, /images/projects/proj-02/proj-02-living-04-1200.webp 1200w"
                  sizes="(min-width: 640px) 33vw, 50vw"
@@ -195,7 +195,7 @@
                  loading="lazy" decoding="async">
           </div>
           <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-02/proj-02-living-08.webp">
-            <img class="w-full h-full object-cover aspect-[3/4]"
+            <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-02/proj-02-living-08-600.webp"
                  srcset="/images/projects/proj-02/proj-02-living-08-600.webp 600w, /images/projects/proj-02/proj-02-living-08-1200.webp 1200w"
                  sizes="(min-width: 640px) 33vw, 50vw"
@@ -203,7 +203,7 @@
                  loading="lazy" decoding="async">
           </div>
           <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-02/proj-02-living-09.webp">
-            <img class="w-full h-full object-cover aspect-[3/4]"
+            <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-02/proj-02-living-09-600.webp"
                  srcset="/images/projects/proj-02/proj-02-living-09-600.webp 600w, /images/projects/proj-02/proj-02-living-09-1200.webp 1200w"
                  sizes="(min-width: 640px) 33vw, 50vw"
@@ -217,6 +217,25 @@
                  sizes="(min-width: 640px) 33vw, 50vw"
                  alt="성복역 롯데캐슬 골드타운 거실"
                  loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="kitchen" data-lightbox-src="/images/projects/proj-02/proj-02-kitchen-hero-after.webp">
+            <img class="ba-after absolute inset-0 w-full h-full object-cover"
+                 src="/images/projects/proj-02/proj-02-kitchen-hero-after-1200.webp"
+                 srcset="/images/projects/proj-02/proj-02-kitchen-hero-after-1200.webp 1200w, /images/projects/proj-02/proj-02-kitchen-hero-after.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="성복역 롯데캐슬 골드타운 주방 after"
+                 loading="lazy" decoding="async">
+            <img class="ba-before absolute inset-0 w-full h-full object-cover hidden"
+                 src="/images/projects/proj-02/proj-02-kitchen-hero-before-1200.webp"
+                 srcset="/images/projects/proj-02/proj-02-kitchen-hero-before-1200.webp 1200w, /images/projects/proj-02/proj-02-kitchen-hero-before.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="성복역 롯데캐슬 골드타운 주방 before"
+                 loading="lazy" decoding="async">
+            <div class="absolute top-3 left-3 ba-toggle">
+              <button class="active" data-ba="after" type="button">after</button>
+              <button data-ba="before" type="button">before</button>
+            </div>
+            <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">주방</span>
           </div>
           <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-lightbox-src="/images/projects/proj-02/proj-02-kitchen-01.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
@@ -387,21 +406,24 @@
                  alt="성복역 롯데캐슬 골드타운 침실-C"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-02/proj-02-entrance-01.webp">
-            <img class="w-full h-full object-cover aspect-[3/4]"
-                 src="/images/projects/proj-02/proj-02-entrance-01-600.webp"
-                 srcset="/images/projects/proj-02/proj-02-entrance-01-600.webp 600w, /images/projects/proj-02/proj-02-entrance-01-1200.webp 1200w"
-                 sizes="(min-width: 640px) 33vw, 50vw"
-                 alt="성복역 롯데캐슬 골드타운 현관"
+          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="entrance" data-lightbox-src="/images/projects/proj-02/proj-02-entrance-hero-after.webp">
+            <img class="ba-after absolute inset-0 w-full h-full object-cover"
+                 src="/images/projects/proj-02/proj-02-entrance-hero-after-1200.webp"
+                 srcset="/images/projects/proj-02/proj-02-entrance-hero-after-1200.webp 1200w, /images/projects/proj-02/proj-02-entrance-hero-after.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="성복역 롯데캐슬 골드타운 현관 after"
                  loading="lazy" decoding="async">
-          </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-02/proj-02-entrance-02.webp">
-            <img class="w-full h-full object-cover aspect-[3/4]"
-                 src="/images/projects/proj-02/proj-02-entrance-02-600.webp"
-                 srcset="/images/projects/proj-02/proj-02-entrance-02-600.webp 600w, /images/projects/proj-02/proj-02-entrance-02-1200.webp 1200w"
-                 sizes="(min-width: 640px) 33vw, 50vw"
-                 alt="성복역 롯데캐슬 골드타운 현관"
+            <img class="ba-before absolute inset-0 w-full h-full object-cover hidden"
+                 src="/images/projects/proj-02/proj-02-entrance-hero-before-1200.webp"
+                 srcset="/images/projects/proj-02/proj-02-entrance-hero-before-1200.webp 1200w, /images/projects/proj-02/proj-02-entrance-hero-before.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="성복역 롯데캐슬 골드타운 현관 before"
                  loading="lazy" decoding="async">
+            <div class="absolute top-3 left-3 ba-toggle">
+              <button class="active" data-ba="after" type="button">after</button>
+              <button data-ba="before" type="button">before</button>
+            </div>
+            <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">현관</span>
           </div>
         </div>
       </div>
@@ -414,7 +436,7 @@
             <p class="font-kr text-ink-3 text-xs mb-3">상세 내용</p>
             <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">전체 공간은 기존 구조를 살리면서 화이트와 베이지 톤 중심으로 분위기를 정돈했어요.</p>
             <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">부드러운 패브릭과 우드 소재, 간결한 조명 연출을 더해 일상 속 편안함이 느껴지는 공간으로 완성했어요. 거실은 긴 커튼과 미니멀한 가구 구성으로 자연광이 더욱 부드럽게 퍼지도록 연출했어요.</p>
-            <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">다이닝 공간은 조형감 있는 펜던트 조명과 따뜻한 컬러감의 소품으로 톤 변화를 두었고, 침실과 복도 공간 역시 조명과 스타일링 요소를 정리해 집 전체의 톤이 자연스럽게 이어지도록 구성했습니다. *이 현장은 졸리예중과 함께 진행한 현장입니다.</p>
+            <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">다이닝 공간은 조형감 있는 펜던트 조명과 따뜻한 컬러감의 소품으로 톤 변화를 두었고, 침실과 복도 공간 역시 조명과 스타일링 요소를 정리해 집 전체의 톤이 자연스럽게 이어지도록 구성했습니다. *이 현장은 홈리에종과 함께 진행한 현장입니다.</p>
           </div>
           <div>
             <dl class="grid grid-cols-2 gap-x-6 gap-y-5 font-kr text-sm sm:text-base">

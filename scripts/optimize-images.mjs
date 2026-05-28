@@ -3,13 +3,16 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const SRC = '/Users/j6/Downloads/drive-download-20260516T063331Z-3-001';
+// Reads from `_staging/` populated by `scripts/stage-images.mjs`, which copies
+// camera-original JPGs from `홈페이지제작(인라이븐스페이스)/4. 포트폴리오/`
+// and renames them to the proj-XX-section-NN.jpg pattern this script expects.
+const SRC = path.resolve(process.cwd(), '_staging');
 const OUT = path.resolve(process.cwd(), 'images/projects');
 
-// Override source paths per-project when sources live outside SRC (e.g. delivered later)
-const SRC_OVERRIDES = {
-  '01': '/Users/j6/Downloads/산운12단지 판교센트럴포레와이시티',
-};
+// Per-project source overrides. Empty by default since stage-images.mjs places
+// every project under SRC. Add an entry only if a specific project's source
+// lives somewhere else (e.g., a one-off delivered later).
+const SRC_OVERRIDES = {};
 
 const SECTION_MAP = {
   '거실': 'living',
@@ -24,6 +27,9 @@ const SECTION_MAP = {
   'Room-A': 'room-a',
   'Room-B': 'room-b',
   'Room-C': 'room-c',
+  // 메인 인덱스 hero 슬라이더 전용 — projects-data 의 sectionLabels 에 없어
+  // 프로젝트 상세 페이지 갤러리에는 노출되지 않고, index.html 에서만 사용.
+  '메인페이지': 'index-hero',
 };
 
 const PROJECT_MAP = {

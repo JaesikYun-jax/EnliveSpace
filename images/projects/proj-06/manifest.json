@@ -9,19 +9,19 @@
         "variants": [
           {
             "name": "proj-06-hero-after.webp",
-            "size": 67688,
+            "size": 98502,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-hero-after-1200.webp",
-            "size": 19672,
+            "size": 24128,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-hero-after-600.webp",
-            "size": 5338,
+            "size": 6562,
             "w": 600,
             "vertical": false
           }
@@ -33,19 +33,19 @@
         "variants": [
           {
             "name": "proj-06-hero-before.webp",
-            "size": 59026,
-            "w": 1080,
+            "size": 199912,
+            "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-hero-before-1200.webp",
-            "size": 53874,
-            "w": 1080,
+            "size": 66956,
+            "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-hero-before-600.webp",
-            "size": 20304,
+            "size": 18188,
             "w": 600,
             "vertical": false
           }
@@ -480,6 +480,80 @@
             "size": 21304,
             "w": 600,
             "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-06-living-19.jpg",
+        "variants": [
+          {
+            "name": "proj-06-living-19.webp",
+            "size": 67688,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-living-19-1200.webp",
+            "size": 19672,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-living-19-600.webp",
+            "size": 5338,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "index-hero": [
+      {
+        "kind": "regular",
+        "source": "proj-06-index-hero-01.jpg",
+        "variants": [
+          {
+            "name": "proj-06-index-hero-01.webp",
+            "size": 96064,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-index-hero-01-1200.webp",
+            "size": 32950,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-index-hero-01-600.webp",
+            "size": 9588,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-06-index-hero-02.jpg",
+        "variants": [
+          {
+            "name": "proj-06-index-hero-02.webp",
+            "size": 53214,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-index-hero-02-1200.webp",
+            "size": 20702,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-index-hero-02-600.webp",
+            "size": 6392,
+            "w": 600,
+            "vertical": false
           }
         ]
       }

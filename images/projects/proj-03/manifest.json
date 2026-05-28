@@ -443,21 +443,21 @@
         "variants": [
           {
             "name": "proj-03-bedroom-hero-after.webp",
-            "size": 194578,
+            "size": 133934,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-03-bedroom-hero-after-1200.webp",
-            "size": 66534,
+            "size": 56966,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-03-bedroom-hero-after-600.webp",
-            "size": 20456,
+            "size": 16970,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -467,21 +467,21 @@
         "variants": [
           {
             "name": "proj-03-bedroom-hero-before.webp",
-            "size": 73712,
-            "w": 1050,
-            "vertical": true
+            "size": 113410,
+            "w": 1400,
+            "vertical": false
           },
           {
             "name": "proj-03-bedroom-hero-before-1200.webp",
-            "size": 67348,
-            "w": 1050,
-            "vertical": true
+            "size": 73776,
+            "w": 1200,
+            "vertical": false
           },
           {
             "name": "proj-03-bedroom-hero-before-600.webp",
-            "size": 23588,
+            "size": 21656,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -728,48 +728,48 @@
     ],
     "entrance": [
       {
-        "kind": "regular",
-        "source": "proj-03-entrance-01.jpg",
+        "kind": "hero",
+        "source": "proj-03-entrance-hero-after.jpg",
         "variants": [
           {
-            "name": "proj-03-entrance-01.webp",
-            "size": 44236,
-            "w": 1050,
+            "name": "proj-03-entrance-hero-after.webp",
+            "size": 155014,
+            "w": 1920,
             "vertical": true
           },
           {
-            "name": "proj-03-entrance-01-1200.webp",
-            "size": 39160,
-            "w": 1050,
+            "name": "proj-03-entrance-hero-after-1200.webp",
+            "size": 50792,
+            "w": 1200,
             "vertical": true
           },
           {
-            "name": "proj-03-entrance-01-600.webp",
-            "size": 14938,
+            "name": "proj-03-entrance-hero-after-600.webp",
+            "size": 12112,
             "w": 600,
             "vertical": true
           }
         ]
       },
       {
-        "kind": "regular",
-        "source": "proj-03-entrance-02.jpg",
+        "kind": "hero",
+        "source": "proj-03-entrance-hero-before.jpg",
         "variants": [
           {
-            "name": "proj-03-entrance-02.webp",
-            "size": 155014,
-            "w": 1920,
+            "name": "proj-03-entrance-hero-before.webp",
+            "size": 44236,
+            "w": 1050,
             "vertical": true
           },
           {
-            "name": "proj-03-entrance-02-1200.webp",
-            "size": 50792,
-            "w": 1200,
+            "name": "proj-03-entrance-hero-before-1200.webp",
+            "size": 39160,
+            "w": 1050,
             "vertical": true
           },
           {
-            "name": "proj-03-entrance-02-600.webp",
-            "size": 12112,
+            "name": "proj-03-entrance-hero-before-600.webp",
+            "size": 14938,
             "w": 600,
             "vertical": true
           }
