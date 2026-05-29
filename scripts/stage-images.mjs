@@ -55,6 +55,9 @@ const SECTION_MAP = {
   // 메인 인덱스 페이지의 hero 슬라이더 전용 (갤러리에는 노출 안 됨 — projects-data.mjs
   // sectionLabels 에 index-hero 키가 없으므로 build-pages 가 무시).
   '메인페이지': 'index-hero',
+  // 포트폴리오 카드 cover 전용 — manifest 에만 들어가고, build-pages 의
+  // projectCard / portfolioCovers 에서 자동으로 우선 사용 (sectionLabels 무관).
+  '썸네일': 'card-cover',
 };
 
 // Manual overrides for files in 비포에프터/ whose names don't match the

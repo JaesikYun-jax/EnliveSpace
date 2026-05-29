@@ -73,6 +73,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* 한글이 단어 중간에서 끊기지 않도록 — CJK 는 단어(어절) 단위, 영문은 공백 기준.
+     overflow-wrap 은 매우 긴 토큰(URL 등) 이 컨테이너를 넘칠 때의 안전망. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* ---- Typography helpers ---- */

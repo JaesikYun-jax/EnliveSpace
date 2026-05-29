@@ -292,6 +292,32 @@
         ]
       }
     ],
+    "card-cover": [
+      {
+        "kind": "regular",
+        "source": "proj-01-card-cover-01.jpg",
+        "variants": [
+          {
+            "name": "proj-01-card-cover-01.webp",
+            "size": 20590,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-01-card-cover-01-1200.webp",
+            "size": 8296,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-01-card-cover-01-600.webp",
+            "size": 2652,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
     "bath-a": [
       {
         "kind": "hero",
