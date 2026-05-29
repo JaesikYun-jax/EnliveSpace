@@ -96,7 +96,7 @@ const FOOTER = `
   </footer>
   <div class="floating-actions">
     <a class="float-btn float-btn--consult" href="https://tally.so/r/J9eROr" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
-    <a class="float-btn float-btn--kakao" href="#" data-url="#" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
+    <a class="float-btn float-btn--kakao" href="http://pf.kakao.com/_eSTPG" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
     </a>
     <button id="scroll-top-btn" class="float-btn float-btn--top" type="button" aria-label="맨 위로">
@@ -479,16 +479,22 @@ ${FOOTER}
 // PORTFOLIO LISTING
 // =========================
 function projectCard(project, manifest) {
-  // Pick the project's main "after" hero (living section preferred)
+  // Pick cover: 1) manifest 의 'card-cover' 섹션 override → 2) living 의 after-hero → 3) 첫 regular
   const order = Object.keys(project.sectionLabels);
   let cover;
-  for (const sec of order) {
-    const items = manifest.sections[sec];
-    if (!items) continue;
-    const p = getHeroPair(items);
-    if (p?.after) {
-      cover = pick(p.after.variants, '-1200') || pick(p.after.variants, '');
-      break;
+  const cardOverride = manifest.sections['card-cover'];
+  if (cardOverride && cardOverride.length > 0) {
+    cover = pick(cardOverride[0].variants, '-1200') || pick(cardOverride[0].variants, '');
+  }
+  if (!cover) {
+    for (const sec of order) {
+      const items = manifest.sections[sec];
+      if (!items) continue;
+      const p = getHeroPair(items);
+      if (p?.after) {
+        cover = pick(p.after.variants, '-1200') || pick(p.after.variants, '');
+        break;
+      }
     }
   }
   // Fallback: first regular
@@ -655,13 +661,20 @@ async function main() {
     .filter(Boolean);
 
   const portfolioCovers = projectsWithManifests.map(({ project, manifest }) => {
-    const sec = Object.keys(project.sectionLabels).find((s) => {
-      const items = manifest.sections[s];
-      return items && getHeroPair(items)?.after;
-    });
+    // 1) 'card-cover' 섹션 override → 2) living 의 after-hero → 3) 첫 regular
     let cover;
-    if (sec) {
-      cover = pick(getHeroPair(manifest.sections[sec]).after.variants, '-1200');
+    const cardOverride = manifest.sections['card-cover'];
+    if (cardOverride && cardOverride.length > 0) {
+      cover = pick(cardOverride[0].variants, '-1200');
+    }
+    if (!cover) {
+      const sec = Object.keys(project.sectionLabels).find((s) => {
+        const items = manifest.sections[s];
+        return items && getHeroPair(items)?.after;
+      });
+      if (sec) {
+        cover = pick(getHeroPair(manifest.sections[sec]).after.variants, '-1200');
+      }
     }
     if (!cover) {
       for (const s of Object.keys(project.sectionLabels)) {

@@ -30,6 +30,8 @@ const SECTION_MAP = {
   // 메인 인덱스 hero 슬라이더 전용 — projects-data 의 sectionLabels 에 없어
   // 프로젝트 상세 페이지 갤러리에는 노출되지 않고, index.html 에서만 사용.
   '메인페이지': 'index-hero',
+  // 포트폴리오 카드 cover override — projectCard / portfolioCovers 에서 자동 사용.
+  '썸네일': 'card-cover',
 };
 
 const PROJECT_MAP = {
