@@ -182,6 +182,17 @@ function renderRoomTabs(project, manifest) {
   return tabs.join('\n          ');
 }
 
+// 섹션별 첫 화면 노출 카드 수. 초과분은 'data-overflow' 로 표시되어 '사진 더보기' 로 펼침.
+const INITIAL_VISIBLE = 5;
+
+// 섹션의 갤러리 카드 총수 (hero 카드 1 + regular N)
+function sectionCardCount(items) {
+  const pair = getHeroPair(items);
+  const heroCount = pair?.after ? 1 : 0;
+  const regCount = items.filter((f) => f.kind === 'regular').length;
+  return heroCount + regCount;
+}
+
 function renderGalleryCards(project, manifest) {
   const labels = project.sectionLabels;
   const cards = [];
@@ -190,6 +201,8 @@ function renderGalleryCards(project, manifest) {
   for (const section of order) {
     const items = manifest.sections[section];
     const pair = getHeroPair(items);
+    let idx = 0; // 섹션 내 카드 순번 — INITIAL_VISIBLE 이상이면 overflow
+    const ov = () => (idx >= INITIAL_VISIBLE ? ' data-overflow="1"' : '');
 
     // Hero card: before/after toggle (shown only if both exist)
     if (pair?.before && pair?.after) {
@@ -198,7 +211,7 @@ function renderGalleryCards(project, manifest) {
       const beforeMain = pick(pair.before.variants, '');
       const beforeMid = pick(pair.before.variants, '-1200');
       cards.push(`
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="${section}" data-lightbox-src="${projectAssetUrl(project.id, afterMain.name)}">
+          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="${section}"${ov()} data-lightbox-src="${projectAssetUrl(project.id, afterMain.name)}">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="${projectAssetUrl(project.id, afterMid.name)}"
                  srcset="${projectAssetUrl(project.id, afterMid.name)} 1200w, ${projectAssetUrl(project.id, afterMain.name)} 1920w"
@@ -217,13 +230,14 @@ function renderGalleryCards(project, manifest) {
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">${labels[section]}</span>
           </div>`);
+      idx++;
     } else if (pair?.after) {
       // Only after, no before — show as a single card with section label
       const main = pick(pair.after.variants, '');
       const mid = pick(pair.after.variants, '-1200');
       const thumb = pick(pair.after.variants, '-600');
       cards.push(`
-          <div class="gallery-item relative cursor-zoom-in" data-room="${section}" data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
+          <div class="gallery-item relative cursor-zoom-in" data-room="${section}"${ov()} data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="${projectAssetUrl(project.id, thumb.name)}"
                  srcset="${projectAssetUrl(project.id, thumb.name)} 600w, ${projectAssetUrl(project.id, mid.name)} 1200w"
@@ -232,6 +246,7 @@ function renderGalleryCards(project, manifest) {
                  loading="lazy" decoding="async">
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">${labels[section]}</span>
           </div>`);
+      idx++;
     }
 
     // Regular items
@@ -242,7 +257,7 @@ function renderGalleryCards(project, manifest) {
       const thumb = pick(item.variants, '-600');
       const aspect = main.vertical ? 'aspect-[3/4]' : 'aspect-[4/3]';
       cards.push(`
-          <div class="gallery-item relative cursor-zoom-in" data-room="${section}" data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
+          <div class="gallery-item relative cursor-zoom-in" data-room="${section}"${ov()} data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
             <img class="w-full h-full object-cover ${aspect}"
                  src="${projectAssetUrl(project.id, thumb.name)}"
                  srcset="${projectAssetUrl(project.id, thumb.name)} 600w, ${projectAssetUrl(project.id, mid.name)} 1200w"
@@ -250,9 +265,25 @@ function renderGalleryCards(project, manifest) {
                  alt="${project.title} ${labels[section]}"
                  loading="lazy" decoding="async">
           </div>`);
+      idx++;
     }
   }
   return cards.join('');
+}
+
+// 섹션별 '사진 더보기' 버튼 — overflow 카드가 있는 섹션만. 첫 섹션만 초기 표시.
+function renderMoreButtons(project, manifest) {
+  const labels = project.sectionLabels;
+  const order = Object.keys(labels).filter((k) => manifest.sections[k]?.length);
+  return order
+    .map((sec, i) => {
+      const overflow = Math.max(0, sectionCardCount(manifest.sections[sec]) - INITIAL_VISIBLE);
+      if (overflow === 0) return '';
+      const hidden = i === 0 ? '' : ' style="display:none"';
+      return `<button class="gallery-more-btn" data-room="${sec}" data-count="${overflow}"${hidden} type="button">사진 더보기 (${overflow}장)</button>`;
+    })
+    .filter(Boolean)
+    .join('\n          ');
 }
 
 function buildDetailHTML(project, manifest) {
@@ -299,6 +330,8 @@ ${TW_CONFIG}
     .gallery-item { overflow: hidden; }
     .gallery-item img { transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .gallery-item:hover img { transform: scale(1.03); }
+    .gallery-more-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 28px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; color: #171717; background: #fff; transition: all 0.2s ease; }
+    .gallery-more-btn:hover { background: #171717; color: #fff; border-color: #171717; }
   </style>
 </head>
 <body>
@@ -340,6 +373,9 @@ ${HEADER}
     <section class="px-5 sm:px-10 pt-6 pb-16">
       <div class="max-w-[1440px] mx-auto">
         <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">${renderGalleryCards(project, manifest)}
+        </div>
+        <div id="gallery-more" class="text-center mt-6 sm:mt-8">
+          ${renderMoreButtons(project, manifest)}
         </div>
       </div>
     </section>
@@ -418,10 +454,22 @@ ${FOOTER}
       });
     });
 
-    // Room tabs filter (PDF round-2: '전체' 없음 → 첫 active 탭으로 초기 필터링)
+    // Room tabs filter + 섹션별 '사진 더보기/접기'
+    // (PDF round-2: '전체' 없음 → 첫 active 탭으로 초기 필터링)
+    const expandedRooms = {}; // { 섹션: 펼침여부 }
     function applyRoom(room) {
       document.querySelectorAll('.gallery-item').forEach(item => {
-        item.style.display = (item.dataset.room === room) ? '' : 'none';
+        const inRoom = item.dataset.room === room;
+        const isOverflow = item.dataset.overflow === '1';
+        // 같은 섹션이고, overflow 아니거나 펼친 상태면 표시
+        item.style.display = (inRoom && (!isOverflow || expandedRooms[room])) ? '' : 'none';
+      });
+      document.querySelectorAll('.gallery-more-btn').forEach(btn => {
+        const inRoom = btn.dataset.room === room;
+        btn.style.display = inRoom ? '' : 'none';
+        if (inRoom) {
+          btn.textContent = expandedRooms[room] ? '접기' : ('사진 더보기 (' + btn.dataset.count + '장)');
+        }
       });
     }
     document.querySelectorAll('.room-tab').forEach(tab => {
@@ -429,6 +477,13 @@ ${FOOTER}
         document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         applyRoom(tab.dataset.room);
+      });
+    });
+    document.querySelectorAll('.gallery-more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const room = btn.dataset.room;
+        expandedRooms[room] = !expandedRooms[room];
+        applyRoom(room);
       });
     });
     const initRoom = document.querySelector('.room-tab.active');
