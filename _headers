@@ -1,0 +1,9 @@
+# Cloudflare Pages 캐시 정책
+# HTML/CSS/JS 는 항상 재검증(ETag) → 재배포 시 구버전 캐시로 인한 깨짐 방지.
+# 이미지는 파일명이 고정이라 짧게 캐시.
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/images/*
+  Cache-Control: public, max-age=3600

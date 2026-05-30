@@ -248,23 +248,23 @@ body {
 
 /* ---- Floating Action Button (FAB · 상담신청 + 카카오문의 통합) ---- */
 /* 평소엔 1개 토글 버튼(상담 ↔ 카카오 크로스페이드), 누르면 두 버튼이 위로 펼쳐짐 */
+/* 컨테이너는 메인 버튼 크기 그대로(항목은 absolute라 공간 차지 안 함) → 항상 화면 구석에 고정 */
 .fab {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 16px;
+  bottom: 16px;
   z-index: 45;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 12px;
+  width: 60px;
+  height: 60px;
 }
 @media (min-width: 768px) {
-  .fab { right: 28px; bottom: 28px; }
+  .fab { right: 24px; bottom: 24px; }
 }
 
 /* 메인 토글 버튼 */
 .fab-main {
   position: relative;
+  z-index: 2;
   width: 60px;
   height: 60px;
   border-radius: 999px;
@@ -308,6 +308,8 @@ body {
 
 /* 펼침 항목 (상담 / 카카오) — 평소 숨김, 열림 시 위로 튀어나옴 */
 .fab-item {
+  position: absolute;
+  left: 2px; /* 메인(60) 대비 항목(56) 중앙 정렬: (60-56)/2 */
   width: 56px;
   height: 56px;
   border-radius: 999px;
@@ -328,8 +330,9 @@ body {
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s;
 }
-.fab-item--consult { background: var(--color-accent); color: #171717; }
-.fab-item--kakao { background: var(--color-kakao-bg); color: var(--color-accent); }
+/* 메인 버튼 위로 스택 (bottom 기준): kakao = main(60)+gap(12), consult = 그 위 +item(56)+gap(12) */
+.fab-item--kakao { background: var(--color-kakao-bg); color: var(--color-accent); bottom: 72px; }
+.fab-item--consult { background: var(--color-accent); color: #171717; bottom: 140px; }
 .fab.is-open .fab-item { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; }
 .fab.is-open .fab-item--kakao { transition-delay: 0.04s; }
 .fab.is-open .fab-item--consult { transition-delay: 0.09s; }
