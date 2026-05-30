@@ -128,7 +128,7 @@
           </p>
           <div class="flex items-center justify-between border-t border-black/10 pt-4">
             <p class="font-kr text-ink-2 text-sm font-bold">배*현 님</p>
-            <p class="font-en text-ink-3 text-xs">산운12단지 판교센트럴포레스트와이 · 24PY</p>
+            <p class="font-en text-ink-3 text-xs">산운12단지 판교센트럴포레와이시티 · 24PY</p>
           </div>
         </article>
 
@@ -319,17 +319,15 @@
   </footer>
 
   <!-- FLOATING -->
-  <div class="floating-actions">
-    <a class="float-btn float-btn--consult" href="https://tally.so/r/J9eROr" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
-    <a class="float-btn float-btn--kakao" href="http://pf.kakao.com/_eSTPG" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/>
-      </svg>
+  <div class="fab" id="fab" aria-label="플로팅 액션">
+    <a class="fab-item fab-item--consult" href="https://tally.so/r/J9eROr" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
+    <a class="fab-item fab-item--kakao" href="http://pf.kakao.com/_eSTPG" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
     </a>
-    <button id="scroll-top-btn" class="float-btn float-btn--top" type="button" aria-label="맨 위로">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6">
-        <path d="M7 12V2M7 2L2 7M7 2L12 7"/>
-      </svg>
+    <button class="fab-main" id="fab-toggle" type="button" aria-label="문의 메뉴" aria-expanded="false">
+      <span class="fab-face fab-face--consult">상담<br/>신청</span>
+      <span class="fab-face fab-face--kakao"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></span>
+      <span class="fab-face fab-face--close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>
     </button>
   </div>
 

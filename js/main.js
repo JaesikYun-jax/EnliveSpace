@@ -111,11 +111,23 @@
     menuClose?.addEventListener('click', closeMenu);
     mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-    // ---- Scroll to top ----
-    const topBtn = document.getElementById('scroll-top-btn');
-    topBtn?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    // ---- Floating Action Button (FAB) 펼침/접힘 ----
+    const fab = document.getElementById('fab');
+    const fabToggle = document.getElementById('fab-toggle');
+    if (fab && fabToggle) {
+      fabToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = fab.classList.toggle('is-open');
+        fabToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // 바깥 클릭 시 접힘
+      document.addEventListener('click', (e) => {
+        if (fab.classList.contains('is-open') && !fab.contains(e.target)) {
+          fab.classList.remove('is-open');
+          fabToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
     // ---- Floating buttons: fall back to placeholder alert only when href not wired ----
     const isPlaceholderHref = (el) => {

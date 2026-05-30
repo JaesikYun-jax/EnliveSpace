@@ -165,7 +165,7 @@ function checkPageHtml(report, page, html) {
 
   // Floating consult/kakao buttons must NOT use the stale `data-url="#"` attribute
   // (the JS handler used to gate on this — now it gates on href, so the attr is dead weight)
-  const floatConsult = html.match(/class="float-btn float-btn--consult"[^>]*>/);
+  const floatConsult = html.match(/class="fab-item fab-item--consult"[^>]*>/);
   if (floatConsult) {
     report.ok(
       floatConsult[0].includes(TALLY),
