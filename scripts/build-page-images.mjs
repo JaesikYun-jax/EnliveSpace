@@ -33,7 +33,8 @@ const MAPPINGS = [
   { src: '3. 진행방식/진행방식_홈스타일링.jpg', name: 'service-03-home' },
 
   // reviews (5. 후기)
-  { src: '5.후기/후기_상단이미지.jpg', name: 'reviews-hero' },
+  { src: '5.후기/후기_상단이미지.jpg', name: 'reviews-hero' },     // reviews.html 페이지 hero (거실)
+  { src: '5.후기/후기 이미지 삽입.jpg', name: 'reviews-banner' }, // index.html 후기 섹션 상단 배너 (침실)
 ];
 
 const VARIANTS = [
