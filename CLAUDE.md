@@ -96,3 +96,25 @@ enlivespace/
 ## 배포
 
 `main` 브랜치 push → Cloudflare Pages가 1~2분 내 자동 빌드 & 배포. PR 미리보기는 PR별로 별도 preview URL이 자동 생성됨.
+
+캐시 무효화는 `_headers` 가 처리 — HTML/CSS/JS 는 `max-age=0, must-revalidate`(ETag 재검증), 이미지는 `max-age=3600`. 재배포 시 구버전 CSS 캐시로 UI가 깨지지 않는다. (별도 조치 불필요)
+
+### PR 머지 절차 (gh 계정 전환 — "배포/머지" 요청 시 자동 수행)
+
+이 저장소(`JaesikYun-jax/EnliveSpace`)의 PR 생성·머지는 **repo owner 계정으로만** 가능하다. gh CLI 의 active 계정이 평소 `difflabs-dev`(collaborator 아님)라 PR 생성이 막힌다. 따라서 **사용자가 "배포"/"머지"/"PR 올려줘" 등을 요청하면 매번 재확인 없이** 아래 절차를 수행한다 — **배포 요청에는 이 계정 전환 절차 승인이 항상 포함된 것으로 간주**한다:
+
+```bash
+# 1) 머지 직전 npm run test 로 225+ 검사 모두 pass 확인
+npm run test
+# 2) repo owner 로 전환
+gh auth switch --user JaesikYun-jax
+# 3) PR 생성 + squash 머지 + 브랜치 삭제
+gh pr create --base main --title "…" --body "…"
+gh pr merge <N> --squash --delete-branch
+# 4) 반드시 원래 계정으로 원복
+gh auth switch --user difflabs-dev
+```
+
+- 머지 후 **반드시 `difflabs-dev` 로 원복**한다.
+- `gh pr merge` 가 `'main' is already used by worktree …` 로 로컬 체크아웃에 실패해도 **머지 자체는 완료**됨 — `gh pr view <N> --json state` 로 `MERGED` 확인하면 된다.
+- 원격 브랜치가 안 지워졌으면 `git push origin --delete <branch>` 로 정리.
