@@ -94,6 +94,58 @@ body {
   font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   글자 크기 미세조정 — 아래 :root 의 4개 변수 값만 바꾸면 전역 반영된다.
+     · 값 1 = Tailwind 기본 크기,  0.88 = −12%,  1.05 = +5% …
+     · 본문(body)   = text-xs · text-sm · text-base · text-lg · text-xl
+     · 타이틀(title) = text-2xl · text-3xl · text-4xl · text-5xl · text-6xl
+     · 모바일(폰 <640px) 과 PC(≥640px) 를, 본문/타이틀 각각 독립 조절
+   조절 위치: 바로 아래 :root 블록 (이 파일 css/style.css 안)
+   ════════════════════════════════════════════════════════════════════ */
+:root {
+  --fs-body-mobile: 0.88;   /* 모바일 본문 배수 */
+  --fs-title-mobile: 0.88;  /* 모바일 타이틀 배수 */
+  --fs-body-pc: 1;          /* PC 본문 배수 */
+  --fs-title-pc: 1;         /* PC 타이틀 배수 */
+}
+
+/* Tailwind text-* 를 위 변수 배수로 override.
+   html 셀렉터로 specificity(0,1,1)를 높여 Tailwind CDN 주입 순서와 무관하게 우선 적용.
+   각 값 = Tailwind 기본 font-size / line-height (rem) × 변수. */
+
+/* 모바일: 폰 (<640px) — 기본 text-* */
+@media (max-width: 639px) {
+  html .text-xs   { font-size: calc(0.75rem  * var(--fs-body-mobile));  line-height: calc(1rem    * var(--fs-body-mobile)); }
+  html .text-sm   { font-size: calc(0.875rem * var(--fs-body-mobile));  line-height: calc(1.25rem * var(--fs-body-mobile)); }
+  html .text-base { font-size: calc(1rem     * var(--fs-body-mobile));  line-height: calc(1.5rem  * var(--fs-body-mobile)); }
+  html .text-lg   { font-size: calc(1.125rem * var(--fs-body-mobile));  line-height: calc(1.75rem * var(--fs-body-mobile)); }
+  html .text-xl   { font-size: calc(1.25rem  * var(--fs-body-mobile));  line-height: calc(1.75rem * var(--fs-body-mobile)); }
+  html .text-2xl  { font-size: calc(1.5rem   * var(--fs-title-mobile)); line-height: calc(2rem    * var(--fs-title-mobile)); }
+  html .text-3xl  { font-size: calc(1.875rem * var(--fs-title-mobile)); line-height: calc(2.25rem * var(--fs-title-mobile)); }
+  html .text-4xl  { font-size: calc(2.25rem  * var(--fs-title-mobile)); line-height: calc(2.5rem  * var(--fs-title-mobile)); }
+}
+
+/* PC: ≥640px (Tailwind sm) — 기본 + sm: 반응형 변형.
+   기본→sm 순으로 정의해 동일 specificity 에서 큰 화면 변형(sm:)이 우선되게 함(Tailwind 동작 재현). */
+@media (min-width: 640px) {
+  html .text-xs,   html .sm\:text-xs   { font-size: calc(0.75rem  * var(--fs-body-pc));  line-height: calc(1rem    * var(--fs-body-pc)); }
+  html .text-sm,   html .sm\:text-sm   { font-size: calc(0.875rem * var(--fs-body-pc));  line-height: calc(1.25rem * var(--fs-body-pc)); }
+  html .text-base, html .sm\:text-base { font-size: calc(1rem     * var(--fs-body-pc));  line-height: calc(1.5rem  * var(--fs-body-pc)); }
+  html .text-lg,   html .sm\:text-lg   { font-size: calc(1.125rem * var(--fs-body-pc));  line-height: calc(1.75rem * var(--fs-body-pc)); }
+  html .text-xl,   html .sm\:text-xl   { font-size: calc(1.25rem  * var(--fs-body-pc));  line-height: calc(1.75rem * var(--fs-body-pc)); }
+  html .text-2xl,  html .sm\:text-2xl  { font-size: calc(1.5rem   * var(--fs-title-pc)); line-height: calc(2rem    * var(--fs-title-pc)); }
+  html .text-3xl,  html .sm\:text-3xl  { font-size: calc(1.875rem * var(--fs-title-pc)); line-height: calc(2.25rem * var(--fs-title-pc)); }
+  html .text-4xl                       { font-size: calc(2.25rem  * var(--fs-title-pc)); line-height: calc(2.5rem  * var(--fs-title-pc)); }
+  html .sm\:text-5xl { font-size: calc(3rem    * var(--fs-title-pc)); line-height: 1; }
+  html .sm\:text-6xl { font-size: calc(3.75rem * var(--fs-title-pc)); line-height: 1; }
+}
+
+/* PC: ≥768px (Tailwind md) — md: 반응형 변형 (640 블록보다 뒤라 768px↑ 에서 우선) */
+@media (min-width: 768px) {
+  html .md\:text-4xl { font-size: calc(2.25rem  * var(--fs-title-pc)); line-height: calc(2.5rem * var(--fs-title-pc)); }
+  html .md\:text-6xl { font-size: calc(3.75rem  * var(--fs-title-pc)); line-height: 1; }
+}
+
 ::selection {
   background: rgba(0, 0, 0, 0.08);
 }
