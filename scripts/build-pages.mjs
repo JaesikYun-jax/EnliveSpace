@@ -425,7 +425,7 @@ ${HEADER}
           목록
         </a>
         <a href="/project/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink text-ink text-sm font-kr font-bold hover:bg-ink hover:text-white transition-colors">
-          더 많은 공감모음 보러가기
+          더 많은 공간모음 보러가기
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 2L10 7L5 12"/></svg>
         </a>
       </div>
