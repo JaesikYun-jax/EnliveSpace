@@ -32,6 +32,7 @@ npm run test
 - hero 영역에 `text-white/80`, `text-white/90` 같은 반투명 흰색 금지 (실 사진 위 가독성 떨어짐)
 - 플로팅 `상담신청` 버튼은 Tally URL 로 직접 링크
 - `js/main.js` 의 consult/kakao 클릭 핸들러는 **`href` 기준으로 placeholder 판정** (`data-url`이 아님 — 그 속성은 더 이상 사용 안 함)
+- 프로젝트 상세 갤러리(`project/N.html`)는 **퍼즐형 masonry** — `<div id="gallery" class="masonry">` 안의 카드를 JS(`layoutMasonry`)가 "가장 짧은 열"에 절대좌표로 채워 내부 빈칸을 없앤다. 각 카드는 높이 계산용 `data-ar`(가로/세로비)를 갖고, hero(before/after)는 `data-span="2"`로 2칸 폭. **예전 고정 `grid-cols-3` + `row-span-2`로 되돌리지 말 것** — 카드 수가 안 맞으면 우하단에 빈칸이 생긴다. (`build-pages.mjs` 에서 생성, 테스트가 강제)
 - 모든 페이지 `<head>` 에는 파비콘 4종 세트가 있어야 함 — PNG 32 icon + apple-touch 180 + manifest 링크 + `theme-color`. 원본은 `images/logo/logo-light.png` (흰색 워드마크) 를 검정 배경에 10% 여백으로 레터박스한 것이며, `npm run favicons` 가 32/180/192/512 PNG 와 `site.webmanifest` 를 생성. (SVG favicon은 원본이 raster 라 의미가 없어 의도적으로 두지 않음 — 테스트가 잔존 참조를 잡아냄. `theme-color` 는 `#ffffff` — 사이트 헤더가 흰색이라 모바일 브라우저 상단 바와 톤 맞춤.)
 
 새 규칙이 필요해지면 `scripts/test-site.mjs` 의 `checkPageHtml` 함수에 추가하고 테스트로 강제할 것.
