@@ -64,7 +64,7 @@ const FOOTER = `
               <li><a href="/reviews.html">서비스 후기</a></li>
             </ul>
             <div class="footer-sns" aria-label="SNS 연결">
-              <a href="http://pf.kakao.com/_eSTPG" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+              <a href="http://pf.kakao.com/_eSTPG/chat" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
               <a href="https://www.instagram.com/enlivenspace_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
               <a href="https://blog.naver.com/enlivenspace" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><defs><mask id="naverBlogMask"><rect width="24" height="24" fill="white"/><text x="12" y="13.2" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="-0.3" fill="black">Blog</text></mask></defs><path d="M3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-6l-2.3 3a1 1 0 0 1-1.6 0L8.8 18H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" mask="url(#naverBlogMask)"/></svg></a>
             </div>
@@ -96,7 +96,7 @@ const FOOTER = `
   </footer>
   <div class="fab" id="fab" aria-label="플로팅 액션">
     <a class="fab-item fab-item--consult" href="https://tally.so/r/J9eROr" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
-    <a class="fab-item fab-item--kakao" href="http://pf.kakao.com/_eSTPG" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
+    <a class="fab-item fab-item--kakao" href="http://pf.kakao.com/_eSTPG/chat" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
     </a>
     <button class="fab-main" id="fab-toggle" type="button" aria-label="문의 메뉴" aria-expanded="false">
@@ -212,8 +212,13 @@ function renderGalleryCards(project, manifest) {
       const afterMid = pick(pair.after.variants, '-1200');
       const beforeMain = pick(pair.before.variants, '');
       const beforeMid = pick(pair.before.variants, '-1200');
+      // 비포/애프터 hero(after 기준)가 세로 원본이면 가로 크롭 대신 세로비(3:4)로 — 사이트의 일반 세로 카드 규칙(data-ar 0.75)과 동일.
+      // 가로 hero는 기존 와이드 배너(4:3 / 3:2). 비포/애프터 비율이 서로 달라도 한 박스에 object-cover 로 담는다(예: 신당동 거실 before 0.75 / after 0.667).
+      const baVertical = afterMain.vertical;
+      const baAspect = baVertical ? 'aspect-[3/4]' : 'aspect-[4/3] sm:aspect-[3/2]';
+      const baAr = baVertical ? 'data-ar="0.75"' : 'data-ar="1.3333" data-ar-sm="1.5"';
       cards.push(`
-          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="${section}"${ov()} data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="${projectAssetUrl(project.id, afterMain.name)}">
+          <div class="gallery-item relative ba-card cursor-zoom-in ${baAspect}" data-room="${section}"${ov()} data-span="2" ${baAr} data-lightbox-src="${projectAssetUrl(project.id, afterMain.name)}">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="${projectAssetUrl(project.id, afterMid.name)}"
                  srcset="${projectAssetUrl(project.id, afterMid.name)} 1200w, ${projectAssetUrl(project.id, afterMain.name)} 1920w"
