@@ -213,7 +213,7 @@ function renderGalleryCards(project, manifest) {
       const beforeMain = pick(pair.before.variants, '');
       const beforeMid = pick(pair.before.variants, '-1200');
       cards.push(`
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="${section}"${ov()} data-lightbox-src="${projectAssetUrl(project.id, afterMain.name)}">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="${section}"${ov()} data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="${projectAssetUrl(project.id, afterMain.name)}">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="${projectAssetUrl(project.id, afterMid.name)}"
                  srcset="${projectAssetUrl(project.id, afterMid.name)} 1200w, ${projectAssetUrl(project.id, afterMain.name)} 1920w"
@@ -239,7 +239,7 @@ function renderGalleryCards(project, manifest) {
       const mid = pick(pair.after.variants, '-1200');
       const thumb = pick(pair.after.variants, '-600');
       cards.push(`
-          <div class="gallery-item relative cursor-zoom-in" data-room="${section}"${ov()} data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
+          <div class="gallery-item relative cursor-zoom-in" data-room="${section}"${ov()} data-ar="0.75" data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="${projectAssetUrl(project.id, thumb.name)}"
                  srcset="${projectAssetUrl(project.id, thumb.name)} 600w, ${projectAssetUrl(project.id, mid.name)} 1200w"
@@ -259,7 +259,7 @@ function renderGalleryCards(project, manifest) {
       const thumb = pick(item.variants, '-600');
       const aspect = main.vertical ? 'aspect-[3/4]' : 'aspect-[4/3]';
       cards.push(`
-          <div class="gallery-item relative cursor-zoom-in" data-room="${section}"${ov()} data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
+          <div class="gallery-item relative cursor-zoom-in" data-room="${section}"${ov()} data-ar="${main.vertical ? '0.75' : '1.3333'}" data-lightbox-src="${projectAssetUrl(project.id, main.name)}">
             <img class="w-full h-full object-cover ${aspect}"
                  src="${projectAssetUrl(project.id, thumb.name)}"
                  srcset="${projectAssetUrl(project.id, thumb.name)} 600w, ${projectAssetUrl(project.id, mid.name)} 1200w"
@@ -332,6 +332,10 @@ ${TW_CONFIG}
     .gallery-item { overflow: hidden; }
     .gallery-item img { transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .gallery-item:hover img { transform: scale(1.03); }
+    /* 퍼즐형 masonry — 카드는 JS가 절대좌표로 배치(빈틈 없음). --gap 은 기존 gap-2/gap-3 대응 */
+    #gallery { position: relative; --gap: 8px; }
+    @media (min-width: 640px) { #gallery { --gap: 12px; } }
+    #gallery .gallery-item { position: absolute; top: 0; left: 0; }
     .gallery-more-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 28px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; color: #171717; background: #fff; transition: all 0.2s ease; }
     .gallery-more-btn:hover { background: #171717; color: #fff; border-color: #171717; }
   </style>
@@ -374,8 +378,9 @@ ${HEADER}
 
     <section class="px-5 sm:px-10 pt-6 pb-16">
       <div class="max-w-[1440px] mx-auto">
-        <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">${renderGalleryCards(project, manifest)}
+        <div id="gallery" class="masonry" style="visibility:hidden">${renderGalleryCards(project, manifest)}
         </div>
+        <noscript><style>#gallery{visibility:visible!important}#gallery .gallery-item{position:static!important;width:auto!important;height:auto!important;transform:none!important;margin-bottom:12px}</style></noscript>
         <div id="gallery-more" class="text-center mt-6 sm:mt-8">
           ${renderMoreButtons(project, manifest)}
         </div>
@@ -456,6 +461,62 @@ ${FOOTER}
       });
     });
 
+    // ---- 퍼즐형 masonry 배치 (hero 2칸 폭, 나머지는 가장 짧은 열에 채워 내부 빈틈 제거) ----
+    const galleryEl = document.getElementById('gallery');
+    let _mAttempts = 0;
+    function layoutMasonry() {
+      if (!galleryEl) return;
+      const isSm = window.matchMedia('(min-width: 640px)').matches;
+      const cols = isSm ? 3 : 2;
+      const gap = parseFloat(getComputedStyle(galleryEl).getPropertyValue('--gap')) || (isSm ? 12 : 8);
+      const totalW = galleryEl.clientWidth;
+      // 너비가 아직 0이면(폰트/레이아웃 타이밍) 숨긴 채 다음 프레임 재시도 — 영구 숨김 방지
+      if (totalW <= 0) { if (_mAttempts++ < 60) requestAnimationFrame(layoutMasonry); return; }
+      _mAttempts = 0;
+      const colW = (totalW - gap * (cols - 1)) / cols;
+      const colH = new Array(cols).fill(0); // 각 열의 현재 높이
+      const items = Array.prototype.slice.call(galleryEl.querySelectorAll('.gallery-item'))
+        .filter(function (el) { return el.style.display !== 'none'; });
+      items.forEach(function (el) {
+        const span = Math.min(el.dataset.span === '2' ? 2 : 1, cols);
+        const ar = (isSm && el.dataset.arSm ? parseFloat(el.dataset.arSm) : parseFloat(el.dataset.ar)) || 1.3333;
+        let col = 0;
+        if (span === 2) {
+          // 두 열을 차지 → 두 열 중 더 높은 쪽이 가장 낮아지는 시작열 선택
+          let bestH = Infinity;
+          for (let c = 0; c <= cols - 2; c++) {
+            const h = Math.max(colH[c], colH[c + 1]);
+            if (h < bestH - 0.5) { bestH = h; col = c; }
+          }
+        } else {
+          // 가장 짧은 열
+          let bestH = Infinity;
+          for (let c = 0; c < cols; c++) {
+            if (colH[c] < bestH - 0.5) { bestH = colH[c]; col = c; }
+          }
+        }
+        const w = colW * span + gap * (span - 1);
+        const h = w / ar;
+        const x = col * (colW + gap);
+        const y = span === 2 ? Math.max(colH[col], colH[col + 1]) : colH[col];
+        el.style.width = w + 'px';
+        el.style.height = h + 'px';
+        el.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        const bottom = y + h + gap;
+        if (span === 2) { colH[col] = bottom; colH[col + 1] = bottom; }
+        else { colH[col] = bottom; }
+      });
+      galleryEl.style.height = (Math.max.apply(null, colH.concat(gap)) - gap) + 'px';
+      galleryEl.style.visibility = 'visible';
+      galleryEl.classList.add('is-masonry-ready');
+    }
+    let _masonryT;
+    window.addEventListener('resize', function () {
+      clearTimeout(_masonryT);
+      _masonryT = setTimeout(layoutMasonry, 120);
+    });
+    window.addEventListener('load', layoutMasonry);
+
     // Room tabs filter + 섹션별 '사진 더보기/접기'
     // (PDF round-2: '전체' 없음 → 첫 active 탭으로 초기 필터링)
     const expandedRooms = {}; // { 섹션: 펼침여부 }
@@ -473,6 +534,7 @@ ${FOOTER}
           btn.textContent = expandedRooms[room] ? '접기' : ('사진 더보기 (' + btn.dataset.count + '장)');
         }
       });
+      layoutMasonry();
     }
     document.querySelectorAll('.room-tab').forEach(tab => {
       tab.addEventListener('click', () => {

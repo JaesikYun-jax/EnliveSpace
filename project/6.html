@@ -47,6 +47,10 @@
     .gallery-item { overflow: hidden; }
     .gallery-item img { transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .gallery-item:hover img { transform: scale(1.03); }
+    /* 퍼즐형 masonry — 카드는 JS가 절대좌표로 배치(빈틈 없음). --gap 은 기존 gap-2/gap-3 대응 */
+    #gallery { position: relative; --gap: 8px; }
+    @media (min-width: 640px) { #gallery { --gap: 12px; } }
+    #gallery .gallery-item { position: absolute; top: 0; left: 0; }
     .gallery-more-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 28px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; color: #171717; background: #fff; transition: all 0.2s ease; }
     .gallery-more-btn:hover { background: #171717; color: #fff; border-color: #171717; }
   </style>
@@ -122,8 +126,8 @@
 
     <section class="px-5 sm:px-10 pt-6 pb-16">
       <div class="max-w-[1440px] mx-auto">
-        <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="living" data-lightbox-src="/images/projects/proj-06/proj-06-hero-after.webp">
+        <div id="gallery" class="masonry" style="visibility:hidden">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="living" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-hero-after.webp 1920w"
@@ -142,7 +146,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">거실</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-06/proj-06-living-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-01.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-01-600.webp 600w, /images/projects/proj-06/proj-06-living-01-1200.webp 1200w"
@@ -150,7 +154,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-06/proj-06-living-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-02.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-02-600.webp 600w, /images/projects/proj-06/proj-06-living-02-1200.webp 1200w"
@@ -158,7 +162,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-06/proj-06-living-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-03.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-03-600.webp 600w, /images/projects/proj-06/proj-06-living-03-1200.webp 1200w"
@@ -166,7 +170,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-lightbox-src="/images/projects/proj-06/proj-06-living-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-04.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-04-600.webp 600w, /images/projects/proj-06/proj-06-living-04-1200.webp 1200w"
@@ -174,7 +178,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-05.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-05.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-05-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-05-600.webp 600w, /images/projects/proj-06/proj-06-living-05-1200.webp 1200w"
@@ -182,7 +186,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-06.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-06.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-06-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-06-600.webp 600w, /images/projects/proj-06/proj-06-living-06-1200.webp 1200w"
@@ -190,7 +194,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-07.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-07.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-07-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-07-600.webp 600w, /images/projects/proj-06/proj-06-living-07-1200.webp 1200w"
@@ -198,7 +202,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-08.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-08.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-08-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-08-600.webp 600w, /images/projects/proj-06/proj-06-living-08-1200.webp 1200w"
@@ -206,7 +210,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-09.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-09.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-09-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-09-600.webp 600w, /images/projects/proj-06/proj-06-living-09-1200.webp 1200w"
@@ -214,7 +218,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-10.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-10.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-10-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-10-600.webp 600w, /images/projects/proj-06/proj-06-living-10-1200.webp 1200w"
@@ -222,7 +226,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-11.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-living-11.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-living-11-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-11-600.webp 600w, /images/projects/proj-06/proj-06-living-11-1200.webp 1200w"
@@ -230,7 +234,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-12.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-living-12.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-living-12-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-12-600.webp 600w, /images/projects/proj-06/proj-06-living-12-1200.webp 1200w"
@@ -238,7 +242,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-13.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-living-13.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-living-13-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-13-600.webp 600w, /images/projects/proj-06/proj-06-living-13-1200.webp 1200w"
@@ -246,7 +250,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-14.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-14.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-14-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-14-600.webp 600w, /images/projects/proj-06/proj-06-living-14-1200.webp 1200w"
@@ -254,7 +258,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-15.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-15.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-15-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-15-600.webp 600w, /images/projects/proj-06/proj-06-living-15-1200.webp 1200w"
@@ -262,7 +266,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-16.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-living-16.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-living-16-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-16-600.webp 600w, /images/projects/proj-06/proj-06-living-16-1200.webp 1200w"
@@ -270,7 +274,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-17.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-17.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-17-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-17-600.webp 600w, /images/projects/proj-06/proj-06-living-17-1200.webp 1200w"
@@ -278,7 +282,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-18.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-living-18.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-living-18-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-18-600.webp 600w, /images/projects/proj-06/proj-06-living-18-1200.webp 1200w"
@@ -286,7 +290,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-living-19.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="living" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-living-19.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-living-19-600.webp"
                  srcset="/images/projects/proj-06/proj-06-living-19-600.webp 600w, /images/projects/proj-06/proj-06-living-19-1200.webp 1200w"
@@ -294,7 +298,7 @@
                  alt="판교원9단지 한림풀에버 거실"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="kitchen" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-hero-after.webp">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="kitchen" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-kitchen-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-kitchen-hero-after.webp 1920w"
@@ -313,7 +317,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">주방</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-01.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-01-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-01-1200.webp 1200w"
@@ -321,7 +325,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-02.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-02-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-02-1200.webp 1200w"
@@ -329,7 +333,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-03.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-03-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-03-1200.webp 1200w"
@@ -337,7 +341,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-04.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-04-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-04-1200.webp 1200w"
@@ -345,7 +349,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-05.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-05.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-05-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-05-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-05-1200.webp 1200w"
@@ -353,7 +357,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-06.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-06.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-06-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-06-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-06-1200.webp 1200w"
@@ -361,7 +365,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-07.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-07.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-07-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-07-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-07-1200.webp 1200w"
@@ -369,7 +373,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-08.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-08.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-08-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-08-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-08-1200.webp 1200w"
@@ -377,7 +381,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-09.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-09.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-09-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-09-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-09-1200.webp 1200w"
@@ -385,7 +389,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-10.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-10.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-10-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-10-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-10-1200.webp 1200w"
@@ -393,7 +397,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-11.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-11.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-11-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-11-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-11-1200.webp 1200w"
@@ -401,7 +405,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-12.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-12.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-12-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-12-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-12-1200.webp 1200w"
@@ -409,7 +413,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-13.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-13.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-13-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-13-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-13-1200.webp 1200w"
@@ -417,7 +421,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-14.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-14.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-14-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-14-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-14-1200.webp 1200w"
@@ -425,7 +429,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-15.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-15.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-15-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-15-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-15-1200.webp 1200w"
@@ -433,7 +437,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-16.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-16.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-kitchen-16-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-16-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-16-1200.webp 1200w"
@@ -441,7 +445,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-17.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="kitchen" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-kitchen-17.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-kitchen-17-600.webp"
                  srcset="/images/projects/proj-06/proj-06-kitchen-17-600.webp 600w, /images/projects/proj-06/proj-06-kitchen-17-1200.webp 1200w"
@@ -449,7 +453,7 @@
                  alt="판교원9단지 한림풀에버 주방"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bath-a" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-hero-after.webp">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bath-a" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-bath-a-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-a-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-bath-a-hero-after.webp 1920w"
@@ -468,7 +472,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">욕실-A</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-01.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bath-a-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-a-01-600.webp 600w, /images/projects/proj-06/proj-06-bath-a-01-1200.webp 1200w"
@@ -476,7 +480,7 @@
                  alt="판교원9단지 한림풀에버 욕실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-02.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-a-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-a-02-600.webp 600w, /images/projects/proj-06/proj-06-bath-a-02-1200.webp 1200w"
@@ -484,7 +488,7 @@
                  alt="판교원9단지 한림풀에버 욕실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-03.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-a-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-a-03-600.webp 600w, /images/projects/proj-06/proj-06-bath-a-03-1200.webp 1200w"
@@ -492,7 +496,7 @@
                  alt="판교원9단지 한림풀에버 욕실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-04.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-a-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-a-04-600.webp 600w, /images/projects/proj-06/proj-06-bath-a-04-1200.webp 1200w"
@@ -500,7 +504,7 @@
                  alt="판교원9단지 한림풀에버 욕실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-05.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-a" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-a-05.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-a-05-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-a-05-600.webp 600w, /images/projects/proj-06/proj-06-bath-a-05-1200.webp 1200w"
@@ -508,7 +512,7 @@
                  alt="판교원9단지 한림풀에버 욕실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bath-b" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-hero-after.webp">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bath-b" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-bath-b-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-b-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-bath-b-hero-after.webp 1920w"
@@ -527,7 +531,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">욕실-B</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-b" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-b" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-01.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-b-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-b-01-600.webp 600w, /images/projects/proj-06/proj-06-bath-b-01-1200.webp 1200w"
@@ -535,7 +539,7 @@
                  alt="판교원9단지 한림풀에버 욕실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-b" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-b" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-02.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-b-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-b-02-600.webp 600w, /images/projects/proj-06/proj-06-bath-b-02-1200.webp 1200w"
@@ -543,7 +547,7 @@
                  alt="판교원9단지 한림풀에버 욕실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bath-b" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bath-b" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bath-b-03.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bath-b-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bath-b-03-600.webp 600w, /images/projects/proj-06/proj-06-bath-b-03-1200.webp 1200w"
@@ -551,7 +555,7 @@
                  alt="판교원9단지 한림풀에버 욕실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bed-a" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-hero-after.webp">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bed-a" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-bed-a-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-a-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-bed-a-hero-after.webp 1920w"
@@ -570,7 +574,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">침실-A</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-01.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-a-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-a-01-600.webp 600w, /images/projects/proj-06/proj-06-bed-a-01-1200.webp 1200w"
@@ -578,7 +582,7 @@
                  alt="판교원9단지 한림풀에버 침실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-02.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-a-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-a-02-600.webp 600w, /images/projects/proj-06/proj-06-bed-a-02-1200.webp 1200w"
@@ -586,7 +590,7 @@
                  alt="판교원9단지 한림풀에버 침실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-03.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-a-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-a-03-600.webp 600w, /images/projects/proj-06/proj-06-bed-a-03-1200.webp 1200w"
@@ -594,7 +598,7 @@
                  alt="판교원9단지 한림풀에버 침실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-a" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-a-04.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-a-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-a-04-600.webp 600w, /images/projects/proj-06/proj-06-bed-a-04-1200.webp 1200w"
@@ -602,7 +606,7 @@
                  alt="판교원9단지 한림풀에버 침실-A"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bed-b" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-hero-after.webp">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bed-b" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-bed-b-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-b-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-bed-b-hero-after.webp 1920w"
@@ -621,7 +625,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">침실-B</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-01.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bed-b-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-b-01-600.webp 600w, /images/projects/proj-06/proj-06-bed-b-01-1200.webp 1200w"
@@ -629,7 +633,7 @@
                  alt="판교원9단지 한림풀에버 침실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-02.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-b-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-b-02-600.webp 600w, /images/projects/proj-06/proj-06-bed-b-02-1200.webp 1200w"
@@ -637,7 +641,7 @@
                  alt="판교원9단지 한림풀에버 침실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-03.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-b-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-b-03-600.webp 600w, /images/projects/proj-06/proj-06-bed-b-03-1200.webp 1200w"
@@ -645,7 +649,7 @@
                  alt="판교원9단지 한림풀에버 침실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-b" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-b-04.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-b-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-b-04-600.webp 600w, /images/projects/proj-06/proj-06-bed-b-04-1200.webp 1200w"
@@ -653,7 +657,7 @@
                  alt="판교원9단지 한림풀에버 침실-B"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item col-span-2 sm:col-span-2 sm:row-span-2 relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bed-c" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-hero-after.webp">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="bed-c" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-hero-after.webp">
             <img class="ba-after absolute inset-0 w-full h-full object-cover"
                  src="/images/projects/proj-06/proj-06-bed-c-hero-after-1200.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-c-hero-after-1200.webp 1200w, /images/projects/proj-06/proj-06-bed-c-hero-after.webp 1920w"
@@ -672,7 +676,7 @@
             </div>
             <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">침실-C</span>
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-01.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-bed-c-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-c-01-600.webp 600w, /images/projects/proj-06/proj-06-bed-c-01-1200.webp 1200w"
@@ -680,7 +684,7 @@
                  alt="판교원9단지 한림풀에버 침실-C"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-02.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-c-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-c-02-600.webp 600w, /images/projects/proj-06/proj-06-bed-c-02-1200.webp 1200w"
@@ -688,7 +692,7 @@
                  alt="판교원9단지 한림풀에버 침실-C"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-03.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-c-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-c-03-600.webp 600w, /images/projects/proj-06/proj-06-bed-c-03-1200.webp 1200w"
@@ -696,7 +700,7 @@
                  alt="판교원9단지 한림풀에버 침실-C"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="bed-c" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-bed-c-04.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-bed-c-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-bed-c-04-600.webp 600w, /images/projects/proj-06/proj-06-bed-c-04-1200.webp 1200w"
@@ -704,7 +708,7 @@
                  alt="판교원9단지 한림풀에버 침실-C"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-01.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-ar="1.3333" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-01.webp">
             <img class="w-full h-full object-cover aspect-[4/3]"
                  src="/images/projects/proj-06/proj-06-entrance-01-600.webp"
                  srcset="/images/projects/proj-06/proj-06-entrance-01-600.webp 600w, /images/projects/proj-06/proj-06-entrance-01-1200.webp 1200w"
@@ -712,7 +716,7 @@
                  alt="판교원9단지 한림풀에버 현관"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-02.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-02.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-entrance-02-600.webp"
                  srcset="/images/projects/proj-06/proj-06-entrance-02-600.webp 600w, /images/projects/proj-06/proj-06-entrance-02-1200.webp 1200w"
@@ -720,7 +724,7 @@
                  alt="판교원9단지 한림풀에버 현관"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-03.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-03.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-entrance-03-600.webp"
                  srcset="/images/projects/proj-06/proj-06-entrance-03-600.webp 600w, /images/projects/proj-06/proj-06-entrance-03-1200.webp 1200w"
@@ -728,7 +732,7 @@
                  alt="판교원9단지 한림풀에버 현관"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-04.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-04.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-entrance-04-600.webp"
                  srcset="/images/projects/proj-06/proj-06-entrance-04-600.webp 600w, /images/projects/proj-06/proj-06-entrance-04-1200.webp 1200w"
@@ -736,7 +740,7 @@
                  alt="판교원9단지 한림풀에버 현관"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-05.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-05.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-entrance-05-600.webp"
                  srcset="/images/projects/proj-06/proj-06-entrance-05-600.webp 600w, /images/projects/proj-06/proj-06-entrance-05-1200.webp 1200w"
@@ -744,7 +748,7 @@
                  alt="판교원9단지 한림풀에버 현관"
                  loading="lazy" decoding="async">
           </div>
-          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-overflow="1" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-06.webp">
+          <div class="gallery-item relative cursor-zoom-in" data-room="entrance" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/proj-06/proj-06-entrance-06.webp">
             <img class="w-full h-full object-cover aspect-[3/4]"
                  src="/images/projects/proj-06/proj-06-entrance-06-600.webp"
                  srcset="/images/projects/proj-06/proj-06-entrance-06-600.webp 600w, /images/projects/proj-06/proj-06-entrance-06-1200.webp 1200w"
@@ -753,6 +757,7 @@
                  loading="lazy" decoding="async">
           </div>
         </div>
+        <noscript><style>#gallery{visibility:visible!important}#gallery .gallery-item{position:static!important;width:auto!important;height:auto!important;transform:none!important;margin-bottom:12px}</style></noscript>
         <div id="gallery-more" class="text-center mt-6 sm:mt-8">
           <button class="gallery-more-btn" data-room="living" data-count="15" type="button">사진 더보기 (15장)</button>
           <button class="gallery-more-btn" data-room="kitchen" data-count="13" style="display:none" type="button">사진 더보기 (13장)</button>
@@ -902,6 +907,62 @@
       });
     });
 
+    // ---- 퍼즐형 masonry 배치 (hero 2칸 폭, 나머지는 가장 짧은 열에 채워 내부 빈틈 제거) ----
+    const galleryEl = document.getElementById('gallery');
+    let _mAttempts = 0;
+    function layoutMasonry() {
+      if (!galleryEl) return;
+      const isSm = window.matchMedia('(min-width: 640px)').matches;
+      const cols = isSm ? 3 : 2;
+      const gap = parseFloat(getComputedStyle(galleryEl).getPropertyValue('--gap')) || (isSm ? 12 : 8);
+      const totalW = galleryEl.clientWidth;
+      // 너비가 아직 0이면(폰트/레이아웃 타이밍) 숨긴 채 다음 프레임 재시도 — 영구 숨김 방지
+      if (totalW <= 0) { if (_mAttempts++ < 60) requestAnimationFrame(layoutMasonry); return; }
+      _mAttempts = 0;
+      const colW = (totalW - gap * (cols - 1)) / cols;
+      const colH = new Array(cols).fill(0); // 각 열의 현재 높이
+      const items = Array.prototype.slice.call(galleryEl.querySelectorAll('.gallery-item'))
+        .filter(function (el) { return el.style.display !== 'none'; });
+      items.forEach(function (el) {
+        const span = Math.min(el.dataset.span === '2' ? 2 : 1, cols);
+        const ar = (isSm && el.dataset.arSm ? parseFloat(el.dataset.arSm) : parseFloat(el.dataset.ar)) || 1.3333;
+        let col = 0;
+        if (span === 2) {
+          // 두 열을 차지 → 두 열 중 더 높은 쪽이 가장 낮아지는 시작열 선택
+          let bestH = Infinity;
+          for (let c = 0; c <= cols - 2; c++) {
+            const h = Math.max(colH[c], colH[c + 1]);
+            if (h < bestH - 0.5) { bestH = h; col = c; }
+          }
+        } else {
+          // 가장 짧은 열
+          let bestH = Infinity;
+          for (let c = 0; c < cols; c++) {
+            if (colH[c] < bestH - 0.5) { bestH = colH[c]; col = c; }
+          }
+        }
+        const w = colW * span + gap * (span - 1);
+        const h = w / ar;
+        const x = col * (colW + gap);
+        const y = span === 2 ? Math.max(colH[col], colH[col + 1]) : colH[col];
+        el.style.width = w + 'px';
+        el.style.height = h + 'px';
+        el.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        const bottom = y + h + gap;
+        if (span === 2) { colH[col] = bottom; colH[col + 1] = bottom; }
+        else { colH[col] = bottom; }
+      });
+      galleryEl.style.height = (Math.max.apply(null, colH.concat(gap)) - gap) + 'px';
+      galleryEl.style.visibility = 'visible';
+      galleryEl.classList.add('is-masonry-ready');
+    }
+    let _masonryT;
+    window.addEventListener('resize', function () {
+      clearTimeout(_masonryT);
+      _masonryT = setTimeout(layoutMasonry, 120);
+    });
+    window.addEventListener('load', layoutMasonry);
+
     // Room tabs filter + 섹션별 '사진 더보기/접기'
     // (PDF round-2: '전체' 없음 → 첫 active 탭으로 초기 필터링)
     const expandedRooms = {}; // { 섹션: 펼침여부 }
@@ -919,6 +980,7 @@
           btn.textContent = expandedRooms[room] ? '접기' : ('사진 더보기 (' + btn.dataset.count + '장)');
         }
       });
+      layoutMasonry();
     }
     document.querySelectorAll('.room-tab').forEach(tab => {
       tab.addEventListener('click', () => {

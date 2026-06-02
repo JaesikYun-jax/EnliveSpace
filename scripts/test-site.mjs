@@ -190,6 +190,21 @@ function checkPageHtml(report, page, html) {
     report.ok(re.test(html), `${tag} head includes ${label}`,
       `missing or malformed <link>/<meta> for ${label}`);
   }
+
+  // Project detail gallery must use the puzzle masonry layout (JS-positioned).
+  // The old fixed `grid-cols-3` + `row-span-2` hero left bottom-right holes when
+  // card counts didn't divide evenly — masonry packs every column gap-free.
+  if (/^\/project\/\d+\.html$/.test(page)) {
+    report.ok(/id="gallery" class="masonry"/.test(html),
+      `${tag} gallery uses masonry container`,
+      'detail gallery should be <div id="gallery" class="masonry"> (퍼즐형 빈틈 없는 배치)');
+    report.ok(/function layoutMasonry\(/.test(html),
+      `${tag} gallery has layoutMasonry() positioning script`,
+      'masonry layout script missing — cards would not be positioned');
+    report.ok(/class="gallery-item[^"]*"[^>]*\sdata-ar="/.test(html),
+      `${tag} gallery-item cards carry data-ar (aspect for height calc)`,
+      'each card needs data-ar so masonry can compute its height without waiting for image load');
+  }
 }
 
 // Asset existence
