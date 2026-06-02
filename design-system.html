@@ -1,0 +1,607 @@
+<!doctype html>
+<!--
+  ════════════════════════════════════════════════════════════════════
+  Enliven Space — 디자인 시스템 (내부 참고용 히든 페이지)
+  · 사이트 내비게이션 어디에도 링크되어 있지 않고, robots noindex 로 검색 색인을 막아둠.
+  · URL 을 아는 사람만 접근: /design-system.html
+  · 토큰의 단일 출처는 css/style.css (:root) 와 scripts/build-pages.mjs (tailwind.config).
+    값이 바뀌면 이 문서의 해당 숫자도 같이 갱신할 것. 컴포넌트 데모는 실제 /css/style.css
+    를 불러와 렌더하므로 스타일 변경은 자동 반영된다(아래 '복제 CSS' 주석 블록은 예외).
+  ════════════════════════════════════════════════════════════════════
+-->
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Enliven Space · Design System (내부용)</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="manifest" href="/images/site.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- 사이트와 동일한 Tailwind 설정 (scripts/build-pages.mjs 의 TW_CONFIG 와 일치) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: {
+          sans: ['NanumSquare','Noto Sans KR','sans-serif'],
+          en: ['GmarketSansMedium','Inter','sans-serif'],
+          'en-bold': ['GmarketSansBold','Inter','sans-serif']
+        },
+        colors: { ink:'#171717','ink-2':'#525252','ink-3':'#a3a3a3',paper:'#ffffff','paper-2':'#f7f7f7' }
+      } }
+    }
+  </script>
+
+  <!-- 실제 사이트 스타일 — 색상/타이포 토큰 + 컴포넌트(.pager-btn .footer-sns .section-eyebrow .ph-img .fab*)가 라이브로 렌더됨 -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    /* ═══ 문서 전용 레이아웃 (ds- 접두사) — 사이트 클래스와 충돌 안 함 ═══ */
+    body.ds { background: var(--color-bg); color: var(--color-text); }
+    .ds-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* 상단 바 */
+    .ds-topbar { border-bottom: 1px solid var(--color-border); position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.92); backdrop-filter: saturate(180%) blur(8px); -webkit-backdrop-filter: saturate(180%) blur(8px); }
+    .ds-topbar-inner { max-width: 1100px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .ds-topbar h1 { font-family: 'GmarketSansBold', sans-serif; font-size: 18px; letter-spacing: -0.01em; }
+    .ds-topbar .ds-sub { font-family: 'NanumSquare', sans-serif; font-size: 13px; color: var(--color-text-3); }
+    .ds-badge { font-family: 'GmarketSansMedium', sans-serif; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--color-border-strong); color: var(--color-text-2); white-space: nowrap; }
+    .ds-badge--warn { background: #171717; color: #fff; border-color: #171717; }
+
+    /* 셸: 사이드 TOC + 본문 */
+    .ds-shell { display: grid; grid-template-columns: 1fr; gap: 0; }
+    @media (min-width: 960px) { .ds-shell { grid-template-columns: 210px 1fr; gap: 48px; max-width: 1100px; margin: 0 auto; padding: 0 24px; } }
+    .ds-nav { display: none; }
+    @media (min-width: 960px) {
+      .ds-nav { display: block; position: sticky; top: 78px; align-self: start; height: calc(100vh - 96px); overflow-y: auto; padding: 36px 0; }
+      .ds-nav a { display: block; font-family: 'NanumSquare', sans-serif; font-size: 13px; font-weight: 700; color: var(--color-text-3); text-decoration: none; padding: 7px 12px; border-radius: 8px; transition: color 0.15s ease, background 0.15s ease; }
+      .ds-nav a:hover { color: var(--color-text); background: var(--color-bg-alt); }
+      .ds-nav a.active { color: #fff; background: #171717; }
+      .ds-nav .ds-nav-group { font-family: 'GmarketSansMedium', sans-serif; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-3); padding: 18px 12px 6px; }
+    }
+
+    .ds-main { padding: 40px 24px 120px; min-width: 0; }
+    @media (min-width: 960px) { .ds-main { padding: 40px 0 140px; } }
+
+    .ds-section { padding-top: 56px; margin-top: 8px; }
+    .ds-section:first-child { padding-top: 16px; }
+    .ds-h2 { font-family: 'GmarketSansBold', sans-serif; font-size: 26px; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .ds-h2 .ds-num { color: var(--color-text-3); font-size: 18px; margin-right: 10px; }
+    .ds-lead { font-family: 'NanumSquare', sans-serif; font-size: 14px; color: var(--color-text-2); line-height: 1.7; margin-bottom: 26px; max-width: 64ch; }
+    .ds-h3 { font-family: 'NanumSquare', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 0.02em; color: var(--color-text); margin: 30px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--color-border); }
+
+    /* 데모 스테이지 */
+    .ds-stage { border: 1px solid var(--color-border); border-radius: 14px; padding: 28px; background: var(--color-bg); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .ds-stage--alt { background: var(--color-bg-alt); }
+    .ds-stage--dark { background: #171717; }
+    .ds-stage--center { justify-content: center; }
+    .ds-stage + .ds-note, .ds-grid + .ds-note { margin-top: 12px; }
+    .ds-note { font-family: 'NanumSquare', sans-serif; font-size: 12.5px; color: var(--color-text-3); line-height: 1.7; }
+    .ds-note code, .ds-code { font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 12px; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: 6px; padding: 2px 6px; color: var(--color-text); }
+    .ds-stage--dark .ds-note { color: rgba(255,255,255,0.5); }
+
+    /* 색상 스와치 */
+    .ds-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+    .ds-swatch { border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; background: #fff; }
+    .ds-swatch .chip { height: 72px; display: block; }
+    .ds-swatch .meta { padding: 11px 13px 13px; }
+    .ds-swatch .name { font-family: 'NanumSquare', sans-serif; font-weight: 800; font-size: 12.5px; }
+    .ds-swatch .var { font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 11px; color: var(--color-text-2); margin-top: 3px; }
+    .ds-swatch .hex { font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 11px; color: var(--color-text-3); margin-top: 2px; cursor: copy; }
+    .ds-swatch .hex:hover { color: var(--color-text); }
+    .ds-swatch .use { font-family: 'NanumSquare', sans-serif; font-size: 11.5px; color: var(--color-text-3); margin-top: 7px; line-height: 1.5; }
+    .ds-chip-border { box-shadow: inset 0 0 0 1px var(--color-border); }
+
+    /* 타입 스케일 */
+    .ds-type-row { display: flex; align-items: baseline; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--color-border); flex-wrap: wrap; }
+    .ds-type-row:last-child { border-bottom: none; }
+    .ds-type-tag { flex: 0 0 96px; font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 11px; color: var(--color-text-3); }
+    .ds-type-spec { margin-left: auto; font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 11px; color: var(--color-text-3); white-space: nowrap; }
+    .ds-type-sample { font-family: 'NanumSquare', sans-serif; }
+
+    /* 토큰 테이블 */
+    .ds-table { width: 100%; border-collapse: collapse; font-family: 'NanumSquare', sans-serif; }
+    .ds-table th, .ds-table td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--color-border); font-size: 13px; vertical-align: top; }
+    .ds-table th { font-weight: 800; font-size: 11.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-3); }
+    .ds-table td:first-child { font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 12px; white-space: nowrap; }
+    .ds-table td .muted { color: var(--color-text-3); }
+
+    /* 그리드 헬퍼 */
+    .ds-grid { display: grid; gap: 14px; }
+    .ds-grid--2 { grid-template-columns: 1fr; }
+    @media (min-width: 700px) { .ds-grid--2 { grid-template-columns: 1fr 1fr; } }
+
+    /* 그림자 데모 */
+    .ds-shadow-box { width: 100%; height: 84px; border-radius: 14px; background: #fff; display: flex; align-items: center; justify-content: center; font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 11px; color: var(--color-text-2); }
+
+    /* 모션 데모 */
+    .ds-motion-chip { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border-radius: 999px; background: #171717; color: #fff; font-family: 'NanumSquare', sans-serif; font-weight: 700; font-size: 13px; transition: transform 0.2s ease; }
+    .ds-motion-chip:hover { transform: translateY(-4px); }
+
+    /* FAB 데모 — 사이트의 fixed FAB 를 스테이지 안에 가둠 */
+    .ds-fab-stage { position: relative; height: 230px; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg-alt); overflow: hidden; }
+    .ds-fab-stage .fab { position: absolute; right: 28px; bottom: 24px; }
+
+    /* 로고/파비콘 자산 */
+    .ds-asset { border: 1px solid var(--color-border); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .ds-asset--dark { background: #171717; }
+    .ds-asset img { display: block; }
+    .ds-asset .cap { font-family: 'GmarketSansMedium', ui-monospace, monospace; font-size: 11px; color: var(--color-text-3); text-align: center; }
+    .ds-asset--dark .cap { color: rgba(255,255,255,0.5); }
+
+    /* 규칙 목록 */
+    .ds-rules { list-style: none; display: grid; gap: 10px; }
+    .ds-rules li { font-family: 'NanumSquare', sans-serif; font-size: 13px; line-height: 1.65; color: var(--color-text-2); padding-left: 24px; position: relative; }
+    .ds-rules li::before { content: '✓'; position: absolute; left: 0; top: 0; color: #171717; font-weight: 800; }
+
+    .ds-foot { border-top: 1px solid var(--color-border); margin-top: 80px; padding: 28px 0 0; font-family: 'NanumSquare', sans-serif; font-size: 12px; color: var(--color-text-3); line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       복제 CSS — 아래 컴포넌트는 scripts/build-pages.mjs 의 페이지 <style> 에
+       정의되어 있어 /css/style.css 엔 없다. 라이브 데모를 위해 동일 규칙을 복제.
+       원본이 바뀌면 이 블록도 갱신할 것.
+       ═══════════════════════════════════════════════════════════════ */
+    .room-tab { padding: 8px 18px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', sans-serif; font-size: 13px; font-weight: 700; color: #525252; background: #fff; transition: all 0.2s ease; white-space: nowrap; }
+    .room-tab.active { background: #171717; color: #fff; border-color: #171717; }
+    .room-tab:hover { border-color: #171717; }
+    .ba-toggle { display: inline-flex; background: rgba(255,255,255,0.9); border-radius: 999px; padding: 3px; backdrop-filter: blur(4px); }
+    .ba-toggle button { padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: 'GmarketSansBold', sans-serif; letter-spacing: 0.05em; border-radius: 999px; color: #525252; transition: all 0.2s ease; }
+    .ba-toggle button.active { background: #171717; color: #fff; }
+    .gallery-more-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 28px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; color: #171717; background: #fff; transition: all 0.2s ease; }
+    .gallery-more-btn:hover { background: #171717; color: #fff; border-color: #171717; }
+
+    .toast { position: fixed; left: 50%; bottom: calc(30px + env(safe-area-inset-bottom)); transform: translate(-50%, 18px); display: inline-flex; align-items: center; gap: 9px; max-width: calc(100vw - 32px); background: #171717; color: #fff; padding: 13px 22px; border-radius: 999px; font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; box-shadow: 0 14px 40px rgba(0,0,0,0.30); opacity: 0; visibility: hidden; pointer-events: none; z-index: 100; transition: opacity 0.34s ease, transform 0.34s cubic-bezier(0.22,1,0.36,1), visibility 0s linear 0.34s; }
+    .toast.is-show { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.34s ease, transform 0.34s cubic-bezier(0.22,1,0.36,1); }
+    .toast-check { display: inline-flex; flex-shrink: 0; }
+    @media (prefers-reduced-motion: reduce) { .toast, .toast.is-show { transition: opacity 0.2s ease, visibility 0s; transform: translate(-50%, 0); } }
+  </style>
+</head>
+
+<body class="ds">
+
+  <div class="ds-topbar">
+    <div class="ds-topbar-inner">
+      <h1>Enliven&nbsp;Space · Design System</h1>
+      <span class="ds-badge">v1.0</span>
+      <span class="ds-badge ds-badge--warn">Internal · noindex</span>
+      <span class="ds-sub" style="margin-left:auto">단일 출처: <code class="ds-code">css/style.css</code> · <code class="ds-code">scripts/build-pages.mjs</code></span>
+    </div>
+  </div>
+
+  <div class="ds-shell">
+
+    <!-- 사이드 TOC -->
+    <nav class="ds-nav" id="ds-nav" aria-label="목차">
+      <div class="ds-nav-group">Foundations</div>
+      <a href="#overview">개요</a>
+      <a href="#colors">색상</a>
+      <a href="#typography">타이포그래피</a>
+      <a href="#layout">레이아웃 · 간격</a>
+      <a href="#radius">모서리 · 그림자</a>
+      <a href="#motion">모션</a>
+      <div class="ds-nav-group">Components</div>
+      <a href="#buttons">버튼</a>
+      <a href="#tabs">탭 · 토글</a>
+      <a href="#feedback">토스트</a>
+      <a href="#fab">플로팅 버튼</a>
+      <a href="#chrome">헤더 · 푸터</a>
+      <a href="#misc">기타 요소</a>
+      <div class="ds-nav-group">Reference</div>
+      <a href="#assets">자산</a>
+      <a href="#rules">규칙 · 불변식</a>
+    </nav>
+
+    <main class="ds-main">
+
+      <!-- ░░░ 개요 ░░░ -->
+      <section class="ds-section" id="overview">
+        <h2 class="ds-h2">Enliven Space 디자인 시스템</h2>
+        <p class="ds-lead">
+          인라이븐스페이스(인테리어) 홈페이지의 시각 언어를 한곳에 모은 내부 참고 문서입니다.
+          모던하고 절제된 모노톤 — 검정(<code class="ds-code">#171717</code>)·흰색·그레이를 기본으로,
+          따뜻한 베이지(<code class="ds-code">#F2D679</code>)를 상담 유도 한 곳에만 포인트로 씁니다.
+          한글은 나눔스퀘어, 영문/숫자는 G마켓 산스로 통일합니다.
+        </p>
+        <div class="ds-grid ds-grid--2">
+          <div class="ds-stage" style="display:block">
+            <div class="ds-h3" style="margin-top:0">이 페이지에 대하여</div>
+            <p class="ds-note">
+              · 사이트 내비게이션 어디에도 링크되어 있지 않습니다.<br>
+              · <code class="ds-code">&lt;meta robots="noindex,nofollow"&gt;</code> 로 검색 색인을 막아둡니다.<br>
+              · URL(<code class="ds-code">/design-system.html</code>)을 아는 사람만 봅니다.<br>
+              · 컴포넌트 데모는 실제 <code class="ds-code">/css/style.css</code> 를 불러와 렌더 → 사이트와 항상 동일.
+            </p>
+          </div>
+          <div class="ds-stage" style="display:block">
+            <div class="ds-h3" style="margin-top:0">토큰을 바꾸려면</div>
+            <p class="ds-note">
+              · 색상·간격·헤더 높이 → <code class="ds-code">css/style.css</code> 의 <code class="ds-code">:root</code><br>
+              · 글자 크기 배수 → 같은 파일의 <code class="ds-code">--fs-*</code> 4개 변수<br>
+              · Tailwind 색상 별칭(ink/paper…) → <code class="ds-code">build-pages.mjs</code> 의 <code class="ds-code">tailwind.config</code><br>
+              · 수정 후 <code class="ds-code">npm run build</code> &amp; <code class="ds-code">npm run test</code>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ░░░ 색상 ░░░ -->
+      <section class="ds-section" id="colors">
+        <h2 class="ds-h2"><span class="ds-num">01</span>색상</h2>
+        <p class="ds-lead">모든 색은 <code class="ds-code">css/style.css</code> 의 <code class="ds-code">:root</code> CSS 변수에서 옵니다. 값을 클릭하면 복사됩니다.</p>
+
+        <div class="ds-h3">기본 · 텍스트</div>
+        <div class="ds-swatches">
+          <div class="ds-swatch"><span class="chip ds-chip-border" style="background:#ffffff"></span><div class="meta"><div class="name">Paper / 배경</div><div class="var">--color-bg · paper</div><div class="hex" data-copy="#ffffff">#ffffff</div><div class="use">페이지 기본 배경</div></div></div>
+          <div class="ds-swatch"><span class="chip ds-chip-border" style="background:#f7f7f7"></span><div class="meta"><div class="name">Paper-2 / 교차 배경</div><div class="var">--color-bg-alt · paper-2</div><div class="hex" data-copy="#f7f7f7">#f7f7f7</div><div class="use">섹션 교차, 카드 바닥</div></div></div>
+          <div class="ds-swatch"><span class="chip" style="background:#171717"></span><div class="meta"><div class="name">Ink / 본문·제목</div><div class="var">--color-text · ink</div><div class="hex" data-copy="#171717">#171717</div><div class="use">텍스트, 푸터 배경, 채운 버튼</div></div></div>
+          <div class="ds-swatch"><span class="chip" style="background:#525252"></span><div class="meta"><div class="name">Ink-2 / 보조</div><div class="var">--color-text-2 · ink-2</div><div class="hex" data-copy="#525252">#525252</div><div class="use">보조 본문, 설명</div></div></div>
+          <div class="ds-swatch"><span class="chip" style="background:#a3a3a3"></span><div class="meta"><div class="name">Ink-3 / 캡션</div><div class="var">--color-text-3 · ink-3</div><div class="hex" data-copy="#a3a3a3">#a3a3a3</div><div class="use">캡션, eyebrow, placeholder</div></div></div>
+        </div>
+
+        <div class="ds-h3">선 · 포인트</div>
+        <div class="ds-swatches">
+          <div class="ds-swatch"><span class="chip ds-chip-border" style="background:rgba(0,0,0,0.1)"></span><div class="meta"><div class="name">Border</div><div class="var">--color-border</div><div class="hex" data-copy="rgba(0, 0, 0, 0.1)">rgba(0,0,0,.1)</div><div class="use">기본 구분선·카드 테두리</div></div></div>
+          <div class="ds-swatch"><span class="chip ds-chip-border" style="background:rgba(0,0,0,0.15)"></span><div class="meta"><div class="name">Border Strong</div><div class="var">--color-border-strong</div><div class="hex" data-copy="rgba(0, 0, 0, 0.15)">rgba(0,0,0,.15)</div><div class="use">버튼·탭 테두리</div></div></div>
+          <div class="ds-swatch"><span class="chip" style="background:#F2D679"></span><div class="meta"><div class="name">Accent / 베이지</div><div class="var">--color-accent</div><div class="hex" data-copy="#F2D679">#F2D679</div><div class="use">플로팅 상담 배경 · 카카오 말풍선 (포인트 단 1곳)</div></div></div>
+          <div class="ds-swatch"><span class="chip" style="background:#171717"></span><div class="meta"><div class="name">Kakao BG</div><div class="var">--color-kakao-bg</div><div class="hex" data-copy="#171717">#171717</div><div class="use">플로팅 카카오 버튼 배경</div></div></div>
+          <div class="ds-swatch"><span class="chip" style="background:#171717"></span><div class="meta"><div class="name">Footer</div><div class="var">--color-footer-bg / -text</div><div class="hex" data-copy="#171717">#171717 / #fff</div><div class="use">푸터 배경(검정) / 글자(흰)</div></div></div>
+        </div>
+        <p class="ds-note" style="margin-top:14px">※ 히어로(실사진) 위 텍스트에는 <code class="ds-code">text-white/80</code> 같은 반투명 흰색을 쓰지 않습니다 — 가독성 저하. 항상 100% 흰색.</p>
+      </section>
+
+      <!-- ░░░ 타이포그래피 ░░░ -->
+      <section class="ds-section" id="typography">
+        <h2 class="ds-h2"><span class="ds-num">02</span>타이포그래피</h2>
+        <p class="ds-lead">한글은 <strong>나눔스퀘어</strong>, 영문·숫자는 <strong>G마켓 산스</strong>. 헬퍼 클래스로 전환합니다.</p>
+
+        <div class="ds-h3">서체 패밀리</div>
+        <div class="ds-grid ds-grid--2">
+          <div class="ds-stage" style="display:block">
+            <div class="font-kr" style="font-size:24px;font-weight:800">가나다라 인라이븐스페이스</div>
+            <div class="ds-note" style="margin-top:8px">.font-kr — <code class="ds-code">NanumSquare, 'Noto Sans KR'</code><br>본문 기본. weight 400 / 700 / 800 / 900</div>
+          </div>
+          <div class="ds-stage" style="display:block">
+            <div class="font-en" style="font-size:24px">Enliven Space 2026</div>
+            <div class="font-en-bold" style="font-size:24px;margin-top:4px">Enliven Space 2026</div>
+            <div class="ds-note" style="margin-top:8px">.font-en (Medium 500) / .font-en-bold (Bold 700) — <code class="ds-code">GmarketSans</code>. 영문·숫자·eyebrow</div>
+          </div>
+        </div>
+
+        <div class="ds-h3">타입 스케일 (PC 기준 · Tailwind <code class="ds-code">text-*</code>)</div>
+        <div class="ds-stage" style="display:block">
+          <div class="ds-type-row"><span class="ds-type-tag">text-xs</span><span class="ds-type-sample text-xs">공간을 살리다 Aa 123</span><span class="ds-type-spec">0.75rem / 1rem · 본문</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-sm</span><span class="ds-type-sample text-sm">공간을 살리다 Aa 123</span><span class="ds-type-spec">0.875rem / 1.25rem · 본문</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-base</span><span class="ds-type-sample text-base">공간을 살리다 Aa 123</span><span class="ds-type-spec">1rem / 1.5rem · 본문</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-lg</span><span class="ds-type-sample text-lg">공간을 살리다 Aa 123</span><span class="ds-type-spec">1.125rem / 1.75rem · 본문</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-xl</span><span class="ds-type-sample text-xl">공간을 살리다 Aa 123</span><span class="ds-type-spec">1.25rem / 1.75rem · 본문</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-2xl</span><span class="ds-type-sample text-2xl" style="font-weight:800">공간을 살리다 Aa</span><span class="ds-type-spec">1.5rem / 2rem · 타이틀</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-3xl</span><span class="ds-type-sample text-3xl" style="font-weight:900">공간을 살리다 Aa</span><span class="ds-type-spec">1.875rem · 타이틀</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">text-4xl</span><span class="ds-type-sample text-4xl" style="font-weight:900">공간을 살리다</span><span class="ds-type-spec">2.25rem · 타이틀</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">sm:text-5xl</span><span class="ds-type-sample text-4xl sm:text-5xl" style="font-weight:900">Enliven</span><span class="ds-type-spec">3rem · 타이틀(≥640)</span></div>
+          <div class="ds-type-row"><span class="ds-type-tag">md:text-6xl</span><span class="ds-type-sample text-4xl md:text-6xl" style="font-weight:900">Enliven</span><span class="ds-type-spec">3.75rem · 타이틀(≥768)</span></div>
+        </div>
+
+        <div class="ds-h3">글자 크기 배수 시스템</div>
+        <p class="ds-note" style="margin-bottom:14px"><code class="ds-code">css/style.css</code> 의 <code class="ds-code">:root</code> 변수 4개로 모바일/PC × 본문/타이틀을 독립 조절합니다. 값 1 = Tailwind 기본, 0.88 = −12%.</p>
+        <table class="ds-table">
+          <thead><tr><th>변수</th><th>현재값</th><th>적용 범위</th></tr></thead>
+          <tbody>
+            <tr><td>--fs-body-mobile</td><td>0.88</td><td>모바일(&lt;640) 본문 — text-xs … text-xl</td></tr>
+            <tr><td>--fs-title-mobile</td><td>0.88</td><td>모바일(&lt;640) 타이틀 — text-2xl … text-6xl</td></tr>
+            <tr><td>--fs-body-pc</td><td>1</td><td>PC(≥640) 본문</td></tr>
+            <tr><td>--fs-title-pc</td><td>1</td><td>PC(≥640) 타이틀</td></tr>
+          </tbody>
+        </table>
+        <p class="ds-note" style="margin-top:12px">기본 본문 <code class="ds-code">line-height: 1.6</code> · <code class="ds-code">word-break: keep-all</code>(한글 어절 단위 줄바꿈) · <code class="ds-code">::selection</code> 은 <code class="ds-code">rgba(0,0,0,.08)</code>.</p>
+      </section>
+
+      <!-- ░░░ 레이아웃 ░░░ -->
+      <section class="ds-section" id="layout">
+        <h2 class="ds-h2"><span class="ds-num">03</span>레이아웃 · 간격</h2>
+        <p class="ds-lead">컨테이너 폭과 좌우 여백·헤더 높이는 반응형 CSS 변수입니다.</p>
+        <table class="ds-table">
+          <thead><tr><th>토큰</th><th>모바일</th><th>≥640 (sm)</th><th>≥1024 (lg)</th><th>용도</th></tr></thead>
+          <tbody>
+            <tr><td>--container-max</td><td colspan="3">1440px</td><td>본문 최대 폭 (중앙 정렬)</td></tr>
+            <tr><td>--padding-x</td><td>20px</td><td>32px</td><td>48px</td><td>좌우 안전 여백</td></tr>
+            <tr><td>--header-height</td><td>64px</td><td>72px</td><td>76px</td><td>고정 헤더 높이 = 본문 top padding</td></tr>
+          </tbody>
+        </table>
+        <div class="ds-h3">브레이크포인트 (Tailwind 기본)</div>
+        <table class="ds-table">
+          <thead><tr><th>접두사</th><th>최소 폭</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>(기본)</td><td>0px</td><td>모바일 우선</td></tr>
+            <tr><td>sm:</td><td>640px</td><td>본문/여백 PC 배수 전환점</td></tr>
+            <tr><td>md:</td><td>768px</td><td>푸터 2열, 로고 확대</td></tr>
+            <tr><td>lg:</td><td>1024px</td><td>데스크톱 GNB 표시</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ░░░ 모서리 · 그림자 ░░░ -->
+      <section class="ds-section" id="radius">
+        <h2 class="ds-h2"><span class="ds-num">04</span>모서리 · 그림자</h2>
+        <p class="ds-lead">버튼·뱃지·SNS는 완전한 알약(<code class="ds-code">999px</code>), 팝오버·카드·스테이지는 <code class="ds-code">12–16px</code>. 그림자는 떠 있는 요소(FAB·토스트)에만.</p>
+
+        <div class="ds-h3">반경</div>
+        <div class="ds-stage">
+          <div style="text-align:center"><div style="width:96px;height:64px;background:#171717;border-radius:999px;margin:0 auto"></div><div class="ds-note" style="margin-top:8px">999px · pill</div></div>
+          <div style="text-align:center"><div style="width:96px;height:64px;background:#171717;border-radius:16px;margin:0 auto"></div><div class="ds-note" style="margin-top:8px">16px · 카드/스테이지</div></div>
+          <div style="text-align:center"><div style="width:96px;height:64px;background:#171717;border-radius:12px;margin:0 auto"></div><div class="ds-note" style="margin-top:8px">12px · 팝오버/스와치</div></div>
+          <div style="text-align:center"><div style="width:96px;height:64px;background:#171717;border-radius:8px;margin:0 auto"></div><div class="ds-note" style="margin-top:8px">8px · 작은 요소</div></div>
+        </div>
+
+        <div class="ds-h3">그림자 (elevation)</div>
+        <div class="ds-stage ds-stage--alt">
+          <div style="flex:1;min-width:160px"><div class="ds-shadow-box" style="box-shadow:0 4px 14px rgba(0,0,0,0.16)">FAB 항목</div><div class="ds-note" style="margin-top:8px">0 4px 14px / .16</div></div>
+          <div style="flex:1;min-width:160px"><div class="ds-shadow-box" style="box-shadow:0 6px 18px rgba(0,0,0,0.20)">FAB 메인</div><div class="ds-note" style="margin-top:8px">0 6px 18px / .20</div></div>
+          <div style="flex:1;min-width:160px"><div class="ds-shadow-box" style="box-shadow:0 14px 40px rgba(0,0,0,0.30)">토스트</div><div class="ds-note" style="margin-top:8px">0 14px 40px / .30</div></div>
+        </div>
+      </section>
+
+      <!-- ░░░ 모션 ░░░ -->
+      <section class="ds-section" id="motion">
+        <h2 class="ds-h2"><span class="ds-num">05</span>모션</h2>
+        <p class="ds-lead">기본 전환은 <code class="ds-code">0.2s ease</code>. 떠오르는 피드백엔 부드러운 커스텀 이징을 씁니다. 칩에 마우스를 올려보세요.</p>
+        <div class="ds-stage ds-stage--center" style="gap:24px">
+          <span class="ds-motion-chip">hover ↑</span>
+        </div>
+        <table class="ds-table" style="margin-top:18px">
+          <thead><tr><th>용도</th><th>duration</th><th>easing</th></tr></thead>
+          <tbody>
+            <tr><td>기본 (색·투명도·이동)</td><td>0.2s</td><td>ease</td></tr>
+            <tr><td>FAB 항목 펼침</td><td>0.3s</td><td>cubic-bezier(.34, 1.56, .64, 1) <span class="muted">— 살짝 튕김</span></td></tr>
+            <tr><td>토스트 등장</td><td>0.34s</td><td>cubic-bezier(.22, 1, .36, 1) <span class="muted">— ease-out 강</span></td></tr>
+            <tr><td>갤러리 이미지 확대</td><td>0.5s</td><td>cubic-bezier(.25, .46, .45, .94)</td></tr>
+            <tr><td>FAB 얼굴 크로스페이드</td><td>0.6s</td><td>ease · 7s 주기 반복</td></tr>
+          </tbody>
+        </table>
+        <p class="ds-note" style="margin-top:12px">키프레임: <code class="ds-code">fadeIn</code>(투명도+10px 상승, 0.8s) · <code class="ds-code">fabCross</code>(상담↔카카오 7s 교차). 토스트·등장 효과는 <code class="ds-code">prefers-reduced-motion</code> 을 존중합니다.</p>
+      </section>
+
+      <!-- ░░░ 버튼 ░░░ -->
+      <section class="ds-section" id="buttons">
+        <h2 class="ds-h2"><span class="ds-num">06</span>버튼</h2>
+        <p class="ds-lead">모두 알약형. 채운 버튼(ink)·외곽선 버튼·고스트 알약 3종이 기본이며, hover 시 ink 로 채워집니다.</p>
+
+        <div class="ds-h3">1차 / 2차</div>
+        <div class="ds-stage">
+          <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink text-white text-sm font-kr font-bold hover:bg-ink-2 transition-colors" type="button">상담 신청하기</button>
+          <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink text-ink text-sm font-kr font-bold hover:bg-ink hover:text-white transition-colors" type="button">목록으로</button>
+        </div>
+        <p class="ds-note"><strong>채움</strong> <code class="ds-code">bg-ink text-white px-5 py-2.5 rounded-full hover:bg-ink-2</code> · <strong>외곽선</strong> <code class="ds-code">border border-ink hover:bg-ink hover:text-white</code></p>
+
+        <div class="ds-h3">고스트 알약 (공유 등) · 더보기</div>
+        <div class="ds-stage">
+          <button class="inline-flex items-center gap-2 border border-black/15 px-4 py-2 rounded-full text-sm font-kr font-bold hover:bg-ink hover:text-white hover:border-ink transition-colors" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+            공유하기
+          </button>
+          <button class="gallery-more-btn" type="button">사진 더보기
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+
+        <div class="ds-h3">페이지네이션 (.pager-btn)</div>
+        <div class="ds-stage">
+          <button class="pager-btn" type="button" aria-label="이전">‹</button>
+          <button class="pager-btn active" type="button">1</button>
+          <button class="pager-btn" type="button">2</button>
+          <button class="pager-btn" type="button">3</button>
+          <button class="pager-btn" type="button" aria-label="다음">›</button>
+        </div>
+      </section>
+
+      <!-- ░░░ 탭 · 토글 ░░░ -->
+      <section class="ds-section" id="tabs">
+        <h2 class="ds-h2"><span class="ds-num">07</span>탭 · 토글</h2>
+        <p class="ds-lead">프로젝트 상세의 공간 필터(.room-tab)와 비포/애프터 토글(.ba-toggle). 활성 상태는 ink 로 채웁니다.</p>
+
+        <div class="ds-h3">공간 탭 (.room-tab)</div>
+        <div class="ds-stage" id="ds-roomtabs">
+          <button class="room-tab active" type="button">전체</button>
+          <button class="room-tab" type="button">거실</button>
+          <button class="room-tab" type="button">주방</button>
+          <button class="room-tab" type="button">침실</button>
+          <button class="room-tab" type="button">욕실</button>
+        </div>
+
+        <div class="ds-h3">비포 / 애프터 토글 (.ba-toggle)</div>
+        <div class="ds-stage ds-stage--dark ds-stage--center">
+          <span class="ba-toggle" id="ds-batoggle">
+            <button type="button">BEFORE</button>
+            <button class="active" type="button">AFTER</button>
+          </span>
+        </div>
+        <p class="ds-note">실제 페이지에선 사진 위에 얹혀 <code class="ds-code">backdrop-filter: blur(4px)</code> 로 떠 보입니다.</p>
+      </section>
+
+      <!-- ░░░ 토스트 ░░░ -->
+      <section class="ds-section" id="feedback">
+        <h2 class="ds-h2"><span class="ds-num">08</span>토스트 (피드백)</h2>
+        <p class="ds-lead">짧은 비차단 알림. 하단 중앙에서 살짝 떠오르고 2.4초 후 사라집니다. 공유하기·복사 완료 등에 사용. 아래 버튼으로 확인하세요.</p>
+        <div class="ds-stage ds-stage--center">
+          <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink text-white text-sm font-kr font-bold hover:bg-ink-2 transition-colors" type="button" id="ds-toast-demo">토스트 띄우기</button>
+        </div>
+        <p class="ds-note">구조: <code class="ds-code">#toast.toast</code> + <code class="ds-code">.toast-check</code>(흰 체크) + <code class="ds-code">.toast-msg</code>. <code class="ds-code">role=status aria-live=polite</code> 로 스크린리더 안내. 표시는 <code class="ds-code">.is-show</code> 토글.</p>
+      </section>
+
+      <!-- ░░░ FAB ░░░ -->
+      <section class="ds-section" id="fab">
+        <h2 class="ds-h2"><span class="ds-num">09</span>플로팅 버튼 (FAB)</h2>
+        <p class="ds-lead">화면 우하단 고정. 평소 상담↔카카오가 7초 주기로 교차하고, 누르면 두 버튼이 위로 펼쳐집니다. 아래 버튼을 눌러보세요.</p>
+        <div class="ds-fab-stage">
+          <div class="fab" id="ds-fab" aria-label="플로팅 액션 (데모)">
+            <a class="fab-item fab-item--consult" href="#" onclick="return false" aria-label="상담 신청">상담<br/>신청</a>
+            <a class="fab-item fab-item--kakao" href="#" onclick="return false" aria-label="카카오 문의">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
+            </a>
+            <button class="fab-main" id="ds-fab-toggle" type="button" aria-label="문의 메뉴" aria-expanded="false">
+              <span class="fab-face fab-face--consult">상담<br/>신청</span>
+              <span class="fab-face fab-face--kakao"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></span>
+              <span class="fab-face fab-face--close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>
+            </button>
+          </div>
+        </div>
+        <p class="ds-note">상담 = 베이지(<code class="ds-code">#F2D679</code>) 배경 + 검정 글씨 / 카카오 = 검정 배경 + 베이지 아이콘. 실제 링크: 상담 → Tally, 카카오 → 채널 <code class="ds-code">/chat</code>.</p>
+      </section>
+
+      <!-- ░░░ 헤더 · 푸터 ░░░ -->
+      <section class="ds-section" id="chrome">
+        <h2 class="ds-h2"><span class="ds-num">10</span>헤더 · 푸터</h2>
+        <p class="ds-lead">헤더는 흰색 반투명 고정 GNB(로고 + 메뉴), 푸터는 검정. 로고는 헤더=어두운 워드마크, 푸터=밝은 워드마크로 구분합니다.</p>
+
+        <div class="ds-h3">헤더</div>
+        <div class="ds-stage" style="justify-content:space-between">
+          <span class="site-logo"><img src="/images/logo/logo-dark.png" alt="Enliven Space" style="height:40px"/></span>
+          <span style="display:flex;gap:24px;font-family:'NanumSquare',sans-serif;font-size:14px;font-weight:700">
+            <span>인라이븐스페이스</span><span>공간이야기</span><span>진행방식</span><span style="color:#a3a3a3">포트폴리오</span><span>후기</span>
+          </span>
+        </div>
+        <p class="ds-note">고정 + <code class="ds-code">backdrop-blur</code>, 하단 1px 보더. 데스크톱(≥1024)만 가로 메뉴, 그 이하는 햄버거 → 전체화면 오버레이.</p>
+
+        <div class="ds-h3">푸터</div>
+        <div class="ds-stage ds-stage--dark" style="justify-content:space-between">
+          <span class="footer-logo"><img src="/images/logo/logo-light.png" alt="Enliven Space" style="height:56px"/></span>
+          <span class="footer-sns">
+            <a href="#" onclick="return false" aria-label="카카오톡 채널"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+            <a href="#" onclick="return false" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" onclick="return false" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="5"/><text x="12" y="16" text-anchor="middle" font-size="9" font-family="sans-serif" font-weight="700" fill="#171717">Blog</text></svg></a>
+          </span>
+        </div>
+        <p class="ds-note">SNS는 정확히 3개 — 카카오톡 채널 · Instagram · 네이버 블로그(‘Blog’ 글자 컷아웃). YouTube 없음.</p>
+      </section>
+
+      <!-- ░░░ 기타 요소 ░░░ -->
+      <section class="ds-section" id="misc">
+        <h2 class="ds-h2"><span class="ds-num">11</span>기타 요소</h2>
+
+        <div class="ds-h3">섹션 eyebrow (.section-eyebrow)</div>
+        <div class="ds-stage" style="display:block">
+          <span class="section-eyebrow">PORTFOLIO</span>
+          <div class="text-2xl" style="font-weight:900;margin-top:6px">완성된 공간</div>
+        </div>
+        <p class="ds-note">대문자 + 자간 0.08em, ink-3. 섹션 제목 위 작은 라벨.</p>
+
+        <div class="ds-h3">이미지 플레이스홀더 (.ph-img)</div>
+        <div class="ds-grid ds-grid--2">
+          <div class="ph-img" style="aspect-ratio:4/3;border-radius:12px" data-filename="proj-01-living.webp" data-size="1920×1440"></div>
+          <div class="ph-img ph-img--dark" style="aspect-ratio:4/3;border-radius:12px" data-filename="hero-after.webp" data-size="2400px"></div>
+        </div>
+        <p class="ds-note">실제 사진을 받기 전 자리 표시용 — 파일명/사이즈를 크게 노출. <strong>운영 페이지에선 실제 <code class="ds-code">&lt;img&gt;</code> 로 반드시 교체</strong>(테스트가 잔존 placeholder 를 잡음).</p>
+      </section>
+
+      <!-- ░░░ 자산 ░░░ -->
+      <section class="ds-section" id="assets">
+        <h2 class="ds-h2"><span class="ds-num">12</span>자산</h2>
+        <div class="ds-h3">로고</div>
+        <div class="ds-grid ds-grid--2">
+          <div class="ds-asset"><img src="/images/logo/logo-dark.png" alt="dark logo" style="height:46px"/><span class="cap">logo-dark.png · 헤더(밝은 배경)</span></div>
+          <div class="ds-asset ds-asset--dark"><img src="/images/logo/logo-light.png" alt="light logo" style="height:46px"/><span class="cap">logo-light.png · 푸터(어두운 배경)</span></div>
+        </div>
+        <p class="ds-note" style="margin-top:10px">각각 <code class="ds-code">@1x</code>/2x 버전 보유. 헤더 로고 높이 38→44→48px(반응형), 푸터 64→72px.</p>
+
+        <div class="ds-h3">파비콘 · 웹앱 아이콘</div>
+        <div class="ds-stage" style="gap:22px">
+          <div style="text-align:center"><img src="/images/favicon.png" alt="favicon" width="32" height="32"/><div class="ds-note" style="margin-top:6px">32</div></div>
+          <div style="text-align:center"><img src="/images/favicon-180.png" alt="apple touch" width="48" height="48"/><div class="ds-note" style="margin-top:6px">180</div></div>
+          <div style="text-align:center"><img src="/images/favicon-192.png" alt="192" width="48" height="48"/><div class="ds-note" style="margin-top:6px">192</div></div>
+          <div style="text-align:center"><img src="/images/favicon-512.png" alt="512" width="48" height="48"/><div class="ds-note" style="margin-top:6px">512</div></div>
+        </div>
+        <p class="ds-note" style="margin-top:10px"><code class="ds-code">logo-light.png</code>(흰 워드마크)를 검정 배경에 10% 여백 레터박스. <code class="ds-code">npm run favicons</code> 로 생성 + <code class="ds-code">site.webmanifest</code>. theme-color <code class="ds-code">#ffffff</code>.</p>
+      </section>
+
+      <!-- ░░░ 규칙 ░░░ -->
+      <section class="ds-section" id="rules">
+        <h2 class="ds-h2"><span class="ds-num">13</span>규칙 · 불변식</h2>
+        <p class="ds-lead">아래 규칙은 <code class="ds-code">scripts/test-site.mjs</code> 가 강제합니다(머지 전 <code class="ds-code">npm run test</code> 필수, 225+ 검사).</p>
+        <ul class="ds-rules">
+          <li>Tailwind CDN 설정은 항상 <code class="ds-code">tailwind.config</code> (오타 <code class="ds-code">tailwindcss.config</code> 금지 — 커스텀 색상 전멸).</li>
+          <li>헤더 로고는 <code class="ds-code">img logo-dark</code>, 푸터 로고는 <code class="ds-code">img logo-light</code> (텍스트 워드마크 금지).</li>
+          <li>푸터 SNS 정확히 3개: 카카오톡 채널 · Instagram · 네이버 블로그(‘Blog’ 글자 포함). YouTube 금지.</li>
+          <li>상담 버튼(<code class="ds-code">data-action="consult"</code>)은 항상 Tally URL — <code class="ds-code">href="#"</code> 금지.</li>
+          <li>메인 외 페이지의 히어로 텍스트 오버레이엔 <code class="ds-code">z-10</code> 필수(그라디언트가 글씨 덮음 방지).</li>
+          <li>히어로 위 반투명 흰색(<code class="ds-code">text-white/80·90</code>) 금지 — 100% 흰색만.</li>
+          <li>프로젝트 갤러리는 퍼즐형 masonry(<code class="ds-code">layoutMasonry</code>) — 고정 <code class="ds-code">grid-cols-3</code> 로 되돌리지 말 것.</li>
+          <li>모든 페이지 <code class="ds-code">&lt;head&gt;</code> 에 파비콘 4종 + manifest + theme-color.</li>
+        </ul>
+      </section>
+
+      <div class="ds-foot">
+        Enliven Space Design System · 내부 참고용 (검색 비색인 · 무링크)<br>
+        토큰 출처 <code class="ds-code">css/style.css</code> · 컴포넌트 <code class="ds-code">scripts/build-pages.mjs</code> · 규칙 <code class="ds-code">scripts/test-site.mjs</code> · 운영 메모 <code class="ds-code">CLAUDE.md</code> · 최종 갱신 2026-06-03
+      </div>
+
+    </main>
+  </div>
+
+  <!-- 공용 토스트 (복사 완료 · 데모) -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+    <span class="toast-msg">복사되었습니다</span>
+  </div>
+
+  <script>
+    // ── 토스트 (사이트 project/*.html 과 동일 패턴) ──
+    const toast = document.getElementById('toast');
+    const toastMsg = toast.querySelector('.toast-msg');
+    let toastTimer;
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.add('is-show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-show'), 2400);
+    }
+    document.getElementById('ds-toast-demo').addEventListener('click', () => showToast('링크가 복사되었습니다'));
+
+    // ── 색상 값 클릭 → 복사 ──
+    document.querySelectorAll('.ds-swatch .hex[data-copy]').forEach(el => {
+      el.addEventListener('click', async () => {
+        const val = el.dataset.copy;
+        try {
+          if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(val);
+          else { const t = document.createElement('textarea'); t.value = val; t.style.position='fixed'; t.style.opacity='0'; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t); }
+          showToast(val + ' 복사됨');
+        } catch (e) { showToast('복사 실패'); }
+      });
+    });
+
+    // ── 데모 인터랙션: room-tab / ba-toggle 단일 선택 ──
+    function singleSelect(container, sel) {
+      const root = document.getElementById(container);
+      if (!root) return;
+      root.querySelectorAll(sel).forEach(btn => btn.addEventListener('click', () => {
+        root.querySelectorAll(sel).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }));
+    }
+    singleSelect('ds-roomtabs', '.room-tab');
+    singleSelect('ds-batoggle', 'button');
+
+    // ── FAB 데모 토글 ──
+    const dsFab = document.getElementById('ds-fab');
+    document.getElementById('ds-fab-toggle').addEventListener('click', () => {
+      const open = dsFab.classList.toggle('is-open');
+      document.getElementById('ds-fab-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // ── 사이드 TOC 스크롤스파이 ──
+    const navLinks = [...document.querySelectorAll('.ds-nav a')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const id = '#' + en.target.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => spy.observe(s));
+  </script>
+</body>
+</html>
