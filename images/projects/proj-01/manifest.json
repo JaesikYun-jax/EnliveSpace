@@ -299,19 +299,19 @@
         "variants": [
           {
             "name": "proj-01-card-cover-01.webp",
-            "size": 20590,
+            "size": 25000,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-01-card-cover-01-1200.webp",
-            "size": 8296,
+            "size": 9986,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-01-card-cover-01-600.webp",
-            "size": 2652,
+            "size": 3404,
             "w": 600,
             "vertical": false
           }
