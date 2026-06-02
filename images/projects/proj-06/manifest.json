@@ -249,19 +249,19 @@
         "variants": [
           {
             "name": "proj-06-living-09.webp",
-            "size": 133848,
+            "size": 129038,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-living-09-1200.webp",
-            "size": 51776,
+            "size": 51112,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-living-09-600.webp",
-            "size": 14574,
+            "size": 13844,
             "w": 600,
             "vertical": false
           }
@@ -273,21 +273,21 @@
         "variants": [
           {
             "name": "proj-06-living-10.webp",
-            "size": 129038,
+            "size": 120750,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-living-10-1200.webp",
-            "size": 51112,
+            "size": 22596,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-living-10-600.webp",
-            "size": 13844,
+            "size": 5968,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -297,19 +297,19 @@
         "variants": [
           {
             "name": "proj-06-living-11.webp",
-            "size": 120750,
+            "size": 174396,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-living-11-1200.webp",
-            "size": 22596,
+            "size": 30454,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-living-11-600.webp",
-            "size": 5968,
+            "size": 5050,
             "w": 600,
             "vertical": true
           }
@@ -321,19 +321,19 @@
         "variants": [
           {
             "name": "proj-06-living-12.webp",
-            "size": 174396,
+            "size": 87248,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-living-12-1200.webp",
-            "size": 30454,
+            "size": 21012,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-living-12-600.webp",
-            "size": 5050,
+            "size": 4806,
             "w": 600,
             "vertical": true
           }
@@ -345,21 +345,21 @@
         "variants": [
           {
             "name": "proj-06-living-13.webp",
-            "size": 87248,
+            "size": 33356,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-living-13-1200.webp",
-            "size": 21012,
+            "size": 13198,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-living-13-600.webp",
-            "size": 4806,
+            "size": 4012,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -369,21 +369,21 @@
         "variants": [
           {
             "name": "proj-06-living-14.webp",
-            "size": 37932,
+            "size": 205074,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-living-14-1200.webp",
-            "size": 14212,
+            "size": 74016,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-living-14-600.webp",
-            "size": 4676,
+            "size": 20112,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -393,19 +393,19 @@
         "variants": [
           {
             "name": "proj-06-living-15.webp",
-            "size": 33356,
+            "size": 197058,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-living-15-1200.webp",
-            "size": 13198,
+            "size": 57254,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-living-15-600.webp",
-            "size": 4012,
+            "size": 15220,
             "w": 600,
             "vertical": false
           }
@@ -417,21 +417,21 @@
         "variants": [
           {
             "name": "proj-06-living-16.webp",
-            "size": 205074,
+            "size": 67688,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-living-16-1200.webp",
-            "size": 74016,
+            "size": 19672,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-living-16-600.webp",
-            "size": 20112,
+            "size": 5338,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -441,19 +441,19 @@
         "variants": [
           {
             "name": "proj-06-living-17.webp",
-            "size": 197058,
+            "size": 96950,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-living-17-1200.webp",
-            "size": 57254,
+            "size": 33056,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-living-17-600.webp",
-            "size": 15220,
+            "size": 9612,
             "w": 600,
             "vertical": false
           }
@@ -465,21 +465,21 @@
         "variants": [
           {
             "name": "proj-06-living-18.webp",
-            "size": 358660,
+            "size": 98502,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-living-18-1200.webp",
-            "size": 91414,
+            "size": 24128,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-living-18-600.webp",
-            "size": 21304,
+            "size": 6562,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -489,19 +489,19 @@
         "variants": [
           {
             "name": "proj-06-living-19.webp",
-            "size": 67688,
+            "size": 33014,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-living-19-1200.webp",
-            "size": 19672,
+            "size": 10338,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-living-19-600.webp",
-            "size": 5338,
+            "size": 3444,
             "w": 600,
             "vertical": false
           }
@@ -589,21 +589,21 @@
         "variants": [
           {
             "name": "proj-06-bath-a-hero-before.webp",
-            "size": 205270,
+            "size": 205678,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-bath-a-hero-before-1200.webp",
-            "size": 79206,
+            "size": 77834,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-bath-a-hero-before-600.webp",
-            "size": 26392,
+            "size": 26120,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -759,19 +759,19 @@
         "variants": [
           {
             "name": "proj-06-bath-b-hero-before.webp",
-            "size": 618214,
+            "size": 284418,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-bath-b-hero-before-1200.webp",
-            "size": 190478,
+            "size": 118176,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-bath-b-hero-before-600.webp",
-            "size": 31102,
+            "size": 32648,
             "w": 600,
             "vertical": false
           }
@@ -905,19 +905,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-01.webp",
-            "size": 59056,
+            "size": 48834,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-kitchen-01-1200.webp",
-            "size": 22636,
+            "size": 20744,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-kitchen-01-600.webp",
-            "size": 7432,
+            "size": 7128,
             "w": 600,
             "vertical": false
           }
@@ -929,19 +929,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-02.webp",
-            "size": 25992,
+            "size": 28494,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-kitchen-02-1200.webp",
-            "size": 10622,
+            "size": 12694,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-kitchen-02-600.webp",
-            "size": 3878,
+            "size": 4518,
             "w": 600,
             "vertical": false
           }
@@ -953,21 +953,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-03.webp",
-            "size": 33014,
+            "size": 78716,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-03-1200.webp",
-            "size": 10338,
+            "size": 29342,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-03-600.webp",
-            "size": 3444,
+            "size": 8986,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -977,21 +977,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-04.webp",
-            "size": 35938,
+            "size": 99076,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-04-1200.webp",
-            "size": 15886,
+            "size": 27382,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-04-600.webp",
-            "size": 5546,
+            "size": 7162,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -1001,21 +1001,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-05.webp",
-            "size": 48834,
+            "size": 197536,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-05-1200.webp",
-            "size": 20744,
+            "size": 68792,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-05-600.webp",
-            "size": 7128,
+            "size": 14098,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -1025,21 +1025,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-06.webp",
-            "size": 28494,
+            "size": 251132,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-06-1200.webp",
-            "size": 12694,
+            "size": 77644,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-06-600.webp",
-            "size": 4518,
+            "size": 14590,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -1049,19 +1049,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-07.webp",
-            "size": 78716,
+            "size": 127906,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-kitchen-07-1200.webp",
-            "size": 29342,
+            "size": 51410,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-kitchen-07-600.webp",
-            "size": 8986,
+            "size": 17696,
             "w": 600,
             "vertical": true
           }
@@ -1073,21 +1073,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-08.webp",
-            "size": 99076,
+            "size": 37482,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-08-1200.webp",
-            "size": 27382,
+            "size": 16266,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-08-600.webp",
-            "size": 7162,
+            "size": 5650,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -1097,21 +1097,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-09.webp",
-            "size": 197536,
+            "size": 32912,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-09-1200.webp",
-            "size": 68792,
+            "size": 14112,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-09-600.webp",
-            "size": 14098,
+            "size": 4796,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -1121,19 +1121,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-10.webp",
-            "size": 251132,
+            "size": 118692,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-kitchen-10-1200.webp",
-            "size": 77644,
+            "size": 35996,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-kitchen-10-600.webp",
-            "size": 14590,
+            "size": 9008,
             "w": 600,
             "vertical": true
           }
@@ -1145,19 +1145,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-11.webp",
-            "size": 127906,
+            "size": 159204,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-kitchen-11-1200.webp",
-            "size": 51410,
+            "size": 31834,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-kitchen-11-600.webp",
-            "size": 17696,
+            "size": 6188,
             "w": 600,
             "vertical": true
           }
@@ -1169,21 +1169,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-12.webp",
-            "size": 37482,
+            "size": 185454,
             "w": 1920,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-12-1200.webp",
-            "size": 16266,
+            "size": 64136,
             "w": 1200,
-            "vertical": false
+            "vertical": true
           },
           {
             "name": "proj-06-kitchen-12-600.webp",
-            "size": 5650,
+            "size": 16982,
             "w": 600,
-            "vertical": false
+            "vertical": true
           }
         ]
       },
@@ -1193,19 +1193,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-13.webp",
-            "size": 32912,
+            "size": 35938,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-kitchen-13-1200.webp",
-            "size": 14112,
+            "size": 15886,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-kitchen-13-600.webp",
-            "size": 4796,
+            "size": 5546,
             "w": 600,
             "vertical": false
           }
@@ -1217,21 +1217,21 @@
         "variants": [
           {
             "name": "proj-06-kitchen-14.webp",
-            "size": 118692,
+            "size": 33014,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-14-1200.webp",
-            "size": 35996,
+            "size": 10338,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-14-600.webp",
-            "size": 9008,
+            "size": 3444,
             "w": 600,
-            "vertical": true
+            "vertical": false
           }
         ]
       },
@@ -1241,67 +1241,19 @@
         "variants": [
           {
             "name": "proj-06-kitchen-15.webp",
-            "size": 159204,
+            "size": 33360,
             "w": 1920,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-15-1200.webp",
-            "size": 31834,
+            "size": 14492,
             "w": 1200,
-            "vertical": true
+            "vertical": false
           },
           {
             "name": "proj-06-kitchen-15-600.webp",
-            "size": 6188,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-06-kitchen-16.jpg",
-        "variants": [
-          {
-            "name": "proj-06-kitchen-16.webp",
-            "size": 185454,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-06-kitchen-16-1200.webp",
-            "size": 64136,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-06-kitchen-16-600.webp",
-            "size": 16982,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-06-kitchen-17.jpg",
-        "variants": [
-          {
-            "name": "proj-06-kitchen-17.webp",
-            "size": 23464,
-            "w": 1688,
-            "vertical": false
-          },
-          {
-            "name": "proj-06-kitchen-17-1200.webp",
-            "size": 13336,
-            "w": 1200,
-            "vertical": false
-          },
-          {
-            "name": "proj-06-kitchen-17-600.webp",
-            "size": 4792,
+            "size": 5056,
             "w": 600,
             "vertical": false
           }
@@ -1448,6 +1400,30 @@
           {
             "name": "proj-06-bed-a-04-600.webp",
             "size": 3140,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-06-bed-a-05.jpg",
+        "variants": [
+          {
+            "name": "proj-06-bed-a-05.webp",
+            "size": 63644,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-bed-a-05-1200.webp",
+            "size": 28110,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-bed-a-05-600.webp",
+            "size": 9498,
             "w": 600,
             "vertical": false
           }
@@ -1631,19 +1607,19 @@
         "variants": [
           {
             "name": "proj-06-bed-c-hero-before.webp",
-            "size": 137838,
+            "size": 356732,
             "w": 1920,
             "vertical": false
           },
           {
             "name": "proj-06-bed-c-hero-before-1200.webp",
-            "size": 39952,
+            "size": 116818,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "proj-06-bed-c-hero-before-600.webp",
-            "size": 10388,
+            "size": 20436,
             "w": 600,
             "vertical": false
           }

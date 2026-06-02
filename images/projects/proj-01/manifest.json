@@ -560,6 +560,30 @@
             "vertical": false
           }
         ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-01-bath-b-04.jpg",
+        "variants": [
+          {
+            "name": "proj-01-bath-b-04.webp",
+            "size": 120186,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-01-bath-b-04-1200.webp",
+            "size": 47000,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-01-bath-b-04-600.webp",
+            "size": 14788,
+            "w": 600,
+            "vertical": true
+          }
+        ]
       }
     ],
     "kitchen": [
@@ -704,6 +728,30 @@
             "size": 10140,
             "w": 600,
             "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "proj-01-kitchen-05.jpg",
+        "variants": [
+          {
+            "name": "proj-01-kitchen-05.webp",
+            "size": 38478,
+            "w": 1537,
+            "vertical": false
+          },
+          {
+            "name": "proj-01-kitchen-05-1200.webp",
+            "size": 26232,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-01-kitchen-05-600.webp",
+            "size": 9458,
+            "w": 600,
+            "vertical": false
           }
         ]
       }
