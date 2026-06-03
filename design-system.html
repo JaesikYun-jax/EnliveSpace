@@ -158,10 +158,35 @@
     .toast.is-show { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.34s ease, transform 0.34s cubic-bezier(0.22,1,0.36,1); }
     .toast-check { display: inline-flex; flex-shrink: 0; }
     @media (prefers-reduced-motion: reduce) { .toast, .toast.is-show { transition: opacity 0.2s ease, visibility 0s; transform: translate(-50%, 0); } }
+
+    /* ═══ 모바일 차단 — 좁은 화면(< 960px)에선 본문 숨기고 PC 안내만 노출 ═══ */
+    .ds-mobile-notice { display: none; }
+    @media (max-width: 959.98px) {
+      body.ds .ds-topbar, body.ds .ds-shell { display: none !important; }
+      .ds-mobile-notice {
+        display: flex; min-height: 100vh; min-height: 100svh;
+        align-items: center; justify-content: center; text-align: center; padding: 40px 28px;
+      }
+      .ds-mobile-notice .ds-mn-inner { max-width: 380px; }
+      .ds-mobile-notice img { width: 128px; height: auto; display: block; margin: 0 auto 30px; }
+      .ds-mobile-notice .ds-mn-title { font-family: 'GmarketSansBold', sans-serif; font-size: 21px; letter-spacing: -0.01em; color: var(--color-text); margin-bottom: 13px; }
+      .ds-mobile-notice .ds-mn-desc { font-family: 'NanumSquare', sans-serif; font-size: 14px; line-height: 1.75; color: var(--color-text-2); }
+      .ds-mobile-notice .ds-mn-badge { display: inline-block; margin-top: 24px; font-family: 'GmarketSansMedium', sans-serif; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-3); border: 1px solid var(--color-border-strong); border-radius: 999px; padding: 5px 12px; }
+    }
   </style>
 </head>
 
 <body class="ds">
+
+  <!-- 모바일(좁은 화면) 차단: PC 환경 안내로 대체 -->
+  <div class="ds-mobile-notice">
+    <div class="ds-mn-inner">
+      <img src="/images/logo/logo-dark.png" alt="Enliven Space">
+      <p class="ds-mn-title">PC 환경에서 확인해 주세요</p>
+      <p class="ds-mn-desc">이 디자인 시스템 문서는 넓은 화면에 맞춰 설계되어 있어요.<br>데스크톱(PC) 브라우저에서 열어주세요.</p>
+      <span class="ds-mn-badge">Desktop only</span>
+    </div>
+  </div>
 
   <div class="ds-topbar">
     <div class="ds-topbar-inner">
