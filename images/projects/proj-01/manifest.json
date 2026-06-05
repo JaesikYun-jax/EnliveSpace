@@ -447,19 +447,19 @@
         "variants": [
           {
             "name": "proj-01-bath-b-hero-after.webp",
-            "size": 130948,
+            "size": 120186,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-01-bath-b-hero-after-1200.webp",
-            "size": 44828,
+            "size": 47000,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-01-bath-b-hero-after-600.webp",
-            "size": 13956,
+            "size": 14788,
             "w": 600,
             "vertical": true
           }
@@ -558,30 +558,6 @@
             "size": 4434,
             "w": 600,
             "vertical": false
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-01-bath-b-04.jpg",
-        "variants": [
-          {
-            "name": "proj-01-bath-b-04.webp",
-            "size": 120186,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-01-bath-b-04-1200.webp",
-            "size": 47000,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-01-bath-b-04-600.webp",
-            "size": 14788,
-            "w": 600,
-            "vertical": true
           }
         ]
       }

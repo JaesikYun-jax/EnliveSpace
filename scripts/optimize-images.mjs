@@ -167,12 +167,22 @@ async function processProject(korFolder, projNum) {
 }
 
 async function main() {
+  // 선택적 프로젝트 필터: `node scripts/optimize-images.mjs 06 02` → 해당 proj 만 재변환.
+  // 인자 없으면 전체. (특정 프로젝트만 손볼 때 다른 프로젝트 산출물을 건드리지 않기 위함)
+  const only = process.argv
+    .slice(2)
+    .filter((a) => /^\d+$/.test(a))
+    .map((a) => a.padStart(2, '0'));
+
   console.log(`Source : ${SRC}`);
-  console.log(`Output : ${OUT}\n`);
+  console.log(`Output : ${OUT}`);
+  if (only.length) console.log(`Filter : proj-${only.join(', proj-')}`);
+  console.log('');
   await fs.mkdir(OUT, { recursive: true });
 
   let grand = { in: 0, outBytes: 0, files: 0 };
   for (const [kor, num] of Object.entries(PROJECT_MAP)) {
+    if (only.length && !only.includes(num)) continue;
     console.log(`\n▶ proj-${num} — ${kor}`);
     const t = await processProject(kor, num);
     console.log(
