@@ -252,6 +252,7 @@ async function main() {
       '/images/projects/proj-01/proj-01-hero-after.webp',
       '/images/projects/proj-02/proj-02-hero-after.webp',
       '/images/projects/proj-06/proj-06-hero-after.webp',
+      '/images/portfolio-hero.webp',
       '/images/favicon.png',
       '/images/favicon-180.png',
       '/images/favicon-192.png',

@@ -465,42 +465,18 @@
         "variants": [
           {
             "name": "proj-06-living-18.webp",
-            "size": 98502,
-            "w": 1920,
-            "vertical": false
-          },
-          {
-            "name": "proj-06-living-18-1200.webp",
-            "size": 24128,
-            "w": 1200,
-            "vertical": false
-          },
-          {
-            "name": "proj-06-living-18-600.webp",
-            "size": 6562,
-            "w": 600,
-            "vertical": false
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-06-living-19.jpg",
-        "variants": [
-          {
-            "name": "proj-06-living-19.webp",
             "size": 33014,
             "w": 1920,
             "vertical": false
           },
           {
-            "name": "proj-06-living-19-1200.webp",
+            "name": "proj-06-living-18-1200.webp",
             "size": 10338,
             "w": 1200,
             "vertical": false
           },
           {
-            "name": "proj-06-living-19-600.webp",
+            "name": "proj-06-living-18-600.webp",
             "size": 3444,
             "w": 600,
             "vertical": false
@@ -552,6 +528,32 @@
           {
             "name": "proj-06-index-hero-02-600.webp",
             "size": 6392,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "card-cover": [
+      {
+        "kind": "regular",
+        "source": "proj-06-card-cover-01.jpg",
+        "variants": [
+          {
+            "name": "proj-06-card-cover-01.webp",
+            "size": 35938,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-card-cover-01-1200.webp",
+            "size": 15886,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "proj-06-card-cover-01-600.webp",
+            "size": 5546,
             "w": 600,
             "vertical": false
           }
@@ -1696,33 +1698,57 @@
             "vertical": false
           }
         ]
-      },
+      }
+    ],
+    "entrance": [
       {
-        "kind": "regular",
-        "source": "proj-06-bed-c-04.jpg",
+        "kind": "hero",
+        "source": "proj-06-entrance-hero-after.jpg",
         "variants": [
           {
-            "name": "proj-06-bed-c-04.webp",
-            "size": 30662,
+            "name": "proj-06-entrance-hero-after.webp",
+            "size": 121960,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "proj-06-entrance-hero-after-1200.webp",
+            "size": 46026,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "proj-06-entrance-hero-after-600.webp",
+            "size": 13614,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "proj-06-entrance-hero-before.jpg",
+        "variants": [
+          {
+            "name": "proj-06-entrance-hero-before.webp",
+            "size": 357358,
             "w": 1920,
             "vertical": false
           },
           {
-            "name": "proj-06-bed-c-04-1200.webp",
-            "size": 11830,
+            "name": "proj-06-entrance-hero-before-1200.webp",
+            "size": 153280,
             "w": 1200,
             "vertical": false
           },
           {
-            "name": "proj-06-bed-c-04-600.webp",
-            "size": 3854,
+            "name": "proj-06-entrance-hero-before-600.webp",
+            "size": 35300,
             "w": 600,
             "vertical": false
           }
         ]
-      }
-    ],
-    "entrance": [
+      },
       {
         "kind": "regular",
         "source": "proj-06-entrance-01.jpg",
@@ -1753,19 +1779,19 @@
         "variants": [
           {
             "name": "proj-06-entrance-02.webp",
-            "size": 121960,
+            "size": 127242,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-entrance-02-1200.webp",
-            "size": 46026,
+            "size": 44880,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-entrance-02-600.webp",
-            "size": 13614,
+            "size": 13226,
             "w": 600,
             "vertical": true
           }
@@ -1777,19 +1803,19 @@
         "variants": [
           {
             "name": "proj-06-entrance-03.webp",
-            "size": 127242,
+            "size": 257608,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-entrance-03-1200.webp",
-            "size": 44880,
+            "size": 78180,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-entrance-03-600.webp",
-            "size": 13226,
+            "size": 20436,
             "w": 600,
             "vertical": true
           }
@@ -1801,19 +1827,19 @@
         "variants": [
           {
             "name": "proj-06-entrance-04.webp",
-            "size": 257608,
+            "size": 182722,
             "w": 1920,
             "vertical": true
           },
           {
             "name": "proj-06-entrance-04-1200.webp",
-            "size": 78180,
+            "size": 70404,
             "w": 1200,
             "vertical": true
           },
           {
             "name": "proj-06-entrance-04-600.webp",
-            "size": 20436,
+            "size": 20784,
             "w": 600,
             "vertical": true
           }
@@ -1825,42 +1851,18 @@
         "variants": [
           {
             "name": "proj-06-entrance-05.webp",
-            "size": 182722,
-            "w": 1920,
-            "vertical": true
-          },
-          {
-            "name": "proj-06-entrance-05-1200.webp",
-            "size": 70404,
-            "w": 1200,
-            "vertical": true
-          },
-          {
-            "name": "proj-06-entrance-05-600.webp",
-            "size": 20784,
-            "w": 600,
-            "vertical": true
-          }
-        ]
-      },
-      {
-        "kind": "regular",
-        "source": "proj-06-entrance-06.jpg",
-        "variants": [
-          {
-            "name": "proj-06-entrance-06.webp",
             "size": 132330,
             "w": 1920,
             "vertical": true
           },
           {
-            "name": "proj-06-entrance-06-1200.webp",
+            "name": "proj-06-entrance-05-1200.webp",
             "size": 50726,
             "w": 1200,
             "vertical": true
           },
           {
-            "name": "proj-06-entrance-06-600.webp",
+            "name": "proj-06-entrance-05-600.webp",
             "size": 16564,
             "w": 600,
             "vertical": true

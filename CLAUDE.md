@@ -47,9 +47,11 @@ npm run test
 ```bash
 npm run stage      # 원본 폴더 → _staging/ 로 자동 리네임 복사 (proj-XX-section-NN.jpg)
 npm run optimize   # _staging/ → WebP 3사이즈(1920/1200/600) → images/projects/proj-XX/
+                   #   특정 프로젝트만: node scripts/optimize-images.mjs 06 (다른 proj 산출물 안 건드림)
+npm run portfolio-hero # '4. 포트폴리오/포트폴리오 상단이미지.jpg' → images/portfolio-hero.webp (1920w)
 npm run build      # manifest 기반으로 project/1.html ~ project/6.html + project/index.html 재생성
 npm run favicons   # images/logo/logo-light.png 검정 배경 레터박스 → 32/180/192/512 PNG + site.webmanifest
-npm run all        # stage → optimize → build → favicons → test
+npm run all        # stage → optimize → portfolio-hero → build → favicons → test
 npm run test       # 마지막 검증
 
 # dry-run: 분류 누락 / 미지원 섹션 사전 점검
@@ -60,7 +62,10 @@ node scripts/stage-images.mjs --dry-run
 - **섹션 폴더명 → 영문 키** 매핑은 `SECTION_MAP`: 거실 → living, 주방 → kitchen, 욕실-A → bath-a, 안방 → bedroom, Room-A → room-a 등 (`stage-images.mjs` 와 `optimize-images.mjs` 양쪽에 동일 정의)
 - **비포/에프터 사진**: 섹션 폴더의 `비포에프터` 하위 폴더에 두고 파일명에 `비포`/`before` 또는 `에프터`/`애프터`/`after` 마커가 있으면 자동 분류. 거실(`living`)의 비포에프터는 프로젝트 메인 hero → `proj-XX-hero-{before|after}.jpg`, 그 외 섹션은 `proj-XX-{section}-hero-{before|after}.jpg`
 - 분류 불가 파일명(예: 날짜시각 파일)은 `stage-images.mjs` 의 `FILE_KIND_OVERRIDES` 에 명시
+- **섹션 내 중복 사진 dedup**: `stage-images.mjs` 는 한 섹션 안에서 **내용이 같은(content hash 동일) 사진을 한 번만** stage 한다. 비포에프터 hero 를 먼저 처리하므로, after/before 와 동일한 컷이 일반 사진으로도 들어있으면(예: `현관/에프터_이동.jpg` ≡ `현관/3T2A0539.jpg`) 그 일반 사진은 스킵된다 → 갤러리에 같은 컷이 before/after 카드 + 일반 카드로 두 번 나오지 않음. dry-run/stage 로그의 `deduped=` 와 `중복 사진 스킵` 목록으로 확인. (서로 다른 섹션 간 동일 사진은 의도적일 수 있어 건드리지 않음 — 필요 시 수동 정리)
+- **포트폴리오 카드 cover(썸네일)**: `SECTION_MAP` 의 `썸네일` → `card-cover`. 원본에 `썸네일` 폴더가 없을 때는 `stage-images.mjs` 의 `CARD_COVER_OVERRIDES` 로 기존 섹션의 파일 하나를 카드 커버로 승격한다(예: `06 → 주방/메인이미지_썸네일.jpg`). manifest 의 `card-cover` 섹션이 생기면 `build-pages` 의 `projectCard`/`portfolioCovers` 가 포트폴리오 목록 카드 커버로 자동 사용 → **메인 index.html 의 `images/main/portfolio-thumbnail/` 와 같은 소스라 카드 썸네일이 메인과 통일됨**(proj-06 card-cover webp ≡ thumb-01-pangyo, byte 동일)
 - 새 프로젝트 메타데이터는 `scripts/projects-data.mjs` 의 `PROJECTS` 배열에 객체로 추가 (id, slug, title, address, pyeong, period, completedAt, type, pricePerPy, keywords, scope, description, sectionLabels)
+- **포트폴리오 목록(`/project/`) 상단 hero 배너**는 프로젝트 사진과 별개의 전용 와이드 컷이다 — 원본 `4. 포트폴리오/포트폴리오 상단이미지.jpg`(판교원9단지, ≈2.71:1) 를 `npm run portfolio-hero` 가 `images/portfolio-hero.webp`(1920w) 로 변환하고, `build-pages.mjs` 의 `PORTFOLIO_HERO_SRC` 가 이 고정 경로를 참조한다. 배너를 바꾸려면 원본 파일을 교체 후 `npm run portfolio-hero && npm run build`. (원본은 .gitignore 대상 → 커밋되는 산출물은 webp 1장. 원본이 없으면 스크립트는 경고만 남기고 기존 webp 유지)
 - `_staging/` 은 빌드 산출물 — 언제든 삭제 가능, `npm run stage` 가 새로 생성
 
 ## 디렉토리 구조
@@ -73,6 +78,7 @@ enlivespace/
 │   ├── logo/           # 헤더용(dark) / 푸터용(light), 1x · 2x
 │   ├── favicon*.png    # 32/180/192/512 — logo-light.png 을 검정 배경에 레터박스, npm run favicons 로 생성
 │   ├── site.webmanifest # PWA 매니페스트 — 같은 스크립트로 생성
+│   ├── portfolio-hero.webp # /project/ 상단 hero 배너 — npm run portfolio-hero 로 생성
 │   └── projects/       # proj-01 ~ proj-06 각각 WebP 3사이즈 + manifest.json
 ├── css/style.css       # 모든 페이지 공통 스타일
 ├── js/main.js          # 인터랙션 (hero slider, 룸 필터, 라이트박스, strip arrows 등)
@@ -82,6 +88,7 @@ enlivespace/
     ├── optimize-images.mjs  # sharp 기반 WebP 변환 (_staging/ → images/projects/)
     ├── build-pages.mjs      # 매니페스트 → 프로젝트 페이지 생성
     ├── build-favicons.mjs   # logo-light.png 검정 배경 레터박스 → 다중 사이즈 PNG + webmanifest
+    ├── build-portfolio-hero.mjs # 포트폴리오 상단이미지.jpg → images/portfolio-hero.webp
     ├── test-site.mjs        # 머지 전 검증 (필수)
     └── apply-*.mjs / update-*.mjs  # 일회성 일괄 변환 (기록용 보존)
 ```

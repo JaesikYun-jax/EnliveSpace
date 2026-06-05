@@ -654,17 +654,13 @@ function projectCard(project, manifest) {
         </a>`;
 }
 
+// 포트폴리오 목록 상단 hero 배너 — 판교원9단지 한림풀에버 '포트폴리오 상단이미지' 전용 와이드 컷.
+// (예전엔 첫 프로젝트의 거실 after-hero 를 재사용) 원본은 .gitignore 대상이라
+// scripts/build-portfolio-hero.mjs 가 생성한 고정 산출물을 참조한다.
+const PORTFOLIO_HERO_SRC = '/images/portfolio-hero.webp';
+
 function buildPortfolioIndex(projectsWithManifests) {
-  // Hero cover for portfolio page — first project's main after
-  const heroProject = projectsWithManifests[0];
-  let heroCover;
-  for (const sec of Object.keys(heroProject.project.sectionLabels)) {
-    const items = heroProject.manifest.sections[sec];
-    if (!items) continue;
-    const p = getHeroPair(items);
-    if (p?.after) { heroCover = pick(p.after.variants, ''); break; }
-  }
-  const heroSrc = heroCover ? projectAssetUrl(heroProject.project.id, heroCover.name) : '';
+  const heroSrc = PORTFOLIO_HERO_SRC;
 
   const cards = projectsWithManifests.map(({ project, manifest }) => projectCard(project, manifest)).join('');
 

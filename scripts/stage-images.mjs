@@ -24,6 +24,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SRC_ROOT = path.join(ROOT, '홈페이지제작(인라이븐스페이스)', '4. 포트폴리오');
@@ -68,6 +69,16 @@ const FILE_KIND_OVERRIDES = {
   '3T2A0630.jpg': 'after', // 3)은어송/침실-C — pairs with 비포.jpg
 };
 
+// 포트폴리오 카드 cover(썸네일) override — 특정 섹션 안의 파일 하나를 'card-cover' 로 승격한다.
+// 원본 폴더에 '썸네일' 폴더를 따로 두지 않고, 기존 섹션의 사진을 카드 커버로 지정하기 위함.
+// 지정 파일은 원래 섹션의 regular 로도 남고(additive), 추가로 _staging/<proj>/썸네일/ 에
+// proj-XX-card-cover-01.jpg 로 복사된다 → optimize 가 manifest 의 card-cover 섹션으로 만들고
+// build-pages 의 projectCard/portfolioCovers 가 포트폴리오 목록 카드 커버로 자동 사용.
+// (메인 index.html 의 portfolio-thumbnail 와 같은 소스라 카드 썸네일이 메인과 통일됨)
+const CARD_COVER_OVERRIDES = {
+  '06': { section: '주방', file: '메인이미지_썸네일.jpg' }, // 세탁실 컷 — 메인 thumb-01-pangyo 와 동일 소스
+};
+
 const HERO_DIR = '비포에프터';
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -101,6 +112,11 @@ async function dirExists(p) {
   }
 }
 
+async function hashFile(p) {
+  const buf = await fs.readFile(p);
+  return crypto.createHash('md5').update(buf).digest('hex');
+}
+
 async function copyFile(src, dst) {
   if (DRY_RUN) return;
   await fs.mkdir(path.dirname(dst), { recursive: true });
@@ -116,9 +132,10 @@ async function processProject(srcProjFolder) {
   }
   const projSrcDir = path.join(SRC_ROOT, srcProjFolder);
   const projOutDir = path.join(OUT_ROOT, stripped);
+  const cardOverride = CARD_COVER_OVERRIDES[projNum];
 
   const entries = await fs.readdir(projSrcDir, { withFileTypes: true });
-  const stats = { sections: 0, regularCopied: 0, heroCopied: 0, skipped: [], errors: [] };
+  const stats = { sections: 0, regularCopied: 0, heroCopied: 0, cardCover: 0, deduped: [], skipped: [], errors: [] };
 
   for (const ent of entries) {
     if (!ent.isDirectory()) {
@@ -136,19 +153,12 @@ async function processProject(srcProjFolder) {
     const sectionSrcDir = path.join(projSrcDir, ent.name);
     const sectionOutDir = path.join(projOutDir, sectionName);
 
-    // (a) regular files in section folder (sorted, sequential numbering)
-    const files = await listJpg(sectionSrcDir);
-    for (let i = 0; i < files.length; i++) {
-      const src = path.join(sectionSrcDir, files[i]);
-      const dst = path.join(
-        sectionOutDir,
-        `proj-${projNum}-${sectionKey}-${String(i + 1).padStart(2, '0')}.jpg`,
-      );
-      await copyFile(src, dst);
-      stats.regularCopied++;
-    }
+    // 같은 섹션 안에서 동일 내용(content hash)인 사진을 두 번 내보내지 않기 위한 추적.
+    // 비포/애프터 hero 를 먼저 처리해 seen 에 등록 → 동일한 regular 는 자동 스킵된다
+    // (hero 우선: 같은 컷이 before/after 카드 + 일반 카드로 갤러리에 중복 노출되는 것 방지).
+    const seen = new Map(); // contentHash → 이미 내보낸 파일 설명(로그용)
 
-    // (b) hero files in 비포에프터 subfolder
+    // (a) hero files in 비포에프터 subfolder — 먼저 처리(중복 시 우선권)
     const heroSrcDir = path.join(sectionSrcDir, HERO_DIR.normalize('NFD'));
     if (await dirExists(heroSrcDir)) {
       const heroFiles = await listJpg(heroSrcDir);
@@ -166,9 +176,40 @@ async function processProject(srcProjFolder) {
             ? `proj-${projNum}-hero-${kind}.jpg`
             : `proj-${projNum}-${sectionKey}-hero-${kind}.jpg`;
         const src = path.join(heroSrcDir, fname);
-        const dst = path.join(sectionOutDir, HERO_DIR, targetBase);
-        await copyFile(src, dst);
+        await copyFile(src, path.join(sectionOutDir, HERO_DIR, targetBase));
+        seen.set(await hashFile(src), `${sectionName}/${HERO_DIR}/${targetBase}`);
         stats.heroCopied++;
+      }
+    }
+
+    // (b) regular files in section folder — 동일 내용은 스킵, 남는 것만 연속 번호
+    const files = await listJpg(sectionSrcDir);
+    let n = 0;
+    for (const fname of files) {
+      const src = path.join(sectionSrcDir, fname);
+      const hash = await hashFile(src);
+      if (seen.has(hash)) {
+        stats.deduped.push(`${sectionName}/${fname.normalize('NFC')} ≡ ${seen.get(hash)} → 스킵`);
+        continue;
+      }
+      n++;
+      const outName = `proj-${projNum}-${sectionKey}-${String(n).padStart(2, '0')}.jpg`;
+      await copyFile(src, path.join(sectionOutDir, outName));
+      seen.set(hash, `${sectionName}/${outName}`);
+      stats.regularCopied++;
+    }
+
+    // (c) card-cover(썸네일) override — 이 섹션의 지정 파일을 추가로 카드 커버로 복사
+    if (cardOverride && sectionName === cardOverride.section) {
+      const real = files.find((f) => f.normalize('NFC') === cardOverride.file);
+      if (real) {
+        await copyFile(
+          path.join(sectionSrcDir, real),
+          path.join(projOutDir, '썸네일', `proj-${projNum}-card-cover-01.jpg`),
+        );
+        stats.cardCover++;
+      } else {
+        stats.errors.push(`card-cover override 파일 없음: ${cardOverride.section}/${cardOverride.file}`);
       }
     }
   }
@@ -195,27 +236,40 @@ async function main() {
 
   let grandRegular = 0;
   let grandHero = 0;
+  let grandCardCover = 0;
   const allErrors = [];
   const allSkipped = [];
+  const allDeduped = [];
 
   for (const folder of projectFolders) {
     console.log(`▶ ${folder}`);
     const r = await processProject(folder);
     if (!r) continue;
     console.log(
-      `  → proj-${r.projNum} (${r.stripped})  sections=${r.stats.sections}  regular=${r.stats.regularCopied}  hero=${r.stats.heroCopied}`,
+      `  → proj-${r.projNum} (${r.stripped})  sections=${r.stats.sections}  regular=${r.stats.regularCopied}  hero=${r.stats.heroCopied}  card-cover=${r.stats.cardCover}  deduped=${r.stats.deduped.length}`,
     );
     if (r.stats.skipped.length) {
       r.stats.skipped.forEach((s) => allSkipped.push(`  [${folder}] ${s}`));
+    }
+    if (r.stats.deduped.length) {
+      r.stats.deduped.forEach((d) => allDeduped.push(`  [proj-${r.projNum}] ${d}`));
     }
     if (r.stats.errors.length) {
       r.stats.errors.forEach((e) => allErrors.push(e));
     }
     grandRegular += r.stats.regularCopied;
     grandHero += r.stats.heroCopied;
+    grandCardCover += r.stats.cardCover;
   }
 
-  console.log(`\n=== Totals: regular=${grandRegular}  hero=${grandHero}  combined=${grandRegular + grandHero} ===`);
+  console.log(
+    `\n=== Totals: regular=${grandRegular}  hero=${grandHero}  card-cover=${grandCardCover}  combined=${grandRegular + grandHero + grandCardCover} ===`,
+  );
+
+  if (allDeduped.length) {
+    console.log(`\n중복 사진 스킵 (동일 내용 → 한 번만 stage):`);
+    allDeduped.forEach((d) => console.log(d));
+  }
 
   if (allSkipped.length) {
     console.log(`\nSkipped (informational):`);
