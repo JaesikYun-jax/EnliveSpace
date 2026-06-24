@@ -1,8 +1,10 @@
 // Single source of truth for project metadata.
-// Image data comes from /images/projects/proj-XX/manifest.json.
+// Image data comes from /images/projects/NN-slug/manifest.json.
 //
-// id/slug stay aligned with the image folders (proj-01 … proj-06), so existing
-// URLs (/project/1.html …) and asset paths keep working.
+// id stays aligned with the image folders, now named `${id}-${folderSlug}`
+// (e.g. 06-pangyo, 01-sanun12). slug ('1'…'6') drives the page URL
+// (/project/1.html …). folderSlug is the single source for the asset folder
+// name — stage/optimize/build all derive `images/projects/NN-slug/` from it.
 // The display order on the homepage hero/strip and portfolio listing follows
 // the order of this PROJECTS array.
 
@@ -11,6 +13,7 @@ export const PROJECTS = [
   {
     id: '06',
     slug: '6',
+    folderSlug: 'pangyo',
     title: '판교원9단지 한림풀에버',
     subtitle: '미니멀 라이프의 시작 29평 리모델링',
     apartment: '판교원9단지 한림풀에버 아파트',
@@ -44,6 +47,7 @@ export const PROJECTS = [
   {
     id: '02',
     slug: '2',
+    folderSlug: 'seongbok',
     title: '성복역 롯데캐슬 골드타운',
     subtitle: '따뜻한 우드톤 35평 홈스타일링',
     apartment: '성복역 롯데캐슬골드타운 아파트',
@@ -75,6 +79,7 @@ export const PROJECTS = [
   {
     id: '04',
     slug: '4',
+    folderSlug: 'euneosong',
     title: '은어송마을 코오롱하늘채2단지',
     subtitle: '반려견과 신혼부부를 위한 홈스타일링',
     apartment: '은어송마을 코오롱하늘채2단지 아파트',
@@ -106,6 +111,7 @@ export const PROJECTS = [
   {
     id: '05',
     slug: '5',
+    folderSlug: 'itaewon',
     title: '이태원 단독주택 에어비앤비',
     subtitle: '빈티지 무드 에어비앤비 홈스타일링',
     apartment: '이태원 단독주택 에어비앤비',
@@ -136,6 +142,7 @@ export const PROJECTS = [
   {
     id: '03',
     slug: '3',
+    folderSlug: 'sindang',
     title: '신당동 남산타운',
     subtitle: '자연의 온도를 담은 26평 홈스타일링',
     apartment: '남산타운 아파트',
@@ -164,6 +171,7 @@ export const PROJECTS = [
   {
     id: '01',
     slug: '1',
+    folderSlug: 'sanun12',
     title: '산운12단지 판교센트럴포레와이시티',
     subtitle: '가족의 온기를 담은 24평 리모델링',
     apartment: '산운12단지 판교센트럴포레와이시티 아파트',
@@ -195,3 +203,12 @@ export const PROJECTS = [
 ];
 
 export const PROJECTS_BY_ID = Object.fromEntries(PROJECTS.map((p) => [p.id, p]));
+
+// id → folderSlug (sanun12, pangyo …). stage-images / optimize-images import this
+// so the slug is defined in exactly one place. Asset folder = `${id}-${slug}`.
+export const FOLDER_SLUG_BY_ID = Object.fromEntries(
+  PROJECTS.map((p) => [p.id, p.folderSlug]),
+);
+
+// 'NN' → 'NN-slug' helper for building the asset folder/file prefix.
+export const projDirById = (id) => `${id}-${FOLDER_SLUG_BY_ID[id]}`;

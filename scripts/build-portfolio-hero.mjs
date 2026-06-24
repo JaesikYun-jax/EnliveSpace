@@ -6,7 +6,7 @@
 // 출력: images/portfolio-hero.webp (1920w, q80 — optimize-images.mjs 의 full 변형과 동일 설정)
 //
 // build-pages.mjs 의 buildPortfolioIndex() 가 이 고정 경로(/images/portfolio-hero.webp)를
-// 참조한다. 예전엔 첫 프로젝트(proj-06)의 거실 after-hero 를 재사용했으나 전용 배너로 분리.
+// 참조한다. 예전엔 첫 프로젝트(06-pangyo)의 거실 after-hero 를 재사용했으나 전용 배너로 분리.
 //
 // 원본 폴더는 .gitignore 대상(2GB+)이라 Cloudflare 빌드에는 없다 → 커밋되는 산출물은
 // images/portfolio-hero.webp 한 장. 원본이 없으면 경고만 남기고 정상 종료(기존 산출물 유지).

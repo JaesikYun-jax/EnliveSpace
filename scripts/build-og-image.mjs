@@ -10,7 +10,7 @@ const W = 1200;
 const H = 630;
 const LOGO_WIDTH = 600;
 const OVERLAY_ALPHA = 0.5;
-const BG_SRC = path.join(ROOT, 'images/projects/proj-02/proj-02-hero-after.webp');
+const BG_SRC = path.join(ROOT, 'images/projects/02-seongbok/02-seongbok-hero-after.webp');
 const LOGO_SRC = path.join(ROOT, 'images/logo/logo-light.png');
 const OUT = path.join(ROOT, 'images/og-image.jpg');
 

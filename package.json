@@ -4,12 +4,13 @@
   "type": "module",
   "scripts": {
     "stage": "node scripts/stage-images.mjs",
+    "stage-site": "node scripts/stage-site-images.mjs",
     "optimize": "node scripts/optimize-images.mjs",
     "build": "node scripts/build-pages.mjs",
     "favicons": "node scripts/build-favicons.mjs",
     "portfolio-hero": "node scripts/build-portfolio-hero.mjs",
     "test": "node scripts/test-site.mjs",
-    "all": "npm run stage && npm run optimize && npm run portfolio-hero && npm run build && npm run favicons && npm run test"
+    "all": "npm run stage && npm run stage-site && npm run optimize && npm run portfolio-hero && npm run build && npm run favicons && npm run test"
   },
   "dependencies": {
     "sharp": "^0.34.5"
