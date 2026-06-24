@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 // Stages camera-original JPGs from `홈페이지제작(인라이븐스페이스)/4. 포트폴리오/`
-// into `_staging/` with the proj-XX-section-NN.jpg naming that optimize-images.mjs
-// expects. Source folder is read-only — only copies, never modifies originals.
+// into `_staging/` with the NN-slug-section-NN.jpg naming that optimize-images.mjs
+// expects (NN-slug = id-folderSlug from projects-data.mjs, e.g. 06-pangyo).
+// Source folder is read-only — only copies, never modifies originals.
 //
 // Output layout (matches what optimize-images.mjs reads):
 //   _staging/
 //     판교원9단지 한림풀에버/
 //       거실/
-//         proj-06-living-01.jpg
-//         proj-06-living-02.jpg
+//         06-pangyo-living-01.jpg
+//         06-pangyo-living-02.jpg
 //         비포에프터/
-//           proj-06-hero-before.jpg    ← 거실 hero = 메인 hero, no section prefix
-//           proj-06-hero-after.jpg
+//           06-pangyo-hero-before.jpg    ← 거실 hero = 메인 hero, no section prefix
+//           06-pangyo-hero-after.jpg
 //       욕실-A/
-//         proj-06-bath-a-01.jpg
+//         06-pangyo-bath-a-01.jpg
 //         비포에프터/
-//           proj-06-bath-a-hero-before.jpg
-//           proj-06-bath-a-hero-after.jpg
+//           06-pangyo-bath-a-hero-before.jpg
+//           06-pangyo-bath-a-hero-after.jpg
 //
 // Usage:
 //   node scripts/stage-images.mjs --dry-run    # report only, no copies
@@ -25,12 +26,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { projDirById } from './projects-data.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SRC_ROOT = path.join(ROOT, '홈페이지제작(인라이븐스페이스)', '4. 포트폴리오');
 const OUT_ROOT = path.join(ROOT, '_staging');
 
-// Source-folder-name → proj-NN (folder names stripped of leading "N)" and trailing "_")
+// Source-folder-name → id 'NN' (folder names stripped of leading "N)" and trailing "_").
+// The folder/file slug (NN-slug) is derived from projects-data via projDirById.
 const PROJECT_MAP = {
   '산운12단지 판교센트럴포레와이시티': '01',
   '성복역 롯데캐슬골드타운아파트': '02',
@@ -72,7 +75,7 @@ const FILE_KIND_OVERRIDES = {
 // 포트폴리오 카드 cover(썸네일) override — 특정 섹션 안의 파일 하나를 'card-cover' 로 승격한다.
 // 원본 폴더에 '썸네일' 폴더를 따로 두지 않고, 기존 섹션의 사진을 카드 커버로 지정하기 위함.
 // 지정 파일은 원래 섹션의 regular 로도 남고(additive), 추가로 _staging/<proj>/썸네일/ 에
-// proj-XX-card-cover-01.jpg 로 복사된다 → optimize 가 manifest 의 card-cover 섹션으로 만들고
+// NN-slug-card-cover-01.jpg 로 복사된다 → optimize 가 manifest 의 card-cover 섹션으로 만들고
 // build-pages 의 projectCard/portfolioCovers 가 포트폴리오 목록 카드 커버로 자동 사용.
 // (메인 index.html 의 portfolio-thumbnail 와 같은 소스라 카드 썸네일이 메인과 통일됨)
 const CARD_COVER_OVERRIDES = {
@@ -130,8 +133,10 @@ async function processProject(srcProjFolder) {
     console.log(`  ⚠ unknown project folder: ${srcProjFolder} (stripped: "${stripped}")`);
     return null;
   }
+  const projPrefix = projDirById(projNum); // e.g. 06-pangyo → file/folder prefix
   const projSrcDir = path.join(SRC_ROOT, srcProjFolder);
   const projOutDir = path.join(OUT_ROOT, stripped);
+  if (!DRY_RUN) await fs.rm(projOutDir, { recursive: true, force: true }); // 이 프로젝트 폴더만 새로
   const cardOverride = CARD_COVER_OVERRIDES[projNum];
 
   const entries = await fs.readdir(projSrcDir, { withFileTypes: true });
@@ -173,8 +178,8 @@ async function processProject(srcProjFolder) {
         // Living section's hero is the project's MAIN hero (no section prefix).
         const targetBase =
           sectionKey === 'living'
-            ? `proj-${projNum}-hero-${kind}.jpg`
-            : `proj-${projNum}-${sectionKey}-hero-${kind}.jpg`;
+            ? `${projPrefix}-hero-${kind}.jpg`
+            : `${projPrefix}-${sectionKey}-hero-${kind}.jpg`;
         const src = path.join(heroSrcDir, fname);
         await copyFile(src, path.join(sectionOutDir, HERO_DIR, targetBase));
         seen.set(await hashFile(src), `${sectionName}/${HERO_DIR}/${targetBase}`);
@@ -193,7 +198,7 @@ async function processProject(srcProjFolder) {
         continue;
       }
       n++;
-      const outName = `proj-${projNum}-${sectionKey}-${String(n).padStart(2, '0')}.jpg`;
+      const outName = `${projPrefix}-${sectionKey}-${String(n).padStart(2, '0')}.jpg`;
       await copyFile(src, path.join(sectionOutDir, outName));
       seen.set(hash, `${sectionName}/${outName}`);
       stats.regularCopied++;
@@ -205,7 +210,7 @@ async function processProject(srcProjFolder) {
       if (real) {
         await copyFile(
           path.join(sectionSrcDir, real),
-          path.join(projOutDir, '썸네일', `proj-${projNum}-card-cover-01.jpg`),
+          path.join(projOutDir, '썸네일', `${projPrefix}-card-cover-01.jpg`),
         );
         stats.cardCover++;
       } else {
@@ -223,8 +228,9 @@ async function main() {
   console.log(`Mode   : ${DRY_RUN ? 'DRY RUN (no files copied)' : 'COPY'}\n`);
 
   if (!DRY_RUN) {
-    // Wipe staging fresh
-    await fs.rm(OUT_ROOT, { recursive: true, force: true });
+    // OUT_ROOT 전체를 비우지 않는다 — stage-site-images.mjs 가 만드는
+    // _staging/_사이트페이지 등 다른 산출물과 공존하도록, 각 프로젝트 폴더만
+    // processProject 안에서 개별로 새로 비운다.
     await fs.mkdir(OUT_ROOT, { recursive: true });
   }
 
@@ -246,13 +252,13 @@ async function main() {
     const r = await processProject(folder);
     if (!r) continue;
     console.log(
-      `  → proj-${r.projNum} (${r.stripped})  sections=${r.stats.sections}  regular=${r.stats.regularCopied}  hero=${r.stats.heroCopied}  card-cover=${r.stats.cardCover}  deduped=${r.stats.deduped.length}`,
+      `  → ${projDirById(r.projNum)} (${r.stripped})  sections=${r.stats.sections}  regular=${r.stats.regularCopied}  hero=${r.stats.heroCopied}  card-cover=${r.stats.cardCover}  deduped=${r.stats.deduped.length}`,
     );
     if (r.stats.skipped.length) {
       r.stats.skipped.forEach((s) => allSkipped.push(`  [${folder}] ${s}`));
     }
     if (r.stats.deduped.length) {
-      r.stats.deduped.forEach((d) => allDeduped.push(`  [proj-${r.projNum}] ${d}`));
+      r.stats.deduped.forEach((d) => allDeduped.push(`  [${projDirById(r.projNum)}] ${d}`));
     }
     if (r.stats.errors.length) {
       r.stats.errors.forEach((e) => allErrors.push(e));

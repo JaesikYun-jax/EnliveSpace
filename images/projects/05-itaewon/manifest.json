@@ -1,0 +1,904 @@
+{
+  "project": "05-itaewon",
+  "folder": "이태원 단독주택 에어비엔비",
+  "sections": {
+    "room-a": [
+      {
+        "kind": "hero",
+        "source": "05-itaewon-room-a-hero-after.jpg",
+        "variants": [
+          {
+            "name": "room-a/before-after/05-itaewon-room-a-hero-after.webp",
+            "size": 63348,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "room-a/before-after/05-itaewon-room-a-hero-after-1200.webp",
+            "size": 27558,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "room-a/before-after/05-itaewon-room-a-hero-after-600.webp",
+            "size": 9514,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "05-itaewon-room-a-hero-before.jpg",
+        "variants": [
+          {
+            "name": "room-a/before-after/05-itaewon-room-a-hero-before.webp",
+            "size": 99040,
+            "w": 1440,
+            "vertical": false
+          },
+          {
+            "name": "room-a/before-after/05-itaewon-room-a-hero-before-1200.webp",
+            "size": 64896,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "room-a/before-after/05-itaewon-room-a-hero-before-600.webp",
+            "size": 21196,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-01.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-01.webp",
+            "size": 73408,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-01-1200.webp",
+            "size": 33512,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-01-600.webp",
+            "size": 11940,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-02.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-02.webp",
+            "size": 86110,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-02-1200.webp",
+            "size": 37146,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-02-600.webp",
+            "size": 12232,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-03.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-03.webp",
+            "size": 119022,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-03-1200.webp",
+            "size": 48316,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-03-600.webp",
+            "size": 17080,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-04.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-04.webp",
+            "size": 123596,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-04-1200.webp",
+            "size": 55788,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-04-600.webp",
+            "size": 18372,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-05.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-05.webp",
+            "size": 123118,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-05-1200.webp",
+            "size": 52898,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-05-600.webp",
+            "size": 16408,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-06.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-06.webp",
+            "size": 129204,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-06-1200.webp",
+            "size": 47584,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-06-600.webp",
+            "size": 15386,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-07.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-07.webp",
+            "size": 89646,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-07-1200.webp",
+            "size": 43152,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-07-600.webp",
+            "size": 15230,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-08.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-08.webp",
+            "size": 107848,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-08-1200.webp",
+            "size": 46210,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-08-600.webp",
+            "size": 15040,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-a-09.jpg",
+        "variants": [
+          {
+            "name": "room-a/05-itaewon-room-a-09.webp",
+            "size": 90042,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-09-1200.webp",
+            "size": 44328,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-a/05-itaewon-room-a-09-600.webp",
+            "size": 16700,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "room-b": [
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-b-01.jpg",
+        "variants": [
+          {
+            "name": "room-b/05-itaewon-room-b-01.webp",
+            "size": 165386,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-01-1200.webp",
+            "size": 67654,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-01-600.webp",
+            "size": 19402,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-b-02.jpg",
+        "variants": [
+          {
+            "name": "room-b/05-itaewon-room-b-02.webp",
+            "size": 316464,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-02-1200.webp",
+            "size": 124316,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-02-600.webp",
+            "size": 34758,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-b-03.jpg",
+        "variants": [
+          {
+            "name": "room-b/05-itaewon-room-b-03.webp",
+            "size": 113716,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-03-1200.webp",
+            "size": 48012,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-03-600.webp",
+            "size": 14704,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-b-04.jpg",
+        "variants": [
+          {
+            "name": "room-b/05-itaewon-room-b-04.webp",
+            "size": 178244,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-04-1200.webp",
+            "size": 71614,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-04-600.webp",
+            "size": 22262,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-b-05.jpg",
+        "variants": [
+          {
+            "name": "room-b/05-itaewon-room-b-05.webp",
+            "size": 66656,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-05-1200.webp",
+            "size": 32420,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-b/05-itaewon-room-b-05-600.webp",
+            "size": 12734,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "room-c": [
+      {
+        "kind": "hero",
+        "source": "05-itaewon-room-c-hero-after.jpg",
+        "variants": [
+          {
+            "name": "room-c/before-after/05-itaewon-room-c-hero-after.webp",
+            "size": 174064,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-c/before-after/05-itaewon-room-c-hero-after-1200.webp",
+            "size": 73602,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-c/before-after/05-itaewon-room-c-hero-after-600.webp",
+            "size": 22542,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "05-itaewon-room-c-hero-before.jpg",
+        "variants": [
+          {
+            "name": "room-c/before-after/05-itaewon-room-c-hero-before.webp",
+            "size": 93362,
+            "w": 1080,
+            "vertical": true
+          },
+          {
+            "name": "room-c/before-after/05-itaewon-room-c-hero-before-1200.webp",
+            "size": 85524,
+            "w": 1080,
+            "vertical": true
+          },
+          {
+            "name": "room-c/before-after/05-itaewon-room-c-hero-before-600.webp",
+            "size": 33834,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-c-01.jpg",
+        "variants": [
+          {
+            "name": "room-c/05-itaewon-room-c-01.webp",
+            "size": 98602,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "room-c/05-itaewon-room-c-01-1200.webp",
+            "size": 42056,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "room-c/05-itaewon-room-c-01-600.webp",
+            "size": 12612,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-room-c-02.jpg",
+        "variants": [
+          {
+            "name": "room-c/05-itaewon-room-c-02.webp",
+            "size": 86970,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "room-c/05-itaewon-room-c-02-1200.webp",
+            "size": 41514,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "room-c/05-itaewon-room-c-02-600.webp",
+            "size": 14990,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "living": [
+      {
+        "kind": "hero",
+        "source": "05-itaewon-hero-after.jpg",
+        "variants": [
+          {
+            "name": "living/before-after/05-itaewon-hero-after.webp",
+            "size": 166010,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/05-itaewon-hero-after-1200.webp",
+            "size": 72626,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/05-itaewon-hero-after-600.webp",
+            "size": 22050,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "05-itaewon-hero-before.jpg",
+        "variants": [
+          {
+            "name": "living/before-after/05-itaewon-hero-before.webp",
+            "size": 139894,
+            "w": 1440,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/05-itaewon-hero-before-1200.webp",
+            "size": 93000,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/05-itaewon-hero-before-600.webp",
+            "size": 31776,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-01.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-01.webp",
+            "size": 176378,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/05-itaewon-living-01-1200.webp",
+            "size": 75318,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/05-itaewon-living-01-600.webp",
+            "size": 24022,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-02.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-02.webp",
+            "size": 84720,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-02-1200.webp",
+            "size": 39014,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-02-600.webp",
+            "size": 13032,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-03.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-03.webp",
+            "size": 177662,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-03-1200.webp",
+            "size": 80982,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-03-600.webp",
+            "size": 31462,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-04.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-04.webp",
+            "size": 284586,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-04-1200.webp",
+            "size": 92558,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-04-600.webp",
+            "size": 24590,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-05.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-05.webp",
+            "size": 467534,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-05-1200.webp",
+            "size": 189748,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-05-600.webp",
+            "size": 49824,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-06.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-06.webp",
+            "size": 305720,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-06-1200.webp",
+            "size": 134826,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-06-600.webp",
+            "size": 35634,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-07.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-07.webp",
+            "size": 269804,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-07-1200.webp",
+            "size": 118836,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-07-600.webp",
+            "size": 38156,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-living-08.jpg",
+        "variants": [
+          {
+            "name": "living/05-itaewon-living-08.webp",
+            "size": 257536,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-08-1200.webp",
+            "size": 102900,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/05-itaewon-living-08-600.webp",
+            "size": 30498,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "kitchen": [
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-01.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-01.webp",
+            "size": 228610,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-01-1200.webp",
+            "size": 101680,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-01-600.webp",
+            "size": 31208,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-02.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-02.webp",
+            "size": 186518,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-02-1200.webp",
+            "size": 73922,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-02-600.webp",
+            "size": 21764,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-03.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-03.webp",
+            "size": 165714,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-03-1200.webp",
+            "size": 72542,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-03-600.webp",
+            "size": 22312,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-04.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-04.webp",
+            "size": 141520,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-04-1200.webp",
+            "size": 66888,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-04-600.webp",
+            "size": 23452,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-05.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-05.webp",
+            "size": 220318,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-05-1200.webp",
+            "size": 98410,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-05-600.webp",
+            "size": 31092,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-06.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-06.webp",
+            "size": 310878,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-06-1200.webp",
+            "size": 141042,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-06-600.webp",
+            "size": 29102,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "05-itaewon-kitchen-07.jpg",
+        "variants": [
+          {
+            "name": "kitchen/05-itaewon-kitchen-07.webp",
+            "size": 239632,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-07-1200.webp",
+            "size": 104378,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/05-itaewon-kitchen-07-600.webp",
+            "size": 33362,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // Generates project detail pages, portfolio listing, and homepage assets
-// from /images/projects/proj-XX/manifest.json + scripts/projects-data.mjs.
+// from /images/projects/NN-slug/manifest.json + scripts/projects-data.mjs.
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PROJECTS } from './projects-data.mjs';
+import { PROJECTS, projDirById } from './projects-data.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -125,7 +125,7 @@ const TW_CONFIG = `
 `;
 
 async function readManifest(id) {
-  const p = path.join(ROOT, 'images/projects', `proj-${id}`, 'manifest.json');
+  const p = path.join(ROOT, 'images/projects', projDirById(id), 'manifest.json');
   return JSON.parse(await fs.readFile(p, 'utf8'));
 }
 
@@ -157,8 +157,12 @@ function imgTag({ src, alt, className = '', loading = 'lazy', sizes = '100vw', s
   return `<img src="${src}" alt="${alt}" loading="${loading}" decoding="async" class="${className}" ${srcset}>`;
 }
 
+// `name` is the manifest variant name = project-relative path, which now
+// includes the section subfolder (e.g. "living/06-pangyo-living-01.webp" or
+// "bath-a/before-after/06-pangyo-bath-a-hero-after.webp"). No extra logic
+// needed — the nested path concatenates straight into the URL.
 function projectAssetUrl(projId, name) {
-  return `/images/projects/proj-${projId}/${name}`;
+  return `/images/projects/${projDirById(projId)}/${name}`;
 }
 
 function buildSrcset(projId, variantSet) {

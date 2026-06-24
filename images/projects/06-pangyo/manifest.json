@@ -1,0 +1,1874 @@
+{
+  "project": "06-pangyo",
+  "folder": "판교원9단지 한림풀에버",
+  "sections": {
+    "living": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-hero-after.jpg",
+        "variants": [
+          {
+            "name": "living/before-after/06-pangyo-hero-after.webp",
+            "size": 98502,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/06-pangyo-hero-after-1200.webp",
+            "size": 24128,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/06-pangyo-hero-after-600.webp",
+            "size": 6562,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-hero-before.jpg",
+        "variants": [
+          {
+            "name": "living/before-after/06-pangyo-hero-before.webp",
+            "size": 199912,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/06-pangyo-hero-before-1200.webp",
+            "size": 66956,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/before-after/06-pangyo-hero-before-600.webp",
+            "size": 18188,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-01.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-01.webp",
+            "size": 79962,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-01-1200.webp",
+            "size": 32348,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-01-600.webp",
+            "size": 10034,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-02.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-02.webp",
+            "size": 93106,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-02-1200.webp",
+            "size": 35148,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-02-600.webp",
+            "size": 10596,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-03.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-03.webp",
+            "size": 70934,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-03-1200.webp",
+            "size": 22148,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-03-600.webp",
+            "size": 6950,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-04.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-04.webp",
+            "size": 51312,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-04-1200.webp",
+            "size": 18206,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-04-600.webp",
+            "size": 5456,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-05.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-05.webp",
+            "size": 25000,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-05-1200.webp",
+            "size": 10088,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-05-600.webp",
+            "size": 3344,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-06.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-06.webp",
+            "size": 29428,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-06-1200.webp",
+            "size": 12652,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-06-600.webp",
+            "size": 4172,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-07.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-07.webp",
+            "size": 21958,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-07-1200.webp",
+            "size": 8898,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-07-600.webp",
+            "size": 3090,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-08.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-08.webp",
+            "size": 27602,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-08-1200.webp",
+            "size": 7810,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-08-600.webp",
+            "size": 2386,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-09.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-09.webp",
+            "size": 129038,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-09-1200.webp",
+            "size": 51112,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-09-600.webp",
+            "size": 13844,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-10.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-10.webp",
+            "size": 120750,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-10-1200.webp",
+            "size": 22596,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-10-600.webp",
+            "size": 5968,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-11.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-11.webp",
+            "size": 174396,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-11-1200.webp",
+            "size": 30454,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-11-600.webp",
+            "size": 5050,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-12.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-12.webp",
+            "size": 87248,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-12-1200.webp",
+            "size": 21012,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-12-600.webp",
+            "size": 4806,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-13.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-13.webp",
+            "size": 33356,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-13-1200.webp",
+            "size": 13198,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-13-600.webp",
+            "size": 4012,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-14.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-14.webp",
+            "size": 205074,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-14-1200.webp",
+            "size": 74016,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/06-pangyo-living-14-600.webp",
+            "size": 20112,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-15.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-15.webp",
+            "size": 197058,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-15-1200.webp",
+            "size": 57254,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-15-600.webp",
+            "size": 15220,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-16.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-16.webp",
+            "size": 67688,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-16-1200.webp",
+            "size": 19672,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-16-600.webp",
+            "size": 5338,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-17.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-17.webp",
+            "size": 96950,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-17-1200.webp",
+            "size": 33056,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-17-600.webp",
+            "size": 9612,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-living-18.jpg",
+        "variants": [
+          {
+            "name": "living/06-pangyo-living-18.webp",
+            "size": 33014,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-18-1200.webp",
+            "size": 10338,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/06-pangyo-living-18-600.webp",
+            "size": 3444,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "index-hero": [
+      {
+        "kind": "regular",
+        "source": "06-pangyo-index-hero-01.jpg",
+        "variants": [
+          {
+            "name": "index-hero/06-pangyo-index-hero-01.webp",
+            "size": 96064,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "index-hero/06-pangyo-index-hero-01-1200.webp",
+            "size": 32950,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "index-hero/06-pangyo-index-hero-01-600.webp",
+            "size": 9588,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-index-hero-02.jpg",
+        "variants": [
+          {
+            "name": "index-hero/06-pangyo-index-hero-02.webp",
+            "size": 53214,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "index-hero/06-pangyo-index-hero-02-1200.webp",
+            "size": 20702,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "index-hero/06-pangyo-index-hero-02-600.webp",
+            "size": 6392,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "card-cover": [
+      {
+        "kind": "regular",
+        "source": "06-pangyo-card-cover-01.jpg",
+        "variants": [
+          {
+            "name": "card-cover/06-pangyo-card-cover-01.webp",
+            "size": 35938,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "card-cover/06-pangyo-card-cover-01-1200.webp",
+            "size": 15886,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "card-cover/06-pangyo-card-cover-01-600.webp",
+            "size": 5546,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "bath-a": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bath-a-hero-after.jpg",
+        "variants": [
+          {
+            "name": "bath-a/before-after/06-pangyo-bath-a-hero-after.webp",
+            "size": 107948,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/before-after/06-pangyo-bath-a-hero-after-1200.webp",
+            "size": 42968,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/before-after/06-pangyo-bath-a-hero-after-600.webp",
+            "size": 14784,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bath-a-hero-before.jpg",
+        "variants": [
+          {
+            "name": "bath-a/before-after/06-pangyo-bath-a-hero-before.webp",
+            "size": 205678,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/before-after/06-pangyo-bath-a-hero-before-1200.webp",
+            "size": 77834,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/before-after/06-pangyo-bath-a-hero-before-600.webp",
+            "size": 26120,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-a-01.jpg",
+        "variants": [
+          {
+            "name": "bath-a/06-pangyo-bath-a-01.webp",
+            "size": 68476,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-01-1200.webp",
+            "size": 24652,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-01-600.webp",
+            "size": 7962,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-a-02.jpg",
+        "variants": [
+          {
+            "name": "bath-a/06-pangyo-bath-a-02.webp",
+            "size": 76296,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-02-1200.webp",
+            "size": 23444,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-02-600.webp",
+            "size": 7272,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-a-03.jpg",
+        "variants": [
+          {
+            "name": "bath-a/06-pangyo-bath-a-03.webp",
+            "size": 87248,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-03-1200.webp",
+            "size": 21012,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-03-600.webp",
+            "size": 4806,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-a-04.jpg",
+        "variants": [
+          {
+            "name": "bath-a/06-pangyo-bath-a-04.webp",
+            "size": 124468,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-04-1200.webp",
+            "size": 50738,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-04-600.webp",
+            "size": 14078,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-a-05.jpg",
+        "variants": [
+          {
+            "name": "bath-a/06-pangyo-bath-a-05.webp",
+            "size": 285240,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-05-1200.webp",
+            "size": 91844,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-a/06-pangyo-bath-a-05-600.webp",
+            "size": 19178,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "bath-b": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bath-b-hero-after.jpg",
+        "variants": [
+          {
+            "name": "bath-b/before-after/06-pangyo-bath-b-hero-after.webp",
+            "size": 98512,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/before-after/06-pangyo-bath-b-hero-after-1200.webp",
+            "size": 38468,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/before-after/06-pangyo-bath-b-hero-after-600.webp",
+            "size": 13294,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bath-b-hero-before.jpg",
+        "variants": [
+          {
+            "name": "bath-b/before-after/06-pangyo-bath-b-hero-before.webp",
+            "size": 284418,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bath-b/before-after/06-pangyo-bath-b-hero-before-1200.webp",
+            "size": 118176,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bath-b/before-after/06-pangyo-bath-b-hero-before-600.webp",
+            "size": 32648,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-b-01.jpg",
+        "variants": [
+          {
+            "name": "bath-b/06-pangyo-bath-b-01.webp",
+            "size": 57274,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/06-pangyo-bath-b-01-1200.webp",
+            "size": 22162,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/06-pangyo-bath-b-01-600.webp",
+            "size": 7572,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-b-02.jpg",
+        "variants": [
+          {
+            "name": "bath-b/06-pangyo-bath-b-02.webp",
+            "size": 164078,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/06-pangyo-bath-b-02-1200.webp",
+            "size": 50192,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/06-pangyo-bath-b-02-600.webp",
+            "size": 11778,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bath-b-03.jpg",
+        "variants": [
+          {
+            "name": "bath-b/06-pangyo-bath-b-03.webp",
+            "size": 215352,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/06-pangyo-bath-b-03-1200.webp",
+            "size": 64514,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bath-b/06-pangyo-bath-b-03-600.webp",
+            "size": 13292,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "kitchen": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-kitchen-hero-after.jpg",
+        "variants": [
+          {
+            "name": "kitchen/before-after/06-pangyo-kitchen-hero-after.webp",
+            "size": 86896,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/before-after/06-pangyo-kitchen-hero-after-1200.webp",
+            "size": 27144,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/before-after/06-pangyo-kitchen-hero-after-600.webp",
+            "size": 8192,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-kitchen-hero-before.jpg",
+        "variants": [
+          {
+            "name": "kitchen/before-after/06-pangyo-kitchen-hero-before.webp",
+            "size": 282178,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/before-after/06-pangyo-kitchen-hero-before-1200.webp",
+            "size": 93886,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/before-after/06-pangyo-kitchen-hero-before-600.webp",
+            "size": 20964,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-01.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-01.webp",
+            "size": 48834,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-01-1200.webp",
+            "size": 20744,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-01-600.webp",
+            "size": 7128,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-02.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-02.webp",
+            "size": 28494,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-02-1200.webp",
+            "size": 12694,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-02-600.webp",
+            "size": 4518,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-03.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-03.webp",
+            "size": 78716,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-03-1200.webp",
+            "size": 29342,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-03-600.webp",
+            "size": 8986,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-04.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-04.webp",
+            "size": 99076,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-04-1200.webp",
+            "size": 27382,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-04-600.webp",
+            "size": 7162,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-05.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-05.webp",
+            "size": 197536,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-05-1200.webp",
+            "size": 68792,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-05-600.webp",
+            "size": 14098,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-06.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-06.webp",
+            "size": 251132,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-06-1200.webp",
+            "size": 77644,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-06-600.webp",
+            "size": 14590,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-07.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-07.webp",
+            "size": 127906,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-07-1200.webp",
+            "size": 51410,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-07-600.webp",
+            "size": 17696,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-08.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-08.webp",
+            "size": 37482,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-08-1200.webp",
+            "size": 16266,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-08-600.webp",
+            "size": 5650,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-09.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-09.webp",
+            "size": 32912,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-09-1200.webp",
+            "size": 14112,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-09-600.webp",
+            "size": 4796,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-10.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-10.webp",
+            "size": 118692,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-10-1200.webp",
+            "size": 35996,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-10-600.webp",
+            "size": 9008,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-11.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-11.webp",
+            "size": 159204,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-11-1200.webp",
+            "size": 31834,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-11-600.webp",
+            "size": 6188,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-12.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-12.webp",
+            "size": 185454,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-12-1200.webp",
+            "size": 64136,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-12-600.webp",
+            "size": 16982,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-13.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-13.webp",
+            "size": 35938,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-13-1200.webp",
+            "size": 15886,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-13-600.webp",
+            "size": 5546,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-14.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-14.webp",
+            "size": 33014,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-14-1200.webp",
+            "size": 10338,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-14-600.webp",
+            "size": 3444,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-kitchen-15.jpg",
+        "variants": [
+          {
+            "name": "kitchen/06-pangyo-kitchen-15.webp",
+            "size": 33360,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-15-1200.webp",
+            "size": 14492,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "kitchen/06-pangyo-kitchen-15-600.webp",
+            "size": 5056,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "bed-a": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bed-a-hero-after.jpg",
+        "variants": [
+          {
+            "name": "bed-a/before-after/06-pangyo-bed-a-hero-after.webp",
+            "size": 56122,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/before-after/06-pangyo-bed-a-hero-after-1200.webp",
+            "size": 22074,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/before-after/06-pangyo-bed-a-hero-after-600.webp",
+            "size": 6396,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bed-a-hero-before.jpg",
+        "variants": [
+          {
+            "name": "bed-a/before-after/06-pangyo-bed-a-hero-before.webp",
+            "size": 131726,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/before-after/06-pangyo-bed-a-hero-before-1200.webp",
+            "size": 50996,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/before-after/06-pangyo-bed-a-hero-before-600.webp",
+            "size": 14236,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-a-01.jpg",
+        "variants": [
+          {
+            "name": "bed-a/06-pangyo-bed-a-01.webp",
+            "size": 54584,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-01-1200.webp",
+            "size": 22086,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-01-600.webp",
+            "size": 6856,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-a-02.jpg",
+        "variants": [
+          {
+            "name": "bed-a/06-pangyo-bed-a-02.webp",
+            "size": 31410,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-02-1200.webp",
+            "size": 13900,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-02-600.webp",
+            "size": 5078,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-a-03.jpg",
+        "variants": [
+          {
+            "name": "bed-a/06-pangyo-bed-a-03.webp",
+            "size": 23988,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-03-1200.webp",
+            "size": 10776,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-03-600.webp",
+            "size": 3936,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-a-04.jpg",
+        "variants": [
+          {
+            "name": "bed-a/06-pangyo-bed-a-04.webp",
+            "size": 21230,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-04-1200.webp",
+            "size": 9114,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-04-600.webp",
+            "size": 3140,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-a-05.jpg",
+        "variants": [
+          {
+            "name": "bed-a/06-pangyo-bed-a-05.webp",
+            "size": 63644,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-05-1200.webp",
+            "size": 28110,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-a/06-pangyo-bed-a-05-600.webp",
+            "size": 9498,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "bed-b": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bed-b-hero-after.jpg",
+        "variants": [
+          {
+            "name": "bed-b/before-after/06-pangyo-bed-b-hero-after.webp",
+            "size": 123176,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bed-b/before-after/06-pangyo-bed-b-hero-after-1200.webp",
+            "size": 47518,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bed-b/before-after/06-pangyo-bed-b-hero-after-600.webp",
+            "size": 12894,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bed-b-hero-before.jpg",
+        "variants": [
+          {
+            "name": "bed-b/before-after/06-pangyo-bed-b-hero-before.webp",
+            "size": 473574,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/before-after/06-pangyo-bed-b-hero-before-1200.webp",
+            "size": 151220,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/before-after/06-pangyo-bed-b-hero-before-600.webp",
+            "size": 25602,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-b-01.jpg",
+        "variants": [
+          {
+            "name": "bed-b/06-pangyo-bed-b-01.webp",
+            "size": 219638,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-01-1200.webp",
+            "size": 64844,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-01-600.webp",
+            "size": 18320,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-b-02.jpg",
+        "variants": [
+          {
+            "name": "bed-b/06-pangyo-bed-b-02.webp",
+            "size": 52098,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-02-1200.webp",
+            "size": 20184,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-02-600.webp",
+            "size": 5710,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-b-03.jpg",
+        "variants": [
+          {
+            "name": "bed-b/06-pangyo-bed-b-03.webp",
+            "size": 49274,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-03-1200.webp",
+            "size": 19486,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-03-600.webp",
+            "size": 5652,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-b-04.jpg",
+        "variants": [
+          {
+            "name": "bed-b/06-pangyo-bed-b-04.webp",
+            "size": 65990,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-04-1200.webp",
+            "size": 24654,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-b/06-pangyo-bed-b-04-600.webp",
+            "size": 6832,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "bed-c": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bed-c-hero-after.jpg",
+        "variants": [
+          {
+            "name": "bed-c/before-after/06-pangyo-bed-c-hero-after.webp",
+            "size": 30662,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/before-after/06-pangyo-bed-c-hero-after-1200.webp",
+            "size": 11830,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/before-after/06-pangyo-bed-c-hero-after-600.webp",
+            "size": 3854,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-bed-c-hero-before.jpg",
+        "variants": [
+          {
+            "name": "bed-c/before-after/06-pangyo-bed-c-hero-before.webp",
+            "size": 356732,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/before-after/06-pangyo-bed-c-hero-before-1200.webp",
+            "size": 116818,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/before-after/06-pangyo-bed-c-hero-before-600.webp",
+            "size": 20436,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-c-01.jpg",
+        "variants": [
+          {
+            "name": "bed-c/06-pangyo-bed-c-01.webp",
+            "size": 177066,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bed-c/06-pangyo-bed-c-01-1200.webp",
+            "size": 66108,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bed-c/06-pangyo-bed-c-01-600.webp",
+            "size": 20918,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-c-02.jpg",
+        "variants": [
+          {
+            "name": "bed-c/06-pangyo-bed-c-02.webp",
+            "size": 32778,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/06-pangyo-bed-c-02-1200.webp",
+            "size": 12660,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/06-pangyo-bed-c-02-600.webp",
+            "size": 3942,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-bed-c-03.jpg",
+        "variants": [
+          {
+            "name": "bed-c/06-pangyo-bed-c-03.webp",
+            "size": 37872,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/06-pangyo-bed-c-03-1200.webp",
+            "size": 15026,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bed-c/06-pangyo-bed-c-03-600.webp",
+            "size": 4516,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "entrance": [
+      {
+        "kind": "hero",
+        "source": "06-pangyo-entrance-hero-after.jpg",
+        "variants": [
+          {
+            "name": "entrance/before-after/06-pangyo-entrance-hero-after.webp",
+            "size": 121960,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "entrance/before-after/06-pangyo-entrance-hero-after-1200.webp",
+            "size": 46026,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "entrance/before-after/06-pangyo-entrance-hero-after-600.webp",
+            "size": 13614,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "06-pangyo-entrance-hero-before.jpg",
+        "variants": [
+          {
+            "name": "entrance/before-after/06-pangyo-entrance-hero-before.webp",
+            "size": 357358,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "entrance/before-after/06-pangyo-entrance-hero-before-1200.webp",
+            "size": 153280,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "entrance/before-after/06-pangyo-entrance-hero-before-600.webp",
+            "size": 35300,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-entrance-01.jpg",
+        "variants": [
+          {
+            "name": "entrance/06-pangyo-entrance-01.webp",
+            "size": 49510,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-01-1200.webp",
+            "size": 21858,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-01-600.webp",
+            "size": 7596,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-entrance-02.jpg",
+        "variants": [
+          {
+            "name": "entrance/06-pangyo-entrance-02.webp",
+            "size": 127242,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-02-1200.webp",
+            "size": 44880,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-02-600.webp",
+            "size": 13226,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-entrance-03.jpg",
+        "variants": [
+          {
+            "name": "entrance/06-pangyo-entrance-03.webp",
+            "size": 257608,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-03-1200.webp",
+            "size": 78180,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-03-600.webp",
+            "size": 20436,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-entrance-04.jpg",
+        "variants": [
+          {
+            "name": "entrance/06-pangyo-entrance-04.webp",
+            "size": 182722,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-04-1200.webp",
+            "size": 70404,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-04-600.webp",
+            "size": 20784,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "06-pangyo-entrance-05.jpg",
+        "variants": [
+          {
+            "name": "entrance/06-pangyo-entrance-05.webp",
+            "size": 132330,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-05-1200.webp",
+            "size": 50726,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "entrance/06-pangyo-entrance-05-600.webp",
+            "size": 16564,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ]
+  }
+}

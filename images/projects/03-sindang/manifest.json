@@ -1,0 +1,780 @@
+{
+  "project": "03-sindang",
+  "folder": "신당동 남산타운아파트",
+  "sections": {
+    "living": [
+      {
+        "kind": "hero",
+        "source": "03-sindang-hero-after.jpg",
+        "variants": [
+          {
+            "name": "living/before-after/03-sindang-hero-after.webp",
+            "size": 282362,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/before-after/03-sindang-hero-after-1200.webp",
+            "size": 100048,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/before-after/03-sindang-hero-after-600.webp",
+            "size": 30004,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "03-sindang-hero-before.jpg",
+        "variants": [
+          {
+            "name": "living/before-after/03-sindang-hero-before.webp",
+            "size": 80340,
+            "w": 1050,
+            "vertical": true
+          },
+          {
+            "name": "living/before-after/03-sindang-hero-before-1200.webp",
+            "size": 72014,
+            "w": 1050,
+            "vertical": true
+          },
+          {
+            "name": "living/before-after/03-sindang-hero-before-600.webp",
+            "size": 28258,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-01.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-01.webp",
+            "size": 120494,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-01-1200.webp",
+            "size": 38266,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-01-600.webp",
+            "size": 10746,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-02.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-02.webp",
+            "size": 282362,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-02-1200.webp",
+            "size": 100048,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-02-600.webp",
+            "size": 30004,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-03.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-03.webp",
+            "size": 429532,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-03-1200.webp",
+            "size": 108526,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-03-600.webp",
+            "size": 20880,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-04.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-04.webp",
+            "size": 189230,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-04-1200.webp",
+            "size": 68354,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-04-600.webp",
+            "size": 19610,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-05.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-05.webp",
+            "size": 286102,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-05-1200.webp",
+            "size": 103224,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-05-600.webp",
+            "size": 22674,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-06.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-06.webp",
+            "size": 106562,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-06-1200.webp",
+            "size": 37254,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-06-600.webp",
+            "size": 11588,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-07.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-07.webp",
+            "size": 102842,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-07-1200.webp",
+            "size": 37478,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-07-600.webp",
+            "size": 11714,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-08.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-08.webp",
+            "size": 171856,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-08-1200.webp",
+            "size": 55478,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-08-600.webp",
+            "size": 15340,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-09.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-09.webp",
+            "size": 60434,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-09-1200.webp",
+            "size": 25846,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-09-600.webp",
+            "size": 8850,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-10.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-10.webp",
+            "size": 172128,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-10-1200.webp",
+            "size": 70704,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-10-600.webp",
+            "size": 23040,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-11.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-11.webp",
+            "size": 194522,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-11-1200.webp",
+            "size": 69414,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-11-600.webp",
+            "size": 17892,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-12.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-12.webp",
+            "size": 277372,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-12-1200.webp",
+            "size": 74018,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-12-600.webp",
+            "size": 12164,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-13.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-13.webp",
+            "size": 318270,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-13-1200.webp",
+            "size": 89504,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-13-600.webp",
+            "size": 9934,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-14.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-14.webp",
+            "size": 133692,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-14-1200.webp",
+            "size": 42884,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-14-600.webp",
+            "size": 10548,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-15.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-15.webp",
+            "size": 230376,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-15-1200.webp",
+            "size": 63192,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "living/03-sindang-living-15-600.webp",
+            "size": 11868,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-living-16.jpg",
+        "variants": [
+          {
+            "name": "living/03-sindang-living-16.webp",
+            "size": 75918,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-16-1200.webp",
+            "size": 34416,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "living/03-sindang-living-16-600.webp",
+            "size": 11276,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ],
+    "bedroom": [
+      {
+        "kind": "hero",
+        "source": "03-sindang-bedroom-hero-after.jpg",
+        "variants": [
+          {
+            "name": "bedroom/before-after/03-sindang-bedroom-hero-after.webp",
+            "size": 133934,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/before-after/03-sindang-bedroom-hero-after-1200.webp",
+            "size": 56966,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/before-after/03-sindang-bedroom-hero-after-600.webp",
+            "size": 16970,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "03-sindang-bedroom-hero-before.jpg",
+        "variants": [
+          {
+            "name": "bedroom/before-after/03-sindang-bedroom-hero-before.webp",
+            "size": 113410,
+            "w": 1400,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/before-after/03-sindang-bedroom-hero-before-1200.webp",
+            "size": 73776,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/before-after/03-sindang-bedroom-hero-before-600.webp",
+            "size": 21656,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-01.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-01.webp",
+            "size": 147458,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-01-1200.webp",
+            "size": 56842,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-01-600.webp",
+            "size": 16476,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-02.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-02.webp",
+            "size": 194578,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-02-1200.webp",
+            "size": 66534,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-02-600.webp",
+            "size": 20456,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-03.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-03.webp",
+            "size": 133934,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-03-1200.webp",
+            "size": 56966,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-03-600.webp",
+            "size": 16970,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-04.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-04.webp",
+            "size": 116100,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-04-1200.webp",
+            "size": 46840,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-04-600.webp",
+            "size": 15450,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-05.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-05.webp",
+            "size": 188914,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-05-1200.webp",
+            "size": 74902,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-05-600.webp",
+            "size": 24036,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-06.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-06.webp",
+            "size": 251016,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-06-1200.webp",
+            "size": 95890,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-06-600.webp",
+            "size": 24720,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-07.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-07.webp",
+            "size": 371264,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-07-1200.webp",
+            "size": 102626,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-07-600.webp",
+            "size": 18478,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-08.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-08.webp",
+            "size": 89496,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-08-1200.webp",
+            "size": 40274,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-08-600.webp",
+            "size": 12754,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-09.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-09.webp",
+            "size": 239558,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-09-1200.webp",
+            "size": 72588,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-09-600.webp",
+            "size": 15488,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "03-sindang-bedroom-10.jpg",
+        "variants": [
+          {
+            "name": "bedroom/03-sindang-bedroom-10.webp",
+            "size": 213554,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-10-1200.webp",
+            "size": 73304,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "bedroom/03-sindang-bedroom-10-600.webp",
+            "size": 22504,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "entrance": [
+      {
+        "kind": "hero",
+        "source": "03-sindang-entrance-hero-after.jpg",
+        "variants": [
+          {
+            "name": "entrance/before-after/03-sindang-entrance-hero-after.webp",
+            "size": 155014,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "entrance/before-after/03-sindang-entrance-hero-after-1200.webp",
+            "size": 50792,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "entrance/before-after/03-sindang-entrance-hero-after-600.webp",
+            "size": 12112,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "03-sindang-entrance-hero-before.jpg",
+        "variants": [
+          {
+            "name": "entrance/before-after/03-sindang-entrance-hero-before.webp",
+            "size": 44236,
+            "w": 1050,
+            "vertical": true
+          },
+          {
+            "name": "entrance/before-after/03-sindang-entrance-hero-before-1200.webp",
+            "size": 39160,
+            "w": 1050,
+            "vertical": true
+          },
+          {
+            "name": "entrance/before-after/03-sindang-entrance-hero-before-600.webp",
+            "size": 14938,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ]
+  }
+}

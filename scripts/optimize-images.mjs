@@ -2,10 +2,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { projDirById } from './projects-data.mjs';
 
 // Reads from `_staging/` populated by `scripts/stage-images.mjs`, which copies
 // camera-original JPGs from `홈페이지제작(인라이븐스페이스)/4. 포트폴리오/`
-// and renames them to the proj-XX-section-NN.jpg pattern this script expects.
+// and renames them to the NN-slug-section-NN.jpg pattern this script expects.
 const SRC = path.resolve(process.cwd(), '_staging');
 const OUT = path.resolve(process.cwd(), 'images/projects');
 
@@ -63,19 +64,25 @@ async function dirExists(p) {
 // Two outputs per source: -1920.webp (full) + -1200.webp (grid).
 // Keep one extra small (-600.webp) for thumb cards on homepage.
 const VARIANTS = [
-  { suffix: '', width: 1920, quality: 80 }, // primary: proj-02-living-01.webp
+  { suffix: '', width: 1920, quality: 80 }, // primary: 02-seongbok-living-01.webp
   { suffix: '-1200', width: 1200, quality: 78 },
   { suffix: '-600', width: 600, quality: 76 },
 ];
 
-async function convertOne(srcPath, outDir, baseName) {
+// Writes variants into `${projOut}/${relDir}/` (relDir = section, or
+// `${section}/before-after` for hero pairs). The manifest `name` carries the
+// project-relative path (forward slashes) so build-pages' projectAssetUrl
+// produces the nested URL directly.
+async function convertOne(srcPath, projOut, relDir, baseName) {
   const buf = await fs.readFile(srcPath);
   const meta = await sharp(buf).metadata();
   const isVertical = meta.height > meta.width;
+  const absDir = path.join(projOut, relDir);
+  await fs.mkdir(absDir, { recursive: true });
   const results = [];
   for (const v of VARIANTS) {
     const outName = `${baseName}${v.suffix}.webp`;
-    const outPath = path.join(outDir, outName);
+    const outPath = path.join(absDir, outName);
     const targetW = Math.min(v.width, meta.width);
     await sharp(buf)
       .rotate() // honor EXIF orientation
@@ -83,18 +90,19 @@ async function convertOne(srcPath, outDir, baseName) {
       .webp({ quality: v.quality, effort: 4 })
       .toFile(outPath);
     const stat = await fs.stat(outPath);
-    results.push({ name: outName, size: stat.size, w: targetW, vertical: isVertical });
+    results.push({ name: `${relDir}/${outName}`, size: stat.size, w: targetW, vertical: isVertical });
   }
   return results;
 }
 
 async function processProject(korFolder, projNum) {
   const projSrc = SRC_OVERRIDES[projNum] ?? path.join(SRC, korFolder);
-  const projOut = path.join(OUT, `proj-${projNum}`);
+  const projDir = projDirById(projNum); // e.g. 06-pangyo
+  const projOut = path.join(OUT, projDir);
   await fs.mkdir(projOut, { recursive: true });
 
   const entries = await fs.readdir(projSrc, { withFileTypes: true });
-  const manifest = { project: `proj-${projNum}`, folder: korFolder, sections: {} };
+  const manifest = { project: projDir, folder: korFolder, sections: {} };
   let total = { in: 0, outBytes: 0, files: 0 };
 
   for (const ent of entries) {
@@ -117,17 +125,17 @@ async function processProject(korFolder, projNum) {
       const heroFiles = await listJpg(heroDir);
       for (const f of heroFiles) {
         const fname = path.basename(f, path.extname(f));
-        // 헤로 파일은 이미 renamed: e.g. proj-02-living-hero-before / -after
-        // 거실 섹션의 hero는 proj-XX-hero-before/after (메인 hero)
+        // 헤로 파일은 이미 renamed: e.g. 02-seongbok-living-hero-before / -after
+        // 거실 섹션의 hero는 NN-slug-hero-before/after (메인 hero)
         let baseName;
-        if (/proj-\d+-(hero|.*-hero)-(before|after)/.test(fname)) {
+        if (/^\d{2}-[a-z0-9]+-(hero|.*-hero)-(before|after)/.test(fname)) {
           baseName = fname;
         } else {
           // 매칭 실패 케이스(스킵)
           console.log(`    ⏭ hero unmatched: ${path.basename(f)}`);
           continue;
         }
-        const res = await convertOne(f, projOut, baseName);
+        const res = await convertOne(f, projOut, `${section}/before-after`, baseName);
         sectionFiles.push({ kind: 'hero', source: path.basename(f), variants: res });
         total.in++;
         res.forEach((r) => (total.outBytes += r.size));
@@ -139,13 +147,14 @@ async function processProject(korFolder, projNum) {
     const files = await listJpg(sectionDir);
     for (const f of files) {
       const fname = path.basename(f, path.extname(f));
-      if (!/^proj-\d+-/.test(fname)) {
+      if (!/^\d{2}-[a-z0-9]+-/.test(fname)) {
         console.log(`    ⏭ skipped non-renamed: ${path.basename(f)}`);
         continue;
       }
       // Hero before/after files placed directly in section folder (no 비포에프터 sub)
-      const isHero = /proj-\d+-(hero|.*-hero)-(before|after)$/.test(fname);
-      const res = await convertOne(f, projOut, fname);
+      const isHero = /^\d{2}-[a-z0-9]+-(hero|.*-hero)-(before|after)$/.test(fname);
+      const relDir = isHero ? `${section}/before-after` : section;
+      const res = await convertOne(f, projOut, relDir, fname);
       sectionFiles.push({
         kind: isHero ? 'hero' : 'regular',
         source: path.basename(f),
@@ -176,14 +185,14 @@ async function main() {
 
   console.log(`Source : ${SRC}`);
   console.log(`Output : ${OUT}`);
-  if (only.length) console.log(`Filter : proj-${only.join(', proj-')}`);
+  if (only.length) console.log(`Filter : ${only.map(projDirById).join(', ')}`);
   console.log('');
   await fs.mkdir(OUT, { recursive: true });
 
   let grand = { in: 0, outBytes: 0, files: 0 };
   for (const [kor, num] of Object.entries(PROJECT_MAP)) {
     if (only.length && !only.includes(num)) continue;
-    console.log(`\n▶ proj-${num} — ${kor}`);
+    console.log(`\n▶ ${projDirById(num)} — ${kor}`);
     const t = await processProject(kor, num);
     console.log(
       `  ✓ ${t.in} sources → ${t.files} webp files (${(t.outBytes / 1024 / 1024).toFixed(1)} MB)`,

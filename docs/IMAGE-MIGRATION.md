@@ -1,7 +1,16 @@
 # 이미지 파일 재정리 — 매핑 문서
 
 사이트맵/용도 기준으로 `images/` 를 재구성한 기록. **옛 경로 → 새 경로** 전체 테이블.
-(2026-06 작업. 프로젝트 갤러리·브랜드 자산은 사용자 결정에 따라 유지.)
+(2026-06 작업.)
+
+> **후속 변경 1(2026-06):** 프로젝트 갤러리 폴더를 `images/projects/proj-XX/` → `images/projects/NN-slug/`
+> (`id-folderSlug`, 예: 첫 프로젝트 → `06-pangyo`)로 리네임했다. 아래 표의 `images/projects/` 소스 경로는
+> 모두 새 `NN-slug` 이름을 반영해 갱신돼 있다. slug 단일 출처는 `scripts/projects-data.mjs` 의 `folderSlug`.
+>
+> **후속 변경 2(2026-06):** 각 프로젝트 폴더 안을 **섹션별 폴더 + `{섹션}/before-after/`** 로 세분화했다
+> (예: `06-pangyo/bath-a/06-pangyo-bath-a-01.webp`, `06-pangyo/bath-a/before-after/06-pangyo-bath-a-hero-after.webp`).
+> 특수 섹션 `card-cover`·`index-hero` 도 각자 폴더. manifest 의 variant `name` 이 프로젝트 폴더 기준
+> 상대경로를 담고, `build-pages` 의 `projectAssetUrl` 이 그대로 URL로 만든다. (이동: `scripts/migrate-section-subfolders.mjs`)
 
 ## 네이밍 컨벤션
 - 폴더는 **사이트맵/용도** 기준: `images/main/{purpose}`, `images/pages/{page}/`. 브랜드·프로젝트는 기존 위치 유지.
@@ -19,29 +28,29 @@ images/
 │   └── reviews-banner/  # 메인 후기 섹션 배너
 ├── pages/               # 페이지별 hero·콘텐츠 이미지
 │   ├── about/ story/ process/(+services/) reviews/
-└── projects/proj-01..06/   # 갤러리 (파이프라인 생성, 유지)
+└── projects/{01-sanun12 … 06-pangyo}/   # 갤러리 (= id-folderSlug, 파이프라인 생성)
 ```
 
 ## 매핑: 메인 hero 슬라이더 (복사본, `images/main/hero/`)
 | 순서 | 옛 (images/projects/) | 새 (images/main/hero/) |
 |---|---|---|
-| 01 | proj-06/proj-06-index-hero-01 | hero-01-pangyo |
-| 02 | proj-06/proj-06-index-hero-02 | hero-02-pangyo |
-| 03 | proj-06/proj-06-hero-after | hero-03-pangyo |
-| 04 | proj-02/proj-02-hero-after | hero-04-seongbok |
-| 05 | proj-04/proj-04-hero-after | hero-05-euneosong |
-| 06 | proj-05/proj-05-hero-after | hero-06-itaewon |
-| 07 | proj-03/proj-03-hero-after | hero-07-sindang |
+| 01 | 06-pangyo/06-pangyo-index-hero-01 | hero-01-pangyo |
+| 02 | 06-pangyo/06-pangyo-index-hero-02 | hero-02-pangyo |
+| 03 | 06-pangyo/06-pangyo-hero-after | hero-03-pangyo |
+| 04 | 02-seongbok/02-seongbok-hero-after | hero-04-seongbok |
+| 05 | 04-euneosong/04-euneosong-hero-after | hero-05-euneosong |
+| 06 | 05-itaewon/05-itaewon-hero-after | hero-06-itaewon |
+| 07 | 03-sindang/03-sindang-hero-after | hero-07-sindang |
 
 ## 매핑: 메인 포트폴리오 썸네일 (복사본, `images/main/portfolio-thumbnail/`)
 | 순서 | 옛 | 새 (images/main/portfolio-thumbnail/) |
 |---|---|---|
-| 01 | proj-06/proj-06-card-cover-01 | thumb-01-pangyo |
-| 02 | proj-02/proj-02-hero-after | thumb-02-seongbok |
-| 03 | proj-04/proj-04-hero-after | thumb-03-euneosong |
-| 04 | proj-01/proj-01-card-cover-01 | thumb-04-sanun12 |
-| 05 | proj-03/proj-03-hero-after | thumb-05-sindang |
-| 06 | proj-05/proj-05-hero-after | thumb-06-itaewon |
+| 01 | 06-pangyo/06-pangyo-card-cover-01 | thumb-01-pangyo |
+| 02 | 02-seongbok/02-seongbok-hero-after | thumb-02-seongbok |
+| 03 | 04-euneosong/04-euneosong-hero-after | thumb-03-euneosong |
+| 04 | 01-sanun12/01-sanun12-card-cover-01 | thumb-04-sanun12 |
+| 05 | 03-sindang/03-sindang-hero-after | thumb-05-sindang |
+| 06 | 05-itaewon/05-itaewon-hero-after | thumb-06-itaewon |
 
 > 메인 hero·썸네일은 프로젝트 갤러리 이미지를 **공유**하던 것을, 독립 복사본으로 분리(프로젝트 갤러리 원본은 목록·상세 페이지가 계속 사용).
 
@@ -65,11 +74,12 @@ images/
 ## 삭제한 파일 (미사용)
 | 파일 | 사유 |
 |---|---|
-| images/projects/proj-06/proj-06-card-cover-01{,-1200,-600}.webp (3) | 메인이 복사본 사용 후 미참조 (매니페스트에도 없던 수동 파일) |
+| images/projects/06-pangyo/06-pangyo-card-cover-01{,-1200,-600}.webp (3) | 메인이 복사본 사용 후 미참조 (매니페스트에도 없던 수동 파일) |
 | (메인 복사 시 과다생성분) main/hero/*-600 (7), main/portfolio-thumbnail/*풀사이즈(6) | 슬라이더는 -1200/full, 카드는 -600/-1200만 사용 → 미생성/삭제 |
 
-## 변경 없음 (사용자 결정)
-- `images/projects/proj-XX/**` (파이프라인 생성 갤러리), 매니페스트, `images/logo/**`, 루트 브랜드(favicon·og·webmanifest), 파이프라인 스크립트.
+## 변경 없음
+- 매니페스트, `images/logo/**`, 루트 브랜드(favicon·og·webmanifest), 파이프라인 스크립트의 동작.
+- (갤러리 폴더 `images/projects/**` 자체는 위 후속 변경에서 `proj-XX` → `NN-slug` 로 리네임됨 — 산출물 내용·매니페스트 구조는 동일.)
 
 ## 알아둘 점
 - 메인이 쓰는 이미지는 **복사본**이라, 원본 프로젝트 이미지를 바꿔도 메인은 자동 반영되지 않음(메인 갱신 시 해당 main/ 파일 교체 필요).
