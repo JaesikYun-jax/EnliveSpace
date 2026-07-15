@@ -23,7 +23,7 @@ export const PROJECTS = [
     completedAt: '2025년 10월',
     type: 'apartment',
     service: '11년 이상 구축',
-    pricePerPy: '평당 300만원대',
+    pricePerPy: '평당 300만원',
     keywords: '미니멀 주방, 중문이 있는, 우드 포인트',
     scope: '거실, 주방, 욕실, 침실, 현관',
     description: [
@@ -57,7 +57,7 @@ export const PROJECTS = [
     completedAt: '2025년 9월',
     type: 'apartment',
     service: '5년 이상 준신축',
-    pricePerPy: '디자인비 350만원~ (*프로젝트별 견적진행)',
+    pricePerPy: '평당 150만원',
     keywords: '화이트 앤 베이지, 세련된 오브제',
     scope: '거실, 주방, 욕실, 침실, 현관',
     description: [
@@ -89,7 +89,7 @@ export const PROJECTS = [
     completedAt: '2025년 7월',
     type: 'apartment',
     service: '11년 이상 구축',
-    pricePerPy: '디자인비 350만원~ (*프로젝트별 견적진행)',
+    pricePerPy: '평당 200만원',
     keywords: '화이트 앤 우드, 반려견',
     scope: '거실, 주방, 침실, 현관',
     description: [
@@ -121,7 +121,7 @@ export const PROJECTS = [
     completedAt: '2025년 2월',
     type: 'house',
     service: '11년 이상 구축',
-    pricePerPy: '디자인비 350만원~ (*프로젝트별 견적진행)',
+    pricePerPy: '평당 170만원',
     keywords: '월넛 앤 우드, 게스트하우스',
     scope: '거실, 주방, 게스트룸, 현관',
     description: [
@@ -152,7 +152,7 @@ export const PROJECTS = [
     completedAt: '2024년 10월',
     type: 'apartment',
     service: '11년 이상 구축',
-    pricePerPy: '디자인비 - (*프로젝트별 견적진행)',
+    pricePerPy: '평당 150만원',
     keywords: '화이트 앤 베이지, 세련된 오브제',
     scope: '거실, 주방, 욕실, 침실, 현관',
     description: [
@@ -181,7 +181,7 @@ export const PROJECTS = [
     completedAt: '2026년 3월',
     type: 'apartment',
     service: '11년 이상 구축',
-    pricePerPy: '평당 240만원대',
+    pricePerPy: '평당 240만원',
     keywords: '우드톤 포인트, 남다른 욕실',
     scope: '거실, 주방, 욕실, 침실, 현관',
     description: [
