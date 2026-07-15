@@ -406,7 +406,7 @@ ${HEADER}
               <div><dt class="text-ink-3 text-xs mb-1">시공 시기</dt><dd class="font-bold">${project.completedAt}</dd></div>
               <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">시공 범위</dt><dd class="font-bold">${project.scope}</dd></div>
               <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">키워드</dt><dd class="font-bold">${project.keywords}</dd></div>
-              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">디자인비 / 평당 견적</dt><dd class="font-bold">${project.pricePerPy}</dd></div>
+              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">평당 견적</dt><dd class="font-bold">${project.pricePerPy}</dd></div>
             </dl>
           </div>
         </div>
