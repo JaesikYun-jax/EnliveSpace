@@ -739,19 +739,19 @@
         "variants": [
           {
             "name": "bed-a/before-after/01-sanun12-bed-a-hero-before.webp",
-            "size": 169524,
-            "w": 1920,
+            "size": 96036,
+            "w": 1536,
             "vertical": false
           },
           {
             "name": "bed-a/before-after/01-sanun12-bed-a-hero-before-1200.webp",
-            "size": 65624,
+            "size": 52762,
             "w": 1200,
             "vertical": false
           },
           {
             "name": "bed-a/before-after/01-sanun12-bed-a-hero-before-600.webp",
-            "size": 17280,
+            "size": 13474,
             "w": 600,
             "vertical": false
           }
