@@ -183,6 +183,10 @@ export const PROJECTS = [
     period: '4주',
     completedAt: '2025년 2월',
     type: 'house',
+    // 에어비앤비 운영 공간이라 '주택' / '상업공간' 필터 양쪽에 노출한다.
+    // (type 은 상세 페이지 라벨·_assets.json 의 단일 값으로 계속 쓰이고,
+    //  extraTypes 는 포트폴리오 목록 카드의 data-type 에만 더해진다)
+    extraTypes: ['commercial'],
     service: '11년 이상 구축',
     pricePerPy: '평당 170만원',
     keywords: '월넛 앤 우드, 게스트하우스',

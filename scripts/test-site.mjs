@@ -194,6 +194,21 @@ function checkPageHtml(report, page, html) {
   // Project detail gallery must use the puzzle masonry layout (JS-positioned).
   // The old fixed `grid-cols-3` + `row-span-2` hero left bottom-right holes when
   // card counts didn't divide evenly — masonry packs every column gap-free.
+  // Portfolio listing: a project can belong to more than one filter (e.g. the
+  // Itaewon house is also run as an Airbnb → 주택 + 상업공간). data-type is a
+  // space-separated list and the filter script must match by token, not ===.
+  if (page === '/project/') {
+    report.ok(/card\.dataset\.type \|\| ''\)\.split\(' '\)/.test(html),
+      `${tag} filter matches data-type as a space-separated list`,
+      "filter should use (card.dataset.type || '').split(' ') — a card may carry multiple types");
+    report.ok(/data-type="[^"]*\bcommercial\b[^"]*"/.test(html),
+      `${tag} at least one card is tagged commercial (상업공간 filter not empty)`,
+      '상업공간 필터에 걸리는 카드가 하나도 없음');
+    report.ok(/data-type="house commercial"/.test(html),
+      `${tag} 이태원 단독주택 card carries both house and commercial`,
+      '이태원 카드는 주택/상업공간 양쪽에 노출되어야 함');
+  }
+
   if (/^\/project\/\d+\.html$/.test(page)) {
     report.ok(/id="gallery" class="masonry"/.test(html),
       `${tag} gallery uses masonry container`,
