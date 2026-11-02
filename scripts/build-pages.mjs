@@ -648,7 +648,7 @@ function projectCard(project, manifest) {
   const src600 = projectAssetUrl(project.id, cover.name.replace(/-1200\.webp$/, '-600.webp'));
 
   return `
-        <a href="/project/${project.slug}.html" class="gallery-card group" data-type="${project.type}">
+        <a href="/project/${project.slug}.html" class="gallery-card group" data-type="${cardTypes(project)}">
           <div class="overflow-hidden mb-4 aspect-[4/3]">
             <img src="${src1200}" srcset="${src600} 600w, ${src1200} 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" alt="${project.title}" loading="lazy" decoding="async" class="w-full h-full object-cover">
           </div>
@@ -656,6 +656,12 @@ function projectCard(project, manifest) {
           <p class="font-kr text-ink-2 text-sm mb-2">${project.subtitle}</p>
           <p class="font-en text-ink-3 text-xs">${project.pricePerPy}</p>
         </a>`;
+}
+
+// 한 프로젝트가 여러 필터(아파트/주택/상업공간)에 걸릴 수 있다 — data-type 은
+// 공백 구분 목록이고, 목록 페이지 필터는 split(' ') 로 매칭한다.
+function cardTypes(project) {
+  return [project.type, ...(project.extraTypes || [])].join(' ');
 }
 
 // 포트폴리오 목록 상단 hero 배너 — 판교원9단지 한림풀에버 '포트폴리오 상단이미지' 전용 와이드 컷.
@@ -740,7 +746,7 @@ ${FOOTER}
         const filter = btn.dataset.filter;
         let visible = 0;
         cards.forEach(card => {
-          if (filter === 'all' || card.dataset.type === filter) { card.style.display = ''; visible++; }
+          if (filter === 'all' || (card.dataset.type || '').split(' ').indexOf(filter) !== -1) { card.style.display = ''; visible++; }
           else card.style.display = 'none';
         });
         countEl.textContent = visible;

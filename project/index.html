@@ -136,7 +136,7 @@
           <p class="font-kr text-ink-2 text-sm mb-2">자연의 온도를 담은 26평 홈스타일링</p>
           <p class="font-en text-ink-3 text-xs">평당 150만원</p>
         </a>
-        <a href="/project/5.html" class="gallery-card group" data-type="house">
+        <a href="/project/5.html" class="gallery-card group" data-type="house commercial">
           <div class="overflow-hidden mb-4 aspect-[4/3]">
             <img src="/images/projects/05-itaewon/living/before-after/05-itaewon-hero-after-1200.webp" srcset="/images/projects/05-itaewon/living/before-after/05-itaewon-hero-after-600.webp 600w, /images/projects/05-itaewon/living/before-after/05-itaewon-hero-after-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" alt="이태원 단독주택 에어비앤비" loading="lazy" decoding="async" class="w-full h-full object-cover">
           </div>
@@ -223,7 +223,7 @@
         const filter = btn.dataset.filter;
         let visible = 0;
         cards.forEach(card => {
-          if (filter === 'all' || card.dataset.type === filter) { card.style.display = ''; visible++; }
+          if (filter === 'all' || (card.dataset.type || '').split(' ').indexOf(filter) !== -1) { card.style.display = ''; visible++; }
           else card.style.display = 'none';
         });
         countEl.textContent = visible;
