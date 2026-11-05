@@ -82,6 +82,13 @@ const PAGES = [
   '/project/6.html',
 ];
 
+// 비공개(secret) 포트폴리오 — 링크 + 비밀번호를 아는 사람만 보는 페이지.
+// 공개 네비게이션에서는 링크되지 않아야 하고, 검색엔진 색인도 막혀야 한다.
+const SECRET_PAGES = ['/secret/', '/secret/1.html'];
+
+// sha256('enlivenspace') — 페이지에 비밀번호 원문이 아니라 이 해시만 들어간다
+const SECRET_HASH = '4fb6e6d8a1a2e9ae3c4acc0d178014747fc950ac48be96a31a63d7bb2bb60e40';
+
 const TALLY = 'https://tally.so/r/J9eROr';
 
 // ---- Test suites -----------------------------------------------------------
@@ -222,6 +229,47 @@ function checkPageHtml(report, page, html) {
   }
 }
 
+// 비공개 포트폴리오 전용 invariant
+function checkSecretPageHtml(report, page, html) {
+  const tag = `[${page}]`;
+
+  report.ok(
+    new RegExp(`<body[^>]+data-secret-hash="${SECRET_HASH}"`).test(html),
+    `${tag} body carries the secret password hash`,
+    '<body data-secret-hash="<sha256(비밀번호)>"> 가 있어야 게이트가 동작한다',
+  );
+
+  report.ok(
+    !/data-secret-password|const\s+SECRET_PASSWORD/.test(html),
+    `${tag} password is not embedded in plain text`,
+    '비밀번호 원문을 페이지에 넣지 말 것 — 해시만 둔다',
+  );
+
+  report.ok(
+    /<meta[^>]+name="robots"[^>]+content="[^"]*noindex[^"]*"/.test(html),
+    `${tag} head declares robots noindex`,
+    '검색 결과에 노출되면 "링크를 아는 사람만" 이 깨진다',
+  );
+
+  report.ok(
+    /<div id="secret-gate"[^>]*\shidden[^>]*>/.test(html),
+    `${tag} gate markup present (#secret-gate)`,
+    '비밀번호 입력 화면 마크업이 없음',
+  );
+
+  report.ok(
+    /<div id="secret-content"\s+hidden>/.test(html),
+    `${tag} content starts hidden (#secret-content)`,
+    'JS 가 꺼져 있을 때도 내용이 보이면 안 되므로 hidden 으로 시작해야 한다',
+  );
+
+  report.ok(
+    /<script src="\/js\/secret-gate\.js"><\/script>/.test(html),
+    `${tag} loads /js/secret-gate.js`,
+    '게이트 스크립트가 로드되지 않으면 페이지가 영영 안 열린다',
+  );
+}
+
 // Asset existence
 async function checkAsset(report, base, urlPath, name = urlPath) {
   const r = await fetch(base + urlPath);
@@ -253,6 +301,23 @@ async function main() {
       }
       const html = await r.text();
       checkPageHtml(report, page, html);
+
+      // 공개 페이지 어디에서도 비공개 포트폴리오로 링크가 새면 안 된다
+      report.ok(!/href="\/secret\//.test(html), `[${page}] does not link to /secret/`,
+        '비공개 포트폴리오는 링크를 받은 사람만 알아야 한다 — 공개 네비/푸터에 넣지 말 것');
+    }
+
+    // ---- Secret (link + password only) pages ----
+    for (const page of SECRET_PAGES) {
+      report.section(`HTML invariants — ${page} (비공개)`);
+      const r = await fetch(base + page);
+      if (!r.ok) {
+        report.fail(`${page} reachable`, `HTTP ${r.status}`);
+        continue;
+      }
+      const html = await r.text();
+      checkPageHtml(report, page, html);
+      checkSecretPageHtml(report, page, html);
     }
 
     // ---- Required assets ----
@@ -273,6 +338,7 @@ async function main() {
       '/images/favicon-192.png',
       '/images/favicon-512.png',
       '/images/site.webmanifest',
+      '/js/secret-gate.js',
     ];
     for (const a of assets) await checkAsset(report, base, a);
 
@@ -305,6 +371,17 @@ async function main() {
       mainJs.includes("getElementById('portfolio-strip-track')") ||
         mainJs.includes('portfolio-strip-track'),
       'js/main.js has portfolio-strip prev/next arrow logic',
+    );
+
+    const gateJs = await (await fetch(base + '/js/secret-gate.js')).text();
+    report.ok(
+      /SHA-256/.test(gateJs) && /data-secret-hash/.test(gateJs),
+      'js/secret-gate.js compares a SHA-256 hash from data-secret-hash',
+      '비밀번호를 평문 비교하지 말 것',
+    );
+    report.ok(
+      /secret-content/.test(gateJs) && /hidden = false/.test(gateJs),
+      'js/secret-gate.js reveals #secret-content on success',
     );
   } finally {
     srv.kill();

@@ -73,12 +73,38 @@ node scripts/stage-images.mjs --dry-run
 - **페이지별 사용 이미지 정리(`npm run stage-site`)**: 포트폴리오 외 페이지(메인/인라이븐스페이스/공간이야기/진행방식/후기)가 **실제 참조하는** 이미지를 `scripts/stage-site-images.mjs` 가 HTML 파싱(`<img src>`/`srcset`)으로 모아 `_staging/_사이트페이지/<페이지>/[카테고리]/` 로 복사한다(참고·핸드오프용, 빌드에 영향 없음). 메인은 `hero` / `포트폴리오-썸네일` / `후기배너`, 진행방식은 `hero` / `상세컷` / `서비스소개` 로 하위 분류. 공통 로고는 `_staging/_공통(로고)/` 한 곳에. 카테고리 분류는 소스 경로 기준(`CATEGORY_RULES`). 파비콘은 제외. (페이지가 같은 이미지를 쓰면 각 폴더에 중복 복사 — "실제 쓰인 것" 기준)
 - `_staging/` 은 빌드 산출물 — 언제든 삭제 가능, `npm run stage`/`stage-site` 가 새로 생성. `stage` 는 이제 `_staging/` 전체를 지우지 않고 **프로젝트 폴더만 개별로 새로** 만든다(`_사이트페이지`·`_공통(로고)` 와 공존하도록). 사이트페이지 폴더는 `stage-site` 가 따로 관리.
 
+## 비공개(secret) 포트폴리오
+
+링크를 받은 사람만, 그리고 비밀번호를 아는 사람만 볼 수 있는 포트폴리오 페이지.
+
+- 주소: `/secret/` (목록) + `/secret/1.html` (상세). **현재는 전부 placeholder** — 실제 사진/문구로 교체해서 쓴다.
+- 비밀번호: `enlivenspace`
+  - 페이지에는 원문이 아니라 **SHA-256 해시**만 들어간다 → `<body data-secret-hash="4fb6e6…">`
+  - 바꾸려면: `node -e "console.log(require('crypto').createHash('sha256').update('새비번').digest('hex'))"` 결과를 `secret/*.html` 의 `data-secret-hash` 와 `scripts/test-site.mjs` 의 `SECRET_HASH` 에 함께 반영.
+- 게이트 로직: `js/secret-gate.js`
+  - 본문은 `<div id="secret-content" hidden>` 으로 **잠긴 상태로 시작**(JS 꺼지면 아무것도 안 보임 = fail closed)
+  - 통과 기록은 `sessionStorage` → 같은 탭 안에서 비공개 페이지를 오갈 때 다시 안 묻는다. 탭을 닫으면 다시 잠김.
+- 검색 노출 차단: 모든 비공개 페이지 `<head>` 에 `<meta name="robots" content="noindex, nofollow, noarchive">`
+  - **robots.txt 로 막지 않는다** — Disallow 를 쓰면 크롤러가 페이지를 읽지 못해 noindex 를 보지 못하고, robots.txt 자체가 비공개 주소를 광고하는 꼴이 된다.
+- **공개 네비게이션/푸터에서 절대 링크하지 않는다** (테스트가 `href="/secret/"` 를 공개 페이지에서 찾으면 실패시킨다)
+
+### 보안 수준 — 반드시 알고 쓸 것
+
+정적 사이트라 비밀번호 검사는 **전부 브라우저 안에서** 일어난다. 비밀번호 원문은 소스에 없지만(해시만), 개발자 도구로 `#secret-content` 의 `hidden` 을 지우면 내용은 보인다. 즉 **"우연히 들어온 사람 차단"** 수준이지 진짜 인증이 아니다.
+
+절대 새면 안 되는 자료라면 Cloudflare Access(Zero Trust) 로 `/secret/*` 경로에 서버단 인증을 거는 게 맞다. 그때도 이 게이트는 그대로 두면 된다(이중).
+
+### 새 비공개 프로젝트 추가
+
+`secret/1.html` 을 복사해 `secret/2.html` 로 만들고 placeholder 를 교체한 뒤, `secret/index.html` 목록에 카드를 추가한다. 그리고 `scripts/test-site.mjs` 의 `SECRET_PAGES` 배열에 경로를 넣어 테스트가 강제하게 한다. (일반 포트폴리오와 달리 `build-pages.mjs` 자동 생성 대상이 아니다 — 수동 관리)
+
 ## 디렉토리 구조
 
 ```
 enlivespace/
 ├── *.html              # 정적 페이지 (about, story, process, reviews, index)
 ├── project/            # 포트폴리오 (index.html + 1~6.html)
+├── secret/             # 비공개 포트폴리오 (링크+비밀번호) — index.html + 1.html, 수동 관리
 ├── images/
 │   ├── logo/           # 헤더용(dark) / 푸터용(light), 1x · 2x
 │   ├── favicon*.png    # 32/180/192/512 — logo-light.png 을 검정 배경에 레터박스, npm run favicons 로 생성
@@ -88,6 +114,7 @@ enlivespace/
 │       └── 06-pangyo/  #   섹션별 폴더(living/kitchen/bath-a/…) + 각 {섹션}/before-after/, card-cover/, index-hero/, manifest.json
 ├── css/style.css       # 모든 페이지 공통 스타일
 ├── js/main.js          # 인터랙션 (hero slider, 룸 필터, 라이트박스, strip arrows 등)
+├── js/secret-gate.js   # 비공개 페이지 비밀번호 게이트 (SHA-256 비교, sessionStorage 기억)
 └── scripts/
     ├── projects-data.mjs    # 프로젝트 메타데이터 단일 출처 (folderSlug + projDirById 포함)
     ├── stage-images.mjs     # 원본 폴더 → _staging/ 리네임 복사 (프로젝트별)

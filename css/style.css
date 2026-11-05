@@ -713,3 +713,114 @@ input:focus {
   .fab-main { width: 54px; height: 54px; }
   .fab-item { width: 50px; height: 50px; }
 }
+
+/* ---- Secret Portfolio Gate (비공개 포트폴리오 비밀번호 화면) ---- */
+body.secret-locked { overflow: hidden; }
+
+.secret-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #171717;
+}
+.secret-gate[hidden] { display: none; }
+
+.secret-gate-box {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  color: #fff;
+}
+.secret-gate-logo { display: inline-block; margin-bottom: 34px; }
+.secret-gate-logo img { height: 26px; width: auto; }
+.secret-gate-eyebrow {
+  font-family: 'GmarketSansMedium', 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #a3a3a3;
+  margin-bottom: 12px;
+}
+.secret-gate-title {
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.secret-gate-desc {
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #a3a3a3;
+  margin-bottom: 28px;
+}
+.secret-gate-form { display: flex; flex-direction: column; gap: 10px; }
+.secret-gate-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.08em;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.secret-gate-input::placeholder { color: rgba(255, 255, 255, 0.35); letter-spacing: 0; }
+.secret-gate-input:focus {
+  outline: none;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.secret-gate-submit {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #fff;
+  color: #171717;
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
+}
+.secret-gate-submit:hover { opacity: 0.84; }
+.secret-gate-error {
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: #ff8d7a;
+  margin-top: 2px;
+}
+.secret-gate-error[hidden] { display: none; }
+.secret-gate-foot {
+  margin-top: 26px;
+  font-family: 'NanumSquare', 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: #6f6f6f;
+  line-height: 1.7;
+}
+.secret-gate-foot a { color: #a3a3a3; text-decoration: underline; text-underline-offset: 3px; }
+
+/* 본문에 붙는 "비공개" 배지 */
+.secret-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  font-family: 'GmarketSansMedium', 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #fff;
+}
+.secret-badge--ink {
+  background: #171717;
+  color: #fff;
+}
