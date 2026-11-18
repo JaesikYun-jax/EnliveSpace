@@ -229,6 +229,37 @@ function checkPageHtml(report, page, html) {
   }
 }
 
+// 비공개 포트폴리오로 들어가는 유일한 입구 — 푸터 '정보' 컬럼의 "후기 / Secret".
+// 상단 네비와 모바일 메뉴에는 노출되지 않는다.
+function checkSecretEntryLink(report, page, html) {
+  const tag = `[${page}]`;
+
+  const loud = [
+    ['site-nav', /<nav class="site-nav"[\s\S]*?<\/nav>/],
+    ['mobile-menu', /<div id="mobile-menu"[\s\S]*?<\/div>\s*\n\s*<main/],
+  ];
+  for (const [where, re] of loud) {
+    const block = html.match(re);
+    report.ok(
+      !block || !/href="\/secret\//.test(block[0]),
+      `${tag} no /secret/ link in ${where}`,
+      '비공개 포트폴리오는 상단 메뉴에 넣지 않는다 — 푸터의 .footer-secret 하나만',
+    );
+  }
+
+  const entries = [...html.matchAll(/<a href="\/secret\/" class="footer-secret"[^>]*>Secret<\/a>/g)];
+  report.ok(
+    entries.length === 1,
+    `${tag} exactly one footer entry link to /secret/`,
+    `푸터에 .footer-secret 링크가 정확히 하나 있어야 함 — got ${entries.length}`,
+  );
+  report.ok(
+    /<a href="\/reviews\.html">후기<\/a><span class="footer-col-sep">\/<\/span><a href="\/secret\/" class="footer-secret"/.test(html),
+    `${tag} entry link sits next to 후기 in the footer 정보 column`,
+    '"후기 / Secret" 형태로 같은 <li> 안에 붙어야 한다',
+  );
+}
+
 // 비공개 포트폴리오 전용 invariant
 function checkSecretPageHtml(report, page, html) {
   const tag = `[${page}]`;
@@ -302,9 +333,7 @@ async function main() {
       const html = await r.text();
       checkPageHtml(report, page, html);
 
-      // 공개 페이지 어디에서도 비공개 포트폴리오로 링크가 새면 안 된다
-      report.ok(!/href="\/secret\//.test(html), `[${page}] does not link to /secret/`,
-        '비공개 포트폴리오는 링크를 받은 사람만 알아야 한다 — 공개 네비/푸터에 넣지 말 것');
+      checkSecretEntryLink(report, page, html);
     }
 
     // ---- Secret (link + password only) pages ----
@@ -317,6 +346,7 @@ async function main() {
       }
       const html = await r.text();
       checkPageHtml(report, page, html);
+      checkSecretEntryLink(report, page, html);
       checkSecretPageHtml(report, page, html);
     }
 

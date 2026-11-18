@@ -86,7 +86,9 @@ node scripts/stage-images.mjs --dry-run
   - 통과 기록은 `sessionStorage` → 같은 탭 안에서 비공개 페이지를 오갈 때 다시 안 묻는다. 탭을 닫으면 다시 잠김.
 - 검색 노출 차단: 모든 비공개 페이지 `<head>` 에 `<meta name="robots" content="noindex, nofollow, noarchive">`
   - **robots.txt 로 막지 않는다** — Disallow 를 쓰면 크롤러가 페이지를 읽지 못해 noindex 를 보지 못하고, robots.txt 자체가 비공개 주소를 광고하는 꼴이 된다.
-- **공개 네비게이션/푸터에서 절대 링크하지 않는다** (테스트가 `href="/secret/"` 를 공개 페이지에서 찾으면 실패시킨다)
+- **진입점은 딱 하나** — 모든 페이지 푸터 '정보' 컬럼 맨 아래의 `후기 / Secret`. 같은 `<li>` 안에 `<span class="footer-col-sep">/</span>` + `<a class="footer-secret">Secret</a>` 형태로 붙는다. 메뉴 항목처럼 자연스럽게 놓이되 한 톤 흐리게(`rgba(255,255,255,0.4)` → hover 시 흰색) 처리해 먼저 눈에 걸리지는 않는다. 스크린리더용으로 `aria-label="비공개 포트폴리오"` 를 단다.
+  - 상단 네비와 모바일 메뉴에는 **넣지 않는다** — 테스트(`checkSecretEntryLink`)가 두 블록 안의 `/secret/` 링크를 잡아내고, 동시에 푸터 링크가 정확히 하나, `후기` 바로 옆에 있는지도 강제한다.
+  - 링크가 노출돼도 비밀번호 화면에서 막히므로 "진입 메뉴가 있다 = 뚫렸다" 는 아니다. 다만 주소가 알려지는 건 맞으니, 아래 '보안 수준' 을 같이 읽을 것.
 
 ### 보안 수준 — 반드시 알고 쓸 것
 
