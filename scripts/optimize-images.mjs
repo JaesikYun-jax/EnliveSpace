@@ -28,6 +28,10 @@ const SECTION_MAP = {
   'Room-A': 'room-a',
   'Room-B': 'room-b',
   'Room-C': 'room-c',
+  // 상업공간 섹션 (예: 07 경태의 서재 — 애견호텔)
+  '외부': 'exterior',
+  '내부': 'interior',
+  '출입구': 'entrance-gate',
   // 메인 인덱스 hero 슬라이더 전용 — projects-data 의 sectionLabels 에 없어
   // 프로젝트 상세 페이지 갤러리에는 노출되지 않고, index.html 에서만 사용.
   '메인페이지': 'index-hero',
@@ -42,12 +46,13 @@ const PROJECT_MAP = {
   '은어송마을코오롱하늘채2단지아파트': '04',
   '이태원 단독주택 에어비엔비': '05',
   '판교원9단지 한림풀에버': '06',
+  '하남_상가_애견호텔': '07', // 경태의 서재 (애견호텔)
 };
 
 async function listJpg(dir) {
   const ent = await fs.readdir(dir, { withFileTypes: true });
   return ent
-    .filter((e) => e.isFile() && /\.jpe?g$/i.test(e.name))
+    .filter((e) => e.isFile() && /\.(jpe?g|png)$/i.test(e.name))
     .map((e) => path.join(dir, e.name))
     .sort();
 }

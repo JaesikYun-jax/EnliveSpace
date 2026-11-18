@@ -26,7 +26,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { projDirById } from './projects-data.mjs';
+import { projDirById, mainHeroSectionById } from './projects-data.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SRC_ROOT = path.join(ROOT, '홈페이지제작(인라이븐스페이스)', '4. 포트폴리오');
@@ -41,6 +41,7 @@ const PROJECT_MAP = {
   '은어송마을코오롱하늘채2단지아파트': '04',
   '이태원 단독주택 에어비엔비': '05',
   '판교원9단지 한림풀에버': '06',
+  '하남_상가_애견호텔': '07', // 경태의 서재 (애견호텔)
 };
 
 const SECTION_MAP = {
@@ -56,6 +57,10 @@ const SECTION_MAP = {
   'Room-A': 'room-a',
   'Room-B': 'room-b',
   'Room-C': 'room-c',
+  // 상업공간 섹션 (예: 07 경태의 서재 — 애견호텔)
+  '외부': 'exterior',
+  '내부': 'interior',
+  '출입구': 'entrance-gate',
   // 메인 인덱스 페이지의 hero 슬라이더 전용 (갤러리에는 노출 안 됨 — projects-data.mjs
   // sectionLabels 에 index-hero 키가 없으므로 build-pages 가 무시).
   '메인페이지': 'index-hero',
@@ -70,6 +75,11 @@ const FILE_KIND_OVERRIDES = {
   '20250816_105044.jpg': 'before', // 1)판교원/침실-B — pairs with 애프터.jpg
   '판교원마을_사진추가2.jpg': 'after', // 1)판교원/거실 — pairs with 판교원마을_거실_비포.jpg
   '3T2A0630.jpg': 'after', // 3)은어송/침실-C — pairs with 비포.jpg
+  // 7)하남 경태의 서재 — 비포 2장은 파일명이 장면 설명이라 마커가 없다.
+  '분홍 임대 포스터가 붙은 빈 점포.png': 'before', // 외부 — 임대 포스터 붙은 공실 파사드
+  'POPC3005.jpg': 'after', // 외부 — 같은 구도의 브라운 어닝 파사드
+  '그릴 기둥이 있는 4_3 실내 풍경.png': 'before', // 내부 — 마감 전 공실
+  '3T2A4155.jpg': 'after', // 내부 — 서재 스타일링 완료 컷
 };
 
 // 포트폴리오 카드 cover(썸네일) override — 특정 섹션 안의 파일 하나를 'card-cover' 로 승격한다.
@@ -98,10 +108,12 @@ function classifyHero(filename) {
   return null;
 }
 
+// jpg/jpeg 외에 png 도 받는다 — 비포 컷이 png 로 오는 현장이 있다(7)하남).
+// 확장자는 stage 단계에서 그대로 유지하고, webp 변환은 optimize 가 한다.
 async function listJpg(dir) {
   const ent = await fs.readdir(dir, { withFileTypes: true });
   return ent
-    .filter((e) => e.isFile() && /\.jpe?g$/i.test(e.name))
+    .filter((e) => e.isFile() && /\.(jpe?g|png)$/i.test(e.name))
     .map((e) => e.name)
     .sort((a, b) => a.normalize('NFC').localeCompare(b.normalize('NFC')));
 }
@@ -175,11 +187,13 @@ async function processProject(srcProjFolder) {
           );
           continue;
         }
-        // Living section's hero is the project's MAIN hero (no section prefix).
+        // 프로젝트의 메인 hero 섹션(주거=거실, 상업공간=mainHeroSection 지정)은
+        // 섹션 접두사 없이 NN-slug-hero-{before|after} 로 나간다.
+        const ext = path.extname(fname).toLowerCase();
         const targetBase =
-          sectionKey === 'living'
-            ? `${projPrefix}-hero-${kind}.jpg`
-            : `${projPrefix}-${sectionKey}-hero-${kind}.jpg`;
+          sectionKey === mainHeroSectionById(projNum)
+            ? `${projPrefix}-hero-${kind}${ext}`
+            : `${projPrefix}-${sectionKey}-hero-${kind}${ext}`;
         const src = path.join(heroSrcDir, fname);
         await copyFile(src, path.join(sectionOutDir, HERO_DIR, targetBase));
         seen.set(await hashFile(src), `${sectionName}/${HERO_DIR}/${targetBase}`);
@@ -198,7 +212,7 @@ async function processProject(srcProjFolder) {
         continue;
       }
       n++;
-      const outName = `${projPrefix}-${sectionKey}-${String(n).padStart(2, '0')}.jpg`;
+      const outName = `${projPrefix}-${sectionKey}-${String(n).padStart(2, '0')}${path.extname(fname).toLowerCase()}`;
       await copyFile(src, path.join(sectionOutDir, outName));
       seen.set(hash, `${sectionName}/${outName}`);
       stats.regularCopied++;

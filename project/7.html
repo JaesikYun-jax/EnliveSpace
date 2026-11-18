@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>경태의 서재 인테리어 | Enliven Space 포트폴리오</title>
+  <meta name="description" content="경태의 서재 10평 (약 33㎡) 인테리어 프로젝트 — Enliven Space" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: {
+          sans: ['NanumSquare','Noto Sans KR','sans-serif'],
+          en: ['GmarketSansMedium','Inter','sans-serif'],
+          'en-bold': ['GmarketSansBold','Inter','sans-serif']
+        },
+        colors: {
+          ink:'#171717','ink-2':'#525252','ink-3':'#a3a3a3',paper:'#ffffff','paper-2':'#f7f7f7'
+        }
+      } }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="manifest" href="/images/site.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+  <style>
+    .room-tab { padding: 8px 18px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', sans-serif; font-size: 13px; font-weight: 700; color: #525252; background: #fff; transition: all 0.2s ease; white-space: nowrap; }
+    .room-tab.active { background: #171717; color: #fff; border-color: #171717; }
+    .room-tab:hover { border-color: #171717; }
+    .ba-toggle { display: inline-flex; background: rgba(255,255,255,0.9); border-radius: 999px; padding: 3px; backdrop-filter: blur(4px); z-index: 5; }
+    .ba-toggle button { padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: 'GmarketSansBold', sans-serif; letter-spacing: 0.05em; border-radius: 999px; color: #525252; transition: all 0.2s ease; }
+    .ba-toggle button.active { background: #171717; color: #fff; }
+    /* 공유 토스트 — 버튼 클릭 즉시 링크 복사 후 하단 중앙에 살짝 떠오름 */
+    .toast { position: fixed; left: 50%; bottom: calc(30px + env(safe-area-inset-bottom)); transform: translate(-50%, 18px); display: inline-flex; align-items: center; gap: 9px; max-width: calc(100vw - 32px); background: #171717; color: #fff; padding: 13px 22px; border-radius: 999px; font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; box-shadow: 0 14px 40px rgba(0,0,0,0.30); opacity: 0; visibility: hidden; pointer-events: none; z-index: 100; transition: opacity 0.34s ease, transform 0.34s cubic-bezier(0.22,1,0.36,1), visibility 0s linear 0.34s; }
+    .toast.is-show { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.34s ease, transform 0.34s cubic-bezier(0.22,1,0.36,1); }
+    .toast-check { display: inline-flex; flex-shrink: 0; }
+    @media (prefers-reduced-motion: reduce) { .toast, .toast.is-show { transition: opacity 0.2s ease, visibility 0s; transform: translate(-50%, 0); } }
+    .lightbox { position: fixed; inset: 0; z-index: 80; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; padding: 24px; }
+    .lightbox.is-open { display: flex; }
+    .lightbox-close { position: absolute; top: 20px; right: 20px; color: #fff; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+    .lightbox-img { max-width: 100%; max-height: 90vh; object-fit: contain; }
+    .gallery-item { overflow: hidden; }
+    .gallery-item img { transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .gallery-item:hover img { transform: scale(1.03); }
+    /* 퍼즐형 masonry — 카드는 JS가 절대좌표로 배치(빈틈 없음). --gap 은 기존 gap-2/gap-3 대응 */
+    #gallery { position: relative; --gap: 8px; }
+    @media (min-width: 640px) { #gallery { --gap: 12px; } }
+    #gallery .gallery-item { position: absolute; top: 0; left: 0; }
+    .gallery-more-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 28px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.15); font-family: 'NanumSquare', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; color: #171717; background: #fff; transition: all 0.2s ease; }
+    .gallery-more-btn:hover { background: #171717; color: #fff; border-color: #171717; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo" aria-label="Enliven Space 홈"><img src="/images/logo/logo-dark.png" srcset="/images/logo/logo-dark@1x.png 1x, /images/logo/logo-dark.png 2x" alt="Enliven Space"></a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="/about.html">인라이븐스페이스</a>
+        <a href="/story.html">공간이야기</a>
+        <a href="/process.html">진행방식</a>
+        <a href="/project/">포트폴리오</a>
+        <a href="/reviews.html">후기</a>
+      </nav>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-label="메뉴 열기">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <button id="menu-close" class="menu-close" type="button" aria-label="메뉴 닫기">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+    <a href="/about.html">인라이븐스페이스</a>
+    <a href="/story.html">공간이야기</a>
+    <a href="/process.html">진행방식</a>
+    <a href="/project/">포트폴리오</a>
+    <a href="/reviews.html">후기</a>
+    <a href="/secret/" class="mobile-menu-secret" aria-label="비공개 포트폴리오">Secret</a>
+  </div>
+
+
+  <main class="site-main">
+
+    <section class="px-5 sm:px-10 pt-12 sm:pt-16">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h1 class="font-kr font-black text-2xl sm:text-3xl md:text-4xl mb-3 tracking-tight">경태의 서재</h1>
+            <p class="font-kr text-ink-2 text-sm sm:text-base">하남 감일동 10평 애견호텔, 빈티지 유럽 서재처럼</p>
+          </div>
+          <div>
+            <button id="share-trigger" class="inline-flex items-center gap-2 border border-black/15 px-4 py-2 rounded-full text-sm font-kr font-bold hover:bg-ink hover:text-white hover:border-ink transition-colors" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>
+              공유하기
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 sm:px-10 pt-8">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="flex gap-2 overflow-x-auto scrollbar-none -mx-1 px-1">
+          <button class="room-tab active" data-room="interior" type="button">내부 (13)</button>
+          <button class="room-tab" data-room="exterior" type="button">외부 (7)</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 sm:px-10 pt-6 pb-16">
+      <div class="max-w-[1440px] mx-auto">
+        <div id="gallery" class="masonry" style="visibility:hidden">
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="interior" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/07-gamil/interior/before-after/07-gamil-hero-after.webp">
+            <img class="ba-after absolute inset-0 w-full h-full object-cover"
+                 src="/images/projects/07-gamil/interior/before-after/07-gamil-hero-after-1200.webp"
+                 srcset="/images/projects/07-gamil/interior/before-after/07-gamil-hero-after-1200.webp 1200w, /images/projects/07-gamil/interior/before-after/07-gamil-hero-after.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="경태의 서재 내부 after"
+                 loading="lazy" decoding="async">
+            <img class="ba-before absolute inset-0 w-full h-full object-cover hidden"
+                 src="/images/projects/07-gamil/interior/before-after/07-gamil-hero-before-1200.webp"
+                 srcset="/images/projects/07-gamil/interior/before-after/07-gamil-hero-before-1200.webp 1200w, /images/projects/07-gamil/interior/before-after/07-gamil-hero-before.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="경태의 서재 내부 before"
+                 loading="lazy" decoding="async">
+            <div class="absolute top-3 left-3 ba-toggle">
+              <button class="active" data-ba="after" type="button">after</button>
+              <button data-ba="before" type="button">before</button>
+            </div>
+            <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">내부</span>
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-01.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-01-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-01-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-01-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-02.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-02-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-02-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-02-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-03.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-03-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-03-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-03-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-04.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-04-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-04-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-04-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-05.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-05-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-05-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-05-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-06.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-06-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-06-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-06-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-07.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-07-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-07-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-07-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-08.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-08-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-08-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-08-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-09.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-09-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-09-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-09-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-10.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-10-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-10-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-10-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-11.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-11-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-11-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-11-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="interior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/interior/07-gamil-interior-12.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/interior/07-gamil-interior-12-600.webp"
+                 srcset="/images/projects/07-gamil/interior/07-gamil-interior-12-600.webp 600w, /images/projects/07-gamil/interior/07-gamil-interior-12-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 내부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative ba-card cursor-zoom-in aspect-[4/3] sm:aspect-[3/2]" data-room="exterior" data-span="2" data-ar="1.3333" data-ar-sm="1.5" data-lightbox-src="/images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-after.webp">
+            <img class="ba-after absolute inset-0 w-full h-full object-cover"
+                 src="/images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-after-1200.webp"
+                 srcset="/images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-after-1200.webp 1200w, /images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-after.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="경태의 서재 외부 after"
+                 loading="lazy" decoding="async">
+            <img class="ba-before absolute inset-0 w-full h-full object-cover hidden"
+                 src="/images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-before-1200.webp"
+                 srcset="/images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-before-1200.webp 1200w, /images/projects/07-gamil/exterior/before-after/07-gamil-exterior-hero-before.webp 1920w"
+                 sizes="(min-width: 640px) 66vw, 100vw"
+                 alt="경태의 서재 외부 before"
+                 loading="lazy" decoding="async">
+            <div class="absolute top-3 left-3 ba-toggle">
+              <button class="active" data-ba="after" type="button">after</button>
+              <button data-ba="before" type="button">before</button>
+            </div>
+            <span class="absolute top-3 right-3 px-3 py-1.5 bg-black/55 text-white text-xs font-bold rounded-full backdrop-blur">외부</span>
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="exterior" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/exterior/07-gamil-exterior-01.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/exterior/07-gamil-exterior-01-600.webp"
+                 srcset="/images/projects/07-gamil/exterior/07-gamil-exterior-01-600.webp 600w, /images/projects/07-gamil/exterior/07-gamil-exterior-01-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 외부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="exterior" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/exterior/07-gamil-exterior-02.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/exterior/07-gamil-exterior-02-600.webp"
+                 srcset="/images/projects/07-gamil/exterior/07-gamil-exterior-02-600.webp 600w, /images/projects/07-gamil/exterior/07-gamil-exterior-02-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 외부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="exterior" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/exterior/07-gamil-exterior-03.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/exterior/07-gamil-exterior-03-600.webp"
+                 srcset="/images/projects/07-gamil/exterior/07-gamil-exterior-03-600.webp 600w, /images/projects/07-gamil/exterior/07-gamil-exterior-03-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 외부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="exterior" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/exterior/07-gamil-exterior-04.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/exterior/07-gamil-exterior-04-600.webp"
+                 srcset="/images/projects/07-gamil/exterior/07-gamil-exterior-04-600.webp 600w, /images/projects/07-gamil/exterior/07-gamil-exterior-04-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 외부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="exterior" data-overflow="1" data-ar="0.75" data-lightbox-src="/images/projects/07-gamil/exterior/07-gamil-exterior-05.webp">
+            <img class="w-full h-full object-cover aspect-[3/4]"
+                 src="/images/projects/07-gamil/exterior/07-gamil-exterior-05-600.webp"
+                 srcset="/images/projects/07-gamil/exterior/07-gamil-exterior-05-600.webp 600w, /images/projects/07-gamil/exterior/07-gamil-exterior-05-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 외부"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="gallery-item relative cursor-zoom-in" data-room="exterior" data-overflow="1" data-ar="1.3333" data-lightbox-src="/images/projects/07-gamil/exterior/07-gamil-exterior-06.webp">
+            <img class="w-full h-full object-cover aspect-[4/3]"
+                 src="/images/projects/07-gamil/exterior/07-gamil-exterior-06-600.webp"
+                 srcset="/images/projects/07-gamil/exterior/07-gamil-exterior-06-600.webp 600w, /images/projects/07-gamil/exterior/07-gamil-exterior-06-1200.webp 1200w"
+                 sizes="(min-width: 640px) 33vw, 50vw"
+                 alt="경태의 서재 외부"
+                 loading="lazy" decoding="async">
+          </div>
+        </div>
+        <noscript><style>#gallery{visibility:visible!important}#gallery .gallery-item{position:static!important;width:auto!important;height:auto!important;transform:none!important;margin-bottom:12px}</style></noscript>
+        <div id="gallery-more" class="text-center mt-6 sm:mt-8">
+          <button class="gallery-more-btn" data-room="interior" data-count="8" type="button">사진 더보기 (8장)</button>
+          <button class="gallery-more-btn" data-room="exterior" data-count="2" style="display:none" type="button">사진 더보기 (2장)</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 sm:px-10 pb-16 sm:pb-20">
+      <div class="max-w-[1440px] mx-auto border-t border-black/15 pt-10 sm:pt-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+          <div>
+            <p class="font-kr text-ink-3 text-xs mb-3">상세 내용</p>
+            <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">‘경태의 서재’는 반려견 경태와 친구들이 편안하게 쉬고, 작가를 꿈꾸는 사장님이 글을 쓰는 애견호텔입니다. 하남 감일동의 10평 공간에 짙은 브라운과 따뜻한 조명으로 빈티지 유럽 서재의 분위기를 담았습니다.</p>
+            <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">외부 파사드는 갈바 작업 후 벤자민무어 페인트로 마감하고, 짙은 브라운 어닝을 더해 클래식한 첫인상을 만들었어요. 강아지들의 안전을 위해 외부 출입문과 실내 안전문을 금속으로 제작해 이중 출입 구조를 만들고, 같은 페인트 톤으로 일체감을 주었습니다.</p>
+            <p class="font-kr text-ink leading-relaxed text-sm sm:text-base mb-4">실내 벽 하부는 관리하기 편하도록 우드 톤 템바보드를 두르고, 상부는 따뜻한 화이트 계열 벽지로 마감했습니다. 다운라이트로 공간을 고르게 밝히고 앤티크 펜던트로 서재의 아늑한 분위기를 더했어요. 책장과 책상, 원목 가구와 앤티크 소품을 스타일링해 경태와 친구들의 쉼과 사장님의 글쓰기가 함께하는 공간을 완성했습니다.</p>
+          </div>
+          <div>
+            <dl class="grid grid-cols-2 gap-x-6 gap-y-5 font-kr text-sm sm:text-base">
+              <div><dt class="text-ink-3 text-xs mb-1">상업공간</dt><dd class="font-bold">애견호텔 · 데이케어 · 운영자 서재</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">주소</dt><dd class="font-bold">경기도 하남시 감일백제로180번길 30-1, 근린생활시설동 1층</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">평형</dt><dd class="font-bold">10평 (약 33㎡)</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">서비스</dt><dd class="font-bold">상업공간 외부·내부 인테리어 및 가구·소품 스타일링</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">시공 기간</dt><dd class="font-bold">2주</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">시공 시기</dt><dd class="font-bold">2026년 10월</dd></div>
+              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">시공 범위</dt><dd class="font-bold">외부 파사드 갈바 및 도장, 어닝, 유리면 레터링, 금속 이중 출입문, 내부 천장·도배·템바보드, 조명, 수도 설비 및 싱크대, 가구·소품 스타일링</dd></div>
+              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">키워드</dt><dd class="font-bold">빈티지 유럽 서재, 딥 브라운, 앤티크 조명, 템바보드, 반려견 안전 동선</dd></div>
+              <div class="col-span-2"><dt class="text-ink-3 text-xs mb-1">평당 견적</dt><dd class="font-bold">-</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="mt-12 sm:mt-16 text-center">
+          <p class="font-kr text-ink-2 text-sm mb-4">해당 포트폴리오로 상담 받아보세요.</p>
+          <a href="https://tally.so/r/J9eROr" data-action="consult" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-kr font-bold text-sm sm:text-base" style="background:#FFD60A; color:#171717;">
+            견적 상담 신청하기
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7H13M13 7L8 2M13 7L8 12"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 sm:px-10 pb-20 sm:pb-28">
+      <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
+        <a href="/project/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink text-white text-sm font-kr font-bold hover:bg-ink-2 transition-colors">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 12L4 7L9 2"/></svg>
+          목록
+        </a>
+        <a href="/project/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink text-ink text-sm font-kr font-bold hover:bg-ink hover:text-white transition-colors">
+          더 많은 공간모음 보러가기
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 2L10 7L5 12"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+    <button id="lightbox-close" class="lightbox-close" type="button" aria-label="닫기">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+    <img id="lightbox-img" class="lightbox-img" alt="" />
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+    <span class="toast-msg">링크가 복사되었습니다</span>
+  </div>
+
+
+  <footer class="site-footer" id="contact">
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <div><a href="/" class="footer-logo" aria-label="Enliven Space 홈"><img src="/images/logo/logo-light.png" srcset="/images/logo/logo-light@1x.png 1x, /images/logo/logo-light.png 2x" alt="Enliven Space"></a></div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4 class="footer-col-title">정보</h4>
+            <ul class="footer-col-list">
+              <li><a href="/about.html">회사 소개</a></li>
+              <li><a href="/story.html">공간이야기</a></li>
+              <li><a href="/process.html">진행방식</a></li>
+              <li><a href="/project/">포트폴리오</a></li>
+              <li><a href="/reviews.html">후기</a><span class="footer-col-sep">/</span><a href="/secret/" class="footer-secret" aria-label="비공개 포트폴리오">Secret</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">안내</h4>
+            <ul class="footer-col-list">
+              <li><a href="https://tally.so/r/J9eROr" target="_blank" rel="noopener noreferrer" data-action="consult">상담 문의</a></li>
+              <li><a href="/reviews.html">서비스 후기</a></li>
+            </ul>
+            <div class="footer-sns" aria-label="SNS 연결">
+              <a href="http://pf.kakao.com/_eSTPG/chat" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></a>
+              <a href="https://www.instagram.com/enlivenspace_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+              <a href="https://blog.naver.com/enlivenspace" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><defs><mask id="naverBlogMask"><rect width="24" height="24" fill="white"/><text x="12" y="13.2" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="-0.3" fill="black">Blog</text></mask></defs><path d="M3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-6l-2.3 3a1 1 0 0 1-1.6 0L8.8 18H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" mask="url(#naverBlogMask)"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">고객센터</h4>
+            <ul class="footer-col-list">
+              <li class="footer-contact-line"><span class="label">전화번호</span><a href="tel:050-6662-8126">050-6662-8126</a></li>
+              <li class="footer-contact-line"><span class="label">영업시간</span>평일 10:00 ~ 17:00 (공휴일 제외)</li>
+              <li class="footer-contact-line"><span class="label">Email</span><a href="mailto:enlivenspace@naver.com">enlivenspace@naver.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-info">
+          <div class="info-line">
+            <span>상호명: 인라이븐 스페이스</span><span class="sep">|</span>
+            <span>사업자 등록번호: 524-05-03153</span><span class="sep">|</span>
+            <span>주소: 경기도 용인시 수지구 신봉3로 6 (동도센트리움 1층 상가, 101동 102호)</span><span class="sep">|</span>
+            <span>TEL: 050-6662-8126</span><span class="sep">|</span>
+            <span>Email: <a href="mailto:enlivenspace@naver.com">enlivenspace@naver.com</a></span>
+          </div>
+          <p class="copyright">Copyright © 2026 ENLIVEN SPACE All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="fab" id="fab" aria-label="플로팅 액션">
+    <a class="fab-item fab-item--consult" href="https://tally.so/r/J9eROr" data-action="consult" target="_blank" rel="noopener noreferrer" aria-label="상담 신청">상담<br/>신청</a>
+    <a class="fab-item fab-item--kakao" href="http://pf.kakao.com/_eSTPG/chat" data-action="kakao" target="_blank" rel="noopener noreferrer" aria-label="카카오 문의">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
+    </a>
+    <button class="fab-main" id="fab-toggle" type="button" aria-label="문의 메뉴" aria-expanded="false">
+      <span class="fab-face fab-face--consult">상담<br/>신청</span>
+      <span class="fab-face fab-face--kakao"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.88 5.36 4.7 6.78l-.95 3.48c-.08.3.25.55.5.38l4.18-2.78c.51.05 1.04.08 1.57.08 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg></span>
+      <span class="fab-face fab-face--close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>
+    </button>
+  </div>
+
+
+  <script src="/js/main.js"></script>
+  <script>
+    // BEFORE/AFTER toggle (per-card)
+    document.querySelectorAll('.ba-toggle').forEach(group => {
+      const card = group.closest('.ba-card');
+      const btns = group.querySelectorAll('button');
+      btns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const target = btn.dataset.ba;
+          btns.forEach(b => b.classList.toggle('active', b === btn));
+          card.querySelector('.ba-after').classList.toggle('hidden', target !== 'after');
+          card.querySelector('.ba-before').classList.toggle('hidden', target !== 'before');
+          // Update lightbox src so click opens currently visible state
+          const visibleImg = card.querySelector(target === 'after' ? '.ba-after' : '.ba-before');
+          card.dataset.lightboxSrc = visibleImg.currentSrc || visibleImg.src;
+        });
+      });
+    });
+
+    // ---- 퍼즐형 masonry 배치 (hero 2칸 폭, 나머지는 가장 짧은 열에 채워 내부 빈틈 제거) ----
+    const galleryEl = document.getElementById('gallery');
+    let _mAttempts = 0;
+    function layoutMasonry() {
+      if (!galleryEl) return;
+      const isSm = window.matchMedia('(min-width: 640px)').matches;
+      const cols = isSm ? 3 : 2;
+      const gap = parseFloat(getComputedStyle(galleryEl).getPropertyValue('--gap')) || (isSm ? 12 : 8);
+      const totalW = galleryEl.clientWidth;
+      // 너비가 아직 0이면(폰트/레이아웃 타이밍) 숨긴 채 다음 프레임 재시도 — 영구 숨김 방지
+      if (totalW <= 0) { if (_mAttempts++ < 60) requestAnimationFrame(layoutMasonry); return; }
+      _mAttempts = 0;
+      const colW = (totalW - gap * (cols - 1)) / cols;
+      const colH = new Array(cols).fill(0); // 각 열의 현재 높이
+      const items = Array.prototype.slice.call(galleryEl.querySelectorAll('.gallery-item'))
+        .filter(function (el) { return el.style.display !== 'none'; });
+      items.forEach(function (el) {
+        const span = Math.min(el.dataset.span === '2' ? 2 : 1, cols);
+        const ar = (isSm && el.dataset.arSm ? parseFloat(el.dataset.arSm) : parseFloat(el.dataset.ar)) || 1.3333;
+        let col = 0;
+        if (span === 2) {
+          // 두 열을 차지 → 두 열 중 더 높은 쪽이 가장 낮아지는 시작열 선택
+          let bestH = Infinity;
+          for (let c = 0; c <= cols - 2; c++) {
+            const h = Math.max(colH[c], colH[c + 1]);
+            if (h < bestH - 0.5) { bestH = h; col = c; }
+          }
+        } else {
+          // 가장 짧은 열
+          let bestH = Infinity;
+          for (let c = 0; c < cols; c++) {
+            if (colH[c] < bestH - 0.5) { bestH = colH[c]; col = c; }
+          }
+        }
+        const w = colW * span + gap * (span - 1);
+        const h = w / ar;
+        const x = col * (colW + gap);
+        const y = span === 2 ? Math.max(colH[col], colH[col + 1]) : colH[col];
+        el.style.width = w + 'px';
+        el.style.height = h + 'px';
+        el.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        const bottom = y + h + gap;
+        if (span === 2) { colH[col] = bottom; colH[col + 1] = bottom; }
+        else { colH[col] = bottom; }
+      });
+      galleryEl.style.height = (Math.max.apply(null, colH.concat(gap)) - gap) + 'px';
+      galleryEl.style.visibility = 'visible';
+      galleryEl.classList.add('is-masonry-ready');
+    }
+    let _masonryT;
+    window.addEventListener('resize', function () {
+      clearTimeout(_masonryT);
+      _masonryT = setTimeout(layoutMasonry, 120);
+    });
+    window.addEventListener('load', layoutMasonry);
+
+    // Room tabs filter + 섹션별 '사진 더보기/접기'
+    // (PDF round-2: '전체' 없음 → 첫 active 탭으로 초기 필터링)
+    const expandedRooms = {}; // { 섹션: 펼침여부 }
+    function applyRoom(room) {
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const inRoom = item.dataset.room === room;
+        const isOverflow = item.dataset.overflow === '1';
+        // 같은 섹션이고, overflow 아니거나 펼친 상태면 표시
+        item.style.display = (inRoom && (!isOverflow || expandedRooms[room])) ? '' : 'none';
+      });
+      document.querySelectorAll('.gallery-more-btn').forEach(btn => {
+        const inRoom = btn.dataset.room === room;
+        btn.style.display = inRoom ? '' : 'none';
+        if (inRoom) {
+          btn.textContent = expandedRooms[room] ? '접기' : ('사진 더보기 (' + btn.dataset.count + '장)');
+        }
+      });
+      layoutMasonry();
+    }
+    document.querySelectorAll('.room-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        applyRoom(tab.dataset.room);
+      });
+    });
+    document.querySelectorAll('.gallery-more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const room = btn.dataset.room;
+        expandedRooms[room] = !expandedRooms[room];
+        applyRoom(room);
+      });
+    });
+    const initRoom = document.querySelector('.room-tab.active');
+    if (initRoom) applyRoom(initRoom.dataset.room);
+
+    // Share — 클릭 즉시 현재 페이지 URL 복사 후 토스트 표시
+    const shareTrigger = document.getElementById('share-trigger');
+    const toast = document.getElementById('toast');
+    const toastMsg = toast?.querySelector('.toast-msg');
+    let toastTimer;
+    function showToast(message) {
+      if (!toast) return;
+      if (toastMsg) toastMsg.textContent = message;
+      toast.classList.add('is-show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-show'), 2400);
+    }
+    async function copyCurrentUrl() {
+      const url = location.href;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = url; ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed'; ta.style.top = '-9999px'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+        }
+        showToast('링크가 복사되었습니다');
+      } catch (err) {
+        showToast('복사에 실패했습니다');
+      }
+    }
+    shareTrigger?.addEventListener('click', copyCurrentUrl);
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    document.querySelectorAll('.gallery-item').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('.ba-toggle')) return;
+        const src = el.dataset.lightboxSrc;
+        if (!src) return;
+        lightboxImg.src = src;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lightboxClose.addEventListener('click', () => { lightbox.classList.remove('is-open'); document.body.style.overflow = ''; lightboxImg.src = ''; });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) { lightbox.classList.remove('is-open'); document.body.style.overflow = ''; lightboxImg.src = ''; } });
+  </script>
+</body>
+</html>

@@ -1,6 +1,12 @@
 {
   "heroSlides": [
     {
+      "href": "/project/7.html",
+      "title": "경태의 서재",
+      "main": "/images/projects/07-gamil/interior/before-after/07-gamil-hero-after.webp",
+      "mid": "/images/projects/07-gamil/interior/before-after/07-gamil-hero-after-1200.webp"
+    },
+    {
       "href": "/project/6.html",
       "title": "판교원9단지 한림풀에버",
       "main": "/images/projects/06-pangyo/living/before-after/06-pangyo-hero-after.webp",
@@ -38,6 +44,15 @@
     }
   ],
   "portfolioCovers": [
+    {
+      "slug": "7",
+      "title": "경태의 서재",
+      "subtitle": "하남 감일동 10평 애견호텔, 빈티지 유럽 서재처럼",
+      "pricePerPy": "-",
+      "type": "commercial",
+      "cover": "/images/projects/07-gamil/interior/before-after/07-gamil-hero-after-1200.webp",
+      "cover600": "/images/projects/07-gamil/interior/before-after/07-gamil-hero-after-600.webp"
+    },
     {
       "slug": "6",
       "title": "판교원9단지 한림풀에버",
