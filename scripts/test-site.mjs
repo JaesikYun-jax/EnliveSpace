@@ -229,35 +229,47 @@ function checkPageHtml(report, page, html) {
   }
 }
 
-// 비공개 포트폴리오로 들어가는 유일한 입구 — 푸터 '정보' 컬럼의 "후기 / Secret".
-// 상단 네비와 모바일 메뉴에는 노출되지 않는다.
+// 비공개 포트폴리오로 들어가는 입구는 두 곳 — 푸터 '정보' 컬럼의 "후기 / Secret",
+// 그리고 모바일 메뉴 맨 아래의 작은 "Secret". 데스크톱 상단 네비에는 넣지 않는다.
 function checkSecretEntryLink(report, page, html) {
   const tag = `[${page}]`;
 
-  const loud = [
-    ['site-nav', /<nav class="site-nav"[\s\S]*?<\/nav>/],
-    ['mobile-menu', /<div id="mobile-menu"[\s\S]*?<\/div>\s*\n\s*<main/],
-  ];
-  for (const [where, re] of loud) {
-    const block = html.match(re);
-    report.ok(
-      !block || !/href="\/secret\//.test(block[0]),
-      `${tag} no /secret/ link in ${where}`,
-      '비공개 포트폴리오는 상단 메뉴에 넣지 않는다 — 푸터의 .footer-secret 하나만',
-    );
-  }
-
-  const entries = [...html.matchAll(/<a href="\/secret\/" class="footer-secret"[^>]*>Secret<\/a>/g)];
+  const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/);
   report.ok(
-    entries.length === 1,
+    !nav || !/href="\/secret\//.test(nav[0]),
+    `${tag} no /secret/ link in site-nav`,
+    '데스크톱 상단 네비에는 넣지 않는다 — 푸터와 모바일 메뉴 두 곳만',
+  );
+
+  // 1) 푸터 '정보' 컬럼: 후기 / Secret
+  const footerEntries = [...html.matchAll(/<a href="\/secret\/" class="footer-secret"[^>]*>Secret<\/a>/g)];
+  report.ok(
+    footerEntries.length === 1,
     `${tag} exactly one footer entry link to /secret/`,
-    `푸터에 .footer-secret 링크가 정확히 하나 있어야 함 — got ${entries.length}`,
+    `푸터에 .footer-secret 링크가 정확히 하나 있어야 함 — got ${footerEntries.length}`,
   );
   report.ok(
     /<a href="\/reviews\.html">후기<\/a><span class="footer-col-sep">\/<\/span><a href="\/secret\/" class="footer-secret"/.test(html),
-    `${tag} entry link sits next to 후기 in the footer 정보 column`,
+    `${tag} footer entry sits next to 후기 in the 정보 column`,
     '"후기 / Secret" 형태로 같은 <li> 안에 붙어야 한다',
   );
+
+  // 2) 모바일 메뉴: 후기 다음 줄의 작은 Secret
+  const mobile = html.match(/<div id="mobile-menu"[\s\S]*?<\/div>\s*\n\s*<main/);
+  report.ok(!!mobile, `${tag} mobile menu block found`, '모바일 메뉴 마크업을 찾지 못함');
+  if (mobile) {
+    const mobileEntries = [...mobile[0].matchAll(/<a href="\/secret\/" class="mobile-menu-secret"[^>]*>Secret<\/a>/g)];
+    report.ok(
+      mobileEntries.length === 1,
+      `${tag} exactly one mobile-menu entry link to /secret/`,
+      `모바일 메뉴에 .mobile-menu-secret 링크가 정확히 하나 있어야 함 — got ${mobileEntries.length}`,
+    );
+    report.ok(
+      /<a href="\/reviews\.html">후기<\/a>\s*\n\s*<a href="\/secret\/" class="mobile-menu-secret"/.test(mobile[0]),
+      `${tag} mobile-menu entry sits right after 후기`,
+      '모바일 메뉴에서 후기 바로 다음 항목이어야 한다',
+    );
+  }
 }
 
 // 비공개 포트폴리오 전용 invariant
