@@ -583,6 +583,20 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* 비공개 포트폴리오 진입 — 카피라이트 줄 끝에 붙는 아주 흐린 링크.
+   평소엔 저작권 문구의 일부처럼 묻혀 보이고, hover 하면 또렷해진다.
+   (주소를 모르는 사람이 눌러도 비밀번호 화면에서 막힌다) */
+.footer-private {
+  margin-left: 14px;
+  color: rgba(255, 255, 255, 0.22);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-private:hover,
+.footer-private:focus-visible {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 /* ---- Image Placeholder (파일 교체 안내용 - 파일명 큼직하게) ---- */
 .ph-img {
   position: relative;

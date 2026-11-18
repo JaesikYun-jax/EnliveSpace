@@ -229,6 +229,38 @@ function checkPageHtml(report, page, html) {
   }
 }
 
+// 비공개 포트폴리오로 들어가는 유일한 입구 — 푸터 카피라이트 줄 끝의 흐린 "Private" 링크.
+// 눈에 띄는 메뉴(상단 네비 / 모바일 메뉴 / 푸터 메뉴 컬럼)에는 절대 노출되면 안 된다.
+function checkSecretEntryLink(report, page, html) {
+  const tag = `[${page}]`;
+
+  const loud = [
+    ['site-nav', /<nav class="site-nav"[\s\S]*?<\/nav>/],
+    ['mobile-menu', /<div id="mobile-menu"[\s\S]*?<\/div>\s*\n\s*<main/],
+    ['footer-cols', /<div class="footer-cols">[\s\S]*?<div class="footer-bottom">/],
+  ];
+  for (const [where, re] of loud) {
+    const block = html.match(re);
+    report.ok(
+      !block || !/href="\/secret\//.test(block[0]),
+      `${tag} no /secret/ link in ${where}`,
+      '비공개 포트폴리오는 드러나는 메뉴에 넣지 않는다 — 푸터 카피라이트 줄의 .footer-private 하나만',
+    );
+  }
+
+  const entries = [...html.matchAll(/<a href="\/secret\/" class="footer-private"[^>]*>Private<\/a>/g)];
+  report.ok(
+    entries.length === 1,
+    `${tag} exactly one muted footer entry link to /secret/`,
+    `푸터 카피라이트 줄 끝에 .footer-private 링크가 정확히 하나 있어야 함 — got ${entries.length}`,
+  );
+  report.ok(
+    /class="copyright">[^<]*<a href="\/secret\/" class="footer-private"/.test(html),
+    `${tag} entry link sits inside the copyright line`,
+    '저작권 문구 끝에 붙어야 보일 듯 말 듯한 효과가 난다',
+  );
+}
+
 // 비공개 포트폴리오 전용 invariant
 function checkSecretPageHtml(report, page, html) {
   const tag = `[${page}]`;
@@ -302,9 +334,7 @@ async function main() {
       const html = await r.text();
       checkPageHtml(report, page, html);
 
-      // 공개 페이지 어디에서도 비공개 포트폴리오로 링크가 새면 안 된다
-      report.ok(!/href="\/secret\//.test(html), `[${page}] does not link to /secret/`,
-        '비공개 포트폴리오는 링크를 받은 사람만 알아야 한다 — 공개 네비/푸터에 넣지 말 것');
+      checkSecretEntryLink(report, page, html);
     }
 
     // ---- Secret (link + password only) pages ----
@@ -317,6 +347,7 @@ async function main() {
       }
       const html = await r.text();
       checkPageHtml(report, page, html);
+      checkSecretEntryLink(report, page, html);
       checkSecretPageHtml(report, page, html);
     }
 
