@@ -583,18 +583,21 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* 비공개 포트폴리오 진입 — 카피라이트 줄 끝에 붙는 아주 흐린 링크.
-   평소엔 저작권 문구의 일부처럼 묻혀 보이고, hover 하면 또렷해진다.
-   (주소를 모르는 사람이 눌러도 비밀번호 화면에서 막힌다) */
-.footer-private {
-  margin-left: 14px;
-  color: rgba(255, 255, 255, 0.22);
-  text-decoration: none;
-  transition: color 0.2s ease;
+/* 비공개 포트폴리오 진입 — 푸터 '정보' 컬럼의 "후기 / Secret".
+   메뉴 항목처럼 자연스럽게 붙되, 한 톤 흐려서 먼저 눈에 걸리지는 않는다. */
+.footer-col-sep {
+  margin: 0 7px;
+  color: rgba(255, 255, 255, 0.25);
 }
-.footer-private:hover,
-.footer-private:focus-visible {
-  color: rgba(255, 255, 255, 0.75);
+.footer-col-list a.footer-secret {
+  font-family: 'GmarketSansMedium', 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.4);
+}
+.footer-col-list a.footer-secret:hover,
+.footer-col-list a.footer-secret:focus-visible {
+  color: #fff;
 }
 
 /* ---- Image Placeholder (파일 교체 안내용 - 파일명 큼직하게) ---- */
