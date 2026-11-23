@@ -80,6 +80,7 @@ const PAGES = [
   '/project/4.html',
   '/project/5.html',
   '/project/6.html',
+  '/project/7.html',
 ];
 
 // 비공개(secret) 포트폴리오 — 링크 + 비밀번호를 아는 사람만 보는 페이지.

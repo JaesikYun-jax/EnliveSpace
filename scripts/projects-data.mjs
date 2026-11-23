@@ -9,7 +9,39 @@
 // the order of this PROJECTS array.
 
 export const PROJECTS = [
-  // ── 1. 판교원9단지 한림풀에버 (시공 가장 최근, 메인 노출 1순위) ──
+  // ── 1. 경태의 서재 (하남 감일동 애견호텔 — 시공 가장 최근, 메인 노출 1순위) ──
+  //
+  {
+    id: '07',
+    slug: '7',
+    folderSlug: 'gamil',
+    title: '경태의 서재',
+    subtitle: '하남 감일동 10평 애견호텔, 빈티지 유럽 서재처럼',
+    // 상업공간은 상세 스펙 첫 칸이 '상업공간' 라벨 + 공간 유형 값으로 렌더된다.
+    apartment: '애견호텔 · 데이케어 · 운영자 서재',
+    address: '경기도 하남시 감일백제로180번길 30-1, 근린생활시설동 1층',
+    pyeong: '10평 (약 33㎡)',
+    period: '2주',
+    completedAt: '2026년 10월',
+    type: 'commercial',
+    service: '상업공간 외부·내부 인테리어 및 가구·소품 스타일링',
+    pricePerPy: '-',
+    keywords: '빈티지 유럽 서재, 딥 브라운, 앤티크 조명, 템바보드, 반려견 안전 동선',
+    scope: '외부 파사드 갈바 및 도장, 어닝, 유리면 레터링, 금속 이중 출입문, 내부 천장·도배·템바보드, 조명, 수도 설비 및 싱크대, 가구·소품 스타일링',
+    description: [
+      '‘경태의 서재’는 반려견 경태와 친구들이 편안하게 쉬고, 작가를 꿈꾸는 사장님이 글을 쓰는 애견호텔입니다. 하남 감일동의 10평 공간에 짙은 브라운과 따뜻한 조명으로 빈티지 유럽 서재의 분위기를 담았습니다.',
+      '외부 파사드는 갈바 작업 후 벤자민무어 페인트로 마감하고, 짙은 브라운 어닝을 더해 클래식한 첫인상을 만들었어요. 강아지들의 안전을 위해 외부 출입문과 실내 안전문을 금속으로 제작해 이중 출입 구조를 만들고, 같은 페인트 톤으로 일체감을 주었습니다.',
+      '실내 벽 하부는 관리하기 편하도록 우드 톤 템바보드를 두르고, 상부는 따뜻한 화이트 계열 벽지로 마감했습니다. 다운라이트로 공간을 고르게 밝히고 앤티크 펜던트로 서재의 아늑한 분위기를 더했어요. 책장과 책상, 원목 가구와 앤티크 소품을 스타일링해 경태와 친구들의 쉼과 사장님의 글쓰기가 함께하는 공간을 완성했습니다.',
+    ],
+    // 메인 hero(= 메인 홈 슬라이더/포트폴리오 카드 기본값)는 거실이 아니라 '내부'.
+    mainHeroSection: 'interior',
+    sectionLabels: {
+      interior: '내부',
+      exterior: '외부',
+    },
+  },
+
+  // ── 2. 판교원9단지 한림풀에버 ──
   {
     id: '06',
     slug: '6',
@@ -43,7 +75,7 @@ export const PROJECTS = [
     },
   },
 
-  // ── 2. 성복역 롯데캐슬 골드타운 ──
+  // ── 3. 성복역 롯데캐슬 골드타운 ──
   {
     id: '02',
     slug: '2',
@@ -75,7 +107,7 @@ export const PROJECTS = [
     },
   },
 
-  // ── 3. 산운12단지 판교센트럴포레와이시티 ──
+  // ── 4. 산운12단지 판교센트럴포레와이시티 ──
   {
     id: '01',
     slug: '1',
@@ -109,7 +141,7 @@ export const PROJECTS = [
     },
   },
 
-  // ── 4. 은어송마을 코오롱하늘채2단지 ──
+  // ── 5. 은어송마을 코오롱하늘채2단지 ──
   {
     id: '04',
     slug: '4',
@@ -141,7 +173,7 @@ export const PROJECTS = [
     },
   },
 
-  // ── 5. 신당동 남산타운 ──
+  // ── 6. 신당동 남산타운 ──
   {
     id: '03',
     slug: '3',
@@ -170,7 +202,7 @@ export const PROJECTS = [
     },
   },
 
-  // ── 6. 이태원 단독주택 에어비앤비 ──
+  // ── 7. 이태원 단독주택 에어비앤비 ──
   {
     id: '05',
     slug: '5',
@@ -216,3 +248,9 @@ export const FOLDER_SLUG_BY_ID = Object.fromEntries(
 
 // 'NN' → 'NN-slug' helper for building the asset folder/file prefix.
 export const projDirById = (id) => `${id}-${FOLDER_SLUG_BY_ID[id]}`;
+
+// 프로젝트의 '메인 hero' 섹션 — 비포에프터 쌍이 프로젝트 대표 컷(NN-slug-hero-*)이 되는
+// 섹션. 주거는 거실('living')이 기본이고, 상업공간처럼 거실이 없는 현장은
+// projects-data 의 mainHeroSection 으로 지정한다. stage-images 가 파일명을 정할 때 쓴다.
+export const mainHeroSectionById = (id) =>
+  PROJECTS_BY_ID[id]?.mainHeroSection || 'living';

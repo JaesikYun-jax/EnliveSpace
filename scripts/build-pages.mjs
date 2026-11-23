@@ -125,10 +125,22 @@ const TW_CONFIG = `
   </script>
 `;
 
+// 사진이 아직 안 들어온 프로젝트는 manifest 가 없다 → null 을 돌려주고, main() 이
+// 그 프로젝트를 통째로 건너뛴다. projects-data 에 '칸'만 먼저 만들어 두고 사진이
+// 도착하면 npm run all 한 번으로 페이지가 생기게 하기 위함.
 async function readManifest(id) {
   const p = path.join(ROOT, 'images/projects', projDirById(id), 'manifest.json');
-  return JSON.parse(await fs.readFile(p, 'utf8'));
+  try {
+    return JSON.parse(await fs.readFile(p, 'utf8'));
+  } catch (e) {
+    if (e.code === 'ENOENT') return null;
+    throw e;
+  }
 }
+
+// 상세 스펙 첫 칸의 라벨. 상업공간은 apartment 필드에 공간 유형(애견호텔 등)이 들어간다.
+const TYPE_LABELS = { house: '단독주택', commercial: '상업공간', apartment: '아파트' };
+const typeLabel = (project) => TYPE_LABELS[project.type] || '아파트';
 
 function findFile(variants, suffix) {
   return variants.find((v) => v.name.endsWith(suffix === '' ? '.webp' : `${suffix}.webp`) && !/-(1200|600)\.webp$/.test(v.name) === (suffix === '')) || variants[0];
@@ -146,8 +158,10 @@ function pick(variants, suffix) {
 function getHeroPair(section) {
   const heroes = section.filter((f) => f.kind === 'hero');
   if (heroes.length === 0) return null;
-  let before = heroes.find((h) => /-before\.jpg$/i.test(h.source));
-  let after = heroes.find((h) => /-after\.jpg$/i.test(h.source));
+  // source 는 stage 단계의 원본 파일명 — 확장자는 jpg/jpeg/png 중 무엇이든 될 수 있다
+  // (7)하남 처럼 비포 컷만 png 로 오는 현장이 있어, 확장자를 고정하면 쌍이 깨진다).
+  let before = heroes.find((h) => /-before\.[a-z0-9]+$/i.test(h.source));
+  let after = heroes.find((h) => /-after\.[a-z0-9]+$/i.test(h.source));
   return { before, after };
 }
 
@@ -399,7 +413,7 @@ ${HEADER}
           </div>
           <div>
             <dl class="grid grid-cols-2 gap-x-6 gap-y-5 font-kr text-sm sm:text-base">
-              <div><dt class="text-ink-3 text-xs mb-1">${project.type === 'house' ? '단독주택' : '아파트'}</dt><dd class="font-bold">${project.apartment}</dd></div>
+              <div><dt class="text-ink-3 text-xs mb-1">${typeLabel(project)}</dt><dd class="font-bold">${project.apartment}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">주소</dt><dd class="font-bold">${project.address}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">평형</dt><dd class="font-bold">${project.pyeong}</dd></div>
               <div><dt class="text-ink-3 text-xs mb-1">서비스</dt><dd class="font-bold">${project.service || '—'}</dd></div>
@@ -766,6 +780,10 @@ async function main() {
   const projectsWithManifests = [];
   for (const project of PROJECTS) {
     const manifest = await readManifest(project.id);
+    if (!manifest) {
+      console.log(`⏳ 사진 대기중 — ${project.title} (${projDirById(project.id)}/manifest.json 없음) → 페이지/카드 생성 건너뜀`);
+      continue;
+    }
     projectsWithManifests.push({ project, manifest });
   }
 

@@ -1,0 +1,538 @@
+{
+  "project": "07-gamil",
+  "folder": "하남_상가_애견호텔",
+  "sections": {
+    "interior": [
+      {
+        "kind": "hero",
+        "source": "07-gamil-hero-after.jpg",
+        "variants": [
+          {
+            "name": "interior/before-after/07-gamil-hero-after.webp",
+            "size": 165286,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "interior/before-after/07-gamil-hero-after-1200.webp",
+            "size": 70440,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "interior/before-after/07-gamil-hero-after-600.webp",
+            "size": 21592,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "07-gamil-hero-before.png",
+        "variants": [
+          {
+            "name": "interior/before-after/07-gamil-hero-before.webp",
+            "size": 96462,
+            "w": 1448,
+            "vertical": false
+          },
+          {
+            "name": "interior/before-after/07-gamil-hero-before-1200.webp",
+            "size": 61614,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "interior/before-after/07-gamil-hero-before-600.webp",
+            "size": 10952,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-01.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-01.webp",
+            "size": 135130,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-01-1200.webp",
+            "size": 55426,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-01-600.webp",
+            "size": 17388,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-02.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-02.webp",
+            "size": 154106,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-02-1200.webp",
+            "size": 64560,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-02-600.webp",
+            "size": 19844,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-03.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-03.webp",
+            "size": 328990,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-03-1200.webp",
+            "size": 145708,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-03-600.webp",
+            "size": 45450,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-04.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-04.webp",
+            "size": 334186,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-04-1200.webp",
+            "size": 153796,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-04-600.webp",
+            "size": 51928,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-05.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-05.webp",
+            "size": 597866,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-05-1200.webp",
+            "size": 91688,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-05-600.webp",
+            "size": 24414,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-06.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-06.webp",
+            "size": 241434,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-06-1200.webp",
+            "size": 108162,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-06-600.webp",
+            "size": 33356,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-07.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-07.webp",
+            "size": 428516,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-07-1200.webp",
+            "size": 164944,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-07-600.webp",
+            "size": 43332,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-08.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-08.webp",
+            "size": 398556,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-08-1200.webp",
+            "size": 150936,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-08-600.webp",
+            "size": 44504,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-09.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-09.webp",
+            "size": 213638,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-09-1200.webp",
+            "size": 89598,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-09-600.webp",
+            "size": 25090,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-10.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-10.webp",
+            "size": 179178,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-10-1200.webp",
+            "size": 85884,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "interior/07-gamil-interior-10-600.webp",
+            "size": 29898,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-11.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-11.webp",
+            "size": 469230,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-11-1200.webp",
+            "size": 175584,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-11-600.webp",
+            "size": 46374,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-interior-12.jpg",
+        "variants": [
+          {
+            "name": "interior/07-gamil-interior-12.webp",
+            "size": 268978,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-12-1200.webp",
+            "size": 116114,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "interior/07-gamil-interior-12-600.webp",
+            "size": 38660,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      }
+    ],
+    "exterior": [
+      {
+        "kind": "hero",
+        "source": "07-gamil-exterior-hero-after.jpg",
+        "variants": [
+          {
+            "name": "exterior/before-after/07-gamil-exterior-hero-after.webp",
+            "size": 268052,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "exterior/before-after/07-gamil-exterior-hero-after-1200.webp",
+            "size": 108344,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "exterior/before-after/07-gamil-exterior-hero-after-600.webp",
+            "size": 30562,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "hero",
+        "source": "07-gamil-exterior-hero-before.png",
+        "variants": [
+          {
+            "name": "exterior/before-after/07-gamil-exterior-hero-before.webp",
+            "size": 260682,
+            "w": 1448,
+            "vertical": false
+          },
+          {
+            "name": "exterior/before-after/07-gamil-exterior-hero-before-1200.webp",
+            "size": 182518,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "exterior/before-after/07-gamil-exterior-hero-before-600.webp",
+            "size": 51578,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-exterior-01.jpg",
+        "variants": [
+          {
+            "name": "exterior/07-gamil-exterior-01.webp",
+            "size": 544582,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "exterior/07-gamil-exterior-01-1200.webp",
+            "size": 226410,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "exterior/07-gamil-exterior-01-600.webp",
+            "size": 63554,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-exterior-02.jpg",
+        "variants": [
+          {
+            "name": "exterior/07-gamil-exterior-02.webp",
+            "size": 705980,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "exterior/07-gamil-exterior-02-1200.webp",
+            "size": 273210,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "exterior/07-gamil-exterior-02-600.webp",
+            "size": 74342,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-exterior-03.jpg",
+        "variants": [
+          {
+            "name": "exterior/07-gamil-exterior-03.webp",
+            "size": 223384,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "exterior/07-gamil-exterior-03-1200.webp",
+            "size": 102190,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "exterior/07-gamil-exterior-03-600.webp",
+            "size": 29310,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-exterior-04.jpg",
+        "variants": [
+          {
+            "name": "exterior/07-gamil-exterior-04.webp",
+            "size": 179814,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "exterior/07-gamil-exterior-04-1200.webp",
+            "size": 80946,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "exterior/07-gamil-exterior-04-600.webp",
+            "size": 25738,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-exterior-05.jpg",
+        "variants": [
+          {
+            "name": "exterior/07-gamil-exterior-05.webp",
+            "size": 190314,
+            "w": 1920,
+            "vertical": true
+          },
+          {
+            "name": "exterior/07-gamil-exterior-05-1200.webp",
+            "size": 92314,
+            "w": 1200,
+            "vertical": true
+          },
+          {
+            "name": "exterior/07-gamil-exterior-05-600.webp",
+            "size": 35748,
+            "w": 600,
+            "vertical": true
+          }
+        ]
+      },
+      {
+        "kind": "regular",
+        "source": "07-gamil-exterior-06.jpg",
+        "variants": [
+          {
+            "name": "exterior/07-gamil-exterior-06.webp",
+            "size": 144676,
+            "w": 1920,
+            "vertical": false
+          },
+          {
+            "name": "exterior/07-gamil-exterior-06-1200.webp",
+            "size": 73186,
+            "w": 1200,
+            "vertical": false
+          },
+          {
+            "name": "exterior/07-gamil-exterior-06-600.webp",
+            "size": 24996,
+            "w": 600,
+            "vertical": false
+          }
+        ]
+      }
+    ]
+  }
+}
