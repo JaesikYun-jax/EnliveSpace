@@ -631,9 +631,18 @@ ${FOOTER}
 // =========================
 // PORTFOLIO LISTING
 // =========================
+// 카드 커버를 찾을 때의 섹션 우선순위 — coverSection 이 있으면 그 섹션을 먼저 본다.
+// (갤러리 표시 순서 sectionLabels 와 커버 선택을 분리하기 위함)
+function coverOrder(project) {
+  const keys = Object.keys(project.sectionLabels);
+  return project.coverSection
+    ? [project.coverSection, ...keys.filter((k) => k !== project.coverSection)]
+    : keys;
+}
+
 function projectCard(project, manifest) {
   // Pick cover: 1) manifest 의 'card-cover' 섹션 override → 2) living 의 after-hero → 3) 첫 regular
-  const order = Object.keys(project.sectionLabels);
+  const order = coverOrder(project);
   let cover;
   const cardOverride = manifest.sections['card-cover'];
   if (cardOverride && cardOverride.length > 0) {
@@ -802,7 +811,7 @@ async function main() {
   // Generate JSON snippet for homepage assets
   const heroSlides = projectsWithManifests
     .map(({ project, manifest }) => {
-      const sec = Object.keys(project.sectionLabels).find((s) => {
+      const sec = coverOrder(project).find((s) => {
         const items = manifest.sections[s];
         return items && getHeroPair(items)?.after;
       });
@@ -827,7 +836,7 @@ async function main() {
       cover = pick(cardOverride[0].variants, '-1200');
     }
     if (!cover) {
-      const sec = Object.keys(project.sectionLabels).find((s) => {
+      const sec = coverOrder(project).find((s) => {
         const items = manifest.sections[s];
         return items && getHeroPair(items)?.after;
       });
@@ -836,7 +845,7 @@ async function main() {
       }
     }
     if (!cover) {
-      for (const s of Object.keys(project.sectionLabels)) {
+      for (const s of coverOrder(project)) {
         const items = manifest.sections[s];
         if (!items) continue;
         const reg = items.find((f) => f.kind === 'regular');
